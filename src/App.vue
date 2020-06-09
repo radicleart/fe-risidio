@@ -1,12 +1,33 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view name="header" />
+    <router-view id="nav"/>
+    <router-view name="footer" />
   </div>
 </template>
+<script>
+export default {
+  name: 'App',
+  mounted () {
+    this.$prismic.client.getSingle('homepage').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addHomeContent', document.data)
+      }
+    })
+    this.$prismic.client.getSingle('navigation').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addNavigationContent', document.data)
+        this.$prismic.client.query(
+          this.$prismic.Predicates.at('document.type', 'page'),
+          { pageSize: 20, page: 1 }
+        ).then((response) => {
+          this.$store.commit('contentStore/addPages', response.results)
+        })
+      }
+    })
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -19,6 +40,7 @@
 
 #nav {
   padding: 30px;
+  margin: 100px 100px;
 
   a {
     font-weight: bold;

@@ -1,13 +1,13 @@
 <template>
 <div>
-<footer class="footer bg-dark text-light" style="opacity: 0.6;">
+<footer class="bg-dark p-2 my-nav footer text-white" style="opacity: 1;">
   <div class="footer_contents">
     <div class="d-flex justify-content-between">
       <div class="copyright">
-        &copy; <router-link class="text-success" to="/">risidio solutions</router-link>
+        <router-link class="text-success" to="/">risidio</router-link>
       </div>
       <div class="d-none d-sm-block">
-        <i class="far fa-heart"></i>&nbsp; <a class="text-success" href=""> {{ year }}</a>
+        &copy; &nbsp; <a class="text-success" href=""> {{ year }}</a>
       </div>
     </div>
   </div>

@@ -4,15 +4,15 @@
 
   <!-- <b-navbar-brand href="#"><router-link to="/" class="navbar-brand"><img width="110px;" alt="asset flow logo" :src="content.logo.url"></router-link></b-navbar-brand> -->
   <b-navbar-brand href="#"><router-link to="/" class="pl-5 navbar-brand text-white" style="letter-spacing: 4px;"><h1>RISIDIO</h1></router-link></b-navbar-brand>
-  <b-navbar-toggle target="nav-collapse">{{content.title[0].text}}</b-navbar-toggle>
+  <b-navbar-toggle target="nav-collapse">{{content.site_name[0].text}}</b-navbar-toggle>
 
   <b-collapse id="nav-collapse" is-nav class="">
 
     <!-- Right aligned nav items -->
     <b-navbar-nav class="ml-auto pr-5 mr-2">
 
-    <div v-for="(item, index) of content.page_links" :key="index">
-      <b-nav-item><router-link class="text-white" :to="getLink(item)" style="font-weight: 900;">{{item.page_link.uid.toUpperCase()}}</router-link></b-nav-item>
+    <div v-for="(item, index) of content.nav_links" :key="index">
+      <b-nav-item><router-link class="text-white" :to="getLink(item)" style="font-weight: 900;">{{getLinkName(item)}}</router-link></b-nav-item>
     </div>
       <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
         <!-- Using 'button-content' slot -->
@@ -48,7 +48,10 @@ export default {
       keycloak.logout()
     },
     getLink (item) {
-      return '/' + item.page_link.uid
+      return '/page/' + item.nav_link.id
+    },
+    getLinkName (item) {
+      return item.nav_link.uid.split('-')[1].toLowerCase()
     },
     login () {
       this.$router.push('/login')
