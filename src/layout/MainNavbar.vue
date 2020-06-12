@@ -10,10 +10,11 @@
 
     <!-- Right aligned nav items -->
     <b-navbar-nav class="ml-auto pr-5 mr-2">
-
-    <div v-for="(item, index) of content.nav_links" :key="index">
-      <b-nav-item><router-link class="text-white" :to="getLink(item)" style="font-weight: 900;">{{getLinkName(item)}}</router-link></b-nav-item>
-    </div>
+      <div v-for="(item, index) of content.nav_links" :key="index">
+        <b-nav-item><router-link class="text-white" :to="getLink(item)" style="font-weight: 900;">{{getLinkName(item)}}</router-link></b-nav-item>
+      </div>
+      <b-nav-item><router-link class="text-white" to="/blog" style="font-weight: 900;">blog</router-link></b-nav-item>
+      <b-nav-item><router-link class="text-white" to="/contact" style="font-weight: 900;">contact</router-link></b-nav-item>
       <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
         <!-- Using 'button-content' slot -->
         <template v-slot:button-content>

@@ -30,5 +30,11 @@ npm run test:e2e
 npm run lint
 ```
 
+### Linting
+
+```bash
+node_modules/.bin/eslint --fix src/**/*.vue
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

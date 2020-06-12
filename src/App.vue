@@ -28,19 +28,20 @@ export default {
   }
 }
 </script>
-
+<style>
+@import "./assets/css/resetr.css";
+@import "./assets/css/common.css";
+</style>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
 #nav {
   padding: 30px;
-  margin: 100px 100px;
 
   a {
     font-weight: bold;

@@ -1,35 +1,30 @@
 <template>
 <div class="home" v-if="content">
     <div class="page">
-    <div v-for="(item, i) of content.images" :key="i" class="parallax-container">
-      <parallax :speed-factor="0.5" direction="down" :parallax="true">
-        <div>
-          <img width="90%" :src="item.image.url" :alt="item.image.alt" class="image" />
-          <!-- <h1 class="parallax-title">{{item.image_text[0].text}}</h1> -->
-          <prismic-items class="parallax-title" :prismicItems="item.image_text"/>
+      <div class="row">
+        <div class="col-6" v-for="(item, index) of content.images" :key="index">
+          <b-card-group class="mb-3">
+            <b-card header-tag="header" footer-tag="footer" style="width: 40%">
+              <b-card-text class="text-center d-flex justify-content-center border-bottom py-3 text-dark">
+                <div>
+                  <div><font-awesome-icon size="3x"  :icon="icons[index]" transform="shrink-6" class="" /></div>
+                  <h2>{{item.section_title[0].text}}</h2>
+                </div>
+              </b-card-text>
+              <b-card-text class="mt-4" style="height: auto; font-size: 1.2rem;">
+                <div class="row">
+                  <div class="col-3">
+                    <img width="150px" :src="item.image.url" :alt="item.image.alt" class="image" />
+                  </div>
+                  <div class="col-9">
+                    <prismic-items :prismicItems="item.image_text"/>
+                  </div>
+                </div>
+              </b-card-text>
+            </b-card>
+          </b-card-group>
         </div>
-      </parallax>
-      <br />
-    </div>
-  </div>
-
-  <div class="" style="position: absolute; top: 0; left: 0; z-index: -1;">
-    <parallax>
-      <img width="100%" :src="content['homepage_image'].url" alt="very cool bg">
-    </parallax>
-  </div>
-  <div>
-    <b-button class="bg-info" size="sm" @click="showAlert = !showAlert">
-      <font-awesome-icon size="10x"  icon="heart" transform="shrink-6" :style="{ color: 'blue' }"/>
-    </b-button>
-
-    <b-alert
-      v-model="showAlert"
-      class="mt-3"
-      @dismissed="dismissed"
-    >
-      Coming soon {{ name }}!
-    </b-alert>
+      </div>
   </div>
 </div>
 </template>
@@ -37,7 +32,6 @@
 <script>
 // @ is an alias to /src
 import PrismicItems from '@/components/PrismicItems'
-import Parallax from 'vue-parallaxy'
 // import { requestMixins } from '@/mixins/requestMixins'
 
 export default {
@@ -47,12 +41,11 @@ export default {
     return {
       showAlert: false,
       name: '',
-      images: []
+      icons: ['bahai', 'bahai', 'bahai', 'bahai']
     }
   },
   components: {
-    PrismicItems,
-    Parallax
+    PrismicItems
   },
   mounted () {
     console.log(this.$route)
@@ -75,25 +68,13 @@ export default {
     content () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content
+    },
+    section1 () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      return content
     }
   }
 }
 </script>
 <style>
-.parallax-container {
-  position: relative;
-  height: 600px;
-}
-.parallax-title {
-  position: absolute;
-  top: 30%;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  text-align: center;
-}
-.image {
-  height: 600px;
-  border: 1pt solid #323232;
-}
 </style>
