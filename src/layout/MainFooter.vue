@@ -1,17 +1,32 @@
 <template>
 <div>
-<footer class="bg-dark p-2 my-nav footer text-white" style="opacity: 1;">
-  <div class="footer_contents">
-    <div class="d-flex justify-content-between">
-      <div class="copyright">
-        <router-link class="text-success" to="/">risidio</router-link>
+  <footer class="text-white" style="height: 280px; background-color: #000;">
+    <div class="row text-center m-0" style="height: 240px;">
+      <div class="col-md-4 d-none d-md-block" style="height: 240px;">
+        <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo"/></router-link>
       </div>
-      <div class="d-none d-sm-block">
-        &copy; &nbsp; <a class="text-success" href=""> {{ year }}</a>
+      <div class="col-md-6 col-sm-12 offset-md-1">
+        <div class="row text-left mt-5">
+          <div class="col-3" v-html="sitemap">
+          </div>
+          <div class="col-3" v-html="products">
+          </div>
+          <div class="col-3" v-html="joinus">
+          </div>
+          <div class="col-3" v-html="contact">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+    <div class="pt-3 px-4 d-flex justify-content-between" style="height: 40px; background-color: #232323; font-size: 0.6rem;">
+      <div>
+        &copy; &nbsp; {{ year }} <router-link class="text-success" to="/">risidio</router-link>
+      </div>
+      <div>
+        Privacy Policy
+      </div>
+    </div>
+  </footer>
 </div>
 </template>
 <script>
@@ -22,10 +37,72 @@ export default {
   },
   data () {
     return {
+      logo: require('@/assets/img/xd/risidio_white1.png'),
       year: new Date().getFullYear()
+    }
+  },
+  methods: {
+    getContent (contentType) {
+      const content = this.$store.getters['contentStore/getHomepage']
+      if (content) {
+        let sitecontent = ''
+        content.footer[0][contentType].forEach(function (option) {
+          sitecontent += option.text
+        })
+        return sitecontent
+      }
+      return {}
+    }
+  },
+  computed: {
+    sitemap () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      if (content) {
+        return this.getContent('sitemap')
+      }
+      return {}
+    },
+    products () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      if (content) {
+        return this.getContent('products1')
+      }
+      return {}
+    },
+    joinus () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      if (content) {
+        return this.getContent('joinus')
+      }
+      return {}
+    },
+    contact () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      if (content) {
+        return this.getContent('contact')
+      }
+      return {}
     }
   }
 }
 </script>
-<style>
+<style scoped>
+.h2 {
+  font-size: 17px;
+  font-weight: 200;
+}
+.para {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 0 0 0;
+  margin: 0;
+}
+h2 {
+  font-size: 17px;
+  font-weight: 200;
+}
+p {
+  font-size: 12px;font-weight: 700; padding: 5px 0 0 0; margin: 0;
+}
+
 </style>

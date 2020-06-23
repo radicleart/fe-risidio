@@ -6,13 +6,16 @@ import store from './store'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import '@/assets/scss/custom.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faAmbulance, faAnchor, faAlignCenter, faBahai, faHeart, faEquals, faCopy, faAngleDoubleUp, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleLeft, faChevronCircleRight, faAmbulance, faAnchor, faAlignCenter, faBahai, faHeart, faEquals, faCopy, faAngleDoubleUp, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import PrismicVue from 'prismic-vue'
 import linkResolver from './prismic/link-resolver'
 import htmlSerializer from './prismic/html-serializer'
 import Notifications from 'vue-notification'
+import 'vueperslides/dist/vueperslides.css'
 
+library.add(faChevronCircleRight)
+library.add(faChevronCircleLeft)
 library.add(faAmbulance)
 library.add(faAlignCenter)
 library.add(faBahai)

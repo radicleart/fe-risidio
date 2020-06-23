@@ -2,8 +2,8 @@
   <!-- Vue conditional to check if there is any content in document -->
   <div v-if="hasContent" class="page">
     <div class="home">
-      <!-- Button to edit document in dashboard -->
-      <prismic-edit-button :documentId="documentId"/>
+      <!-- Button to edit document in dashboard
+      <prismic-edit-button :documentId="documentId"/>  -->
       <div class="blog-avatar" :style="{ backgroundImage: 'url(' + fields.image + ')' }">
       </div>
       <!-- Template for page title -->
@@ -83,6 +83,9 @@ export default {
 </script>
 
 <style scoped>
+a:hover {
+  text-decoration: none !important;
+}
 .home {
   max-width: 700px;
   margin: auto;

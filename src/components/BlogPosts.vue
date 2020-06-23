@@ -5,7 +5,10 @@
     <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
       <router-link :to="linkResolver(post)">
         <h2>{{ $prismic.richTextAsPlain(post.data.title) }}</h2>
-        <p class="blog-post-meta"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
+        <div class="d-flex justify-content-between">
+          <p class="blog-post-meta"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
+          <p class="blog-post-meta"><span class="author small">{{ getTags(post) }}</span></p>
+        </div>
         <div>
           <p>{{getFirstParagraph(post)}}</p>
         </div>
@@ -37,6 +40,18 @@ export default {
       ).then((response) => {
         this.posts = response.results
       })
+    },
+    getAuthor (post) {
+      // Query to get blog posts
+      if (post.data && post.data.author && post.data.author.length > 0) {
+        return post.data.author[0].text
+      }
+    },
+    getTags (post) {
+      // Query to get blog posts
+      if (post && post.tags && post.tags.length > 0) {
+        return '[ ' + post.tags.join(', ') + ' ]'
+      }
     },
     // Function to get the first paragraph of text in a blog post and limit the displayed text at 300 characters
     getFirstParagraph (post) {

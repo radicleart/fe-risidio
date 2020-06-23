@@ -4,15 +4,17 @@
       <div class="back">
         <router-link to="./">back to list</router-link>
       </div>
-      <!-- Button to edit document in dashboard -->
-      <prismic-edit-button :documentId="documentId"/>
+      <!-- Button to edit document in dashboard
+      <prismic-edit-button :documentId="documentId"/> -->
 
       <h1 class="blog-title">{{ $prismic.richTextAsPlain(fields.title) }}</h1>
-      <p class="blog-post-meta"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(fields.date)) }}</span></p>
-
+      <div class="d-flex justify-content-between">
+        <p class="blog-post-meta"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(fields.date)) }}</span></p>
+        <p class="blog-post-meta"><span class="author">{{ fields.author }}</span></p>
+      </div>
     </div>
     <!-- Slice Block Componenet tag -->
-    <slices-block :slices="slices"/>
+    <slices-block :slices="slices" class="outer-container"/>
   </div>
 </template>
 
@@ -31,7 +33,8 @@ export default {
       documentId: '',
       fields: {
         title: null,
-        date: null
+        date: null,
+        author: null
       },
       slices: []
     }
@@ -45,6 +48,9 @@ export default {
             this.documentId = document.id
             this.fields.title = document.data.title
             this.fields.date = document.data.date
+            if (document.data.author && document.data.author.length > 0) {
+              this.fields.author = document.data.author[0].text
+            }
 
             // Set slices as variable
             this.slices = document.data.body

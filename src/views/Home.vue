@@ -1,70 +1,49 @@
 <template>
-<div class="home" v-if="content">
-    <div class="page">
-      <div class="row">
-        <div class="col-6" v-for="(item, index) of content.images" :key="index">
-          <b-card-group class="mb-3">
-            <b-card header-tag="header" footer-tag="footer" style="width: 40%">
-              <b-card-text class="text-center d-flex justify-content-center border-bottom py-3 text-dark">
-                <div>
-                  <div><font-awesome-icon size="3x"  :icon="icons[index]" transform="shrink-6" class="" /></div>
-                  <h2>{{item.section_title[0].text}}</h2>
-                </div>
-              </b-card-text>
-              <b-card-text class="mt-4" style="height: auto; font-size: 1.2rem;">
-                <div class="row">
-                  <div class="col-3">
-                    <img width="150px" :src="item.image.url" :alt="item.image.alt" class="image" />
-                  </div>
-                  <div class="col-9">
-                    <prismic-items :prismicItems="item.image_text"/>
-                  </div>
-                </div>
-              </b-card-text>
-            </b-card>
-          </b-card-group>
-        </div>
-      </div>
-  </div>
+<div class="bg-dark home" v-if="content">
+    <section1 />
+    <section2 />
+    <section3 />
+    <section4 />
+    <section5 />
+    <section6 />
+    <section7 />
+    <section8 />
 </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import PrismicItems from '@/components/PrismicItems'
-// import { requestMixins } from '@/mixins/requestMixins'
+import Section1 from '@/components/home/Section1'
+import Section2 from '@/components/home/Section2'
+import Section3 from '@/components/home/Section3'
+import Section4 from '@/components/home/Section4'
+import Section5 from '@/components/home/Section5'
+import Section6 from '@/components/home/Section6'
+import Section7 from '@/components/home/Section7'
+import Section8 from '@/components/home/Section8'
+import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
   name: 'Home',
   // mixins: [requestMixins],
-  data () {
-    return {
-      showAlert: false,
-      name: '',
-      icons: ['bahai', 'bahai', 'bahai', 'bahai']
-    }
-  },
   components: {
-    PrismicItems
+    Section1,
+    Section2,
+    Section3,
+    Section4,
+    Section5,
+    Section6,
+    Section7,
+    Section8
   },
   mounted () {
     console.log(this.$route)
   },
-  beforeMount () {
-    // this.getImagesByPage()
-  },
-  methods: {
-    async getImagesByPage () {
-      const response = await this.getImages()
-      this.images = response.data.hits
-    },
-    dismissed: function (data) {
-      if (data && data.detail) {
-        this.$router.push('/about')
-      }
-    }
-  },
   computed: {
+    sectionDimensions () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      return 'min-height: ' + height + 'px; width: auto;'
+    },
     content () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content

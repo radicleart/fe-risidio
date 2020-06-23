@@ -3,18 +3,20 @@
 <b-navbar type="" class="bg-dark p-0 my-nav" v-if="content">
 
   <!-- <b-navbar-brand href="#"><router-link to="/" class="navbar-brand"><img width="110px;" alt="asset flow logo" :src="content.logo.url"></router-link></b-navbar-brand> -->
-  <b-navbar-brand href="#"><router-link to="/" class="pl-5 navbar-brand text-white" style="letter-spacing: 4px;"><h1>RISIDIO</h1></router-link></b-navbar-brand>
-  <b-navbar-toggle target="nav-collapse">{{content.site_name[0].text}}</b-navbar-toggle>
+  <b-navbar-brand href="#"><router-link to="/" class="pl-5 navbar-brand text-white" style="letter-spacing: 4px;"><img :src="logo"/></router-link></b-navbar-brand>
+
+  <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
   <b-collapse id="nav-collapse" is-nav class="">
+      <b-navbar-nav>
+        <div v-for="(item, index) of content.nav_links" :key="index">
+          <b-nav-item><router-link class="text-white" :to="getLink(item)" style="text-transform: capitalize;">{{getLinkName(item)}}</router-link></b-nav-item>
+        </div>
+      </b-navbar-nav>
 
     <!-- Right aligned nav items -->
     <b-navbar-nav class="ml-auto pr-5 mr-2">
-      <div v-for="(item, index) of content.nav_links" :key="index">
-        <b-nav-item><router-link class="text-white" :to="getLink(item)" style="font-weight: 900;">{{getLinkName(item)}}</router-link></b-nav-item>
-      </div>
-      <b-nav-item><router-link class="text-white" to="/blog" style="font-weight: 900;">blog</router-link></b-nav-item>
-      <b-nav-item><router-link class="text-white" to="/contact" style="font-weight: 900;">contact</router-link></b-nav-item>
+      <b-nav-item><b-button pill variant="outline-info" class=""><a href="#"  @click="$emit('scrollMeTo', {refName: 'section6'})" class="text-info">Join Us</a></b-button></b-nav-item>
       <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
         <!-- Using 'button-content' slot -->
         <template v-slot:button-content>
@@ -42,6 +44,11 @@ export default {
     colorOnScroll: Number
   },
   components: {
+  },
+  data () {
+    return {
+      logo: require('@/assets/img/xd/risidio_white1.png')
+    }
   },
   methods: {
     logout () {
@@ -96,7 +103,6 @@ export default {
   width: 100%;
 }
 .v-text {
-  font-family: 'Roboto', sans-serif;
   font-weight: 200;
   font-size: 1.7rem;
 }

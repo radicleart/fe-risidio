@@ -17,12 +17,6 @@ export default {
       colors: ['primary', 'success', 'danger', 'warning', 'info', 'default', 'secondary']
     }
   },
-  components: {
-  },
-  mounted () {
-  },
-  computed: {
-  },
   methods: {
     showAnswer (slug, index) {
       // add class to component so that can be styled
