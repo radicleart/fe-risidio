@@ -1,25 +1,58 @@
 <template>
-  <div id="app">
-    <div v-if="loading">Introducing Risidio Screen</div>
-    <div v-else>
-      <router-view name="header" @scrollMeTo="scrollMeTo($event)"/>
-      <router-view class="" id="nav"/>
-      <router-view name="footer" />
-    </div>
+<div id="app" v-if="homepage">
+  <div v-if="loading" :style="introScreen">&nbsp;</div>
+  <div :key="componentKey" v-else>
+    <video v-if="homepage" autoplay muted loop id="myVideo" :style="sectionDimensions">
+      <source :src="bgvideo" type="video/mp4">
+    </video>
+    <router-view class="navbar" name="header" @scrollMeTo="scrollMeTo($event)"/>
+    <router-view class="main" id="nav"/>
+    <router-view name="footer" />
   </div>
+</div>
+<div id="app" v-else class="bg-dark">
+  <div :key="componentKey">
+    <router-view class="navbar" name="header" @scrollMeTo="scrollMeTo($event)"/>
+    <router-view class="main" id="nav"/>
+    <router-view name="footer" />
+  </div>
+</div>
 </template>
 <script>
+import { SITE_CONSTANTS } from '@/site-constants'
+import Vue from 'vue'
+
 export default {
   name: 'App',
   data () {
     return {
-      loading: true
+      loading: true,
+      componentKey: 0,
+      intro: require('@/assets/img/intro-gif.gif'),
+      bgvideo: require('@/assets/img/wesitebackground.mp4')
     }
   },
   mounted () {
-    setTimeout(() => {
+    if (this.$route.name === 'home') {
+      setTimeout(() => {
+        this.loading = false
+        this.startVideo()
+      }, 3000)
+    } else {
       this.loading = false
-    }, 3000)
+      this.startVideo()
+    }
+    let resizeTimer
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const myself = this
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(function () {
+        myself.$store.commit('setWinDims')
+        myself.componentKey += 1
+      }, 400)
+    })
+
     this.$prismic.client.getSingle('homepage').then(document => {
       if (document) {
         this.$store.commit('contentStore/addHomeContent', document.data)
@@ -42,34 +75,84 @@ export default {
       const element = document.getElementById(data.refName)
       const top = element.offsetTop
       window.scrollTo(0, top)
+    },
+    startVideo () {
+      Vue.nextTick(function () {
+        const video = document.getElementById('myVideo')
+        if (video) {
+          if (video.paused) {
+            video.play()
+          } else {
+            video.pause()
+          }
+        }
+      }, this)
+    }
+  },
+  computed: {
+    sectionDimensions () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      return 'min-height: ' + (height) + 'px; width: auto;'
+    },
+    homepage () {
+      return this.$route.name === 'home'
+    },
+    introScreen () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      return {
+        height: height + 'px',
+        'background-repeat': 'no-repeat',
+        'background-image': `url(${this.intro})`,
+        'background-position': 'center center',
+        '-webkit-background-size': 'cover',
+        '-moz-background-size': 'cover',
+        '-o-background-size': 'cover',
+        'background-size': 'cover'
+      }
     }
   }
 }
 </script>
 <style>
-@import "./assets/css/resetr.css";
-@import "./assets/css/common.css";
 </style>
 <style lang="scss">
-#nav {
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+#myVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  z-index: -100;
+}
+#app {
+  z-index: -110;
+}
+/* Add some content at the bottom of the video/page */
+.navbar {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+/* Style the button used to pause/play the video */
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
 }
-a:hover {
-  text-decoration: none !important;
+.content {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
-pre {
-  margin: 60px 0px;
-  padding: 30px 20px;
-  background-color: aliceblue;
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
 }
-.block-img {
-  margin-top: 50px;
-}
+
 </style>

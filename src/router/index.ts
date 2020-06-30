@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
-import Contact from '../views/Contact.vue'
 import Page from '../views/Page.vue'
+import Products from '../views/Products.vue'
 import HelpTopics from '../views/HelpTopics.vue'
 import MainNavbar from '@/layout/MainNavbar.vue'
 import MainFooter from '@/layout/MainFooter.vue'
@@ -16,13 +16,28 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     components: { default: Home, header: MainNavbar, footer: MainFooter }
   },
   {
-    path: '/contact',
-    name: 'Contact',
-    components: { default: Contact, header: MainNavbar, footer: MainFooter }
+    path: '/home',
+    name: 'home',
+    components: { default: Home, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/education',
+    name: 'education',
+    components: { default: Page, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/services',
+    name: 'services',
+    components: { default: Page, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/products',
+    name: 'products',
+    components: { default: Products, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/page/:pageId',

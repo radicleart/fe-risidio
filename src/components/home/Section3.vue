@@ -1,36 +1,27 @@
 <template>
-    <section class="">
-      <div class="">
-          <div class="d-flex align-items-center flex-column" :style="sectionDimensions">
-            <div class="my-auto text-center text-white">
-              <div class="text-info my-5"><i class="fa-2x fas fa-quote-left"></i></div>
-              <div class="quote mb-4"><span>{{content.section_quote[0].text}}</span></div>
-              <div class="author"><span>{{content.section_quote_author[0].text}}</span></div>
-              <div><b-button pill variant="outline-info" class="p-2 bg-gray">More About Us</b-button></div>
-            </div>
-          </div>
-      </div>
-    </section>
+<section>
+  <div class=" d-flex align-items-center flex-column" :style="viewportDimensions">
+    <div class="my-auto text-center text-white">
+      <div class="text-info my-5"><i class="fa-2x fas fa-quote-left"></i></div>
+      <p class="quote mb-4" style="width: 436px">{{content.section_quote[0].text}}</p>
+      <h4 class="mt-auto">{{content.section_quote_author[0].text}}</h4>
+    </div>
+    <div class="my-5"><button class="my-5"><span class="call-button-text">More About Us</span></button></div>
+  </div>
+</section>
 </template>
 
 <script>
-import { SITE_CONSTANTS } from '@/site-constants'
-
 export default {
   name: 'Section3',
   components: {
   },
+  props: ['viewportDimensions'],
   data () {
     return {
-      arrowR: require('@/assets/img/xd/innovate_light.png'),
-      arrowL: require('@/assets/img/xd/innovate_dark.png')
     }
   },
   computed: {
-    sectionDimensions () {
-      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
-      return 'min-height: ' + height + 'px; width: auto;'
-    },
     content () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content
@@ -44,11 +35,6 @@ export default {
   margin-bottom: 100px;
   font-weight: 700;
   font-size: 14px;
-}
-.quote {
-  margin: 0 300px;
-  font-weight: 200;
-  font-size: 26px;
 }
 @media only screen and (max-width: 900px) {
   .quote {

@@ -141,3 +141,128 @@ body {
   height: 150px;
   padding: 0;
 }
+h1 {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  opacity: 1;
+}
+h2 {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  opacity: 1;
+  white-space: normal;
+}
+h3 {
+  text-align: left;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+h4 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+p {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+.quote {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+}
+.text-black {
+  color: #000000;
+}
+.text-large {
+  font-size: 14px;
+}
+.bg-black {
+  background-color: #000000;
+}
+.bg-ones {
+  background-color: #111111;
+}
+button {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  color: #5FBDC1;
+  border-radius: 22px;
+  opacity: 0.2;
+  width: 141px;
+  height: 43px;
+}
+button:hover {
+  opacity: 0.6;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.call-button-text {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #5FBDC1;
+  text-transform: capitalize;
+  opacity: 1;
+  text-decoration: none;
+}
+.nav-text > a {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+  padding-top: 20px;
+}
+.nav-text > a:hover {
+  font-weight: 700;
+}
+.navbar-brand {
+  width: auto;
+  height: 62px;
+}
+.more-text {
+  font-size: 11px;
+  font-weight: 700;
+}
+.blurb {
+  width: 450px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+.card-text {
+  color: #000000;
+}
+.card-title {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 200;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}

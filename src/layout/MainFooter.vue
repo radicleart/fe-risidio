@@ -1,24 +1,24 @@
 <template>
 <div>
-  <footer class="text-white" style="height: 280px; background-color: #000;">
-    <div class="row text-center m-0" style="height: 240px;">
+  <footer class="text-white" style="height: 280px;">
+    <div class="row text-center m-0" style="height: 240px; background-color: #000;">
       <div class="col-md-4 d-none d-md-block" style="height: 240px;">
         <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo"/></router-link>
       </div>
       <div class="col-md-6 col-sm-12 offset-md-1">
         <div class="row text-left mt-5">
-          <div class="col-3" v-html="sitemap">
+          <div class="col-3" v-html="getContent('sitemap')">
           </div>
-          <div class="col-3" v-html="products">
+          <div class="col-3" v-html="getContent('products1')">
           </div>
-          <div class="col-3" v-html="joinus">
+          <div class="col-3" v-html="getContent('joinus')">
           </div>
-          <div class="col-3" v-html="contact">
+          <div class="col-3" v-html="getContent('contact')">
           </div>
         </div>
       </div>
     </div>
-    <div class="pt-3 px-4 d-flex justify-content-between" style="height: 40px; background-color: #232323; font-size: 0.6rem;">
+    <div class="bg-ones pt-3 px-4 d-flex justify-content-between" style="height: 40px; font-size: 0.6rem;">
       <div>
         &copy; &nbsp; {{ year }} <router-link class="text-success" to="/">risidio</router-link>
       </div>
@@ -55,34 +55,6 @@ export default {
     }
   },
   computed: {
-    sitemap () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      if (content) {
-        return this.getContent('sitemap')
-      }
-      return {}
-    },
-    products () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      if (content) {
-        return this.getContent('products1')
-      }
-      return {}
-    },
-    joinus () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      if (content) {
-        return this.getContent('joinus')
-      }
-      return {}
-    },
-    contact () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      if (content) {
-        return this.getContent('contact')
-      }
-      return {}
-    }
   }
 }
 </script>

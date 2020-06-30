@@ -1,36 +1,31 @@
 <template>
-    <section id="section6" class="bg-secondary">
-      <div class="mx-5 d-flex align-items-center flex-column" :style="sectionDimensions">
-        <div class="my-auto text-center text-white">
-          <div class="mb-2"><img width="300px" :src="section6.image.url" /></div>
-          <div class="mb-4"><h2>{{section6.title[0].text}}</h2></div>
-          <div class="mb-2"><h4>{{section6.subtitle[0].text}}</h4></div>
-          <div class=" mb-4 joinus-desc"><span>{{section6.description[0].text}}</span></div>
-          <div class="d-flex justify-content-center">
-            <div><b-button pill variant="info" class="more mt-5 mr-4 p-2 px-4 text-white">{{section6.link1[0].text}}</b-button></div>
-            <div><b-button pill variant="outline-info" class="more mt-5 p-2 bg-gray">{{section6.link2[0].text}}</b-button></div>
-          </div>
-        </div>
+<section id="section6" class="bg-secondary">
+  <div class="mx-5 d-flex align-items-center flex-column" :style="viewportDimensions">
+    <div class="my-auto text-center text-white">
+      <div class="mb-2"><img width="300px" :src="section6.image.url" /></div>
+      <div class="my-4"><h1 class="text-white">{{section6.title[0].text}}</h1></div>
+      <div class="mb-2"><h2 class="text-white">{{section6.subtitle[0].text}}</h2></div>
+      <div class=" mb-4 blurb"><span>{{section6.description[0].text}}</span></div>
+      <div class="d-flex justify-content-center">
+        <div class="mt-5 mr-4"><button><span class="call-button-text">{{section6.link1[0].text}}</span></button></div>
+        <div class="mt-5"><button class="button1"><span class="call-button-text">{{section6.link2[0].text}}</span></button></div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 </template>
 
 <script>
-import { SITE_CONSTANTS } from '@/site-constants'
-
 export default {
   name: 'Section4',
   components: {
   },
+  props: ['viewportDimensions'],
   data () {
     return {
     }
   },
   computed: {
-    sectionDimensions () {
-      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
-      return 'min-height: ' + height + 'px; width: auto;'
-    },
     section6 () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content.section6[0]
@@ -40,38 +35,38 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  font-size: 12px;
-  font-weight: 800;
-}
-h3 {
-  font-size: 36px;
-  font-weight: 200;
-  white-space: nowrap;
-}
-p {
-  font-size: 12px;
-  font-weight: 400;
-}
 .more {
   font-size: 0.7rem;
   font-weight: 600;
   padding: 0 20px;
 }
-.joinus-desc {
-  margin: 50px 0 0 0;
-  padding: 10px 200px;
+button {
+  width: 141px;
+  height: 43px;
+  background: #5FBDC1 0% 0% no-repeat padding-box;
+  border-radius: 22px;
+  opacity: 1;
 }
-.whatsit {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+button:hover {
+  background: transparent 0% 0% no-repeat padding-box;
 }
-@media only screen and (max-width: 900px) {
-  .joinus-desc {
-    margin: 50px 0 0 0;
-    padding: 10px 20px;
-  }
+.call-button-text {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
 }
-
+.button1 {
+  width: 141px;
+  height: 43px;
+  background: transparent 0% 0% no-repeat padding-box;
+  border: 1px solid #5FBDC1;
+  border-radius: 22px;
+  opacity: 1;
+}
+.button1:hover {
+  background: #5FBDC1 0% 0% no-repeat padding-box;
+}
 </style>

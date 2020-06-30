@@ -39,7 +39,7 @@
 import PrismicItems from '@/components/PrismicItems'
 
 export default {
-  name: 'Home',
+  name: 'Page',
   data () {
     return {
       pageId: null,
@@ -51,11 +51,24 @@ export default {
   },
   watch: {
     '$route' () {
-      this.pageId = this.$route.params.pageId
+      this.setPage()
     }
   },
   mounted () {
-    this.pageId = this.$route.params.pageId
+    this.setPage()
+  },
+  methods: {
+    setPage () {
+      let page = this.$route.params.pageId
+      if (this.$route.name === 'education') {
+        page = 'education'
+      } else if (this.$route.name === 'services') {
+        page = 'services'
+      } else if (this.$route.name === 'products') {
+        page = 'products'
+      }
+      this.pageId = page
+    }
   },
   computed: {
     content () {

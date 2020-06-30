@@ -1,18 +1,20 @@
 <template>
-<div class="bg-dark home" v-if="content">
-    <section1 />
-    <section2 />
-    <section3 />
-    <section4 />
-    <section5 />
-    <section6 />
-    <section7 />
-    <section8 />
+<div v-if="content">
+    <section0 :viewportDimensions="sectionDimensions"/>
+    <section1 :viewportDimensions="sectionDimensions" />
+    <section2 :viewportDimensions="sectionDimensions" />
+    <section3 :viewportDimensions="sectionDimensions" />
+    <section4 :viewportDimensions="sectionDimensions" />
+    <section5 :viewportDimensions="sectionDimensions" />
+    <section6 :viewportDimensions="sectionDimensions" />
+    <section7 :viewportDimensions="sectionDimensions" />
+    <section8 :viewportDimensions="sectionDimensions" />
 </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import Section0 from '@/components/home/Section0'
 import Section1 from '@/components/home/Section1'
 import Section2 from '@/components/home/Section2'
 import Section3 from '@/components/home/Section3'
@@ -27,6 +29,7 @@ export default {
   name: 'Home',
   // mixins: [requestMixins],
   components: {
+    Section0,
     Section1,
     Section2,
     Section3,
@@ -45,10 +48,6 @@ export default {
       return 'min-height: ' + height + 'px; width: auto;'
     },
     content () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      return content
-    },
-    section1 () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content
     }
