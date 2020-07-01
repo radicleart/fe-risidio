@@ -13,7 +13,9 @@ const contentStore = {
       products: 'XuH1-xIAAFbNZG9o'
     },
     productIds: {
-      loopbomb: 'XvthzhAAACYAeYsC'
+      loopbomb: 'XvthzhAAACYAeYsC',
+      lsat: 'XvzS_BAAACUAf-p_',
+      hubber: 'Xvzg-RAAACYAgCBY'
     }
   },
   getters: {
