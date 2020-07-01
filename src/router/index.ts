@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import Page from '../views/Page.vue'
+import Product from '../views/Product.vue'
 import Products from '../views/Products.vue'
 import HelpTopics from '../views/HelpTopics.vue'
 import MainNavbar from '@/layout/MainNavbar.vue'
@@ -33,6 +34,11 @@ const routes: Array<RouteConfig> = [
     path: '/services',
     name: 'services',
     components: { default: Page, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/products/:productId',
+    name: 'product',
+    components: { default: Product, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/products',

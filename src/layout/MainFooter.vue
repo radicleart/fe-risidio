@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="content">
   <footer class="text-white" style="height: 280px;">
     <div class="row text-center m-0" style="height: 240px; background-color: #000;">
       <div class="col-md-4 d-none d-md-block" style="height: 240px;">
@@ -55,6 +55,10 @@ export default {
     }
   },
   computed: {
+    content () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      return content
+    }
   }
 }
 </script>

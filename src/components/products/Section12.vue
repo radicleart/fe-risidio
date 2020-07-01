@@ -1,5 +1,5 @@
 <template>
-<section class="bg-light" v-if="content" :style="viewportDimensions">
+<section class="bg-lighter" v-if="content" :style="viewportDimensions">
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center">
       <div class="mt-3 mb-5"><h1 class="text-black">{{content.section2_title[0].text}}</h1></div>
@@ -14,9 +14,8 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Section1',
+  name: 'Section12',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

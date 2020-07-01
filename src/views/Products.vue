@@ -1,17 +1,17 @@
 <template>
 <div v-if="content">
-    <section0 :viewportDimensions="sectionDimensions" :content="content"/>
-    <section1 :viewportDimensions="sectionDimensions" :content="content"/>
-    <section2 :viewportDimensions="sectionDimensions" :content="content"/>
+    <section10 :viewportDimensions="sectionDimensions" :content="content"/>
+    <section11 :viewportDimensions="sectionDimensions" :content="content"/>
+    <section12 :viewportDimensions="sectionDimensions" :content="content"/>
     <section8 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
 
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
-import Section0 from '@/components/products/Section0'
-import Section1 from '@/components/products/Section1'
-import Section2 from '@/components/products/Section2'
+import Section10 from '@/components/products/Section10'
+import Section11 from '@/components/products/Section11'
+import Section12 from '@/components/products/Section12'
 import Section8 from '@/components/home/Section8'
 export default {
   name: 'Products',
@@ -21,9 +21,9 @@ export default {
     }
   },
   components: {
-    Section0,
-    Section1,
-    Section2,
+    Section10,
+    Section11,
+    Section12,
     Section8
   },
   watch: {
@@ -36,7 +36,7 @@ export default {
       return 'min-height: ' + height + 'px; width: auto;'
     },
     content () {
-      const content = this.$store.getters['contentStore/getPage'](this.pageId)
+      const content = this.$store.getters['contentStore/getPage'](this.$route.name)
       if (content) {
         console.log('content: ' + content.data.group_set[0].group_item_title[0].text)
         return content.data

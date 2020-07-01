@@ -10,7 +10,7 @@
     <router-view name="footer" />
   </div>
 </div>
-<div id="app" v-else class="bg-dark">
+<div id="app" v-else class="">
   <div :key="componentKey">
     <router-view class="navbar" name="header" @scrollMeTo="scrollMeTo($event)"/>
     <router-view class="main" id="nav"/>
@@ -66,6 +66,12 @@ export default {
           { pageSize: 20, page: 1 }
         ).then((response) => {
           this.$store.commit('contentStore/addPages', response.results)
+        })
+        this.$prismic.client.query(
+          this.$prismic.Predicates.at('document.type', 'product'),
+          { pageSize: 20, page: 1 }
+        ).then((response) => {
+          this.$store.commit('contentStore/addProducts', response.results)
         })
       }
     })

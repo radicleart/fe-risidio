@@ -1,7 +1,7 @@
 <template>
 <section class="bg-white" v-if="content" :style="viewportDimensions">
   <div class="p-5 d-flex justify-content-center">
-    <div class="row">
+    <div class="row text-center">
         <div class="col-md-3 col-sm-6 col-xs-12" v-for="(item, index) of content.group_set" :key="index">
           <b-card
             :title="item.group_item_title[0].text"
@@ -10,11 +10,11 @@
             img-top
             tag="article"
             style="max-width: 20rem;"
-            class="mb-2">
+            class="mb-2 text-left">
             <b-card-text>
               {{item.item_main_text[0].text}}
             </b-card-text>
-            <div class="more-text"><router-link to="/about" class="text-info">{{item.item_sub_text[0].text}}</router-link></div>
+            <div class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.item_sub_text[0].text}}</router-link></div>
           </b-card>
         </div>
     </div>
@@ -25,13 +25,16 @@
 <script>
 
 export default {
-  name: 'Section1',
+  name: 'Section11',
   props: ['viewportDimensions', 'content'],
   data () {
     return {
     }
   },
   methods: {
+    productUrl (item) {
+      return '/products/' + item.product_name[0].text
+    }
   },
   computed: {
   }

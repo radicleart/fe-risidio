@@ -6,6 +6,14 @@ const contentStore = {
       navigation: null,
       products: null,
       pages: null
+    },
+    pageIds: {
+      education: 'XuH1mBIAAFbNZG32',
+      services: 'XuH1zRIAAFbNZG69',
+      products: 'XuH1-xIAAFbNZG9o'
+    },
+    productIds: {
+      loopbomb: 'XvthzhAAACYAeYsC'
     }
   },
   getters: {
@@ -15,15 +23,16 @@ const contentStore = {
     getPages: state => {
       return state.content.pages
     },
+    getProductPages: state => {
+      return state.content.productPages
+    },
     getPage: state => pageId => {
-      if (pageId === 'education') {
-        pageId = 'XuH1mBIAAFbNZG32'
-      } else if (pageId === 'services') {
-        pageId = 'XuH1zRIAAFbNZG69'
-      } else if (pageId === 'products') {
-        pageId = 'XuH1-xIAAFbNZG9o'
-      }
+      pageId = state.pageIds[pageId]
       return (state.content.pages) ? (state.content.pages.filter(page => page.id === pageId))[0] : null
+    },
+    getProductPage: state => productId => {
+      productId = state.productIds[productId]
+      return (state.content.products) ? (state.content.products.filter(product => product.id === productId))[0] : null
     },
     getNavbar: state => {
       return state.content.navigation
@@ -38,6 +47,9 @@ const contentStore = {
     },
     addPages (state, o) {
       state.content.pages = o
+    },
+    addProducts (state, o) {
+      state.content.products = o
     }
   },
   actions: {
