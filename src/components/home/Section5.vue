@@ -13,7 +13,8 @@
                 :slide-ratio="1 / 4"
                 :gap="1"
                 :arrows-outside=true
-                :bullets-outside=true>
+                :bullets-outside=true
+                :bullets="false">
                 <template v-slot:arrow-left>
                   <div class="shifter"><i class="text-info fa-1x fas fa-angle-left"></i></div>
                 </template>
@@ -36,7 +37,7 @@
                 </vueper-slide>
               </vueper-slides>
               </div>
-              <div class="my-5"><button class=""><span class="call-button-text">All Products</span></button></div>
+              <div class="my-5"><button class="button1"><span class="call-button-text">All Products</span></button></div>
             </div>
           </div>
       </div>

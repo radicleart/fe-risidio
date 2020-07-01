@@ -48,7 +48,10 @@ button {
   opacity: 1;
 }
 button:hover {
-  background: transparent 0% 0% no-repeat padding-box;
+  background: white 0% 0% no-repeat padding-box;
+}
+button:hover .call-button-text {
+  color: #5FBDC1;
 }
 .call-button-text {
   text-align: center;
@@ -61,12 +64,18 @@ button:hover {
 .button1 {
   width: 141px;
   height: 43px;
-  background: transparent 0% 0% no-repeat padding-box;
-  border: 1px solid #5FBDC1;
+  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
+  border: none;
   border-radius: 22px;
   opacity: 1;
 }
 .button1:hover {
-  background: #5FBDC1 0% 0% no-repeat padding-box;
+  background: white 0% 0% no-repeat padding-box;
+}
+.button1 .call-button-text {
+  color: #5FBDC1;
+}
+.button1:hover .call-button-text {
+  color: #5FBDC1;
 }
 </style>

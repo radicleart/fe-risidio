@@ -20,7 +20,7 @@
     </div>
     <div class="bg-ones pt-3 px-4 d-flex justify-content-between" style="height: 40px; font-size: 0.6rem;">
       <div>
-        &copy; &nbsp; {{ year }} <router-link class="text-success" to="/">risidio</router-link>
+        &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
       </div>
       <div>
         Privacy Policy

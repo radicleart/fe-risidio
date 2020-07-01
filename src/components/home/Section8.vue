@@ -6,8 +6,8 @@
           <div class="mb-3"><h2 class="text-white">{{content.contact_subtitle[0].text}}</h2></div>
           <div class="mb-4 blurb"><span>{{content.contact_description[0].text}}</span></div>
           <div class="m-5 d-flex justify-content-center">
-            <a title="join us on discord" class="mr-4" :href="content.contact_discord_link[0].text"><img :src="mail"/></a>
-            <a title="send an email" :href="'mailTo:' + content.contact_email_address[0].text"><img :src="discord"/></a>
+            <a title="join us on discord" class="mr-4" :href="content.contact_discord_link[0].text"><img :src="discord"/></a>
+            <a title="send an email" :href="'mailTo:' + content.contact_email_address[0].text"><img :src="mail"/></a>
           </div>
         </div>
       </div>

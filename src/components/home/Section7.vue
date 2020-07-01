@@ -67,7 +67,7 @@ export default {
 <style lang="scss" scoped>
 .shifter {
   color: #5FBDC1;
-  border: 1pt solid #F9B807;
+  border: 1pt solid #E9493D;
   width: 72px;
   height: 72px;
   border-radius: 50%;
@@ -95,5 +95,7 @@ p {
   margin: 50px 0 0 0;
   padding: 0 200px;
 }
-
+.text-warning {
+  color: #E9493D !important;
+}
 </style>

@@ -203,21 +203,12 @@ p {
   background-color: #111111;
 }
 button {
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
   color: #5FBDC1;
   border-radius: 22px;
-  opacity: 0.2;
   width: 141px;
   height: 43px;
-}
-button:hover {
-  opacity: 0.6;
-}
-a {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
+  border: none;
 }
 .call-button-text {
   text-align: center;
@@ -226,8 +217,20 @@ a:hover {
   letter-spacing: 0px;
   color: #5FBDC1;
   text-transform: capitalize;
-  opacity: 1;
   text-decoration: none;
+}
+button:hover {
+  background: white 0% 0% no-repeat padding-box;
+}
+.vueperslides__arrows button:hover {
+  background: transparent;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  color: #5FBDC1;
 }
 .nav-text > a {
   text-align: left;
