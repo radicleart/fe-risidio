@@ -1,4 +1,5 @@
 <template>
+<section>
   <!-- Check blog posts exist -->
   <div v-if="posts.length !== 0" class="blog-main">
     <!-- Template for blog posts -->
@@ -19,6 +20,7 @@
   <div v-else class="blog-main">
     <p>No Posts published at this time.</p>
   </div>
+</section>
 </template>
 
 <script>
@@ -86,6 +88,8 @@ export default {
   },
   created () {
     this.getPosts()
+  },
+  computed: {
   }
 }
 </script>

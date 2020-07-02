@@ -10,7 +10,8 @@ const contentStore = {
     pageIds: {
       education: 'XuH1mBIAAFbNZG32',
       services: 'XuH1zRIAAFbNZG69',
-      products: 'XuH1-xIAAFbNZG9o'
+      products: 'XuH1-xIAAFbNZG9o',
+      bloghome: 'Xvz0uBAAACQAgGKh'
     },
     productIds: {
       loopbomb: 'XvthzhAAACYAeYsC',

@@ -1,18 +1,13 @@
 <template>
+<section v-if="content">
   <!-- Vue conditional to check if there is any content in document -->
-  <div v-if="hasContent" class="page">
-    <div class="home">
-      <!-- Button to edit document in dashboard
-      <prismic-edit-button :documentId="documentId"/>  -->
-      <div class="blog-avatar" :style="{ backgroundImage: 'url(' + fields.image + ')' }">
-      </div>
-      <!-- Template for page title -->
-      <h1 class="blog-title">
-        {{ $prismic.richTextAsPlain(fields.headline) }}
-      </h1>
-      <!-- Template for page description -->
-      <p class="blog-description">{{ $prismic.richTextAsPlain(fields.description) }}</p>
+  <div :style="bannerImage" class="d-flex align-items-center flex-column">
+    <div class="my-auto text-center">
+      <h1 class="mb-5 text-white">{{content.page_text[0].text}}</h1>
+      <h2 class="mb-5 text-white">{{content.page_title[0].text}}</h2>
     </div>
+  </div>
+  <div v-if="hasContent" class="mt-5 page">
     <!-- Vue reference for blog posts component -->
     <blog-posts/>
   </div>
@@ -20,10 +15,12 @@
   <div v-else class="home">
     <p> Please add some content to your blog home document.</p>
   </div>
+</section>
 </template>
 
 <script>
 import BlogPosts from '../components/BlogPosts.vue'
+import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
   name: 'blog-home',
@@ -41,6 +38,32 @@ export default {
       posts: [],
       linkResolver: this.$prismic.linkResolver,
       hasContent: false
+    }
+  },
+  computed: {
+    bannerImage () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      const content = this.$store.getters['contentStore/getPage']('bloghome')
+      return {
+        padding: '40px 0 0 0',
+        height: height / 3 + 'px',
+        width: '100%',
+        position: 'relative',
+        top: '0px',
+        'background-repeat': 'no-repeat',
+        'background-image': `url(${content.data.banner.url})`,
+        'background-position': 'center center',
+        '-webkit-background-size': 'cover',
+        '-moz-background-size': 'cover',
+        '-o-background-size': 'cover',
+        'background-size': 'cover',
+        'background-color': '#121212',
+        opacity: 1
+      }
+    },
+    content () {
+      const content = this.$store.getters['contentStore/getPage']('bloghome')
+      return (content) ? content.data : null
     }
   },
   methods: {
