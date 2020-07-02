@@ -19,7 +19,6 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
-      quotes: require('@/assets/img/quotes.svg')
     }
   },
   computed: {
