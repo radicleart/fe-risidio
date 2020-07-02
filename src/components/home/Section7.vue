@@ -13,7 +13,8 @@
                 :gap="1"
                 :arrows-outside=true
                 :bullets=false
-                :bullets-outside=true>
+                :bullets-outside=true
+                :breakpoints="breakpoints">
                 <template v-slot:arrow-left>
                   <div class="shifter mr-5" style="position: relative; left: -50px;"><i class="text-warning fa-1x fas fa-angle-left"></i></div>
                 </template>
@@ -53,6 +54,15 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
+      breakpoints: {
+        1300: {
+          visibleSlides: 2
+        },
+        850: {
+          visibleSlides: 1,
+          arrows: false
+        }
+      }
     }
   },
   computed: {
@@ -98,4 +108,5 @@ p {
 .text-warning {
   color: #E9493D !important;
 }
+
 </style>

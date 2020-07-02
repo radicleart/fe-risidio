@@ -6,8 +6,8 @@
           <div class="mb-3"><h2 class="text-white">{{content.contact_subtitle[0].text}}</h2></div>
           <div class="mb-4 blurb"><span>{{content.contact_description[0].text}}</span></div>
           <div class="m-5 d-flex justify-content-center">
-            <a title="join us on discord" class="mr-4" :href="content.contact_discord_link[0].text"><img :src="discord"/></a>
-            <a title="send an email" :href="'mailTo:' + content.contact_email_address[0].text"><img :src="mail"/></a>
+            <a title="join us on discord" class="mr-4" :href="content.contact_discord_link[0].text"><img :src="social.discord.dark" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
+            <a title="send an email" :href="'mailTo:' + content.contact_email_address[0].text"><img :src="social.mail.dark" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
           </div>
         </div>
       </div>
@@ -22,10 +22,26 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
-      mail: require('@/assets/img/Group 15784.svg'),
-      discord: require('@/assets/img/Group 15783.svg'),
       mailp: require('@/assets/img/Group 15784/Group 15784.png'),
-      discordp: require('@/assets/img/Group 15783/Group 15783.png')
+      discordp: require('@/assets/img/Group 15783/Group 15783.png'),
+      social: {
+        discord: {
+          dark: require('@/assets/img/Group 15783.svg'),
+          light: require('@/assets/img/Group 15783Light.svg')
+        },
+        mail: {
+          dark: require('@/assets/img/Group 15784.svg'),
+          light: require('@/assets/img/Group 15784Light.svg')
+        }
+      }
+    }
+  },
+  methods: {
+    hoverOver: function (img, ev) {
+      ev.currentTarget.src = img.light
+    },
+    hoverOut: function (img, ev) {
+      ev.currentTarget.src = img.dark
     }
   },
   computed: {

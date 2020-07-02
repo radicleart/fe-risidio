@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="bg-ones pt-3 px-4 d-flex justify-content-between" style="height: 40px; font-size: 0.6rem;">
+    <div class="bg-ones pt-3 px-4 d-flex justify-content-between" style="height: 40px; font-size: 0.6rem; background-color: #000;">
       <div>
         &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
       </div>
