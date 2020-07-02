@@ -2,7 +2,7 @@
 <section class="bg-white" v-if="content" :style="viewportDimensions">
   <div class="p-5 d-flex justify-content-center">
     <div class="row text-center">
-        <div class="col-md-3 col-sm-6 col-xs-12" v-for="(item, index) of content.group_set" :key="index">
+        <div class="col-md-4 col-sm-6 col-xs-12" v-for="(item, index) of content.group_set" :key="index">
           <b-card
             :title="item.group_item_title[0].text"
             :img-src="item.item_image.url"

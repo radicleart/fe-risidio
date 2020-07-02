@@ -1,5 +1,13 @@
 <template>
-  <div class="main">
+<section v-if="content">
+  <!-- Vue conditional to check if there is any content in document -->
+  <div :style="bannerImage" class="d-flex align-items-center flex-column">
+    <div class="my-auto text-center">
+      <h1 class="mb-5 text-white">{{content.page_text[0].text}}</h1>
+      <h2 class="mb-5 text-white">{{content.page_title[0].text}}</h2>
+    </div>
+  </div>
+  <div class="main my-5 mx-auto w-75">
     <div class="outer-container">
       <div class="back">
         <router-link to="./">back to list</router-link>
@@ -16,11 +24,13 @@
     <!-- Slice Block Componenet tag -->
     <slices-block :slices="slices" class="outer-container"/>
   </div>
+</section>
 </template>
 
 <script>
 // Importing all the slices components
 import SlicesBlock from '../components/SlicesBlock.vue'
+import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
   name: 'post',
@@ -67,6 +77,32 @@ export default {
   beforeRouteUpdate (to, from, next) {
     this.getContent(to.params.uid)
     next()
+  },
+  computed: {
+    bannerImage () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      const content = this.$store.getters['contentStore/getPage']('bloghome')
+      return {
+        padding: '40px 0 0 0',
+        height: height / 3 + 'px',
+        width: '100%',
+        position: 'relative',
+        top: '0px',
+        'background-repeat': 'no-repeat',
+        'background-image': `url(${content.data.banner.url})`,
+        'background-position': 'center center',
+        '-webkit-background-size': 'cover',
+        '-moz-background-size': 'cover',
+        '-o-background-size': 'cover',
+        'background-size': 'cover',
+        'background-color': '#121212',
+        opacity: 1
+      }
+    },
+    content () {
+      const content = this.$store.getters['contentStore/getPage']('bloghome')
+      return (content) ? content.data : null
+    }
   }
 }
 </script>

@@ -130,7 +130,7 @@ export default {
   text-decoration: none;
 }
 .my-nav {
-  height: auto;
+  height: 70px;
   width: 100%;
 }
 .v-text {
