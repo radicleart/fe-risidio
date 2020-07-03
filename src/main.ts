@@ -13,6 +13,7 @@ import linkResolver from './prismic/link-resolver'
 import htmlSerializer from './prismic/html-serializer'
 import Notifications from 'vue-notification'
 import 'vueperslides/dist/vueperslides.css'
+import VueScrollTo from 'vue-scrollto'
 
 library.add(faChevronCircleRight)
 library.add(faChevronCircleLeft)
@@ -37,6 +38,7 @@ Vue.use(PrismicVue, {
   htmlSerializer
 })
 Vue.use(Notifications, { closeOnClick: true, duration: 6000 })
+Vue.use(VueScrollTo)
 
 new Vue({
   router,

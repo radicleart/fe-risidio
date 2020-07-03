@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-ones">
+    <section class="bg-ones" id="contactSection">
       <div class="mx-5 px-5 d-flex align-items-center flex-column" :style="viewportDimensions">
         <div class="my-auto text-center text-white">
           <div class="my-4"><h1 class="text-white">{{content.contact_title[0].text}}</h1></div>

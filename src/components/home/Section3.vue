@@ -6,7 +6,7 @@
       <p class="quote mb-4" style="width: 436px">{{content.section_quote[0].text}}</p>
       <h4 class="mt-auto">{{content.section_quote_author[0].text}}</h4>
     </div>
-    <div class="my-5"><button class="my-5"><span class="call-button-text">More About Us</span></button></div>
+    <div class="my-5"><button class="my-5" v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">More About Us</span></button></div>
   </div>
 </section>
 </template>

@@ -9,8 +9,8 @@
         <p class="text-center text-large">{{section.description[1].text}}</p>
       </div>
       <div class="d-flex justify-content-center">
-        <div class="mt-5 mr-4"><button><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
-        <div class="mt-5"><button class="button1"><span class="call-button-text">{{section.link2[0].text}}</span></button></div>
+        <div class="mt-5 mr-4"><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
+        <div class="mt-5"><button class="button1" v-scroll-to="{ element: '#productsSection', duration: 2000 }"><span class="call-button-text">{{section.link2[0].text}}</span></button></div>
       </div>
     </div>
   </div>

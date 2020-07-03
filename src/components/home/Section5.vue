@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-black">
+    <section class="bg-black" id="productsSection">
       <div class="pt-3">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto">
@@ -67,7 +67,8 @@ export default {
         },
         768: {
           visibleSlides: 1,
-          arrows: false
+          arrows: false,
+          bullets: true
         }
       }
     }

@@ -3,7 +3,7 @@
   <footer class="text-white" style="height: 280px;">
     <div class="row text-center m-0" style="height: 240px; background-color: #000;">
       <div class="col-md-4 d-none d-md-block" style="height: 240px;">
-        <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo"/></router-link>
+        <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" class="logoFooter"/></router-link>
       </div>
       <div class="col-md-6 col-sm-12 offset-md-1">
         <div class="row text-left mt-5">
@@ -37,7 +37,7 @@ export default {
   },
   data () {
     return {
-      logo: require('@/assets/img/xd/risidio_white1.png'),
+      logo: require('@/assets/img/xd/logoWhite.svg'),
       year: new Date().getFullYear()
     }
   },
@@ -79,6 +79,18 @@ h2 {
 }
 p {
   font-size: 12px;font-weight: 700; padding: 5px 0 0 0; margin: 0;
+}
+
+.logoFooter {
+  width: 255px;
+  height: 100px;
+}
+
+@media only screen and (max-width: 900px) {
+  .logoFooter {
+    width: 138px;
+    height: 55px;
+  }
 }
 
 </style>
