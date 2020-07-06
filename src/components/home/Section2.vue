@@ -1,11 +1,12 @@
 <template>
-  <section class="bg-white">
+  <section class="bg-white section-2">
     <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="my-auto text-center">
         <h1 class="text-black mb-4">{{content.section2_title[0].text}}</h1>
         <h2 class="text-black mb-5">{{content.section2_message[0].text}}</h2>
         <vueper-slides
-          class="no-shadow " style="width: 80vw;"
+          class="no-shadow " style="width: 80vw; margin: 0 auto;"
+          :bullets-outside=true
           :bullets=false
           :visible-slides="2"
           :gap="1"
@@ -76,4 +77,5 @@ export default {
 .right-shifter {
     margin-left: 6em;
 }
+
 </style>

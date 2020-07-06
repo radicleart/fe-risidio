@@ -13,7 +13,7 @@
           </div>
           <div class="col-3" v-html="getContent('joinus')">
           </div>
-          <div class="col-3" v-html="getContent('contact')">
+          <div class="col-3 address" v-html="getContent('contact')">
           </div>
         </div>
       </div>
@@ -77,6 +77,7 @@ h2 {
   font-size: 17px;
   font-weight: 200;
 }
+
 p {
   font-size: 12px;font-weight: 700; padding: 5px 0 0 0; margin: 0;
 }

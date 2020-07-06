@@ -29,8 +29,8 @@ export default {
     return {
       loading: true,
       componentKey: 0,
-      intro: require('@/assets/img/intro-gif.gif'),
-      bgvideo: require('@/assets/img/wesitebackground.mp4')
+      intro: 'https://images.prismic.io/risidio-journal/eaa18988-76ae-4891-a832-5d4d8dea849c_intro-gif.gif?auto=compress,format',
+      bgvideo: 'https://prismic-io.s3.amazonaws.com/risidio-journal/cbeb0c74-cb5d-4516-b65e-5e81d331e34c_wesite+background_Hi-res.mp4'
     }
   },
   mounted () {

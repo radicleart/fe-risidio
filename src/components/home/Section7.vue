@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-white">
+    <section class="bg-white section-7">
       <div class="">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto text-center">
@@ -16,17 +16,17 @@
                 :bullets-outside=true
                 :breakpoints="breakpoints">
                 <template v-slot:arrow-left>
-                  <div class="shifter mr-5" style="position: relative; left: -50px;"><i class="text-warning fa-1x fas fa-angle-left"></i></div>
+                  <div class="shifter mr-5" style="position: relative; left: -50px;"><i class="text-danger fa-1x fas fa-angle-left"></i></div>
                 </template>
                 <template v-slot:arrow-right>
-                  <div class="shifter ml-5" style="position: relative; right: -40px;"><i class="text-warning fa-1x fas fa-angle-right"></i></div>
+                  <div class="shifter ml-5" style="position: relative; right: -40px;"><i class="text-danger fa-1x fas fa-angle-right"></i></div>
                 </template>
                 <vueper-slide v-for="(item, index) of content.posts" :key="index" style="font-size: 0.8em; min-width: 300px;">
                   <template v-slot:content>
                     <div class="text-left">
                       <div class="d-flex align-items-start flex-column responsive-view" style="min-height: 280px; width: 280px">
                         <img width="280px" height="200px" :src="item.image.url" :alt="item.image.alt" class="image" />
-                        <h3 class="text-black"><router-link to="/blog" class="text-warning">{{item.date}}</router-link></h3>
+                        <h3 class="text-black"><router-link to="/blog" class="text-danger">{{item.date}}</router-link></h3>
                         <h2 class="text-black"><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
                         <div class="mb-auto" v-for="(pitem, index2) of item.description" :key="index2">
                           <div v-if="pitem.type === 'paragraph'" class=""><p style="font-size: 12px; font-weight: 500" class="mb-3" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
@@ -106,13 +106,8 @@ p {
   margin: 50px 0 0 0;
   padding: 0 200px;
 }
-.text-warning {
-  color: #E9493D !important;
-}
 
 @media only screen and (max-width: 850px) {
-
   .responsive-view { margin: 0 auto; }
-
 }
 </style>

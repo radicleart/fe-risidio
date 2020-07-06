@@ -69,6 +69,12 @@ export default {
           visibleSlides: 1,
           arrows: false,
           bullets: true
+        },
+        600: {
+          visibleSlides: 1,
+          arrows: false,
+          bullets: true,
+          fixedHeight: '300px'
         }
       }
     }
@@ -104,11 +110,28 @@ export default {
 
 .vueperslides__bullet--active .default {background-color: #5FBDC1;}
 
-.vueperslides__bullet span {
-  display: block;
-  background-color: #5FBDC1;
-  font-size: 20px;
-  opacity: 1;
+.vueperslides__bullet:hover {
+  background-color: transparent;
+}
+
+.vueperslides__bullets.vueperslides__bullets--outside {
+  bottom: 50px;
+}
+
+.section-2 .vueperslides__bullets {
+  bottom: 0;
+}
+
+.section-2 .vueperslides__bullets .vueperslides__bullet {
+  color: #F9B807;
+}
+
+.section-7 .vueperslides__bullets {
+  bottom: 0;
+}
+
+.section-7 .vueperslides__bullets .vueperslides__bullet {
+  color: #E9493D;
 }
 
 @media only screen and (max-width: 768px) {
