@@ -9,11 +9,14 @@
     </div>
   </div>
   <div class="mt-2 d-flex align-items-center flex-column"  :style="halfDims">
-      <div class="my-auto"><h1 class="">{{content.title2[0].text}}</h1></div>
+    <div class="my-auto">
+      <div class="mt-0"><h1 class="text-black">{{content.title2[0].text}}</h1></div>
       <div class="mx-auto my-4 w-75 text-center">
-        <p class="text-center blurb2 text-black">{{content.description[0].text}}</p>
+        <p class="mb-4 text-center blurb2 text-black">{{content.description[0].text}}</p>
         <p class="title3">{{content.title3[0].text}}</p>
+        <!-- <p class="text-center continue text-info"><i class="text-warning fa-1x fas fa-angle-down"></i></p> -->
       </div>
+    </div>
   </div>
 </section>
 </template>

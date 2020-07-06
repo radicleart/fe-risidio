@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import Page from '../views/Page.vue'
+import LsatDemo from '../views/LsatDemo.vue'
 import Product from '../views/Product.vue'
 import Products from '../views/Products.vue'
 import HelpTopics from '../views/HelpTopics.vue'
@@ -44,6 +45,11 @@ const routes: Array<RouteConfig> = [
     path: '/products',
     name: 'products',
     components: { default: Products, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/lsat-demo',
+    name: 'lsat-demo',
+    components: { default: LsatDemo, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/page/:pageId',

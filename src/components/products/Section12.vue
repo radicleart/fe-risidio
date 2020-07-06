@@ -7,7 +7,10 @@
         <h2 class="text-center blurb2">{{item.title[0].text}}</h2>
         <p class="text-center blurb2">{{item.description[0].text}}</p>
       </div>
-      <div class="mt-5"><button><span class="call-button-text">{{content.section2_link[0].text}}</span></button></div>
+      <div class="mt-5 d-flex justify-content-between">
+        <button><span class="call-button-text">{{content.section2_link[0].text}}</span></button>
+        <button><span class="call-button-text">{{content.section2_link[0].text}}</span></button>
+      </div>
     </div>
   </div>
 </section>

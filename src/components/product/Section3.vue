@@ -11,7 +11,7 @@
         </div>
       </div>
       </div>
-      <div><button class="more-text"><a href="https://loopbomb.com" class="text-info">{{content.section3_link[0].text}}</a></button></div>
+      <div><button class="more-text"><a :href="demoLink" class="text-info">{{content.section3_link[0].text}}</a></button></div>
     </div>
   </div>
 </section>
@@ -28,6 +28,16 @@ export default {
   methods: {
   },
   computed: {
+    demoLink () {
+      const productId = this.$route.params.productId
+      if (productId === 'lsat') {
+        return '/lsat-demo'
+      } else if (productId === 'loopbomb') {
+        return 'https://loopbomb.com'
+      } else {
+        return '/hubber'
+      }
+    }
   }
 }
 </script>
