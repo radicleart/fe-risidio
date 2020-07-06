@@ -2,11 +2,11 @@
 <section>
   <div class=" d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center text-white">
-      <div class="text-info my-5"><i class="fa-2x fas fa-quote-left"></i></div>
+      <div class="text-info my-5"><img :src="quotes" /></div>
       <p class="quote mb-4" style="width: 436px">{{content.section_quote[0].text}}</p>
       <h4 class="mt-auto">{{content.section_quote_author[0].text}}</h4>
     </div>
-    <div class="my-5"><button class="my-5"><span class="call-button-text">More About Us</span></button></div>
+    <div class="my-5"><button class="my-5" v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">More About Us</span></button></div>
   </div>
 </section>
 </template>
@@ -19,6 +19,7 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
+      quotes: require('@/assets/img/quotes.png')
     }
   },
   computed: {

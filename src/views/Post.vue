@@ -1,5 +1,5 @@
 <template>
-<section v-if="content">
+<section v-if="content" class="bg-white">
   <!-- Vue conditional to check if there is any content in document -->
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center">

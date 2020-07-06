@@ -14,7 +14,7 @@
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
-        <b-nav-item class=""><button class="text-info"><a href="#"  @click="$emit('scrollMeTo', {refName: 'section6'})" class="call-button-text">Join Us</a></button></b-nav-item>
+        <b-nav-item class=""><button class="text-info" v-scroll-to="{ element: '#section6', duration: 2500 }"><a href="#" class="call-button-text">Join Us</a></button></b-nav-item>
         <!-- <lsat-entry :configuration="configuration" style="text-decoration: none;"/> -->
         <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
           <template v-slot:button-content>

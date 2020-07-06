@@ -13,7 +13,8 @@
                 :gap="1"
                 :arrows-outside=true
                 :bullets=false
-                :bullets-outside=true>
+                :bullets-outside=true
+                :breakpoints="breakpoints">
                 <template v-slot:arrow-left>
                   <div class="shifter mr-5" style="position: relative; left: -50px;"><i class="text-warning fa-1x fas fa-angle-left"></i></div>
                 </template>
@@ -23,7 +24,7 @@
                 <vueper-slide v-for="(item, index) of content.posts" :key="index" style="font-size: 0.8em; min-width: 300px;">
                   <template v-slot:content>
                     <div class="text-left">
-                      <div class="d-flex align-items-start flex-column" style="min-height: 280px; width: 280px">
+                      <div class="d-flex align-items-start flex-column responsive-view" style="min-height: 280px; width: 280px">
                         <img width="280px" height="200px" :src="item.image.url" :alt="item.image.alt" class="image" />
                         <h3 class="text-black"><router-link to="/blog" class="text-warning">{{item.date}}</router-link></h3>
                         <h2 class="text-black"><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
@@ -53,6 +54,16 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
+      breakpoints: {
+        1300: {
+          visibleSlides: 2
+        },
+        850: {
+          visibleSlides: 1,
+          arrows: false,
+          bullets: true
+        }
+      }
     }
   },
   computed: {
@@ -97,5 +108,11 @@ p {
 }
 .text-warning {
   color: #E9493D !important;
+}
+
+@media only screen and (max-width: 850px) {
+
+  .responsive-view { margin: 0 auto; }
+
 }
 </style>

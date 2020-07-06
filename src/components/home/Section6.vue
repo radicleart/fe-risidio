@@ -7,8 +7,8 @@
       <div class="mb-2"><h2 class="text-white">{{section6.subtitle[0].text}}</h2></div>
       <div class=" mb-4 blurb"><span>{{section6.description[0].text}}</span></div>
       <div class="d-flex justify-content-center">
-        <div class="mt-5 mr-4"><button><span class="call-button-text">{{section6.link1[0].text}}</span></button></div>
-        <div class="mt-5"><button class="button1"><span class="call-button-text">{{section6.link2[0].text}}</span></button></div>
+        <div class="mt-5 mr-4"><button v-scroll-to="{ element: '#contactSection', duration: 2000 }"><span class="call-button-text">{{section6.link1[0].text}}</span></button></div>
+        <div class="mt-5"><button class="button1" v-scroll-to="{ element: '#contactSection', duration: 2000 }"><span class="call-button-text">{{section6.link2[0].text}}</span></button></div>
       </div>
     </div>
   </div>

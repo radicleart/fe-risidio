@@ -12,16 +12,16 @@
           fixed-height="150px"
           :slide-ratio="1 / 6"
           :dragging-distance="150"
-          :breakpoints="{ 1000: { visibleSlides: 2, slideMultiple: 1 } }">
+          :breakpoints="{ 1080: { visibleSlides: 1, slideMultiple: 1 }, 800: { visibleSlides: 1, slideMultiple: 1, arrows: false, bullets: true } }">
           <template v-slot:arrow-left>
             <div class="shifter"><i class="text-warning fa-1x fas fa-angle-left"></i></div>
           </template>
           <template v-slot:arrow-right>
-            <div class="shifter"><i class="text-warning fa-1x fas fa-angle-right"></i></div>
+            <div class="shifter right-shifter"><i class="text-warning fa-1x fas fa-angle-right"></i></div>
           </template>
           <vueper-slide v-for="(item, index) of content.images" :key="index" style="height: 500px;">
             <template v-slot:content style="height: 500px;">
-              <div class="row p-0 m-0">
+              <div class="row p-0">
                 <div class="col-6">
                   <img height="130px" :src="item.image.url" :alt="item.image.alt" class="image" />
                 </div>
@@ -71,5 +71,9 @@ export default {
   width: 72px;
   height: 72px;
   border-radius: 50%;
+}
+
+.right-shifter {
+    margin-left: 6em;
 }
 </style>
