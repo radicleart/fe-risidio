@@ -16,6 +16,7 @@
     <router-view class="main" id="nav"/>
     <router-view name="footer" />
   </div>
+  <notifications group="egs" ignoreDuplicates="true" type="info" duration="10" closeOnClick="true" position="top left" width="40%" />
 </div>
 </template>
 <script>
