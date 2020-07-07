@@ -1,5 +1,5 @@
 <template>
-<section v-if="content" class="bg-white">
+<section v-if="content" class="bg-white" :sectionDimensions="sectionDimensions">
   <!-- Vue conditional to check if there is any content in document -->
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center">
@@ -60,6 +60,10 @@ export default {
         'background-color': '#121212',
         opacity: 1
       }
+    },
+    sectionDimensions () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      return 'min-height: ' + height + 'px; width: auto;'
     },
     content () {
       const content = this.$store.getters['contentStore/getPage']('bloghome')

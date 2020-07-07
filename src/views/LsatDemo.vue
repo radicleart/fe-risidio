@@ -1,25 +1,28 @@
 <template>
 <div v-if="content">
-<section id="section0" v-if="content.banner">
+<section id="section0" v-if="content.banner" :style="sectionDimensions">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto">
-      <div :key="componentKey">
-        <b-card ref="tutorial" class="d-flex justify-content-start w-50" style="width: 200px; border: 1pt solid black;">
-          <card-text v-if="counter > 0">
-            {{message}}
-          </card-text>
-        </b-card>
+      <div class="row">
+        <div class="col-12">
+          <lsat-entry :paymentConfig="configuration" @paymentEvent="paymentEvent"/>
+        </div>
+        <div class="text1 col-12 bg-white p-5">
+          <div>
+            <p>1. Purchase is order sent to merchant</p>
+            <p>2. Merchant finds no valid payment token (LSAT) and does a POST redirect (307) to lsat server.</p>
+            <p>3. Lsat server creates an invoice and send a 402 back to user browsers.</p>
+            <p>4. Browser present the payment invoice to user.</p>
+            <p>5. User pays with their lightning enabled wallet.</p>
+            <p>6. Auth server watches for payment and sends the payment preimage back to the user.</p>
+            <p>7. Client save the token in local storage and sends to merchant as proof of payment.</p>
+          </div>
+        </div>
+        <div class="p-inverse col-12 bg-black text-white p-5 border-top">
+          <div v-html="eventData"></div>
+        </div>
       </div>
-      <lsat-entry :paymentConfig="configuration" @paymentEvent="paymentEvent"/>
     </div>
-    <!--
-    <div class="my-auto text-center">
-      <div class="mt-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
-      <div class="">
-        <p class="text-center blurb2 text-white">{{content.title1[0].text}}</p>
-      </div>
-    </div>
-    -->
   </div>
 </section>
 </div>
@@ -35,11 +38,9 @@ export default {
       paid: true,
       counter: 0,
       componentKey: 0,
-      message: null,
+      eventData: null,
+      message: '<h4>LSAT Pay tutorial...</h4>',
       tutorial: [
-        'Loading LSAT Pay tutorial...',
-        'At this stage an order has been sent to the merchant.',
-        'This is the accompanying tutorial for the lsat payment..'
       ]
     }
   },
@@ -48,15 +49,19 @@ export default {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const $self = this
     this.timer1 = setInterval(function () {
+      if ($self.counter === 7) {
+        clearInterval($self.timer1)
+        return
+      }
+      $self.message += $self.tutorial[$self.counter]
       $self.counter++
-      if ($self.counter === 4) $self.counter = 0
-      $self.componentKey++
-      $self.message = $self.tutorial[$self.counter % 3]
-      $self.$notify({ group: 'egs', title: 'Step: ' + $self.counter % 3, text: $self.tutorial[$self.counter % 3] })
-    }, 2000)
+      // $self.$notify({ group: 'egs', title: 'Step: ' + $self.counter % 3, text: $self.tutorial[$self.counter % 3] })
+    }, 20)
   },
   methods: {
-    paymentEvent: function (data) {
+    paymentEvent: function (event) {
+      const data = event.detail[0]
+      this.eventData += '<p><pre>' + JSON.stringify(data) + '</pre></p>'
       if (data.opcode === 'lsat-payment-confirmed') {
         console.log('settledInvoice= ', data.resource)
         this.$store.commit('addResource', this.productId)
@@ -65,10 +70,16 @@ export default {
         this.$router.push('/product/' + this.productId)
       } else if (data.opcode === 'payment-rates') {
         this.$emit('latestPaymentRates', data.resource)
+      } else if (data.opcode === 'lsat-payment-begun') {
+        this.$emit('latestPaymentRates', data.resource)
       }
     }
   },
   computed: {
+    sectionDimensions () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      return 'min-height: ' + height * 2 + 'px; width: auto;'
+    },
     content () {
       const content = this.$store.getters['contentStore/getProductPage']('lsat')
       if (content) {
@@ -82,6 +93,7 @@ export default {
       // const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       const lookAndFeel = {
         labels: {
+          orderMsg: 'Your order for \'Satoshi Jokes\' will be delivered once payment is received, with thanks.',
           title: 'Pay With',
           subtitle: 'LSAT Pay',
           card1Label: 'Select payment option',
@@ -163,4 +175,16 @@ export default {
 </script>
 
 <style scoped>
+p {
+  margin-bottom: 0px;
+  color: #000;
+  padding: 5px 0;
+  font-size: 1.0em;
+}
+.p-inverse {
+  margin-bottom: 0px;
+  color: #fff;
+  padding: 5px 0;
+  font-size: 1.0em;
+}
 </style>

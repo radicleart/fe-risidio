@@ -5,6 +5,7 @@
       <div class="mt-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
       <div class="">
         <p class="text-center blurb2 text-white">{{content.title1[0].text}}</p>
+        <p class="text-center"><button class="more-text"><a :href="demoLink()" class="text-info">Try the Demo</a></button></p>
       </div>
     </div>
   </div>
@@ -29,6 +30,18 @@ export default {
   props: ['viewportDimensions', 'content'],
   data () {
     return {
+    }
+  },
+  methods: {
+    demoLink () {
+      const productId = this.$route.params.productId
+      if (productId === 'lsat') {
+        return '/lsat-demo'
+      } else if (productId === 'loopbomb') {
+        return 'https://loopbomb.com'
+      } else {
+        return '/hubber'
+      }
     }
   },
   computed: {

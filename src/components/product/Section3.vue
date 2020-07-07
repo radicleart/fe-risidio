@@ -26,8 +26,6 @@ export default {
     }
   },
   methods: {
-  },
-  computed: {
     demoLink () {
       const productId = this.$route.params.productId
       if (productId === 'lsat') {
@@ -38,6 +36,8 @@ export default {
         return '/hubber'
       }
     }
+  },
+  computed: {
   }
 }
 </script>
