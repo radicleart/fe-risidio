@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       intro1: require('@/assets/img/Feynman.svg'),
-      intro2: require('@/assets/img/intro-hi-res.mp4'),
+      intro2: 'https://prismic-io.s3.amazonaws.com/risidio-journal/60b4d16b-c4f4-463e-9d4f-34baa93e2afa_intro-hi-res.mp4',
       iwords: {
         ione: {
           light: require('@/assets/img/xd/innovate2.png'),
@@ -73,5 +73,9 @@ img {
   color: #FFFFFF;
   text-transform: capitalize;
   opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  img { height: 80px; }
 }
 </style>
