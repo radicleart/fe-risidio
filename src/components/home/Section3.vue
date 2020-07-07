@@ -43,4 +43,18 @@ export default {
   }
 }
 
+@media only screen and (max-width: 499px) {
+  .quote {
+    font-size: 30px;
+    width: 90vw !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .quote {
+    font-size: 24px;
+    width: 90vw !important;
+  }
+}
+
 </style>

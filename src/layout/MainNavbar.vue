@@ -141,4 +141,9 @@ export default {
   height: 30px;
 }
 
+@media only screen and (max-width:768px) {
+  .text-info { width: 100px; }
+  img { height: 40px; }
+  .navbar-brand { padding-left: 1rem !important; margin-right: 0.5rem; }
+}
 </style>

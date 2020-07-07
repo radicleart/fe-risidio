@@ -114,9 +114,11 @@ export default {
   left: 0;
   min-width: 100%;
   z-index: -100;
+  overflow: hidden;
 }
 #app {
   z-index: -110;
+  overflow: hidden;
 }
 /* Add some content at the bottom of the video/page */
 .navbar {

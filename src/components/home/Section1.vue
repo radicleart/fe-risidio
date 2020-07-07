@@ -4,7 +4,7 @@
     <div class="d-flex align-items-center flex-column">
       <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
       <div class="mb-4"><h2 class="text-white">{{section.subtitle[0].text}}</h2></div>
-      <div class="mb-4 blurb1 text-white">
+      <div class="mb-4 blurb1 text-white textOnMobile">
         <p class="text-center text-large">{{section.description[0].text}}</p>
         <p class="text-center text-large">{{section.description[1].text}}</p>
       </div>
@@ -81,5 +81,20 @@ button:hover .call-button-text {
 }
 .button1:hover .call-button-text {
   color: #5FBDC1;
+}
+
+@media only screen and (max-width:768px) {
+  h2 { font-size: 32px; }
+}
+
+@media only screen and (max-width:600px) {
+  h2 { font-size: 24px; }
+  p { font-size: 12px; }
+  .textOnMobile { flex: 0 0 80%; max-width: 80%; }
+}
+
+@media only screen and (max-width:400px) {
+  h2 { font-size: 22px; }
+  .textOnMobile { flex: 0 0 70%; max-width: 70%; }
 }
 </style>
