@@ -2,7 +2,7 @@
 <div id="app" v-if="homepage">
   <div v-if="loading" :style="introScreen">&nbsp;</div>
   <div :key="componentKey" v-else>
-    <video v-if="homepage" autoplay muted loop id="myVideo" :style="sectionDimensions">
+    <video class="bg-black" v-if="homepage" autoplay muted loop id="myVideo" :style="sectionDimensions">
       <source :src="bgvideo" type="video/mp4">
     </video>
     <router-view class="navbar" name="header" @scrollMeTo="scrollMeTo($event)"/>
@@ -16,12 +16,11 @@
     <router-view class="main" id="nav"/>
     <router-view name="footer" />
   </div>
-  <notifications group="egs" ignoreDuplicates="true" type="info" duration="10" closeOnClick="true" position="top left" width="40%" />
+  <notifications group="egs" type="info" position="top left" width="40%" />
 </div>
 </template>
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
-import Vue from 'vue'
 
 export default {
   name: 'App',
@@ -37,11 +36,9 @@ export default {
     if (this.$route.name === 'home') {
       setTimeout(() => {
         this.loading = false
-        this.startVideo()
       }, 3000)
     } else {
       this.loading = false
-      this.startVideo()
     }
     let resizeTimer
     // eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -82,18 +79,6 @@ export default {
       const element = document.getElementById(data.refName)
       const top = element.offsetTop
       window.scrollTo(0, top)
-    },
-    startVideo () {
-      Vue.nextTick(function () {
-        const video = document.getElementById('myVideo')
-        if (video) {
-          if (video.paused) {
-            video.play()
-          } else {
-            video.pause()
-          }
-        }
-      }, this)
     }
   },
   computed: {
