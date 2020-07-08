@@ -9,13 +9,19 @@
         </div>
         <div class="text1 col-12 bg-white p-5">
           <div>
-            <p>1. Purchase is order sent to merchant</p>
+            <h4 class="text-left">LSAT Pay Tutorial...</h4>
+            <h5 class="text-left">A) Place Order...</h5>
+            <p>1. Purchase order is sent to merchant</p>
             <p>2. Merchant finds no valid payment token (LSAT) and does a POST redirect (307) to lsat server.</p>
             <p>3. Lsat server creates an invoice and send a 402 back to user browsers.</p>
             <p>4. Browser present the payment invoice to user.</p>
+            <h5 class="text-left">B) User Pays...</h5>
             <p>5. User pays with their lightning enabled wallet.</p>
             <p>6. Auth server watches for payment and sends the payment preimage back to the user.</p>
             <p>7. Client save the token in local storage and sends to merchant as proof of payment.</p>
+            <p>8. Client sends the token back to merchant to exchange for goods.</p>
+            <p>9. Merchants decodes token - checks preimage is present and verifies.</p>
+            <p>10. Merchants sends goods back to user.</p>
           </div>
         </div>
         <div class="p-inverse col-12 bg-black text-white p-5 border-top">
@@ -38,7 +44,7 @@ export default {
       paid: true,
       counter: 0,
       componentKey: 0,
-      eventData: null,
+      eventData: 'Starting demo...',
       message: '<h4>LSAT Pay tutorial...</h4>',
       tutorial: [
       ]
@@ -61,7 +67,7 @@ export default {
   methods: {
     paymentEvent: function (event) {
       const data = event.detail[0]
-      this.eventData += '<p><pre>' + JSON.stringify(data) + '</pre></p>'
+      this.eventData += '<p><pre class="p-inverse">' + JSON.stringify(data) + '</pre></p>'
       if (data.opcode === 'lsat-payment-confirmed') {
         console.log('settledInvoice= ', data.resource)
         this.$store.commit('addResource', this.productId)
@@ -93,11 +99,11 @@ export default {
       // const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       const lookAndFeel = {
         labels: {
-          orderMsg: 'Your order for \'Satoshi Jokes\' will be delivered once payment is received, with thanks.',
+          orderMsg: 'Place order for \'Satoshi Jokes\' select number required and pay.',
           title: 'Pay With',
           subtitle: 'LSAT Pay',
           card1Label: 'Select payment option',
-          card2Label1: 'Quantity required',
+          card2Label1: 'Number of jokes required?',
           card2Label2: 'Select operation',
           card2Label3: 'Make Payment',
           card2Label4: 'Open Channel',
@@ -132,6 +138,7 @@ export default {
       }
       const productOrder = {
         paymentId: myKey,
+        opcode: 'lsat-place-order',
         purchaseEndpoint: '/assets/buy-now',
         apiKey: 'demo-digital-01234',
         lookAndFeel: lookAndFeel,

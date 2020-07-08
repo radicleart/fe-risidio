@@ -16,7 +16,7 @@ printf "\n----------------------------------------------------------------------
 
 function __build() {
   pushd $BUILD_PATH
-  npm run build
+  npm run build-prod
   popd;
   echo "Initialisation of $BUILD_PATH complete";
 }
@@ -25,6 +25,10 @@ function __pushcode() {
   printf "\n- deploying from pipeline build \n";
   rsync -aP -e "ssh  -p 7019" $PATH_DEPLOY/* bob@$SERVER:/var/www/risidio
 }
+
+BUILD_PATH=../fe-lsat
+__build
+cp $BUILD_PATH/dist/lsat-entry.js $PATH_DEPLOY/.
 
 BUILD_PATH=./
 __build
