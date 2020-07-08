@@ -8,7 +8,7 @@
           <div class="ml-5"><img :height="iwordHeight" class="ml-5" :src="iwords.itwo.dark" @mouseover="hoverOver(iwords.itwo, $event)" @mouseout="hoverOut(iwords.itwo, $event)" /></div>
           <div class="ml-4"><img :height="iwordHeight" :src="iwords.ithree.dark" @mouseover="hoverOver(iwords.ithree, $event)" @mouseout="hoverOut(iwords.ithree, $event)" /></div>
         </div>
-        <div class="mt-5 tagline">Products and Services for Web 3.0</div>
+        <div class="mt-5 tagline">{{section.tagline[0].text}}</div>
       </div>
     </div>
   </div>
@@ -50,6 +50,10 @@ export default {
     }
   },
   computed: {
+    section () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      return content
+    },
     iwordHeight () {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return height * (110 / 769) + 'px'

@@ -1,9 +1,9 @@
 <template>
 <div v-if="content" class="bg-white">
-    <section0 :viewportDimensions="sectionDimensions" :content="content"/>
-    <section1 :viewportDimensions="sectionDimensions" :content="content"/>
-    <section2 :viewportDimensions="sectionDimensions" :content="content"/>
-    <section3 :viewportDimensions="sectionDimensions" :content="content"/>
+    <product-section0 :viewportDimensions="sectionDimensions" :content="content"/>
+    <product-section1 :viewportDimensions="sectionDimensions" :content="content"/>
+    <product-section2 :viewportDimensions="sectionDimensions" :content="content"/>
+    <product-section3 :viewportDimensions="sectionDimensions" :content="content"/>
     <section12 :viewportDimensions="sectionDimensions" :content="contentServices"/>
     <section8 :viewportDimensions="sectionDimensions"/>
 </div>
@@ -11,10 +11,10 @@
 
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
-import Section0 from '@/components/product/Section0'
-import Section1 from '@/components/product/Section1'
-import Section2 from '@/components/product/Section2'
-import Section3 from '@/components/product/Section3'
+import ProductSection0 from '@/components/product/ProductSection0'
+import ProductSection1 from '@/components/product/ProductSection1'
+import ProductSection2 from '@/components/product/ProductSection2'
+import ProductSection3 from '@/components/product/ProductSection3'
 import Section12 from '@/components/products/Section12'
 import Section8 from '@/components/home/Section8'
 export default {
@@ -25,10 +25,10 @@ export default {
     }
   },
   components: {
-    Section0,
-    Section1,
-    Section2,
-    Section3,
+    ProductSection0,
+    ProductSection1,
+    ProductSection2,
+    ProductSection3,
     Section12,
     Section8
   },

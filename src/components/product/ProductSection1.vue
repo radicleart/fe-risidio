@@ -9,8 +9,8 @@
         <div class="col-6">
           <h1 class="text-left">{{content.section1_title[0].text}}</h1>
           <div class="mt-5" v-for="(item, index) of content.section1" :key="index">
-            <h2 class="">{{item.tile[0].text}}</h2>
-            <p class="">{{item.description1[0].text}}</p>
+            <h2 class="" v-html="item.tile[0].text"></h2>
+            <p class="" v-html="item.description1[0].text"></p>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'Section1',
+  name: 'ProductSection1',
   props: ['viewportDimensions', 'content'],
   data () {
     return {
