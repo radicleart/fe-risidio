@@ -84,4 +84,15 @@ button:hover .call-button-text {
   .textOnMobile { flex: 0 0 80%; max-width: 80%; margin: 0 auto; }
 }
 
+@media only screen and (max-width:375px) {
+  h1 { font-size: 14px; }
+  h2 { font-size: 28px; }
+  .textOnMobile { flex: 0 0 70%; max-width: 70%; }
+}
+
+@media only screen and (max-width:320px) {
+  h2 { font-size: 26px; }
+  .textOnMobile { flex: 0 0 65%; max-width: 65%; }
+}
+
 </style>

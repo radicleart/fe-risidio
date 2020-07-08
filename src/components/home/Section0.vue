@@ -75,7 +75,16 @@ img {
   opacity: 1;
 }
 
-@media only screen and (max-width: 600px) {
-  img { height: 80px; }
+@media only screen and (max-width: 768px) {
+  img { height: 90px; }
+}
+
+@media only screen and (max-width: 575px) {
+  img { height: 70px; }
+}
+
+@media only screen and (max-width: 320px) {
+  img { height: 60px; }
+  .tagline { font-size: 16px; }
 }
 </style>

@@ -274,6 +274,21 @@ a:hover {
   opacity: 1;
 }
 
-.address p:first-of-type {
-  font-size: 11px !important;
+// FOOTER ON MOBILE
+@media only screen and (max-width: 515px) {
+  .footerContent h2 {
+    font-size: 13px !important;
+  }
+  .footerContent p {
+    font-size: 8px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .footerContent h2 {
+    font-size: 12px !important;
+  }
+  .footerContent p {
+    font-size: 7px !important;
+  }
 }

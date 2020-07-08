@@ -83,18 +83,22 @@ button:hover .call-button-text {
   color: #5FBDC1;
 }
 
-@media only screen and (max-width:768px) {
-  h2 { font-size: 32px; }
-}
-
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:580px) {
+  h1 { font-size: 14px; }
   h2 { font-size: 24px; }
   p { font-size: 12px; }
   .textOnMobile { flex: 0 0 80%; max-width: 80%; }
 }
 
-@media only screen and (max-width:400px) {
-  h2 { font-size: 22px; }
+@media only screen and (max-width:375px) {
+  h1 { font-size: 12px; }
+  h2 { font-size: 20px; }
   .textOnMobile { flex: 0 0 70%; max-width: 70%; }
 }
+
+@media only screen and (max-width:320px) {
+  h2 { font-size: 18px; }
+  .textOnMobile { flex: 0 0 60%; max-width: 60%; }
+}
+
 </style>

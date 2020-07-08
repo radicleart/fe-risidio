@@ -5,7 +5,7 @@
       <div class="col-md-4 d-none d-md-block" style="height: 240px;">
         <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" class="logoFooter"/></router-link>
       </div>
-      <div class="col-md-6 col-sm-12 offset-md-1">
+      <div class="col-md-6 col-sm-12 offset-md-1 footerContent">
         <div class="row text-left mt-5">
           <div class="col-3" v-html="getContent('sitemap')">
           </div>
@@ -13,7 +13,7 @@
           </div>
           <div class="col-3" v-html="getContent('joinus')">
           </div>
-          <div class="col-3 address" v-html="getContent('contact')">
+          <div class="col-3" v-html="getContent('contact')">
           </div>
         </div>
       </div>
