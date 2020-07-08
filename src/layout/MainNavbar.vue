@@ -1,15 +1,15 @@
 <template>
-<div class="d-flex justify-content-center">
-  <b-navbar type="" class="transparent p-0 my-nav" v-if="content" style="z-index: 2;">
+  <b-navbar toggleable="sm" type="dark" class="transparent p-0 my-nav" v-if="content" style="z-index: 2;">
     <b-navbar-brand href="#"><router-link to="/" class="pl-5 navbar-brand"><img :src="logo"/></router-link></b-navbar-brand>
+
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-    <b-collapse id="nav-collapse" is-nav class="">
+    <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <!--
         <b-nav-item><router-link class="text-white" to="/education">Education</router-link></b-nav-item>
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
-        <b-nav-item to="/products" class="nav-text">Products</b-nav-item>
+        <b-nav-item to="/products" class="nav-text text-white">Products</b-nav-item>
         <b-nav-item to="/blog" class="nav-text text-white">News</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
@@ -30,7 +30,6 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
-</div>
 </template>
 
 <script>
@@ -104,12 +103,11 @@ export default {
 </script>
 
 <style scoped>
-.text-white {
-  text-align: left;
-  font: Regular 11px/13px Montserrat;
-  letter-spacing: 0px;
+.text-white a.nav-link {
   color: #FFFFFF;
-  opacity: 1;
+}
+.text-white a.nav-link:hover {
+  color: #FFFFFF;
 }
 .join-us {
   width: 97px;
@@ -141,9 +139,27 @@ export default {
   height: 30px;
 }
 
-@media only screen and (max-width:768px) {
-  .text-info { width: 100px; }
-  img { height: 40px; }
-  .navbar-brand { padding-left: 1rem !important; margin-right: 0.5rem; }
+.navbar-toggler {
+  width: auto;
+  margin-right: 1rem;
+}
+
+.navbar-toggler:hover {
+  background-color: transparent;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 1.5rem;
+}
+
+@media only screen and (max-width: 575px) {
+  .navbar-brand a {
+    padding-right: 0;
+    padding-left: 1.5rem !important;
+  }
+  .navbar-brand img {
+    height: 45px;
+  }
 }
 </style>
