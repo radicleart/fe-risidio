@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import AboutUs from '../views/AboutUs.vue'
 import Home from '../views/Home.vue'
 import Page from '../views/Page.vue'
 import LsatDemo from '../views/LsatDemo.vue'
@@ -25,6 +26,11 @@ const routes: Array<RouteConfig> = [
     path: '/home',
     name: 'home',
     components: { default: Home, header: MainNavbar, footer: MainFooter }
+  },
+  {
+    path: '/aboutus',
+    name: 'aboutus',
+    components: { default: AboutUs, header: MainNavbar, footer: MainFooter }
   },
   {
     path: '/education',

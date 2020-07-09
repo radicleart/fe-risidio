@@ -3,6 +3,7 @@ const contentStore = {
   state: {
     content: {
       homepage: null,
+      aboutus: null,
       navigation: null,
       products: null,
       pages: null
@@ -16,12 +17,16 @@ const contentStore = {
     productIds: {
       loopbomb: 'XvthzhAAACYAeYsC',
       lsat: 'XvzS_BAAACUAf-p_',
-      hubber: 'Xvzg-RAAACYAgCBY'
+      nongibles: 'XvzS_BAAACUAf-p_',
+      ownai: 'Xvzg-RAAACYAgCBY'
     }
   },
   getters: {
     getHomepage: state => {
       return state.content.homepage
+    },
+    getAboutUs: state => {
+      return state.content.aboutus
     },
     getPages: state => {
       return state.content.pages
@@ -44,6 +49,9 @@ const contentStore = {
   mutations: {
     addHomeContent (state, o) {
       state.content.homepage = o
+    },
+    addAboutUsContent (state, o) {
+      state.content.aboutus = o
     },
     addNavigationContent (state, o) {
       state.content.navigation = o

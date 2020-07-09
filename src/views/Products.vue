@@ -1,5 +1,5 @@
 <template>
-<div v-if="content" class="bg-black">
+<div v-if="content" class="bg-black" :style="sectionDimensions">
     <section10 :viewportDimensions="sectionDimensions" :content="content"/>
     <section11 :viewportDimensions="sectionDimensions" :content="content"/>
     <section12 :viewportDimensions="sectionDimensions" :content="content"/>

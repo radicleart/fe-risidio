@@ -2,10 +2,10 @@
 <section id="section0" v-if="content.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center">
-      <div class="mt-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
+      <div class="mt-5"><h1 class="display-4 text-white">{{content.title[0].text}}</h1></div>
       <div class="">
         <p class="text-center blurb2 text-white">{{content.title1[0].text}}</p>
-        <p class="text-center"><button class="more-text"><a :href="demoLink()" class="text-info">Try the Demo</a></button></p>
+        <p v-if="hasDemoLink" class="text-center"><button class="more-text"><a :href="demoLink()" class="text-info">Try the Demo</a></button></p>
       </div>
     </div>
   </div>
@@ -13,8 +13,8 @@
     <div class="my-auto">
       <div class="mt-0"><h1 class="text-black">{{content.title2[0].text}}</h1></div>
       <div class="mx-auto my-4 w-75 text-center">
-        <p class="mb-4 text-center blurb2 text-black">{{content.description[0].text}}</p>
-        <p class="title3">{{content.title3[0].text}}</p>
+        <p class="mb-4 text-center blurb2 text-black" v-html="content.description[0].text"></p>
+        <p class="title3" v-html="content.title3[0].text"></p>
         <!-- <p class="text-center continue text-info"><i class="text-warning fa-1x fas fa-angle-down"></i></p> -->
       </div>
     </div>
@@ -26,7 +26,7 @@
 import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
-  name: 'Section0',
+  name: 'ProductSection0',
   props: ['viewportDimensions', 'content'],
   data () {
     return {
@@ -39,12 +39,21 @@ export default {
         return '/lsat-demo'
       } else if (productId === 'loopbomb') {
         return 'https://loopbomb.com'
+      } else if (productId === 'nongibles') {
+        return 'https://radicle.art'
       } else {
-        return '/hubber'
+        return '/ownai'
       }
     }
   },
   computed: {
+    hasDemoLink () {
+      const productId = this.$route.params.productId
+      if (productId === 'lsat' || productId === 'loopbomb' || productId === 'nongibles') {
+        return true
+      }
+      return false
+    },
     bannerImage () {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return {
@@ -73,6 +82,9 @@ export default {
 </script>
 
 <style scoped>
+.text-bigger {
+  font-size: 1.8rem;
+}
 .blurb1 {
   width: 450px;
   font-size: 14px;

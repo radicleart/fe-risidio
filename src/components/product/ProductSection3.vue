@@ -11,7 +11,7 @@
         </div>
       </div>
       </div>
-      <div><button class="more-text"><a :href="demoLink" class="text-info">{{content.section3_link[0].text}}</a></button></div>
+      <div v-if="hasDemoLink"><button class="more-text"><a :href="demoLink" class="text-info">{{content.section3_link[0].text}}</a></button></div>
     </div>
   </div>
 </section>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Section3',
+  name: 'ProductSection3',
   props: ['viewportDimensions', 'content'],
   data () {
     return {
@@ -32,12 +32,21 @@ export default {
         return '/lsat-demo'
       } else if (productId === 'loopbomb') {
         return 'https://loopbomb.com'
+      } else if (productId === 'nongibles') {
+        return 'https://radicle.art'
       } else {
-        return '/hubber'
+        return '/ownai'
       }
     }
   },
   computed: {
+    hasDemoLink () {
+      const productId = this.$route.params.productId
+      if (productId === 'lsat' || productId === 'loopbomb') {
+        return true
+      }
+      return false
+    }
   }
 }
 </script>
