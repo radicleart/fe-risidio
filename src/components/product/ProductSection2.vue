@@ -3,7 +3,7 @@
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto mx-auto w-75 text-center">
       <h2 class="text-center blurb2">{{content.section2[0].title4[0].text}}</h2>
-      <img :src="content.section2[0].image.url" />
+      <img width="80%" :src="content.section2[0].image.url" />
     </div>
   </div>
 </section>

@@ -7,7 +7,7 @@
         <div class="col-12">
           <lsat-entry :paymentConfig="configuration" @paymentEvent="paymentEvent"/>
         </div>
-        <div class="text1 col-12 bg-white p-5">
+        <div class="text1 col-6 bg-white p-5">
           <div>
             <h4 class="text-left">LSAT Pay Tutorial...</h4>
             <h5 class="text-left">A) Place Order...</h5>
@@ -24,7 +24,7 @@
             <p>10. Merchants sends goods back to user.</p>
           </div>
         </div>
-        <div class="p-inverse col-12 bg-black text-white p-5 border-top">
+        <div class="p-inverse col-6 bg-black text-white p-5 border-top">
           <div v-html="eventData"></div>
         </div>
       </div>
@@ -67,12 +67,12 @@ export default {
   methods: {
     paymentEvent: function (event) {
       const data = event.detail[0]
-      this.eventData += '<p><pre class="p-inverse">' + JSON.stringify(data) + '</pre></p>'
+      this.eventData += '<p><pre style="color: #fff;">' + JSON.stringify(data) + '</pre></p>'
       if (data.opcode === 'lsat-payment-confirmed') {
         console.log('settledInvoice= ', data.resource)
         this.$store.commit('addResource', this.productId)
         this.$router.push('/shipping/' + this.productId)
-      } else if (data.opcode === 'payment-expired') {
+      } else if (data.opcode === 'lsat-payment-expired') {
         this.$router.push('/product/' + this.productId)
       } else if (data.opcode === 'payment-rates') {
         this.$emit('latestPaymentRates', data.resource)

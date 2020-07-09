@@ -38,7 +38,7 @@
                 </vueper-slide>
               </vueper-slides>
               </div>
-              <div class="my-5 text-center"><button class="button1"><span class="call-button-text">All Products</span></button></div>
+              <div class="my-5 text-center"><button class="button1"><router-link to="/products" class="call-button-text">All Products</router-link></button></div>
             </div>
           </div>
       </div>
