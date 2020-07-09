@@ -89,6 +89,6 @@ img {
 
 @media only screen and (max-width: 320px) {
   img { height: 60px; }
-  .tagline { font-size: 16px; }
+  .tagline { font-size: 14px; }
 }
 </style>

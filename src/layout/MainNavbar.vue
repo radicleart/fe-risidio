@@ -1,5 +1,6 @@
 <template>
-  <b-navbar toggleable="sm" type="dark" class="transparent p-0 my-nav" v-if="content" style="z-index: 2;">
+<div class="d-flex justify-content-center">
+  <b-navbar toggleable="md" type="dark" class="transparent p-0 my-nav" v-if="content" style="z-index: 2;">
     <b-navbar-brand href="#"><router-link to="/" class="pl-5 navbar-brand"><img :src="logo"/></router-link></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -15,7 +16,7 @@
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
-        <b-nav-item class=""><button class="text-info" v-scroll-to="{ element: '#section6', duration: 2500 }"><a href="#" class="call-button-text">Join Us</a></button></b-nav-item>
+        <b-nav-item class="joinUsButton"><button class="text-info" v-scroll-to="{ element: '#section6', duration: 2500 }"><a href="#" class="call-button-text">Join Us</a></button></b-nav-item>
         <!-- <lsat-entry :configuration="configuration" style="text-decoration: none;"/> -->
         <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
           <template v-slot:button-content>
@@ -31,6 +32,7 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
+</div>
 </template>
 
 <script>
@@ -142,7 +144,7 @@ export default {
 
 .navbar-toggler {
   width: auto;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
 }
 
 .navbar-toggler:hover {
@@ -150,11 +152,23 @@ export default {
 }
 
 .navbar-nav .nav-link {
-    padding-right: 0;
-    padding-left: 1.5rem;
+    padding-left: 0;
+    padding-right: 1.5rem;
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 767px) {
+  .navbar-nav {
+    align-items: flex-end;
+    margin-right: 0 !important;
+  }
+  .navbar-nav  {
+    align-items: flex-end;
+  }
+  .navbar-nav .joinUsButton button {
+    background-color: transparent;
+    width: auto;
+    padding: 0;
+  }
   .navbar-brand a {
     padding-right: 0;
     padding-left: 1.5rem !important;

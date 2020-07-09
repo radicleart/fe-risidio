@@ -3,7 +3,7 @@
       <div class="pt-3">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto">
-              <div class="mb-5"><h1 class="text-white">{{content.products_title[0].text}}</h1></div>
+              <div class="mb-5 textOnMobile"><h1 class="text-white">{{content.products_title[0].text}}</h1></div>
               <div class="mx-5">
                 <vueper-slides style="width: 70vw; "
                 class="no-shadow"
@@ -24,10 +24,10 @@
                 </template>
                 <vueper-slide v-for="(item, index) of content.products" :key="index">
                   <template v-slot:content>
-                    <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-start mobileView">
                       <img class="pl-5" width="50%" :src="item.image.url" :alt="item.image.alt"/>
-                      <div class="pl-4 d-flex align-items-start flex-column">
-                        <h2 class="text-white responsive-view">{{item.title[0].text}}</h2>
+                      <div class="pl-4 d-flex align-items-start flex-column mobileViewText">
+                        <h2 class="text-white">{{item.title[0].text}}</h2>
                         <div class="mb-0" v-for="(pitem, index2) of item.description" :key="index2">
                           <div v-if="pitem.type === 'paragraph'" class=""><p class="mb-3 text-white" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
                         </div>
@@ -38,7 +38,7 @@
                 </vueper-slide>
               </vueper-slides>
               </div>
-              <div class="my-5 text-center"><button class="button1"><router-link to="/products" class="call-button-text">All Products</router-link></button></div>
+              <div class="my-5 text-center buttonUnderSlider"><button class="button1"><router-link to="/products" class="call-button-text">All Products</router-link></button></div>
             </div>
           </div>
       </div>
@@ -63,7 +63,8 @@ export default {
         },
         1050: {
           visibleSlides: 1,
-          arrows: false
+          arrows: false,
+          bullets: true
         },
         768: {
           visibleSlides: 1,
@@ -118,7 +119,7 @@ export default {
   bottom: 50px;
 }
 
-.section-2 .vueperslides__bullets {
+.section-2 .vueperslides__bullets.vueperslides__bullets--outside {
   bottom: 0;
 }
 
@@ -134,8 +135,25 @@ export default {
   color: #E9493D;
 }
 
-@media only screen and (max-width: 768px) {
-  .responsive-view { font-size: 26px; }
+@media only screen and (max-width: 1050px) and (min-width: 769px) {
+  .vueperslides__bullets.vueperslides__bullets--outside { bottom: 0px; }
+  .buttonUnderSlider { padding-top: 4rem !important; }
 }
 
+@media only screen and (max-width: 768px) {
+  .mobileView h2 { font-size: 26px; }
+  .vueperslides__bullets.vueperslides__bullets--outside { bottom: 50px; }
+}
+
+@media only screen and (max-width:414px) {
+  .mobileView h2 { font-size: 20px; }
+  .mobileView p { font-size: 11px; }
+  .mobileView img { padding-left: 0 !important; }
+  .mobileView .mobileViewText { padding-left: 1rem !important; }
+}
+
+@media only screen and (max-width:320px) {
+  .mobileView h2 { font-size: 16px; }
+  .mobileView p { font-size: 10px; }
+}
 </style>

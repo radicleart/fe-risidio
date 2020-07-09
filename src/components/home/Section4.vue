@@ -82,16 +82,20 @@ export default {
   .mobileView { padding:0 2rem !important; }
 }
 
+@media only screen and (max-width: 767px) {
+  p { margin-bottom: 2rem !important; }
+}
+
 @media only screen and (max-width: 375px) {
-  h1 { font-size: 15px; }
+  h1 { font-size: 14px; }
   h2 { font-size: 30px; }
   .whatsit img { height: 60px; }
+  p { font-size: 12px; }
   .whatsit { height: 61px; width: 61px; }
 }
 
 @media only screen and (max-width: 320px) {
-  h1 { font-size: 14px; }
-  h2 { font-size: 28px; }
+  h2 { font-size: 22px; }
   .mobileView { padding:0 2rem !important; }
 }
 

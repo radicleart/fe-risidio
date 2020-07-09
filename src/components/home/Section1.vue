@@ -1,7 +1,7 @@
 <template>
 <section id="section0">
   <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="d-flex align-items-center flex-column">
+    <div class="d-flex align-items-center flex-column textOnMobile">
       <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
       <div class="mb-4"><h2 class="text-white">{{section.subtitle[0].text}}</h2></div>
       <div class="mb-4 blurb1 text-white textOnMobile">
@@ -83,22 +83,7 @@ button:hover .call-button-text {
   color: #5FBDC1;
 }
 
-@media only screen and (max-width:580px) {
-  h1 { font-size: 14px; }
-  h2 { font-size: 24px; }
-  p { font-size: 12px; }
-  .textOnMobile { flex: 0 0 80%; max-width: 80%; }
+@media only screen and (max-width:600px) and (min-width:415px) {
+  h2 { font-size: 28px;}
 }
-
-@media only screen and (max-width:375px) {
-  h1 { font-size: 12px; }
-  h2 { font-size: 20px; }
-  .textOnMobile { flex: 0 0 70%; max-width: 70%; }
-}
-
-@media only screen and (max-width:320px) {
-  h2 { font-size: 18px; }
-  .textOnMobile { flex: 0 0 60%; max-width: 60%; }
-}
-
 </style>

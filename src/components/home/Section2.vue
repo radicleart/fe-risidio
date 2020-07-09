@@ -2,8 +2,10 @@
   <section class="bg-white section-2">
     <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="my-auto text-center">
+        <div class="textOnMobile">
         <h1 class="text-black mb-4">{{content.section2_title[0].text}}</h1>
         <h2 class="text-black mb-5">{{content.section2_message[0].text}}</h2>
+        </div>
         <vueper-slides
           class="no-shadow " style="width: 80vw; margin: 0 auto;"
           :bullets-outside=true
@@ -78,4 +80,20 @@ export default {
     margin-left: 6em;
 }
 
+@media only screen and (max-width:414px) {
+  h3 { font-size: 15px; }
+  p { font-size: 10px; }
+}
+
+@media only screen and (max-width:375px) {
+  h3 { font-size: 14px; }
+  p { font-size: 9.5px; }
+  img { height: 120px; }
+}
+
+@media only screen and (max-width:320px) {
+  h3 { font-size: 12px; }
+  p { font-size: 9px; }
+  img { height: 100px; }
+}
 </style>

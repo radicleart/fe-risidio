@@ -2,9 +2,9 @@
     <section id="contactSection">
       <div class="mx-5 px-5 d-flex align-items-center flex-column" :style="viewportDimensions">
         <div class="my-auto text-center text-white">
-          <div class="my-4"><h1 class="text-white">{{content.contact_title[0].text}}</h1></div>
-          <div class="mb-3"><h2 class="text-white">{{content.contact_subtitle[0].text}}</h2></div>
-          <div class="mb-4 blurb"><span>{{content.contact_description[0].text}}</span></div>
+          <div class="my-4 textOnMobile"><h1 class="text-white">{{content.contact_title[0].text}}</h1></div>
+          <div class="mb-3 textOnMobile"><h2 class="text-white">{{content.contact_subtitle[0].text}}</h2></div>
+          <div class="mb-4 blurb textOnMobile"><span>{{content.contact_description[0].text}}</span></div>
           <div class="m-5 d-flex justify-content-center">
             <a title="join us on discord" class="mr-4" :href="content.contact_discord_link[0].text"><img :src="social.discord.dark" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
             <a title="send an email" :href="'mailTo:' + content.contact_email_address[0].text"><img :src="social.mail.dark" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
@@ -87,4 +87,25 @@ img {
 .blurb {
   width: 256px;
 }
+
+@media only screen and (max-width:414px) {
+  .textOnMobile span { font-size: 12px; }
+  img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media only screen and (max-width:320px) {
+  .textOnMobile span { font-size: 10px; }
+  img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .textOnMobile { flex: 0 0 100%; max-width: 100%; }
+}
+
 </style>

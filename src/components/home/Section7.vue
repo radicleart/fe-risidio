@@ -3,7 +3,7 @@
       <div class="">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto text-center">
-              <div class="my-4 mb-5"><h1 class="text-black">{{content.posts_title[0].text}}</h1></div>
+              <div class="my-4 mb-5 textOnMobile"><h1 class="text-black">{{content.posts_title[0].text}}</h1></div>
               <vueper-slides style="width: 70vw;"
                 class="no-shadow"
                 fixed-height="400px"
@@ -24,7 +24,7 @@
                 <vueper-slide v-for="(item, index) of content.posts" :key="index" style="font-size: 0.8em; min-width: 300px;">
                   <template v-slot:content>
                     <div class="text-left">
-                      <div class="d-flex align-items-start flex-column responsive-view" style="min-height: 280px; width: 280px">
+                      <div class="d-flex align-items-start flex-column mobileView" style="min-height: 280px; width: 280px">
                         <img width="280px" height="200px" :src="item.image.url" :alt="item.image.alt" class="image" />
                         <h3 class="text-black"><router-link to="/blog" class="text-danger">{{item.date}}</router-link></h3>
                         <h2 class="text-black"><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
@@ -61,7 +61,8 @@ export default {
         850: {
           visibleSlides: 1,
           arrows: false,
-          bullets: true
+          bullets: true,
+          slideRatio: 1 / 2
         }
       }
     }
@@ -108,6 +109,20 @@ p {
 }
 
 @media only screen and (max-width: 850px) {
-  .responsive-view { margin: 0 auto; }
+  .mobileView { margin: 0 auto; }
+}
+
+@media only screen and (max-width:414px) {
+  .vueperslides { width: 80vw !important; }
+  .section-7 { min-height: 600px; }
+}
+
+@media only screen and (max-width:360px) {
+  .vueperslides { width: 85vw !important; }
+}
+
+@media only screen and (max-width:320px) {
+  .vueperslides { width: 95vw !important; }
+  .mobileView p { font-size: 10px !important; }
 }
 </style>
