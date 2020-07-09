@@ -127,7 +127,7 @@ export default {
   color: #F9B807;
 }
 
-.section-7 .vueperslides__bullets {
+.section-7 .vueperslides__bullets.vueperslides__bullets--outside {
   bottom: 0;
 }
 
