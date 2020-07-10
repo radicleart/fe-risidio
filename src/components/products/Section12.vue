@@ -2,8 +2,8 @@
 <section class="bg-lighter" v-if="content" :style="viewportDimensions">
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center">
-      <div class="mt-3 mb-5"><h1 class="text-black">{{content.section2_title[0].text}}</h1></div>
-      <div class="mx-auto text-black w-50" v-for="(item, index) of content.group2" :key="index">
+      <div class="mb-5"><h1 class="text-black">{{content.section2_title[0].text}}</h1></div>
+      <div class="mb-5 mx-auto text-black w-50" v-for="(item, index) of content.group2" :key="index">
         <h2 class="text-center blurb2">{{item.title[0].text}}</h2>
         <p class="text-center blurb2">{{item.description[0].text}}</p>
       </div>

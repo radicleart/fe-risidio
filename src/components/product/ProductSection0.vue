@@ -5,7 +5,7 @@
       <div class="mt-5"><h1 class="display-4 text-white">{{content.title[0].text}}</h1></div>
       <div class="">
         <p class="text-center blurb2 text-white">{{content.title1[0].text}}</p>
-        <p v-if="hasDemoLink" class="text-center"><button class="more-text"><a :href="demoLink()" class="text-info">Try the Demo</a></button></p>
+        <p v-if="hasDemoLink" class="text-center"><button class="more-text"><a :href="demoLink()" class="text-info">{{demoText()}}</a></button></p>
       </div>
     </div>
   </div>
@@ -41,15 +41,27 @@ export default {
         return 'https://loopbomb.com'
       } else if (productId === 'nongibles') {
         return 'https://radicle.art'
+      } else if (productId === 'dsearch') {
+        return 'https://github.com/radicleart/brightblock-search'
+      } else if (productId === 'hubber') {
+        return 'https://github.com/radicleart/brightblock-gaia'
       } else {
         return '/ownai'
+      }
+    },
+    demoText () {
+      const productId = this.$route.params.productId
+      if (productId === 'dsearch' || productId === 'hubber') {
+        return 'Find Us On Github'
+      } else {
+        return 'Try The Demo'
       }
     }
   },
   computed: {
     hasDemoLink () {
       const productId = this.$route.params.productId
-      if (productId === 'lsat' || productId === 'loopbomb' || productId === 'nongibles') {
+      if (productId === 'lsat' || productId === 'loopbomb' || productId === 'nongibles' || productId === 'dsearch') {
         return true
       }
       return false

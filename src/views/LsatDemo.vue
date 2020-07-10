@@ -1,14 +1,42 @@
 <template>
 <div v-if="content">
-<section id="section0" v-if="content.banner" :style="sectionDimensions">
-  <div :style="bannerImage" class="d-flex align-items-center flex-column">
+<section :style="bannerImage" id="section0" v-if="content.banner">
+  <div class="d-flex align-items-center flex-column">
     <div class="my-auto">
-      <div class="row">
-        <div class="col-12">
+      <div class="d-flex justify-content-center mt-5 mb-4">
+        <div v-if="demoMode">
           <lsat-entry :paymentConfig="configuration" @paymentEvent="paymentEvent"/>
         </div>
-        <div class="text1 col-6 bg-white p-5">
-          <div>
+        <div class="bg-light text-black p-4" v-else>
+          <p>Payment received with thanks - here are you're Satoshi jokes</p>
+          <h4>Joke 1</h4>
+          <ul>
+            <li>Knock knock</li>
+            <li>Who's there?</li>
+            <li>Satoshi</li>
+            <li @click="j1 = !j1" class="text-success underline"><a href="#">click to reveal</a></li>
+            <li v-if="j1">Satoshi who?</li>
+          </ul>
+          <h4>Joke 2</h4>
+          <ul>
+            <li>What do you call a man in a pile of leaves?</li>
+            <li @click="j2 = !j2" class="text-success underline"><a href="#">click to reveal</a></li>
+            <li v-if="j2">Russell!</li>
+          </ul>
+          <h4>Bonus Joke</h4>
+          <ul>
+            <li>What do you call a woman with a plate of eggs, beans and chips on her head?</li>
+            <li @click="j3 = !j3" class="text-success underline"><a href="#">click to reveal</a></li>
+            <li v-if="j3">Cath!</li>
+          </ul>
+          <h4>Start Over</h4>
+          <ul>
+            <li @click="demoMode = !demoMode" class="text-success underline"><a href="#">click to go again</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div class="scrolls w-50 bg-white text-black p-5 mx-4" style="">
             <h4 class="text-left">LSAT Pay Tutorial...</h4>
             <h5 class="text-left">A) Place Order...</h5>
             <p>1. Purchase order is sent to merchant</p>
@@ -22,9 +50,8 @@
             <p>8. Client sends the token back to merchant to exchange for goods.</p>
             <p>9. Merchants decodes token - checks preimage is present and verifies.</p>
             <p>10. Merchants sends goods back to user.</p>
-          </div>
         </div>
-        <div class="p-inverse col-6 bg-black text-white p-5 border-top">
+        <div class="scrolls w-50 bg-black text-white p-5 border-top">
           <div v-html="eventData"></div>
         </div>
       </div>
@@ -40,6 +67,10 @@ export default {
   name: 'LsatDemo',
   data () {
     return {
+      demoMode: true,
+      j1: false,
+      j2: false,
+      j3: false,
       productId: null,
       paid: true,
       counter: 0,
@@ -66,18 +97,10 @@ export default {
   },
   methods: {
     paymentEvent: function (event) {
-      const data = event.detail[0]
-      this.eventData += '<p><pre style="color: #fff;">' + JSON.stringify(data) + '</pre></p>'
-      if (data.opcode === 'lsat-payment-confirmed') {
-        console.log('settledInvoice= ', data.resource)
-        this.$store.commit('addResource', this.productId)
-        this.$router.push('/shipping/' + this.productId)
-      } else if (data.opcode === 'lsat-payment-expired') {
-        this.$router.push('/product/' + this.productId)
-      } else if (data.opcode === 'payment-rates') {
-        this.$emit('latestPaymentRates', data.resource)
-      } else if (data.opcode === 'lsat-payment-begun') {
-        this.$emit('latestPaymentRates', data.resource)
+      const paymentData = event.detail[0]
+      this.eventData += '<p><pre style="color: #fff;">' + JSON.stringify(paymentData) + '</pre></p>'
+      if (paymentData.opcode === 'lsat-payment-confirmed') {
+        this.demoMode = false
       }
     }
   },
@@ -133,7 +156,7 @@ export default {
           '-o-background-size': 'cover',
           'background-size': 'cover',
           'background-color': '#fff',
-          opacity: 1
+          opacity: 0.9
         }
       }
       const productOrder = {
@@ -162,7 +185,7 @@ export default {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return {
         padding: '40px 0 0 0',
-        height: height + 'px',
+        height: height * 2 + 'px',
         width: '100%',
         position: 'relative',
         top: '0px',
@@ -182,11 +205,22 @@ export default {
 </script>
 
 <style scoped>
+.scrolls {
+    max-width: 950px;
+    overflow: hidden;
+}
+
+h4 {
+  text-align: left;
+}
 p {
   margin-bottom: 0px;
   color: #000;
   padding: 5px 0;
   font-size: 1.0em;
+}
+li {
+  list-style: none;
 }
 .p-inverse {
   margin-bottom: 0px;

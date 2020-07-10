@@ -34,6 +34,10 @@ export default {
         return 'https://loopbomb.com'
       } else if (productId === 'nongibles') {
         return 'https://radicle.art'
+      } else if (productId === 'dsearch') {
+        return 'https://github.com/radicleart/brightblock-search'
+      } else if (productId === 'hubber') {
+        return 'https://github.com/radicleart/brightblock-gaia'
       } else {
         return '/ownai'
       }
