@@ -17,7 +17,9 @@ const contentStore = {
     productIds: {
       loopbomb: 'XvthzhAAACYAeYsC',
       lsat: 'XvzS_BAAACUAf-p_',
-      nongibles: 'XvzS_BAAACUAf-p_',
+      dsearch: 'XwWsMBEAACIAXzGC',
+      hubber: 'XwdBhREAACIAZjWH',
+      nongibles: 'XwXHAREAACMAX6m8',
       ownai: 'Xvzg-RAAACYAgCBY'
     }
   },
