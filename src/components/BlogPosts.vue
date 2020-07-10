@@ -5,12 +5,12 @@
     <!-- Template for blog posts -->
     <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
       <router-link :to="linkResolver(post)">
-        <h2>{{ $prismic.richTextAsPlain(post.data.title) }}</h2>
         <div class="d-flex justify-content-between">
-          <p class="blog-post-meta"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
-          <p class="blog-post-meta"><span class="author small">{{ getTags(post) }}</span></p>
+          <p class="blog-post-meta text-danger"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
+          <p class="blog-post-meta text-danger"><span class="author small">{{ getTags(post) }}</span></p>
         </div>
-        <div>
+        <h2>{{ $prismic.richTextAsPlain(post.data.title) }}</h2>
+        <div class="paragraph">
           <p>{{getFirstParagraph(post)}}</p>
         </div>
       </router-link>
@@ -96,26 +96,42 @@ export default {
 
 <style scoped>
 .blog-main {
-  max-width: 700px;
+  max-width: 1100px;
   margin: auto;
+  padding: 0 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 .blog-post {
+  max-width: 280px;
   margin-bottom: 3rem;
 }
 .blog-post h2 {
-  margin: 0;
+  font-size: 14px;
+  margin: 0 0 8px;
+  color: #000;
+  font-weight: 800;
 }
 .blog-post-meta {
-  color: #9A9A9A;
   font-family: 'Lato', sans-serif;
-  margin-bottom: 8px;
-  font-size: 16px;
+  margin: 20px 0 8px;
+  font-size: 10px;
+}
+.paragraph {
+  color: #000;
 }
 /* Media Queries */
-@media (max-width: 767px) {
+@media (max-width: 716px) {
   .blog-main {
-    padding: 0 20px;
-    font-size: 18px;
+    justify-content: center;
+  }
+}
+@media (max-width: 500px) {
+  .blog-main {
+    padding: 0;
   }
 }
 </style>
