@@ -7,12 +7,12 @@
         <h2 class="text-black mb-5">{{content.section2_message[0].text}}</h2>
         </div>
         <vueper-slides
-          class="no-shadow " style="width: 80vw; margin: 0 auto;"
+          class="no-shadow " style="width: 70vw; margin: 0 auto;"
           :bullets-outside=true
           :bullets=false
           :visible-slides="2"
           :gap="1"
-          fixed-height="150px"
+          fixed-height="250px"
           :slide-ratio="1 / 6"
           :dragging-distance="150"
           :breakpoints="{ 1080: { visibleSlides: 1, slideMultiple: 1 }, 800: { visibleSlides: 1, slideMultiple: 1, arrows: false, bullets: true } }">
@@ -20,15 +20,16 @@
             <div class="shifter"><i class="text-warning fa-1x fas fa-angle-left"></i></div>
           </template>
           <template v-slot:arrow-right>
+            <!-- <img :src="leftArrow"/> -->
             <div class="shifter right-shifter"><i class="text-warning fa-1x fas fa-angle-right"></i></div>
           </template>
           <vueper-slide v-for="(item, index) of content.images" :key="index" style="height: 500px;">
             <template v-slot:content style="height: 500px;">
               <div class="row p-0">
-                <div class="col-6">
-                  <img height="130px" :src="item.image.url" :alt="item.image.alt" class="image" />
+                <div class="col-4">
+                  <img width="95%" height="130px" :src="item.image.url" :alt="item.image.alt" class="image" />
                 </div>
-                <div class="text-left col-5">
+                <div class="text-left col-6">
                   <h3 class="text-black">{{item.section_title[0].text}}</h3>
                   <div v-for="(pitem, index2) of item.image_text" :key="index2">
                     <div v-if="pitem.type === 'paragraph'" class=""><p class="text-black mb-3" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
@@ -56,6 +57,7 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
+      leftArrow: require('@/assets/img/Group 990/Group 990.png')
     }
   },
   computed: {
@@ -68,6 +70,16 @@ export default {
 </script>
 
 <style scoped>
+button:focus {
+  outline: none;
+}
+button:active {
+  outline: none;
+}
+
+.vueperslides__arrow--prev {
+  left: -50px;
+}
 .shifter {
   color: #5FBDC1;
   border: 1pt solid #F9B807;

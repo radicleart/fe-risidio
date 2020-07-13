@@ -226,6 +226,9 @@ button:hover {
 .vueperslides__arrows button:hover {
   background: transparent;
 }
+.vueperslides__arrow--prev {
+  left: -6em !important;
+}
 a {
   text-decoration: none;
 }
