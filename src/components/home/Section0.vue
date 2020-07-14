@@ -75,7 +75,6 @@ img {
   font-weight: 300;
   letter-spacing: 0px;
   color: #FFFFFF;
-  text-transform: capitalize;
   opacity: 1;
 }
 

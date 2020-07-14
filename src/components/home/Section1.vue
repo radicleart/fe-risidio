@@ -4,9 +4,8 @@
     <div class="d-flex align-items-center flex-column textOnMobile">
       <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
       <div class="mb-4"><h2 class="text-white">{{section.subtitle[0].text}}</h2></div>
-      <div class="mb-4 blurb1 text-white textOnMobile">
-        <p class="text-center text-large">{{section.description[0].text}}</p>
-        <p class="text-center text-large">{{section.description[1].text}}</p>
+      <div class="mb-4 blurb1 text-white textOnMobile"  v-for="(item, index) of section.description" :key="index">
+        <p class="text-center text-large">{{item.text}}</p>
       </div>
       <div class="d-flex justify-content-center">
         <div class="mt-5 mr-4"><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
@@ -42,7 +41,7 @@ img {
 }
 */
 .blurb1 {
-  width: 450px;
+  width: 50%;
   font-size: 14px;
 }
 button {
