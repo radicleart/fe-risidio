@@ -1,7 +1,8 @@
 <template>
 <section>
+  <div class="filters"><a href="#">All</a><a href="#">Art</a><a href="#">Bitcoin</a><a href="#">Lightning</a><a href="#">Web 3.0</a></div>
   <!-- Check blog posts exist -->
-  <div v-if="posts.length !== 0" class="blog-main">
+  <div v-if="posts.length !== 0" class="blog-main mt-5">
     <!-- Template for blog posts -->
     <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
       <router-link :to="linkResolver(post)">
@@ -110,7 +111,7 @@ export default {
   margin-bottom: 3rem;
 }
 .blog-post h2 {
-  font-size: 14px;
+  font-size: 18px;
   margin: 0 0 8px;
   color: #000;
   font-weight: 800;
@@ -122,6 +123,23 @@ export default {
 }
 .paragraph {
   color: #000;
+}
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  background-color: #000;
+  border-top: solid 0.5px rgba(255, 255, 255, 0.3);
+}
+.filters a {
+  margin: 0 15px;
+  font-size: 14px;
+  color: #fff;
+}
+.filters a:hover{
+  font-weight: bold;
 }
 /* Media Queries */
 @media (max-width: 716px) {

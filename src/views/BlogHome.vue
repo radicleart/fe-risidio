@@ -7,7 +7,7 @@
       <h2 class="mb-5 text-white">{{content.page_title[0].text}}</h2>
     </div>
   </div>
-  <div v-if="hasContent" class="mt-5 page">
+  <div v-if="hasContent" class="page">
     <!-- Vue reference for blog posts component -->
     <blog-posts/>
   </div>
