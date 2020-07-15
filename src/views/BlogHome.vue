@@ -1,10 +1,10 @@
 <template>
 <section v-if="content" class="bg-white" :sectionDimensions="sectionDimensions">
   <!-- Vue conditional to check if there is any content in document -->
-  <div :style="bannerImage" class="d-flex align-items-center flex-column">
+  <div :style="bannerImage" class="d-flex align-items-center flex-column sectionOne">
     <div class="my-auto text-center">
       <h1 class="mb-5 text-white">{{content.page_text[0].text}}</h1>
-      <h2 class="mb-5 text-white">{{content.page_title[0].text}}</h2>
+      <h2 class="text-white">{{content.page_title[0].text}}</h2>
     </div>
   </div>
   <div v-if="hasContent" class="page">
@@ -46,7 +46,7 @@ export default {
       const content = this.$store.getters['contentStore/getPage']('bloghome')
       return {
         padding: '40px 0 0 0',
-        height: height / 3 + 'px',
+        height: '300px',
         width: '100%',
         position: 'relative',
         top: '0px',
@@ -139,6 +139,26 @@ a:hover {
 @media (max-width: 767px) {
   .home {
     padding: 0 20px;
+  }
+}
+@media (max-width: 414px) {
+  h1 {
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 28px;
+    margin-bottom: 0 !important;
+  }
+}
+@media (max-width: 320px) {
+  h1 {
+    font-size: 13px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  .sectionOne {
+    height: 320px !important;
   }
 }
 </style>

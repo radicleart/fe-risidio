@@ -1,11 +1,31 @@
 <template>
 <section>
-  <div class="filters"><a href="#">All</a><a href="#">Art</a><a href="#">Bitcoin</a><a href="#">Lightning</a><a href="#">Web 3.0</a></div>
+  <div class="filters">
+    <button @click="getPosts(), activate(1)" :class="{ active : activeEl == 1 }">
+      All
+    </button>
+    <button @click="getPostsByTag('blockstack'), activate(2)" :class="{ active : activeEl == 2 }">
+      Blockstack
+    </button>
+    <button @click="getPostsByTag('lightning'), activate(3)" :class="{ active : activeEl == 3 }">
+      Lightning
+    </button>
+    <button @click="getPostsByTag('web3'), activate(4)" :class="{ active : activeEl == 4 }">
+      Web 3.0
+    </button>
+    <button @click="getPostsByTag('technical'), activate(5)" :class="{ active : activeEl == 5 }">
+      Technical
+    </button>
+  </div>
   <!-- Check blog posts exist -->
-  <div v-if="posts.length !== 0" class="blog-main mt-5">
+  <div v-if="posts.length !== 0" class="blog-main mt-5 pb-5">
     <!-- Template for blog posts -->
     <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
       <router-link :to="linkResolver(post)">
+        <div class="imgContainer">
+          <img width="280px" height="200px" :src="getImg(post)"/>
+          <div class="overlay">Read More</div>
+        </div>
         <div class="d-flex justify-content-between">
           <p class="blog-post-meta text-danger"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
           <p class="blog-post-meta text-danger"><span class="author small">{{ getTags(post) }}</span></p>
@@ -31,7 +51,8 @@ export default {
     return {
       posts: [],
       dateOptions: { year: 'numeric', month: 'short', day: '2-digit' },
-      linkResolver: this.$prismic.linkResolver
+      linkResolver: this.$prismic.linkResolver,
+      activeEl: 1
     }
   },
   methods: {
@@ -39,6 +60,15 @@ export default {
       // Query to get blog posts
       this.$prismic.client.query(
         this.$prismic.Predicates.at('document.type', 'post'),
+        { orderings: '[my.post.date desc]' }
+      ).then((response) => {
+        this.posts = response.results
+      })
+    },
+    getPostsByTag (tag) {
+      // Query to get blog posts by tag
+      this.$prismic.client.query(
+        this.$prismic.Predicates.at('document.tags', [tag]),
         { orderings: '[my.post.date desc]' }
       ).then((response) => {
         this.posts = response.results
@@ -55,6 +85,15 @@ export default {
       if (post && post.tags && post.tags.length > 0) {
         return '[ ' + post.tags.join(', ') + ' ]'
       }
+    },
+    getImg (post) {
+      // Query to get blog posts
+      if (post.data && post.data.blog_home_image.url.length > 0) {
+        return post.data.blog_home_image.url
+      }
+    },
+    activate (el) {
+      this.activeEl = el
     },
     // Function to get the first paragraph of text in a blog post and limit the displayed text at 300 characters
     getFirstParagraph (post) {
@@ -97,18 +136,17 @@ export default {
 
 <style scoped>
 .blog-main {
-  max-width: 1100px;
+  max-width: 1080px;
   margin: auto;
-  padding: 0 70px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  padding: 0 60px;
+  display: grid;
+  grid-template-rows: repeat(2, max-content);
+  grid-template-columns: repeat(auto-fill, minmax(280px, max-content));
+  grid-gap: 60px;
+  justify-content: center;
 }
 .blog-post {
   max-width: 280px;
-  margin-bottom: 3rem;
 }
 .blog-post h2 {
   font-size: 18px;
@@ -133,23 +171,74 @@ export default {
   background-color: #000;
   border-top: solid 0.5px rgba(255, 255, 255, 0.3);
 }
-.filters a {
+.filters button {
   margin: 0 15px;
   font-size: 14px;
   color: #fff;
+  background-color: transparent;
+  width: auto;
+  padding: 0;
 }
-.filters a:hover{
+.filters button:focus {
+  outline: none;
+}
+.active {
   font-weight: bold;
 }
-/* Media Queries */
-@media (max-width: 716px) {
-  .blog-main {
-    justify-content: center;
-  }
+.imgContainer {
+  position: relative;
+  width: 100%;
 }
-@media (max-width: 500px) {
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: bold;
+  transition: .5s ease;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.imgContainer .overlay:hover {
+  opacity: 1;
+}
+/* Media Queries */
+@media (max-width: 600px) {
   .blog-main {
     padding: 0;
+  }
+  .filters button {
+    font-size: 11px;
+    margin: 0 9px;
+  }
+}
+@media (max-width: 360px) {
+  .blog-main {
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(240px, max-content));
+  }
+  .blog-post {
+    max-width: 240px;
+  }
+  .blog-post img {
+    width: 240px;
+    height: auto;
+  }
+  .blog-post h2 {
+    font-size: 14px;
+  }
+  .blog-post .paragraph p {
+    font-size: 10px;
+  }
+  .filters button {
+    font-size: 10px;
+    margin: 0 7px;
   }
 }
 </style>
