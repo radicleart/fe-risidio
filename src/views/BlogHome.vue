@@ -42,7 +42,6 @@ export default {
   },
   computed: {
     bannerImage () {
-      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       const content = this.$store.getters['contentStore/getPage']('bloghome')
       return {
         padding: '40px 0 0 0',
