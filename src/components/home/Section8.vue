@@ -1,5 +1,5 @@
 <template>
-    <section id="contactSection">
+    <section :style="bannerImage" id="contactSection">
       <div class="mx-5 px-5 d-flex align-items-center flex-column" :style="viewportDimensions">
         <div class="my-auto text-center text-white">
           <div class="my-4 textOnMobile"><h1 class="text-white">{{content.contact_title[0].text}}</h1></div>
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { SITE_CONSTANTS } from '@/site-constants'
+
 export default {
   name: 'Section8',
   components: {
@@ -48,6 +50,27 @@ export default {
     content () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content
+    },
+    bannerImage () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      const content = this.$store.getters['contentStore/getPage']('products')
+      if (!content) {
+        return
+      }
+      return {
+        padding: '40px 0 0 0',
+        height: height + 'px',
+        width: '100%',
+        position: 'relative',
+        top: '0px',
+        'background-repeat': 'no-repeat',
+        'background-position': 'center center',
+        '-webkit-background-size': 'cover',
+        '-moz-background-size': 'cover',
+        '-o-background-size': 'cover',
+        'background-size': 'cover',
+        opacity: 1
+      }
     },
     mailImage () {
       return {

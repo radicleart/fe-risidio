@@ -1,15 +1,15 @@
 <template>
-<section class="bg-white" v-if="content" :style="viewportDimensions">
-  <div class="mx-5 p-5 d-flex justify-content-center">
-    <div class="mx-5 px-5 row text-center">
-        <div class="col-md-4 col-sm-6 col-xs-12 mb-4" v-for="(item, index) of content.group_set" :key="index">
+<section :class="bgClass" class="" v-if="content" :style="viewportDimensions">
+  <div class="d-flex justify-content-center p-5">
+    <div class="mx-5 row text-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-4" v-for="(item, index) of content.group_set" :key="index">
           <b-card
             :title="item.group_item_title[0].text"
             :img-src="item.item_image.url"
             img-alt="Image"
             img-top
             tag="article"
-            style="max-width: 20rem;"
+            style="min-width: 15rem;"
             class="mb-2 text-left">
             <b-card-text>
               {{item.item_main_text[0].text}}
@@ -29,7 +29,7 @@
 
 export default {
   name: 'Section11',
-  props: ['viewportDimensions', 'content'],
+  props: ['viewportDimensions', 'content', 'bgClass'],
   data () {
     return {
     }
@@ -80,7 +80,7 @@ img {
   white-space: nowrap;
 }
 .card-text {
-  min-height: 100px;
+  height: 100px;
 }
 .card-img-top {
   height: 300px;
