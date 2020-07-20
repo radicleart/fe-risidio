@@ -1,52 +1,54 @@
 <template>
-<section>
-  <div class="filters">
-    <button @click="getPosts(), activate(1)" :class="{ active : activeEl == 1 }">
-      All
-    </button>
-    <button @click="getPostsByTag('blockstack'), activate(2)" :class="{ active : activeEl == 2 }">
-      Blockstack
-    </button>
-    <button @click="getPostsByTag('lightning'), activate(3)" :class="{ active : activeEl == 3 }">
-      Lightning
-    </button>
-    <button @click="getPostsByTag('web3'), activate(4)" :class="{ active : activeEl == 4 }">
-      Web 3.0
-    </button>
-    <button @click="getPostsByTag('technical'), activate(5)" :class="{ active : activeEl == 5 }">
-      Technical
-    </button>
-  </div>
-  <!-- Check blog posts exist -->
-  <div v-if="posts.length !== 0" class="blog-main mt-5 pb-5">
-    <!-- Template for blog posts -->
-    <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
-      <router-link :to="linkResolver(post)">
-        <div class="imgContainer">
-          <img width="280px" height="200px" :src="getImg(post)"/>
-          <div class="overlay">Read More</div>
-        </div>
-        <div class="d-flex justify-content-between">
-          <p class="blog-post-meta text-danger"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
-          <p class="blog-post-meta text-danger"><span class="author small">{{ getTags(post) }}</span></p>
-        </div>
-        <h2>{{ $prismic.richTextAsPlain(post.data.title) }}</h2>
-        <div class="paragraph">
-          <p>{{getFirstParagraph(post)}}</p>
-        </div>
-      </router-link>
+  <section>
+    <div class="filters">
+      <button @click="getPosts(), activate(1)" :class="{ active : activeEl == 1 }">
+        All
+      </button>
+      <button @click="getPostsByTag('blockstack'), activate(2)" :class="{ active : activeEl == 2 }">
+        Blockstack
+      </button>
+      <button @click="getPostsByTag('lightning'), activate(3)" :class="{ active : activeEl == 3 }">
+        Lightning
+      </button>
+      <button @click="getPostsByTag('web3'), activate(4)" :class="{ active : activeEl == 4 }">
+        Web 3.0
+      </button>
+      <button @click="getPostsByTag('technical'), activate(5)" :class="{ active : activeEl == 5 }">
+        Technical
+      </button>
     </div>
-  </div>
-  <!-- If no blog posts return message -->
-  <div v-else class="blog-main">
-    <p>No Posts published at this time.</p>
-  </div>
-</section>
+    <!-- Check blog posts exist -->
+    <div slot="Posts" v-if="posts.length !== 0" class="blog-main">
+      <!-- Template for blog posts -->
+      <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
+        <div v-if="$route.params.uid !== post.uid">
+        <router-link :to="linkResolver(post)">
+          <div class="imgPostContainer">
+            <img width="280px" height="200px" :src="getImg(post)"/>
+            <div class="postOverlay">Read More</div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p class="blog-post-meta text-danger"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
+            <p class="blog-post-meta text-danger"><span class="author small">{{ getTags(post) }}</span></p>
+          </div>
+          <h2>{{ $prismic.richTextAsPlain(post.data.title) }}</h2>
+          <div class="postParagraph">
+            <p>{{getFirstParagraph(post)}}</p>
+          </div>
+        </router-link>
+        </div>
+      </div>
+    </div>
+    <!-- If no blog posts return message -->
+    <div v-else class="blog-main">
+      <p>No Posts published at this time.</p>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'blog-posts',
+  name: 'get-posts',
   data () {
     return {
       posts: [],
@@ -57,18 +59,28 @@ export default {
   },
   methods: {
     getPosts () {
-      // Query to get blog posts
-      this.$prismic.client.query(
-        this.$prismic.Predicates.at('document.type', 'post'),
-        { orderings: '[my.post.date desc]' }
-      ).then((response) => {
-        this.posts = response.results
-      })
+      // Query to get blog posts (using different parameters for different pages)
+      // Check what page it is
+      if (this.$route.path === '/blog/') {
+        this.$prismic.client.query(
+          [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['Live'])],
+          { orderings: '[my.post.date desc]' }
+        ).then((response) => {
+          this.posts = response.results
+        })
+      } else {
+        this.$prismic.client.query(
+          [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['Live'])],
+          { orderings: '[my.post.date desc]', pageSize: 4 }
+        ).then((response) => {
+          this.posts = response.results
+        })
+      }
     },
     getPostsByTag (tag) {
       // Query to get blog posts by tag
       this.$prismic.client.query(
-        this.$prismic.Predicates.at('document.tags', [tag]),
+        [this.$prismic.Predicates.at('document.tags', [tag]), this.$prismic.Predicates.any('my.post.post_status', ['Live'])],
         { orderings: '[my.post.date desc]' }
       ).then((response) => {
         this.posts = response.results
@@ -135,10 +147,10 @@ export default {
 </script>
 
 <style scoped>
-.blog-main {
+.page .blog-main {
   max-width: 1080px;
-  margin: auto;
-  padding: 0 60px;
+  margin: 0 auto;
+  padding: 3rem 60px;
   display: grid;
   grid-template-rows: repeat(2, max-content);
   grid-template-columns: repeat(auto-fill, minmax(280px, max-content));
@@ -159,10 +171,10 @@ export default {
   margin: 20px 0 8px;
   font-size: 10px;
 }
-.paragraph {
+.postParagraph {
   color: #000;
 }
-.filters {
+.page .filters {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -171,7 +183,7 @@ export default {
   background-color: #000;
   border-top: solid 0.5px rgba(255, 255, 255, 0.3);
 }
-.filters button {
+.page .filters button {
   margin: 0 15px;
   font-size: 14px;
   color: #fff;
@@ -179,17 +191,17 @@ export default {
   width: auto;
   padding: 0;
 }
-.filters button:focus {
+.page .filters button:focus {
   outline: none;
 }
-.active {
+.page .active {
   font-weight: bold;
 }
-.imgContainer {
+.imgPostContainer {
   position: relative;
   width: 100%;
 }
-.overlay {
+.postOverlay {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -205,23 +217,22 @@ export default {
   font-size: 15px;
   text-align: center;
 }
-.imgContainer .overlay:hover {
+.imgPostContainer .postOverlay:hover {
   opacity: 1;
 }
 /* Media Queries */
 @media (max-width: 600px) {
-  .blog-main {
+  .page .blog-main {
     padding: 0;
   }
-  .filters button {
+  .page .filters button {
     font-size: 11px;
     margin: 0 9px;
   }
 }
 @media (max-width: 360px) {
   .blog-main {
-    padding: 0;
-    grid-template-columns: repeat(auto-fill, minmax(240px, max-content));
+    grid-template-columns: repeat(auto-fill, minmax(240px, max-content)) !important;
   }
   .blog-post {
     max-width: 240px;
@@ -233,7 +244,7 @@ export default {
   .blog-post h2 {
     font-size: 14px;
   }
-  .blog-post .paragraph p {
+  .blog-post .postParagraph p {
     font-size: 10px;
   }
   .filters button {

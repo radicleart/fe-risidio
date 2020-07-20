@@ -1,10 +1,10 @@
 <template>
-<section id="section0">
+<section id="section0" class="textOnMobile">
   <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="d-flex align-items-center flex-column textOnMobile">
+    <div class="d-flex align-items-center flex-column">
       <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
       <div class="mb-4"><h2 class="text-white">{{section.subtitle[0].text}}</h2></div>
-      <div class="mb-4 blurb1 text-white textOnMobile"  v-for="(item, index) of section.description" :key="index">
+      <div class="mb-4 blurb1 text-white"  v-for="(item, index) of section.description" :key="index">
         <p class="text-center text-large">{{item.text}}</p>
       </div>
       <div class="d-flex justify-content-center">
