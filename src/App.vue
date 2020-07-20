@@ -92,7 +92,7 @@ export default {
       return 'min-height: ' + (height) + 'px; width: auto;'
     },
     homepage () {
-      return this.$route.name === 'home'
+      return this.$route.name === 'home' || this.$route.name === 'products'
     },
     introScreen () {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]

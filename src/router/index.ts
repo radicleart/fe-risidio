@@ -23,11 +23,6 @@ const routes: Array<RouteConfig> = [
     components: { default: Home, header: MainNavbar, footer: MainFooter }
   },
   {
-    path: '/home',
-    name: 'home',
-    components: { default: Home, header: MainNavbar, footer: MainFooter }
-  },
-  {
     path: '/aboutus',
     name: 'aboutus',
     components: { default: AboutUs, header: MainNavbar, footer: MainFooter }
@@ -111,7 +106,7 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior () {
+  scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
   }
 })

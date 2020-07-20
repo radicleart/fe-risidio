@@ -3,13 +3,15 @@
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto mx-auto w-75 text-center">
       <h2 class="text-center blurb2">{{content.section2[0].title4[0].text}}</h2>
-      <img width="80%" :src="content.section2[0].image.url" />
+      <img ref="imgel" width="80%" :height="calcHeight()" :src="content.section2[0].image.url" />
     </div>
   </div>
 </section>
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   name: 'ProductSection2',
   props: ['viewportDimensions', 'content'],
@@ -18,6 +20,15 @@ export default {
     }
   },
   methods: {
+    calcHeight () {
+      Vue.nextTick(function () {
+        const elementId = this.$refs.imgel
+        if (elementId) {
+          const width = elementId.clientWidth
+          return width * (9 / 16) + 'px'
+        }
+      }, this)
+    }
   },
   computed: {
   }

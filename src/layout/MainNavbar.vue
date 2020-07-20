@@ -10,7 +10,7 @@
         <b-nav-item><router-link class="text-white" to="/education">Education</router-link></b-nav-item>
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
-        <b-nav-item to="/aboutus" class="nav-text text-white">About Us</b-nav-item>
+        <b-nav-item to="/aboutus" class="nav-text text-white">About</b-nav-item>
         <b-nav-item to="/products" class="nav-text text-white">Products</b-nav-item>
         <b-nav-item to="/blog" class="nav-text text-white">News</b-nav-item>
       </b-navbar-nav>

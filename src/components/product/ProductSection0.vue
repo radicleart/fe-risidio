@@ -2,10 +2,9 @@
 <section id="section0" v-if="content.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center">
-      <div class="mt-5"><h1 class="display-4 text-white">{{content.title[0].text}}</h1></div>
+      <div class="mt-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
       <div class="">
         <p class="text-center blurb2 text-white">{{content.title1[0].text}}</p>
-        <p v-if="hasDemoLink" class="text-center"><button class="more-text"><a :href="demoLink()" class="text-info">{{demoText()}}</a></button></p>
       </div>
     </div>
   </div>
@@ -48,24 +47,9 @@ export default {
       } else {
         return '/ownai'
       }
-    },
-    demoText () {
-      const productId = this.$route.params.productId
-      if (productId === 'dsearch' || productId === 'hubber') {
-        return 'Find Us On Github'
-      } else {
-        return 'Try The Demo'
-      }
     }
   },
   computed: {
-    hasDemoLink () {
-      const productId = this.$route.params.productId
-      if (productId === 'lsat' || productId === 'loopbomb' || productId === 'nongibles' || productId === 'dsearch') {
-        return true
-      }
-      return false
-    },
     bannerImage () {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return {

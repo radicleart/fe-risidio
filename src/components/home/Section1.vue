@@ -7,7 +7,7 @@
       <div class="mb-4 blurb1 text-white"  v-for="(item, index) of section.description" :key="index">
         <p class="text-center text-large">{{item.text}}</p>
       </div>
-      <div class="d-flex justify-content-center">
+      <div class="mb-4 d-flex justify-content-center">
         <div class="mt-5 mr-4"><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
         <div class="mt-5"><button class="button1" v-scroll-to="{ element: '#productsSection', duration: 2000 }"><span class="call-button-text">{{section.link2[0].text}}</span></button></div>
       </div>
@@ -41,9 +41,15 @@ img {
 }
 */
 .blurb1 {
-  width: 50%;
+  width: 70%;
   font-size: 14px;
 }
+@media (min-width: 767px) {
+  .blurb1 {
+    width: 50%;
+  }
+}
+
 button {
   width: 141px;
   height: 43px;
