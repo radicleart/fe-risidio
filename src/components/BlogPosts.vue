@@ -61,7 +61,7 @@ export default {
     getPosts () {
       // Query to get blog posts (using different parameters for different pages)
       // Check what page it is
-      if (this.$route.path === '/blog/') {
+      if (this.$route.path === '/blog' || this.$route.path === '/blog/') {
         this.$prismic.client.query(
           [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['Live'])],
           { orderings: '[my.post.date desc]' }
