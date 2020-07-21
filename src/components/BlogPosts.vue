@@ -22,20 +22,18 @@
       <!-- Template for blog posts -->
       <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
         <div v-if="$route.params.uid !== post.uid">
-        <router-link :to="linkResolver(post)">
           <div class="imgPostContainer">
             <img width="280px" height="200px" :src="getImg(post)"/>
-            <div class="postOverlay">Read More</div>
+            <router-link :to="linkResolver(post)" class="postOverlay">Read More
+            </router-link>
           </div>
           <div class="d-flex justify-content-between">
             <p class="blog-post-meta text-danger"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
-            <p class="blog-post-meta text-danger"><span class="author small">{{ getTags(post) }}</span></p>
           </div>
-          <h2>{{ $prismic.richTextAsPlain(post.data.title) }}</h2>
+          <h2><router-link :to="linkResolver(post)">{{ $prismic.richTextAsPlain(post.data.title) }}</router-link></h2>
           <div class="postParagraph">
-            <p>{{getFirstParagraph(post)}}</p>
+            <p><router-link :to="linkResolver(post)">{{getFirstParagraph(post)}}</router-link></p>
           </div>
-        </router-link>
         </div>
       </div>
     </div>
@@ -47,6 +45,7 @@
 </template>
 
 <script>
+const PAGE_SIZE = 5
 export default {
   name: 'get-posts',
   data () {
@@ -61,17 +60,17 @@ export default {
     getPosts () {
       // Query to get blog posts (using different parameters for different pages)
       // Check what page it is
-      if (this.$route.path === '/blog' || this.$route.path === '/blog/') {
+      if (this.$route.name === 'blog-home') {
         this.$prismic.client.query(
-          [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['Live'])],
+          [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['live'])],
           { orderings: '[my.post.date desc]' }
         ).then((response) => {
           this.posts = response.results
         })
       } else {
         this.$prismic.client.query(
-          [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['Live'])],
-          { orderings: '[my.post.date desc]', pageSize: 4 }
+          [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['live'])],
+          { orderings: '[my.post.date desc]', pageSize: PAGE_SIZE }
         ).then((response) => {
           this.posts = response.results
         })
@@ -80,7 +79,7 @@ export default {
     getPostsByTag (tag) {
       // Query to get blog posts by tag
       this.$prismic.client.query(
-        [this.$prismic.Predicates.at('document.tags', [tag]), this.$prismic.Predicates.any('my.post.post_status', ['Live'])],
+        [this.$prismic.Predicates.at('document.tags', [tag]), this.$prismic.Predicates.any('my.post.post_status', ['live'])],
         { orderings: '[my.post.date desc]' }
       ).then((response) => {
         this.posts = response.results
@@ -166,12 +165,15 @@ export default {
   color: #000;
   font-weight: 800;
 }
+.blog-post h2 a {
+  color: #000;
+}
 .blog-post-meta {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat';
   margin: 20px 0 8px;
   font-size: 10px;
 }
-.postParagraph {
+.postParagraph a {
   color: #000;
 }
 .page .filters {
