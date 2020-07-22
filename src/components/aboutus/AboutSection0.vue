@@ -1,7 +1,7 @@
 <template>
 <section id="section0" v-if="content.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
-    <div class="my-auto text-center">
+    <div class="my-auto text-center  ">
       <div class="my-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
       <div class="">
         <p class="mb-4 text-center blurb text-white mx-auto w-75" v-html="content.description1[0].text"></p>
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="bg-white mt-2 d-flex align-items-center flex-column"  :style="halfDims">
-    <div class="my-auto">
+    <div class="my-auto mobile-gap">
       <div class="mt-0 mb-4"><h1 class="text-black" v-html="content.s1title1[0].text"></h1></div>
       <div class="mb-4"><h2 class="text-center" v-html="content.s1title2[0].text"></h2></div>
       <div class="mx-auto my-4 w-100 text-center">

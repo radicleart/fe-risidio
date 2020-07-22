@@ -31,10 +31,11 @@
             <p class="blog-post-meta text-danger"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
           </div>
           <h2><router-link :to="linkResolver(post)">{{ $prismic.richTextAsPlain(post.data.title) }}</router-link></h2>
-          <div class="postParagraph">
+          <div class="post-paragraph">
             <p><router-link :to="linkResolver(post)">{{getFirstParagraph(post)}}</router-link></p>
           </div>
         </div>
+        <div v-else class="empty-blog-main"></div>
       </div>
     </div>
     <!-- If no blog posts return message -->
@@ -156,6 +157,9 @@ export default {
   grid-gap: 60px;
   justify-content: center;
 }
+.empty-blog-main {
+  display: none;
+}
 .blog-post {
   max-width: 280px;
 }
@@ -173,7 +177,7 @@ export default {
   margin: 20px 0 8px;
   font-size: 10px;
 }
-.postParagraph a {
+.post-paragraph a {
   color: #000;
 }
 .page .filters {
@@ -225,7 +229,7 @@ export default {
 /* Media Queries */
 @media (max-width: 600px) {
   .page .blog-main {
-    padding: 0;
+    padding: 3rem 0;
   }
   .page .filters button {
     font-size: 11px;
@@ -246,10 +250,10 @@ export default {
   .blog-post h2 {
     font-size: 14px;
   }
-  .blog-post .postParagraph p {
+  .blog-post .post-paragraph p {
     font-size: 10px;
   }
-  .filters button {
+  .page .filters button {
     font-size: 10px;
     margin: 0 7px;
   }

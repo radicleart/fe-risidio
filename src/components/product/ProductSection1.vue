@@ -1,6 +1,6 @@
 <template>
 <section class="bg-lighter" v-if="content" :style="viewportDimensions">
-  <div class="d-flex align-items-center flex-column">
+  <div class="d-flex align-items-center flex-column mobile-gap">
     <div class="container m-5 px-5">
       <div class="row">
         <div class="mb-5 col-md-6 col-sm-12">

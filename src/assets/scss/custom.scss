@@ -226,8 +226,14 @@ button:hover {
 .vueperslides__arrows button:hover {
   background: transparent;
 }
-.vueperslides__arrow--prev {
-  left: -6em !important;
+.vueperslides__arrows button:focus {
+  outline: none;
+}
+.section-2 .vueperslides__bullet {
+  color: #F9B807;
+}
+.section-7 .vueperslides__bullet {
+  color: #E9493D;
 }
 a {
   text-decoration: none;
@@ -293,37 +299,45 @@ a:hover {
 
 // FOOTER ON MOBILE
 @media only screen and (max-width: 515px) {
-  .footerContent h2 {
+  .content-footer h2 {
     font-size: 13px !important;
   }
-  .footerContent p {
+  .content-footer p {
     font-size: 8px !important;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .footerContent h2 {
+  .content-footer h2 {
     font-size: 12px !important;
   }
-  .footerContent p {
+  .content-footer p {
     font-size: 7px !important;
   }
 }
 
 //MOBILE TEXT
 @media only screen and (max-width:768px) {
-  .textOnMobile { flex: 0 0 90%; max-width: 90%; }
-  .textOnMobile h2 { text-align: center; }
-  .textOnMobile { margin: 0 auto; }
+  .mobile-gap { flex: 0 0 90%; max-width: 90%; margin: 0 auto; }
+  h1 { font-size: 14px; }
+  h2 { font-size: 30px; }
+  h3 { font-size: 17px; }
+  h4 { font-size: 15px; }
+  p { font-size: 12px; }
 }
 
 @media only screen and (max-width:414px) {
-  .textOnMobile h1 { font-size: 14px; }
-  .textOnMobile h2 { font-size: 30px; }
-  .textOnMobile p { font-size: 12px; }
+  h1 { font-size: 14px; }
+  h2 { font-size: 30px; }
+  h3 { font-size: 17px; }
+  h4 { font-size: 15px; }
+  p { font-size: 12px; }
 }
 
 @media only screen and (max-width:320px) {
-  .textOnMobile h2 { font-size: 22px; }
-  .textOnMobile p { font-size: 10px; }
+  h1 { font-size: 14px; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 17px; }
+  h4 { font-size: 15px; }
+  p { font-size: 10px; }
 }

@@ -1,6 +1,6 @@
 <template>
 <section class="bg-black" v-if="content" :style="viewportDimensions">
-  <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
+  <div class="d-flex align-items-center flex-column mobile-gap" :style="viewportDimensions">
     <div class="my-auto mx-auto w-75 text-center">
       <h2 class="text-center blurb2">{{content.section2[0].title4[0].text}}</h2>
       <img ref="imgel" width="80%" :height="calcHeight()" :src="content.section2[0].image.url" />

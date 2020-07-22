@@ -3,7 +3,7 @@
       <div class="pt-3">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto">
-              <div class="mb-5 textOnMobile"><h1 class="text-white">{{content.products_title[0].text}}</h1></div>
+              <div class="mb-5  "><h1 class="text-white">{{content.products_title[0].text}}</h1></div>
               <div class="mx-5">
                 <vueper-slides style="width: 70vw; "
                 class="no-shadow"
@@ -24,9 +24,9 @@
                 </template>
                 <vueper-slide v-for="(item, index) of content.products" :key="index">
                   <template v-slot:content>
-                    <div class="d-flex justify-content-start mobileView">
+                    <div class="d-flex justify-content-start mobile-view">
                       <img class="pl-5" width="50%" :src="item.image.url" :alt="item.image.alt"/>
-                      <div class="pl-4 d-flex align-items-start flex-column mobileViewText">
+                      <div class="pl-4 d-flex align-items-start flex-column mobile-viewText">
                         <h2 class="text-white">{{item.title[0].text}}</h2>
                         <div class="mb-0" v-for="(pitem, index2) of item.description" :key="index2">
                           <div v-if="pitem.type === 'paragraph'" class=""><p class="mb-3 text-white" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
@@ -141,19 +141,19 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
-  .mobileView h2 { font-size: 26px; }
+  .mobile-view h2 { font-size: 26px; }
   .vueperslides__bullets.vueperslides__bullets--outside { bottom: 50px; }
 }
 
 @media only screen and (max-width:414px) {
-  .mobileView h2 { font-size: 20px; }
-  .mobileView p { font-size: 11px; }
-  .mobileView img { padding-left: 0 !important; }
-  .mobileView .mobileViewText { padding-left: 1rem !important; }
+  .mobile-view h2 { font-size: 20px; }
+  .mobile-view p { font-size: 11px; }
+  .mobile-view img { padding-left: 0 !important; }
+  .mobile-view .mobile-viewText { padding-left: 1rem !important; }
 }
 
 @media only screen and (max-width:320px) {
-  .mobileView h2 { font-size: 16px; }
-  .mobileView p { font-size: 10px; }
+  .mobile-view h2 { font-size: 16px; }
+  .mobile-view p { font-size: 10px; }
 }
 </style>

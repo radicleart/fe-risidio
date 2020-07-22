@@ -1,11 +1,11 @@
-<template>
-<section id="section0" class="textOnMobile">
-  <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
+  <template>
+<section id="section0">
+  <div class="mt-5 d-flex align-items-center flex-column mobile-gap" :style="viewportDimensions">
     <div class="d-flex align-items-center flex-column">
       <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
-      <div class="mb-4"><h2 class="text-white">{{section.subtitle[0].text}}</h2></div>
+      <div class="mb-4"><h2 class="text-white text-center">{{section.subtitle[0].text}}</h2></div>
       <div class="mb-4 blurb1 text-white"  v-for="(item, index) of section.description" :key="index">
-        <p class="text-center text-large">{{item.text}}</p>
+        <p class="text-center">{{item.text}}</p>
       </div>
       <div class="mb-4 d-flex justify-content-center">
         <div class="mt-5 mr-4"><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
@@ -88,7 +88,7 @@ button:hover .call-button-text {
   color: #5FBDC1;
 }
 
-@media only screen and (max-width:600px) and (min-width:415px) {
-  h2 { font-size: 28px;}
+@media (min-width:769px) {
+  p { font-size: 14px; }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
 <section class="bg-lighter" v-if="content">
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center mobile-gap">
     <div class="d-flex align-items-center flex-column" :style="halfDims">
       <div class="my-auto text-center">
         <div class="mb-auto d-flex align-items-center flex-column">

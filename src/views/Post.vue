@@ -1,7 +1,7 @@
 <template>
 <section v-if="content" class="bg-white" :sectionDimensions="sectionDimensions">
   <!-- Vue conditional to check if there is any content in document -->
-  <div :style="bannerImage" class="d-flex align-items-center flex-column firstSection">
+  <div :style="bannerImage" class="d-flex align-items-center flex-column first-section">
     <div class="my-auto text-center heading">
       <h2 class="mb-5 text-white">{{ $prismic.richTextAsPlain(fields.title) }}</h2>
       <p class="text-white">
@@ -13,25 +13,25 @@
       <!-- Button to edit document in dashboard
       <prismic-edit-button :documentId="documentId"/> -->
     </div>
-    <div class="bannerOverlay"></div>
+    <div class="banner-overlay"></div>
   </div>
   <div class="row">
       <div class="pt-5 pb-5 col-lg-8">
         <!-- Slice Block Componenet tag -->
-        <div class="postBody">
+        <div class="post-body">
           <slices-block :slices="slices" class="outer-container"/>
-              <div class="backBottom">
+              <div class="back-bottom">
                 <router-link to="./"><span style="color: #E1302D">&#10094;</span> Back to Blog</router-link>
                 <!-- Button to edit document in dashboard
                 <prismic-edit-button :documentId="documentId"/> -->
               </div>
         </div>
       </div>
-      <!-- SideBar -->
-      <div class="col-lg-4 sideBar">
+      <!-- sidebar -->
+      <div class="col-lg-4 sidebar">
         <h3>Related Post</h3>
         <blog-posts></blog-posts>
-        <div class="buttonContainer"><button><router-link to="./">View All</router-link></button></div>
+        <div class="button-container"><button><router-link to="./">View All</router-link></button></div>
       </div>
   </div>
 </section>
@@ -127,88 +127,88 @@ export default {
 
 <style>
 /* BANNER */
-.firstSection p {
+.first-section p {
   text-align: center;
   margin: 0;
 }
-.firstSection .bannerOverlay {
+.first-section .banner-overlay {
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
 }
-.firstSection .heading {
+.first-section .heading {
   z-index: 1;
 }
-.firstSection .back {
+.first-section .back {
   z-index: 1;
   width: 100%;
   padding-left: 5rem;
 }
-.firstSection .back a {
+.first-section .back a {
   color: #fff;
   font-size: 10px;
 }
 /* CONTENT CONTAINER */
 /* POST */
-.postBody {
+.post-body {
   color: #000;
   padding: 0 5rem;
   margin: 0 auto;
 }
-.postBody h3 {
+.post-body h3 {
   margin-bottom: 1.5rem;
 }
-.postBody a {
+.post-body a {
   color: #E9493D;
   text-decoration: underline;
 }
-.postBody a:hover {
+.post-body a:hover {
   color: #E9493D;
   text-decoration: underline;
 }
-.postBody .backBottom {
+.post-body .back-bottom {
   margin-top: 2.5rem;
 }
-.postBody .backBottom a {
+.post-body .back-bottom a {
   font-size: 12px;
   text-decoration: none;
 }
 /* SIDEBAR */
-.sideBar {
+.sidebar {
   background-color: #F5F5F5;
   padding: 3rem !important;
 }
-.sideBar h3 {
+.sidebar h3 {
   color: #000;
   font-weight: 900;
   margin-bottom: 1.5rem;
 }
-.sideBar .filters {
+.sidebar .filters {
   display: none;
 }
-.sideBar .blog-main {
+.sidebar .blog-main {
   display: grid;
   grid-template-rows: repeat(2, max-content);
   grid-template-columns: repeat(auto-fill, minmax(280px, max-content));
   column-gap: 60px;
   justify-content: flex-start;
 }
-.sideBar .blog-post {
+.sidebar .blog-post {
   margin-bottom: 2rem;
 }
-.sideBar button {
+.sidebar button {
   width: 141px;
   height: 43px;
   background: #5FBDC1 0% 0% no-repeat padding-box;
   border-radius: 22px;
   opacity: 1;
 }
-.sideBar button:hover {
+.sidebar button:hover {
   background: #5FBDC1 0% 0% no-repeat padding-box;
 }
-.sideBar button a {
+.sidebar button a {
   text-align: center;
   font-size: 11px;
   font-weight: 700;
@@ -216,55 +216,51 @@ export default {
   color: #FFFFFF;
   opacity: 1;
 }
-/* Media Queries */
+/* MEDIA QUERIES */
 @media (max-width: 1100px) and (min-width: 992px) {
-  .sideBar {
+  .sidebar {
     padding: 3rem 1.5rem !important;
   }
 }
 @media (max-width: 991px) {
-  .sideBar .blog-main {
+  .sidebar .blog-main {
     justify-content: center;
   }
 }
 @media (max-width: 991px) and (min-width: 703px) {
-  .sideBar h3 {
+  .sidebar h3 {
     max-width: 620px;
     margin: 0 auto 1.5rem;
   }
-  .sideBar .buttonContainer {
+  .sidebar .button-container {
     max-width: 620px;
     margin: 0 auto 1.5rem;
   }
 }
 @media (max-width: 702px) {
-  .sideBar h3 {
+  .sidebar h3 {
     max-width: 280px;
     margin: 0 auto 1.5rem;
   }
-  .sideBar .buttonContainer {
+  .sidebar .button-container {
     max-width: 280px;
     margin: 0 auto 1.5rem;
   }
 }
 @media (max-width: 500px) {
-  .firstSection .back {
+  .first-section .back {
     padding-left: 2rem;
   }
-  .postBody {
+  .post-body {
     padding: 0 2rem;
   }
-  section h2 { font-size: 30px; }
 }
 @media (max-width: 360px) {
-  .sideBar h3 {
+  .sidebar h3 {
     max-width: 240px;
   }
-  .sideBar .buttonContainer {
+  .sidebar .button-container {
     max-width: 240px;
   }
-}
-@media (max-width: 320px) {
-  section h2 { font-size: 22px; }
 }
 </style>

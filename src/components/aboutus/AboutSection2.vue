@@ -1,16 +1,16 @@
 <template>
 <section class="bg-white" v-if="content">
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="my-auto">
+    <div class="my-5">
       <h1 class="mb-3 text-center blurb2">{{content.s3title1[0].text}}</h1>
       <h2 class="mb-5 text-center blurb2">{{content.s3title2[0].text}}</h2>
       <div class="d-flex justify-content-start">
       <div class="mx-5 mt-5">
         <div class="row">
-          <div v-for="(item, index) of content.group1" :key="index" class="col-md-4 col-sm-6 col-xs-12">
-            <div class="d-flex justify-content-start">
+          <div v-for="(item, index) of content.group1" :key="index" class="col-lg-4 col-md-12">
+            <div class="d-flex justify-content-start mobile-margin">
               <div class="">
-                <img class="mx-4" :src="item.image.url"/>
+                <img :src="item.image.url"/>
               </div>
               <div>
                 <h2 class="" v-html="item.title1[0].text"></h2>
@@ -66,5 +66,21 @@ h2 {
   letter-spacing: 0px;
   color: #000000;
   opacity: 1;
+}
+img {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+@media (max-width: 1100px) and (min-width: 992px) {
+  img { width: 60px; margin-left: 0; }
+}
+@media (max-width: 991px) {
+  .mobile-margin { margin-bottom: 2rem; }
+}
+@media (max-width: 414px) {
+  img { margin-left: 0; }
+}
+@media (max-width: 360px) {
+  img { width: 55px; margin-right: 1rem; }
 }
 </style>

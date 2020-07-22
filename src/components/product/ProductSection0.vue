@@ -1,14 +1,14 @@
 <template>
 <section id="section0" v-if="content.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
-    <div class="my-auto text-center">
+    <div class="my-auto text-center  ">
       <div class="mt-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
       <div class="">
         <p class="text-center blurb2 text-white">{{content.title1[0].text}}</p>
       </div>
     </div>
   </div>
-  <div class="mt-2 d-flex align-items-center flex-column"  :style="halfDims">
+  <div class="mt-2 d-flex align-items-center flex-column   mobile-gap"  :style="halfDims">
     <div class="my-auto">
       <div class="mt-0"><h1 class="text-black">{{content.title2[0].text}}</h1></div>
       <div class="mx-auto my-4 w-75 text-center">

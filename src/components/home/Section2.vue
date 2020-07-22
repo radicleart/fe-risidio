@@ -2,7 +2,7 @@
   <section class="bg-white section-2">
     <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="my-auto text-center">
-        <div class="textOnMobile">
+        <div>
         <h1 class="text-black mb-4">{{content.section2_title[0].text}}</h1>
         <h2 class="text-black mb-5">{{content.section2_message[0].text}}</h2>
         </div>
@@ -17,7 +17,7 @@
           :dragging-distance="150"
           :breakpoints="{ 1080: { visibleSlides: 1, slideMultiple: 1 }, 800: { visibleSlides: 1, slideMultiple: 1, arrows: false, bullets: true } }">
           <template v-slot:arrow-left>
-            <div class="shifter"><i class="text-warning fa-1x fas fa-angle-left"></i></div>
+            <div class="shifter left-shifter"><i class="text-warning fa-1x fas fa-angle-left"></i></div>
           </template>
           <template v-slot:arrow-right>
             <!-- <img :src="leftArrow"/> -->
@@ -25,7 +25,7 @@
           </template>
           <vueper-slide v-for="(item, index) of content.images" :key="index" style="height: 500px;">
             <template v-slot:content style="height: 500px;">
-              <div class="row p-0">
+              <div class="row p-0 justify-content-center">
                 <div class="col-4">
                   <img width="95%" height="130px" :src="item.image.url" :alt="item.image.alt" class="image" />
                 </div>
@@ -70,42 +70,32 @@ export default {
 </script>
 
 <style scoped>
-button:focus {
-  outline: none;
-}
-button:active {
-  outline: none;
-}
-
-.vueperslides__arrow--prev {
-  left: -50px;
-}
 .shifter {
   color: #5FBDC1;
   border: 1pt solid #F9B807;
   width: 72px;
   height: 72px;
   border-radius: 50%;
+  position: relative;
+  top: -70px;
 }
-
+.shifter i {
+  position: relative;
+  top: 38%;
+}
 .right-shifter {
-    margin-left: 6em;
+    margin-left: 8em;
 }
-
-@media only screen and (max-width:414px) {
+.left-shifter {
+    margin-left: -3.5em;
+}
+@media (max-width:414px) {
   h3 { font-size: 15px; }
   p { font-size: 10px; }
 }
 
-@media only screen and (max-width:375px) {
-  h3 { font-size: 14px; }
-  p { font-size: 9.5px; }
-  img { height: 120px; }
-}
-
-@media only screen and (max-width:320px) {
+@media (max-width:320px) {
   h3 { font-size: 12px; }
   p { font-size: 9px; }
-  img { height: 100px; }
 }
 </style>

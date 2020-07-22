@@ -3,8 +3,8 @@
       <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
         <div class="my-auto text-center">
           <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section4_title[0].text}}</h1></div>
-          <div class="px-5 row text-center mobileView">
-            <div class="col-md-4 col-sm-12 col-xs-12 mb-5" v-for="(item, index) in group" :key="index">
+          <div class="px-5 row text-center">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 mb-5" v-for="(item, index) in group" :key="index">
               <div class="row">
                 <div class="col-3">
                   <div class="whatsit" :class="'bg-' + getBgClass(index)"><img class="p-3" :src="features[index]" /></div>
@@ -71,32 +71,19 @@ export default {
   border-radius: 50%;
 }
 
-@media only screen and (max-width: 1000px) and (min-width:801px) {
-  .whatsit img { height: 60px; }
-  .whatsit { height: 61px; width: 61px; }
+@media only screen and (max-width: 991px) {
+  .col-3 {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
-@media only screen and (max-width: 800px) and (min-width: 768px) {
-  .whatsit img { height: 55px; }
-  .whatsit { height: 56px; width: 56px; }
-  .mobileView { padding:0 2rem !important; }
-}
-
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   p { margin-bottom: 2rem !important; }
 }
 
 @media only screen and (max-width: 375px) {
-  h1 { font-size: 14px; }
-  h2 { font-size: 30px; }
   .whatsit img { height: 60px; }
-  p { font-size: 12px; }
   .whatsit { height: 61px; width: 61px; }
 }
-
-@media only screen and (max-width: 320px) {
-  h2 { font-size: 22px; }
-  .mobileView { padding:0 2rem !important; }
-}
-
 </style>

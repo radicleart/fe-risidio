@@ -1,6 +1,6 @@
 <template>
 <section class="bg-lighter" v-if="content" :style="viewportDimensions">
-  <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
+  <div class="d-flex align-items-center flex-column mobile-gap" :style="viewportDimensions">
     <div class="my-auto text-center">
       <div class="my-5"><h1 class="text-black">{{content.section2_title[0].text}}</h1></div>
       <div class="mb-5 mx-auto px-md-5 px-sm-0 text-black w-75" v-for="(item, index) of content.group2" :key="index">
