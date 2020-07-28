@@ -84,10 +84,14 @@ img {
 
 @media only screen and (max-width: 575px) {
   img { height: 70px; }
+  .tagline { font-size: 12px; }
+  .tagline { padding-top: 100px; }
 }
 
 @media only screen and (max-width: 320px) {
   img { height: 60px; }
-  .tagline { font-size: 14px; }
+  .tagline { font-size: 12px; }
+  .tagline { padding-top: 100px; }
+
 }
 </style>

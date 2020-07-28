@@ -87,8 +87,8 @@ export default {
 }
 
 @media only screen and (max-width: 375px) {
-  h1 { font-size: 14px; }
-  h2 { font-size: 30px; }
+  h1 { font-size: 12px; }
+  h2 { font-size: 36px; }
   .whatsit img { height: 60px; }
   p { font-size: 12px; }
   .whatsit { height: 61px; width: 61px; }
