@@ -24,20 +24,11 @@ if [ -z "${SERVICE}" ]; then
   __build
   cp $BUILD_PATH/dist/lsat-entry.js $PATH_DEPLOY/.
 
-  BUILD_PATH=../fe-mesh
-  __build
-  cp $BUILD_PATH/dist/mesh-entry.js $PATH_DEPLOY/.
-
   BUILD_PATH=./
   __build
   cp -r dist/* $PATH_DEPLOY/.
 fi
 
-if [ "$SERVICE" == "mesh" ]; then
-  BUILD_PATH=../fe-mesh
-  __build
-  cp $BUILD_PATH/dist/mesh-entry.js $PATH_DEPLOY/.
-fi
 if [ "$SERVICE" == "lsat" ]; then
   BUILD_PATH=../fe-lsat
   __build
