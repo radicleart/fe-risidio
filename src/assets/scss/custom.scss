@@ -318,12 +318,12 @@ a:hover {
 }
 
 @media only screen and (max-width:414px) {
-  .textOnMobile h1 { font-size: 14px; }
+  .textOnMobile h1 { font-size: 17px; }
   .textOnMobile h2 { font-size: 30px; }
   .textOnMobile p { font-size: 12px; }
 }
 
 @media only screen and (max-width:320px) {
   .textOnMobile h2 { font-size: 22px; }
-  .textOnMobile p { font-size: 10px; }
+  .textOnMobile p { font-size: 12px; }
 }
