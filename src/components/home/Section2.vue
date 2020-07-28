@@ -77,9 +77,6 @@ button:active {
   outline: none;
 }
 
-.vueperslides__arrow--prev {
-  left: -50px;
-}
 .shifter {
   color: #5FBDC1;
   border: 1pt solid #F9B807;
@@ -92,20 +89,24 @@ button:active {
     margin-left: 6em;
 }
 
+a  {
+  font-size: 12px;
+}
+
 @media only screen and (max-width:414px) {
-  h3 { font-size: 15px; }
-  p { font-size: 10px; }
+  h3 { font-size: 17px; }
+  p { font-size: 12px; }
 }
 
 @media only screen and (max-width:375px) {
-  h3 { font-size: 14px; }
-  p { font-size: 9.5px; }
+  h3 { font-size: 17px; }
+  p { font-size: 12px; }
   img { height: 120px; }
 }
 
 @media only screen and (max-width:320px) {
-  h3 { font-size: 12px; }
-  p { font-size: 9px; }
+  h3 { font-size: 17px; }
+  p { font-size: 12px; }
   img { height: 100px; }
 }
 </style>
