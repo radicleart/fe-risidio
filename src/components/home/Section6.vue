@@ -80,14 +80,14 @@ button:hover .call-button-text {
 }
 
 @media only screen and (max-width:414px) {
-  h1 { font-size: 14px; }
+  h1 { font-size: 17px; }
   h2 { font-size: 30px; }
   .textOnMobile span { font-size: 12px; }
   .textOnMobile { flex: 0 0 90%; max-width: 90%; margin: 0 auto; }
 }
 
 @media only screen and (max-width:375px) {
-  h2 { font-size: 28px; }
+  h2 { font-size: 30px; }
   .textOnMobile { flex: 0 0 70%; max-width: 70%; }
 }
 
