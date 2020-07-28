@@ -154,6 +154,11 @@ export default {
 .navbar-nav .nav-link {
     padding-left: 0;
     padding-right: 1.5rem;
+    padding-top: 1.9rem;
+}
+
+.nav-link {
+  margin-left: 20px;
 }
 
 @media only screen and (max-width: 767px) {
