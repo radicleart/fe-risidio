@@ -8,7 +8,7 @@
                 <vueper-slides style="width: 100vw;"
                 class="no-shadow"
                 fixed-height="400px"
-                visible-slides="5"
+                :visible-slides="5"
                 :arrows=false
                 :bullets=false
                 :slide-ratio="1 / 4"
