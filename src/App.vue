@@ -2,7 +2,7 @@
 <div id="app" v-if="homepage">
   <div v-if="loading" :style="introScreen">&nbsp;</div>
   <div :key="componentKey" v-else>
-    <video class="bg-black" v-if="homepage" autoplay muted loop id="myVideo" :style="sectionDimensions">
+    <video class="bg-black" v-if="homepage" preload="none" muted loop id="myVideo" :style="sectionDimensions">
       <source :src="bgvideo" type="video/mp4">
     </video>
     <router-view class="navbar" name="header" @scrollMeTo="scrollMeTo($event)"/>
@@ -21,6 +21,7 @@
 </template>
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
+import Vue from 'vue'
 
 export default {
   name: 'App',
@@ -33,21 +34,27 @@ export default {
     }
   },
   mounted () {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const myself = this
     if (this.$route.name === 'home') {
       setTimeout(() => {
         this.loading = false
+        setTimeout(() => {
+          myself.runVideo()
+        }, 500)
       }, 3000)
     } else {
       this.loading = false
     }
     let resizeTimer
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const myself = this
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer)
       resizeTimer = setTimeout(function () {
         myself.$store.commit('setWinDims')
         myself.componentKey += 1
+        Vue.nextTick(function () {
+          myself.runVideo()
+        }, this)
       }, 400)
     })
 
@@ -84,6 +91,11 @@ export default {
       const element = document.getElementById(data.refName)
       const top = element.offsetTop
       window.scrollTo(0, top)
+    },
+    runVideo () {
+      const element = document.getElementById('myVideo')
+      element.removeAttribute('preload')
+      element.setAttribute('autoplay', true)
     }
   },
   computed: {

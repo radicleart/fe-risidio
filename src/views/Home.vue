@@ -25,7 +25,6 @@ import Section7 from '@/components/home/Section7'
 import Section8 from '@/components/home/Section8'
 // import Section11 from '@/components/products/Section11'
 import { SITE_CONSTANTS } from '@/site-constants'
-import Vue from 'vue'
 
 export default {
   name: 'Home',
