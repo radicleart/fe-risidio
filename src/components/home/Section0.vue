@@ -115,14 +115,12 @@ img {
 @media only screen and (max-width: 375px) {
   .vertical-line { margin: -8rem auto 0; }
   .tagline { font-size: 12px; }
-  .tagline { padding-top: 100px; }
 }
 
 @media only screen and (max-width: 320px) {
   img { height: 60px; }
   .vertical-line { margin: -7rem auto 0; }
   .tagline { font-size: 12px; }
-  .tagline { padding-top: 100px; }
 
 }
 </style>
