@@ -285,24 +285,6 @@ a:hover {
   opacity: 1;
 }
 
-// FOOTER ON MOBILE
-@media only screen and (max-width: 515px) {
-  .content-footer h2 {
-    font-size: 13px !important;
-  }
-  .content-footer p {
-    font-size: 8px !important;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .content-footer h2 {
-    font-size: 12px !important;
-  }
-  .content-footer p {
-    font-size: 7px !important;
-  }
-}
 // SLIDERS
 .vueperslides .vueperslides__parallax-wrapper, .vueperslides__parallax-wrapper .vueperslides__track 
 { overflow: visible; }
@@ -321,10 +303,33 @@ a:hover {
   outline: none;
 }
 
+.vueperslides__track img {
+  pointer-events: none;
+}
+
 // SLIDERS SECTION 7
 .section-7 .vueperslides__bullet {
   color: #E9493D;
   max-width: 50px;
+}
+
+// FOOTER ON MOBILE
+@media only screen and (max-width: 515px) {
+  .content-footer h2 {
+    font-size: 13px !important;
+  }
+  .content-footer p {
+    font-size: 8px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .content-footer h2 {
+    font-size: 12px !important;
+  }
+  .content-footer p {
+    font-size: 7px !important;
+  }
 }
 
 //MOBILE TEXT

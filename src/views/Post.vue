@@ -30,7 +30,7 @@
       <!-- sidebar -->
       <div class="col-lg-4 sidebar">
         <h3>Related Post</h3>
-        <blog-posts></blog-posts>
+        <blog-posts :PAGE_SIZE="PAGE_SIZE"></blog-posts>
         <div class="button-container"><button><router-link to="./">View All</router-link></button></div>
       </div>
   </div>
@@ -60,7 +60,8 @@ export default {
         author: null,
         img: null
       },
-      slices: []
+      slices: [],
+      PAGE_SIZE: 5
     }
   },
   methods: {
@@ -150,7 +151,6 @@ export default {
   color: #fff;
   font-size: 10px;
 }
-/* CONTENT CONTAINER */
 /* POST */
 .post-body {
   color: #000;

@@ -26,13 +26,16 @@
                 <vueper-slide v-for="(item, index) of content.products" :key="index">
                   <template v-slot:content>
                     <div class="d-flex flex-column slider-content">
-                      <router-link to="/about" class="text-info"><img width="100%" height="250px" :src="item.image.url" :alt="item.image.alt"/></router-link>
+                      <router-link :to="productUrl(item)" class="text-info"><img width="100%" height="250px" :src="item.image.url" :alt="item.image.alt"/></router-link>
                       <div class="d-flex align-items-start flex-column" style="width: 100%">
                         <h2 class="text-white">{{item.title[0].text}}</h2>
                         <div class="mb-0" v-for="(pitem, index2) of item.description" :key="index2">
                           <div v-if="pitem.type === 'paragraph'" class=""><p class="mb-3 text-white" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
                         </div>
-                        <div class="more-text"><router-link to="/about" class="text-info">{{item.more[0].text}}</router-link></div>
+                        <div class="d-flex justify-content-between w-100">
+                          <div class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.more[0].text}}</router-link></div>
+                          <div class="more-text" v-html="demoLink(item)"></div>
+                        </div>
                       </div>
                     </div>
                   </template>
@@ -77,6 +80,27 @@ export default {
       arrowsBlue: {
         left: require('@/assets/img/Slider arrows/Arrow_left_blue.png'),
         right: require('@/assets/img/Slider arrows/Arrow_right_blue.png')
+      }
+    }
+  },
+  methods: {
+    productUrl (item) {
+      return '/products/' + item.product_name[0].text
+    },
+    demoLink (item) {
+      const productId = item.product_name[0].text
+      if (productId === 'lsat') {
+        return '<a class="text-warning" href="/lsat-demo">Try The Demo</a>'
+      } else if (productId === 'loopbomb') {
+        return '<a class="text-warning" href="https://loopbomb.com">Try The Demo</a>'
+      } else if (productId === 'nongibles') {
+        return '<a class="text-warning" href="https://radicle.art">Try The Demo</a>'
+      } else if (productId === 'dsearch') {
+        return '<a class="text-warning" href="https://github.com/radicleart/brightblock-search">Find Us On Github</a>'
+      } else if (productId === 'hubber') {
+        return '<a class="text-warning" href="https://github.com/radicleart/brightblock-gaia">Find Us On Github</a>'
+      } else {
+        return null
       }
     }
   },

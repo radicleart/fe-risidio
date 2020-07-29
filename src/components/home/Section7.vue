@@ -2,10 +2,10 @@
     <section class="bg-white section-7">
       <div class="">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-            <div class="my-auto text-center">
-              <div class="my-4 mb-5"><h1 class="text-black">{{content.posts_title[0].text}}</h1></div>
+            <div class="my-auto">
+              <div class="my-5"><h1 class="text-black">{{content.posts_title[0].text}}</h1></div>
               <vueper-slides style="width: 70vw;"
-                class="no-shadow"
+                class="no-shadow d-lg-block d-none"
                 fixed-height="405px"
                 :visible-slides="3"
                 slide-multiple
@@ -24,7 +24,7 @@
                 <vueper-slide v-for="(item, index) of content.posts" :key="index" style="font-size: 0.8em; min-width: 300px;">
                   <template v-slot:content>
                     <div class="text-left">
-                      <div class="d-flex align-items-start flex-column mobileView" style="min-height: 280px; width: 280px; margin: 0 auto;">
+                      <div class="d-flex align-items-start flex-column" style="min-height: 280px; width: 280px; margin: 0 auto;">
                         <img width="280px" height="200px" :src="item.image.url" :alt="item.image.alt" class="image" />
                         <h3 class="text-black"><router-link to="/blog" class="text-danger">{{item.date}}</router-link></h3>
                         <h2 class="text-black"><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
@@ -36,6 +36,10 @@
                   </template>
                 </vueper-slide>
               </vueper-slides>
+              <div class="d-lg-none d-flex flex-column justify-content-center mobile__content">
+                <blog-posts :PAGE_SIZE="PAGE_SIZE"></blog-posts>
+                <div class="text-center mb-5"><button><router-link to="./">Visit Our Blog</router-link></button></div>
+              </div>
             </div>
           </div>
       </div>
@@ -44,11 +48,13 @@
 
 <script>
 import { VueperSlides, VueperSlide } from 'vueperslides'
+import BlogPosts from '../BlogPosts.vue'
 export default {
   name: 'Section5',
   components: {
     VueperSlides,
-    VueperSlide
+    VueperSlide,
+    BlogPosts
   },
   props: ['viewportDimensions'],
   data () {
@@ -56,18 +62,13 @@ export default {
       breakpoints: {
         1300: {
           visibleSlides: 2
-        },
-        850: {
-          visibleSlides: 1,
-          arrows: false,
-          bullets: true,
-          slideRatio: 1 / 2
         }
       },
       arrowsRed: {
         left: require('@/assets/img/Slider arrows/Arrow_left_red.png'),
         right: require('@/assets/img/Slider arrows/Arrow_right_red.png')
-      }
+      },
+      PAGE_SIZE: 3
     }
   },
   computed: {
@@ -79,44 +80,54 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-h2 {
+<style lang="scss">
+
+.section-7 h2 {
   font-size: 14px;
   font-weight: 800;
 }
-h3 {
+.section-7 h3 {
   margin-top: 20px;
   font-size: 10px;
   font-weight: 600;
 }
-p {
+.section-7 p {
   font-size: 11px;
   font-weight: 300;
 }
-.vueperslides__track img {
-  pointer-events: none;
-}
-.more {
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0 20px;
-}
-.joinus-desc {
-  margin: 50px 0 0 0;
-  padding: 0 200px;
+
+/* Mobile design */
+.mobile__content .filters {
+  display: none;
 }
 
-@media only screen and (max-width: 850px) {
-  .mobileView { margin: 0 auto; }
+.mobile__content .blog-main {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
-@media only screen and (max-width:414px) {
-  .vueperslides { width: 80vw !important; }
-  .section-7 { min-height: 600px; }
+
+.mobile__content .blog-post {
+  margin-bottom: 2rem;
 }
-@media only screen and (max-width:360px) {
-  .vueperslides { width: 85vw !important; }
+
+.mobile__content button {
+  background-color: #F5F5F5;
+  color: #E9493D;
 }
-@media only screen and (max-width:320px) {
-  .vueperslides { width: 95vw !important; }
+
+.mobile__content button:hover {
+  background-color: #F5F5F5;
+}
+
+.mobile__content button a {
+  color: #E9493D;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mobile__content button a:hover {
+  text-decoration: none;
 }
 </style>
