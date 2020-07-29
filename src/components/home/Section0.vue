@@ -1,7 +1,7 @@
 <template>
 <section :style="viewportDimensions">
   <div class="d-flex justify-content-center">
-    <div class=" d-flex align-items-center flex-column" :style="viewportDimensions">
+    <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="my-auto text-center">
         <div class="mb-auto d-flex align-items-center flex-column">
           <div class="ml-0"><img :height="iwordHeight" :src="iwords.ione.dark" @mouseover="hoverOver(iwords.ione, $event)" @mouseout="hoverOut(iwords.ione, $event)" /></div>
@@ -12,6 +12,7 @@
       </div>
     </div>
   </div>
+  <div class="vertical-line"></div>
 </section>
 </template>
 
@@ -69,6 +70,14 @@ img {
   height: auto;
 }
 */
+
+.vertical-line {
+  border-left: 0.5px solid rgba(255, 255, 255, 0.5);
+  height: 190px;
+  width: 0;
+  margin: -7rem auto 0;
+}
+
 .tagline {
   text-align: center;
   font-size: 17px;
@@ -78,16 +87,38 @@ img {
   opacity: 1;
 }
 
+@media only screen
+  and (min-device-width: 1024px)
+  and (max-device-width: 1366px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .vertical-line { margin: -18rem auto 0; height: 300px; }
+  }
+
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1)
+  and (orientation: portrait) {
+    .vertical-line { margin: -18rem auto 0; height: 300px; }
+  }
+
 @media only screen and (max-width: 768px) {
   img { height: 90px; }
 }
 
 @media only screen and (max-width: 575px) {
   img { height: 70px; }
+  .vertical-line { margin: -10rem auto 0; }
+}
+
+@media only screen and (max-width: 375px) {
+  .vertical-line { margin: -8rem auto 0; }
 }
 
 @media only screen and (max-width: 320px) {
   img { height: 60px; }
   .tagline { font-size: 14px; }
+  .vertical-line { margin: -7rem auto 0; }
 }
 </style>

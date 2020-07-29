@@ -3,28 +3,28 @@
       <div class="">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto text-center">
-              <div class="my-4 mb-5  "><h1 class="text-black">{{content.posts_title[0].text}}</h1></div>
+              <div class="my-4 mb-5 textOnMobile"><h1 class="text-black">{{content.posts_title[0].text}}</h1></div>
               <vueper-slides style="width: 70vw;"
                 class="no-shadow"
-                fixed-height="400px"
+                fixed-height="405px"
                 :visible-slides="3"
                 slide-multiple
                 :slide-ratio="1 / 4"
-                :gap="1"
+                :gap="0"
                 :arrows-outside=true
                 :bullets=false
                 :bullets-outside=true
                 :breakpoints="breakpoints">
                 <template v-slot:arrow-left>
-                  <div class="shifter mr-5 left-shifter" style="position: relative; left: -50px;"><i class="text-danger fa-1x fas fa-angle-left"></i></div>
+                  <img :src="arrowsRed.left" alt="">
                 </template>
                 <template v-slot:arrow-right>
-                  <div class="shifter ml-5" style="position: relative; right: -50px;"><i class="text-danger fa-1x fas fa-angle-right"></i></div>
+                  <img :src="arrowsRed.right" alt="">
                 </template>
                 <vueper-slide v-for="(item, index) of content.posts" :key="index" style="font-size: 0.8em; min-width: 300px;">
                   <template v-slot:content>
-                    <div class="text-left d-flex justify-content-center">
-                      <div class="d-flex align-items-start flex-column mobile-view" style="min-height: 280px; width: 280px">
+                    <div class="text-left">
+                      <div class="d-flex align-items-start flex-column mobileView" style="min-height: 280px; width: 280px; margin: 0 auto;">
                         <img width="280px" height="200px" :src="item.image.url" :alt="item.image.alt" class="image" />
                         <h3 class="text-black"><router-link to="/blog" class="text-danger">{{item.date}}</router-link></h3>
                         <h2 class="text-black"><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
@@ -44,7 +44,6 @@
 
 <script>
 import { VueperSlides, VueperSlide } from 'vueperslides'
-
 export default {
   name: 'Section5',
   components: {
@@ -61,8 +60,13 @@ export default {
         850: {
           visibleSlides: 1,
           arrows: false,
-          bullets: true
+          bullets: true,
+          slideRatio: 1 / 2
         }
+      },
+      arrowsRed: {
+        left: require('@/assets/img/Slider arrows/Arrow_left_red.png'),
+        right: require('@/assets/img/Slider arrows/Arrow_right_red.png')
       }
     }
   },
@@ -76,23 +80,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.shifter {
-  color: #5FBDC1;
-  border: 1pt solid #E9493D;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-}
-.shifter i {
-  position: relative;
-  top: 38%;
-}
 h2 {
   font-size: 14px;
   font-weight: 800;
-}
-h2 a {
-  color: #000;
 }
 h3 {
   margin-top: 20px;
@@ -102,7 +92,9 @@ h3 {
 p {
   font-size: 11px;
   font-weight: 300;
-  color: #000;
+}
+.vueperslides__track img {
+  pointer-events: none;
 }
 .more {
   font-size: 0.7rem;
@@ -114,21 +106,17 @@ p {
   padding: 0 200px;
 }
 
+@media only screen and (max-width: 850px) {
+  .mobileView { margin: 0 auto; }
+}
 @media only screen and (max-width:414px) {
   .vueperslides { width: 80vw !important; }
   .section-7 { min-height: 600px; }
 }
-
 @media only screen and (max-width:360px) {
-  .mobile-view { width: 260px !important; }
-  .mobile-view img { width: 260px; }
   .vueperslides { width: 85vw !important; }
 }
-
 @media only screen and (max-width:320px) {
-  .mobile-view { width: 240px !important; }
-  .mobile-view img { width: 240px; }
-  .mobile-view p { font-size: 10px !important; }
   .vueperslides { width: 95vw !important; }
 }
 </style>

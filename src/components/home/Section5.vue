@@ -1,32 +1,33 @@
 <template>
-    <section class="bg-black" id="productsSection">
+    <section class="bg-black" id="products-section">
       <div class="pt-3">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto">
-              <div class="mb-5  "><h1 class="text-white">{{content.products_title[0].text}}</h1></div>
-              <div class="mx-5">
-                <vueper-slides style="width: 70vw; "
+              <div class="mb-5"><h1 class="text-white">{{content.products_title[0].text}}</h1></div>
+              <div>
+                <vueper-slides style="width: 100vw;"
                 class="no-shadow"
                 fixed-height="400px"
-                :visible-slides="2"
-                slide-multiple
-                :slide-ratio="1 / 4"
-                :gap="1"
-                :arrows-outside=true
-                :bullets-outside=true
+                visible-slides="5"
+                :arrows=false
                 :bullets=false
+                :slide-ratio="1 / 4"
+                :gap="3"
+                :dragging-distance="50"
+                :slidesPerGroup= "1"
+                :infinite=false
                 :breakpoints="breakpoints">
                 <template v-slot:arrow-left>
-                  <div class="shifter"><i class="text-info fa-1x fas fa-angle-left"></i></div>
+                  <img :src="arrowsBlue.left" alt="">
                 </template>
                 <template v-slot:arrow-right>
-                  <div class="shifter" style="margin-left: 150px;"><i class="text-info fa-1x fas fa-angle-right"></i></div>
+                  <img :src="arrowsBlue.right" alt="">
                 </template>
                 <vueper-slide v-for="(item, index) of content.products" :key="index">
                   <template v-slot:content>
-                    <div class="d-flex justify-content-start mobile-view">
-                      <img class="pl-5" width="50%" :src="item.image.url" :alt="item.image.alt"/>
-                      <div class="pl-4 d-flex align-items-start flex-column mobile-viewText">
+                    <div class="d-flex flex-column slider-content">
+                      <router-link to="/about" class="text-info"><img width="100%" height="250px" :src="item.image.url" :alt="item.image.alt"/></router-link>
+                      <div class="d-flex align-items-start flex-column" style="width: 100%">
                         <h2 class="text-white">{{item.title[0].text}}</h2>
                         <div class="mb-0" v-for="(pitem, index2) of item.description" :key="index2">
                           <div v-if="pitem.type === 'paragraph'" class=""><p class="mb-3 text-white" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
@@ -58,25 +59,24 @@ export default {
   data () {
     return {
       breakpoints: {
-        1300: {
-          visibleSlides: 1
+        1250: {
+          visibleSlides: 4
         },
         1050: {
-          visibleSlides: 1,
-          arrows: false,
-          bullets: true
+          visibleSlides: 3,
+          slideRatio: 1 / 3
         },
-        768: {
-          visibleSlides: 1,
-          arrows: false,
-          bullets: true
+        800: {
+          visibleSlides: 2,
+          slideRatio: 1 / 2
         },
-        600: {
-          visibleSlides: 1,
-          arrows: false,
-          bullets: true,
-          fixedHeight: '300px'
+        601: {
+          visibleSlides: 1
         }
+      },
+      arrowsBlue: {
+        left: require('@/assets/img/Slider arrows/Arrow_left_blue.png'),
+        right: require('@/assets/img/Slider arrows/Arrow_right_blue.png')
       }
     }
   },
@@ -90,70 +90,54 @@ export default {
 </script>
 
 <style>
-.shifter {
-  padding: 25px;
-  color: #5FBDC1;
-  width: 72px;
-  border: 1pt solid #5FBDC1;
-  height: 72px;
-  border-radius: 50%;
+#products-section .slider-content {
+  max-width: 200px;
 }
 
-.vueperslides__bullet .default {
-  background-color: #5FBDC1;
-  border: none;
-  box-shadow: none;
-  transition: 0.3s;
-  width: 16px;
-  height: 16px;
-  opacity: 1;
+#products-section .slider-content h2 {
+  font-size: 24px;
+  margin-top: 12px;
 }
 
-.vueperslides__bullet--active .default {background-color: #5FBDC1;}
-
-.vueperslides__bullet:hover {
-  background-color: transparent;
+#products-section .slider-content p {
+  font-size: 10px;
 }
 
-.vueperslides__bullets.vueperslides__bullets--outside {
-  bottom: 50px;
+#products-section .slider-content {
+  margin: 0 auto;
 }
 
-.section-2 .vueperslides__bullets.vueperslides__bullets--outside {
-  bottom: 0;
+#products-section .slider-content img {
+  pointer-events: none;
 }
 
-.section-2 .vueperslides__bullets .vueperslides__bullet {
-  color: #F9B807;
+#products-section .vueperslides { padding: 0 7rem; }
+
+@media ( max-width: 900px ) and ( min-width: 801px ) {
+  #products-section .vueperslides { padding: 0 4.5rem; }
 }
 
-.section-7 .vueperslides__bullets.vueperslides__bullets--outside {
-  bottom: 0;
+@media ( max-width: 670px ) {
+  #products-section .vueperslides { padding: 0 4.5rem; }
 }
 
-.section-7 .vueperslides__bullets .vueperslides__bullet {
-  color: #E9493D;
+@media ( max-width: 600px ) {
+  #products-section .vueperslides { padding: 0 8rem; }
 }
 
-@media only screen and (max-width: 1050px) and (min-width: 769px) {
-  .vueperslides__bullets.vueperslides__bullets--outside { bottom: 0px; }
-  .buttonUnderSlider { padding-top: 4rem !important; }
+@media ( max-width: 480px ) {
+  #products-section .vueperslides { padding: 0 6rem; }
 }
 
-@media only screen and (max-width: 768px) {
-  .mobile-view h2 { font-size: 26px; }
-  .vueperslides__bullets.vueperslides__bullets--outside { bottom: 50px; }
+@media ( max-width: 414px ) {
+  #products-section .vueperslides { padding: 0 5rem; }
 }
 
-@media only screen and (max-width:414px) {
-  .mobile-view h2 { font-size: 20px; }
-  .mobile-view p { font-size: 11px; }
-  .mobile-view img { padding-left: 0 !important; }
-  .mobile-view .mobile-viewText { padding-left: 1rem !important; }
+@media ( max-width: 375px ) {
+  #products-section .vueperslides { padding: 0 4rem; }
 }
 
-@media only screen and (max-width:320px) {
-  .mobile-view h2 { font-size: 16px; }
-  .mobile-view p { font-size: 10px; }
+@media ( max-width: 320px ) {
+  #products-section .vueperslides { padding: 0 3rem; }
 }
 </style>

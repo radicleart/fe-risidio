@@ -223,18 +223,6 @@ button {
 button:hover {
   background: white 0% 0% no-repeat padding-box;
 }
-.vueperslides__arrows button:hover {
-  background: transparent;
-}
-.vueperslides__arrows button:focus {
-  outline: none;
-}
-.section-2 .vueperslides__bullet {
-  color: #F9B807;
-}
-.section-7 .vueperslides__bullet {
-  color: #E9493D;
-}
 a {
   text-decoration: none;
 }
@@ -314,6 +302,29 @@ a:hover {
   .content-footer p {
     font-size: 7px !important;
   }
+}
+// SLIDERS
+.vueperslides .vueperslides__parallax-wrapper, .vueperslides__parallax-wrapper .vueperslides__track 
+{ overflow: visible; }
+
+.section-7 .vueperslides__parallax-wrapper, .section-7 .vueperslides__parallax-wrapper .vueperslides__track 
+{ overflow: hidden; }
+
+.vueperslides__inner .vueperslides__arrows--outside .vueperslides__arrow--prev { left: -8.5em; }
+.vueperslides__inner .vueperslides__arrows--outside .vueperslides__arrow--next { right: -8.5em; }
+
+.vueperslides__arrows button:hover {
+  background: transparent;
+}
+
+.vueperslides__arrows button:focus {
+  outline: none;
+}
+
+// SLIDERS SECTION 7
+.section-7 .vueperslides__bullet {
+  color: #E9493D;
+  max-width: 50px;
 }
 
 //MOBILE TEXT

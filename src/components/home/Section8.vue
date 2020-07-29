@@ -63,6 +63,7 @@ export default {
         width: '100%',
         position: 'relative',
         top: '0px',
+        'background-color': '#111111',
         'background-repeat': 'no-repeat',
         'background-position': 'center center',
         '-webkit-background-size': 'cover',

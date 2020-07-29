@@ -1,18 +1,18 @@
 <template>
 <section id="section0" v-if="content.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
-    <div class="my-auto text-center  ">
+    <div class="mt-auto mobile-view-1 mobile-gap">
       <div class="mt-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
       <div class="">
-        <p class="text-center blurb2 text-white">{{content.title1[0].text}}</p>
+        <p class="blurb2 text-white">{{content.title1[0].text}}</p>
       </div>
     </div>
   </div>
-  <div class="mt-2 d-flex align-items-center flex-column   mobile-gap"  :style="halfDims">
+  <div class="mt-2 d-flex align-items-center flex-column mobile-view-2 mobile-gap"  :style="halfDims">
     <div class="my-auto">
       <div class="mt-0"><h1 class="text-black">{{content.title2[0].text}}</h1></div>
-      <div class="mx-auto my-4 w-75 text-center">
-        <p class="mb-4 text-center blurb2 text-black" v-html="content.description[0].text"></p>
+      <div class="mx-auto my-4 mobile-view-2__text">
+        <p class="mb-4 blurb2 text-black" v-html="content.description[0].text"></p>
         <p class="title3" v-html="content.title3[0].text"></p>
         <!-- <p class="text-center continue text-info"><i class="text-warning fa-1x fas fa-angle-down"></i></p> -->
       </div>
@@ -100,5 +100,43 @@ export default {
   letter-spacing: 0px;
   color: #000000;
   opacity: 1;
+}
+.mobile-view-2__text {
+  width: 75%;
+}
+
+@media ( max-width: 1024px ) {
+  .blurb2 {
+    text-align: left;
+  }
+  h1 {
+    text-align: left;
+    margin-top: 25px;
+    margin-bottom: 12px;
+  }
+  .title3 {
+      text-align: left;
+  }
+  .mobile-gap {
+    max-width: 704px;
+    width: 100%;
+  }
+  .mobile-view-1 {
+    margin-bottom: 0;
+  }
+  .mobile-view-1 p {
+    margin-bottom: 25px;
+  }
+  .mobile-view-2 {
+    margin: 0 auto;
+    min-height: 0;
+  }
+  .mobile-view-2__text {
+    text-align: left;
+    width: 100%;
+  }
+  .mobile-view-2__text .title3 {
+    margin-bottom: 0;
+  }
 }
 </style>
