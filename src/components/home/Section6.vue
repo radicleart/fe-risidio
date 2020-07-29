@@ -81,4 +81,26 @@ button:hover .call-button-text {
 .button1:hover .call-button-text {
   color: #5FBDC1;
 }
+<<<<<<< HEAD
+=======
+
+@media only screen and (max-width:414px) {
+  h1 { font-size: 17px; }
+  h2 { font-size: 30px; }
+  .textOnMobile span { font-size: 12px; }
+  .textOnMobile { flex: 0 0 90%; max-width: 90%; margin: 0 auto; }
+}
+
+@media only screen and (max-width:375px) {
+  h2 { font-size: 30px; }
+  .textOnMobile { flex: 0 0 70%; max-width: 70%; }
+}
+
+@media only screen and (max-width:320px) {
+  h2 { font-size: 22px; }
+  .textOnMobile span { font-size: 10px; }
+  .textOnMobile { flex: 0 0 65%; max-width: 65%; }
+}
+
+>>>>>>> 6bc65692803bd6b06880cc24c7577261f075a48f
 </style>

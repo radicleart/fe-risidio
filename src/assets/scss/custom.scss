@@ -338,6 +338,7 @@ a:hover {
 }
 
 @media only screen and (max-width:414px) {
+<<<<<<< HEAD
   h1 { font-size: 14px; }
   h2 { font-size: 30px; }
   h3 { font-size: 17px; }
@@ -351,4 +352,14 @@ a:hover {
   h3 { font-size: 17px; }
   h4 { font-size: 15px; }
   p { font-size: 10px; }
+=======
+  .textOnMobile h1 { font-size: 17px; }
+  .textOnMobile h2 { font-size: 30px; }
+  .textOnMobile p { font-size: 12px; }
+}
+
+@media only screen and (max-width:320px) {
+  .textOnMobile h2 { font-size: 22px; }
+  .textOnMobile p { font-size: 12px; }
+>>>>>>> 6bc65692803bd6b06880cc24c7577261f075a48f
 }

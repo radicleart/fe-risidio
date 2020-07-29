@@ -111,6 +111,7 @@ export default {
   .section-2 .vueperslides { width: 60vw; }
 }
 
+<<<<<<< HEAD
 @media only screen and (max-width:1024px) {
   .section-2 .vueperslides { width: 63vw; }
 }
@@ -122,6 +123,14 @@ export default {
 @media only screen and (max-width:768px) {
   .section-2 .vueperslides { width: 66vw; }
   .section-2 .slider__img { margin-right: 1.5rem; }
+=======
+.shifter {
+  color: #5FBDC1;
+  border: 1pt solid #F9B807;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+>>>>>>> 6bc65692803bd6b06880cc24c7577261f075a48f
 }
 
 @media ( max-width: 700px ) {
@@ -129,6 +138,7 @@ export default {
   .section-2 .slider__img img { height: 120px; width: auto; margin-left: 3rem; }
 }
 
+<<<<<<< HEAD
 /* Mobile design */
 .section-2 .vueperslides__bullets {
   position: absolute;
@@ -149,6 +159,27 @@ export default {
   box-shadow: none;
   background-color: rgba(249, 184, 7, 0.3);
   border: none;
+=======
+a  {
+  font-size: 12px;
+}
+
+@media only screen and (max-width:414px) {
+  h3 { font-size: 17px; }
+  p { font-size: 12px; }
+}
+
+@media only screen and (max-width:375px) {
+  h3 { font-size: 17px; }
+  p { font-size: 12px; }
+  img { height: 120px; }
+}
+
+@media only screen and (max-width:320px) {
+  h3 { font-size: 17px; }
+  p { font-size: 12px; }
+  img { height: 100px; }
+>>>>>>> 6bc65692803bd6b06880cc24c7577261f075a48f
 }
 
 .section-2 .vueperslides__bullet--active .default {
