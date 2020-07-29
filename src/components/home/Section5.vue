@@ -111,6 +111,7 @@ export default {
   pointer-events: none;
 }
 
+/* Paddings for next/previous slide on the edge effect */
 #products-section .vueperslides { padding: 0 7rem; }
 
 @media ( max-width: 900px ) and ( min-width: 801px ) {

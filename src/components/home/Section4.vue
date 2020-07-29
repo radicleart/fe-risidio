@@ -95,16 +95,4 @@ export default {
   }
   p { text-align: center; }
 }
-/*
-@media only screen and (max-width: 768px) {
-  p { margin-bottom: 2rem !important; }
-}
-
-@media only screen and (max-width: 375px) {
-  h1 { font-size: 12px; }
-  h2 { font-size: 36px; }
-  .whatsit img { height: 60px; }
-  .whatsit { height: 61px; width: 61px; }
-}
-*/
 </style>

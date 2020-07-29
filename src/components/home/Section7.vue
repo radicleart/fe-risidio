@@ -3,7 +3,7 @@
       <div class="">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto text-center">
-              <div class="my-4 mb-5 textOnMobile"><h1 class="text-black">{{content.posts_title[0].text}}</h1></div>
+              <div class="my-4 mb-5"><h1 class="text-black">{{content.posts_title[0].text}}</h1></div>
               <vueper-slides style="width: 70vw;"
                 class="no-shadow"
                 fixed-height="405px"
