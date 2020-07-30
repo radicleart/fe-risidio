@@ -38,7 +38,7 @@
               </vueper-slides>
               <div class="d-lg-none d-flex flex-column justify-content-center mobile__content">
                 <blog-posts :PAGE_SIZE="PAGE_SIZE"></blog-posts>
-                <div class="text-center mb-5"><button><router-link to="./">Visit Our Blog</router-link></button></div>
+                <div class="text-center mb-5"><button><router-link to="/blog">Visit Our Blog</router-link></button></div>
               </div>
             </div>
           </div>
