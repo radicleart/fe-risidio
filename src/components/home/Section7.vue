@@ -37,7 +37,7 @@
                 </vueper-slide>
               </vueper-slides>
               <div class="d-lg-none d-flex flex-column justify-content-center mobile__content">
-                <blog-posts :PAGE_SIZE="PAGE_SIZE"></blog-posts>
+                <blog-posts :pageSize="pageSize"></blog-posts>
                 <div class="text-center mb-5"><button><router-link to="/blog">Visit Our Blog</router-link></button></div>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default {
         left: require('@/assets/img/Slider arrows/Arrow_left_red.png'),
         right: require('@/assets/img/Slider arrows/Arrow_right_red.png')
       },
-      PAGE_SIZE: 3
+      pageSize: 3
     }
   },
   computed: {

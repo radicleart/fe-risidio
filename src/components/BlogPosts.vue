@@ -48,7 +48,7 @@
 <script>
 export default {
   name: 'get-posts',
-  props: { PAGE_SIZE: Number },
+  props: { pageSize: Number },
   data () {
     return {
       posts: [],
@@ -71,7 +71,7 @@ export default {
       } else {
         this.$prismic.client.query(
           [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['live'])],
-          { orderings: '[my.post.date desc]', pageSize: this.PAGE_SIZE }
+          { orderings: '[my.post.date desc]', pageSize: this.pageSize }
         ).then((response) => {
           this.posts = response.results
         })

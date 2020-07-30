@@ -9,7 +9,7 @@
       </p>
     </div>
     <div class="mb-4 back">
-      <router-link to="./"><span style="color: #E1302D">&#10094;</span> Back to Blog</router-link>
+      <router-link to="./"><span class="text-danger">&#10094;</span> Back to Blog</router-link>
       <!-- Button to edit document in dashboard
       <prismic-edit-button :documentId="documentId"/> -->
     </div>
@@ -21,7 +21,7 @@
         <div class="post-body">
           <slices-block :slices="slices" class="outer-container"/>
               <div class="back-bottom">
-                <router-link to="./"><span style="color: #E1302D">&#10094;</span> Back to Blog</router-link>
+                <router-link to="./"><span class="text-danger">&#10094;</span> Back to Blog</router-link>
                 <!-- Button to edit document in dashboard
                 <prismic-edit-button :documentId="documentId"/> -->
               </div>
@@ -30,7 +30,7 @@
       <!-- sidebar -->
       <div class="col-lg-4 sidebar">
         <h3>Related Post</h3>
-        <blog-posts :PAGE_SIZE="PAGE_SIZE"></blog-posts>
+        <blog-posts :pageSize="pageSize"></blog-posts>
         <div class="button-container"><button><router-link to="./">View All</router-link></button></div>
       </div>
   </div>
@@ -61,7 +61,7 @@ export default {
         img: null
       },
       slices: [],
-      PAGE_SIZE: 5
+      pageSize: 5
     }
   },
   methods: {
