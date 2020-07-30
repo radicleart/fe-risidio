@@ -28,7 +28,7 @@ function __pushcode() {
 
 BUILD_PATH=../fe-lsat
 __build
-cp $BUILD_PATH/dist/lsat-entry.js $PATH_DEPLOY/.
+cp $BUILD_PATH/dist/lsat-entry*.js $PATH_DEPLOY/.
 
 BUILD_PATH=./
 __build

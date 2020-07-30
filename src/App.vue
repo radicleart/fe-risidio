@@ -30,7 +30,8 @@ export default {
       loading: true,
       componentKey: 0,
       intro: 'https://images.prismic.io/risidio-journal/eaa18988-76ae-4891-a832-5d4d8dea849c_intro-gif.gif?auto=compress,format',
-      bgvideo: 'https://prismic-io.s3.amazonaws.com/risidio-journal/cbeb0c74-cb5d-4516-b65e-5e81d331e34c_wesite+background_Hi-res.mp4'
+      bgvideo: 'https://prismic-io.s3.amazonaws.com/risidio-journal/fcd75f30-c353-417e-a7fa-1797acb1a7c7_Smaller+Website+Background.mp4'
+      // bgvideo: 'https://prismic-io.s3.amazonaws.com/risidio-journal/cbeb0c74-cb5d-4516-b65e-5e81d331e34c_wesite+background_Hi-res.mp4'
     }
   },
   mounted () {
@@ -94,6 +95,9 @@ export default {
     },
     runVideo () {
       const element = document.getElementById('myVideo')
+      if (!element) {
+        return
+      }
       element.removeAttribute('preload')
       element.setAttribute('autoplay', true)
     }
