@@ -22,7 +22,7 @@ if [ -z "${SERVICE}" ]; then
   rm -rf $PATH_DEPLOY/*
   BUILD_PATH=../fe-lsat
   __build
-  cp $BUILD_PATH/dist/lsat-entry.js $PATH_DEPLOY/.
+  cp $BUILD_PATH/dist/lsat-entry*.js $PATH_DEPLOY/.
 
   BUILD_PATH=./
   __build
@@ -32,7 +32,7 @@ fi
 if [ "$SERVICE" == "lsat" ]; then
   BUILD_PATH=../fe-lsat
   __build
-  cp $BUILD_PATH/dist/lsat-entry.js $PATH_DEPLOY/.
+  cp $BUILD_PATH/dist/lsat-entry*.js $PATH_DEPLOY/.
 fi
 if [ "$SERVICE" == "risidio" ]; then
   BUILD_PATH=./
