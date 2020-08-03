@@ -4,7 +4,7 @@
     <div class="container m-5 px-5">
       <div class="row">
         <div class="mb-5 col-md-6 col-sm-12">
-          <img width="100%" :src="content.section1_image.url" />
+          <img width="100%" :src="content.section1_image.url" :alt="content.section1_image.alt"/>
         </div>
         <div class="col-md-6 col-sm-12">
           <h1 class="text-left">{{content.section1_title[0].text}}</h1>

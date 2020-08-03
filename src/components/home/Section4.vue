@@ -7,7 +7,7 @@
             <div class="col-lg-4 col-12 mb-5" v-for="(item, index) in group" :key="index">
               <div class="row content-wrap">
                 <div class="col-lg-3 col-12 mobile-col mobile-col__img">
-                  <div class="whatsit" :class="'bg-' + getBgClass(index)"><img class="p-3" :src="features[index]" /></div>
+                  <div v-lazyload class="whatsit" :class="'bg-' + getBgClass(index)"><img class="p-3" :data-url="features[index]" alt="icon"/></div>
                 </div>
                 <div class="col-lg-8 col-12 text-left mobile-col">
                   <div class="d-flex flex-column mobile-col__text" style="height: 230px;">

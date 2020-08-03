@@ -3,7 +3,7 @@
   <div class="d-flex align-items-center flex-column mobile-gap" :style="viewportDimensions">
     <div class="my-auto mx-auto w-75 text-center">
       <h2 class="text-center blurb2">{{content.section2[0].title4[0].text}}</h2>
-      <img ref="imgel" width="80%" :height="calcHeight()" :src="content.section2[0].image.url" />
+      <img ref="imgel" width="80%" :height="calcHeight()" :src="content.section2[0].image.url" :alt="content.section2[0].image.alt"/>
     </div>
   </div>
 </section>

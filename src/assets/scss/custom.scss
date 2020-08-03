@@ -115,11 +115,14 @@ $font-dir: "/fonts/";
 
 body {
   margin: 0;
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   background-color: #000;
+}
+.fonts-loaded body {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 ::-webkit-input-placeholder { /* Edge */

@@ -17,7 +17,7 @@
         <p class="mb-4 mx-auto w-50 text-center blurb2 text-black" v-html="content.s1description[0].text"></p>
       </div>
       <div class="mx-auto my-4 w-75 text-center">
-        <img width="100%" :src="content.s1image.url">
+        <img width="100%" :src="content.s1image.url" :alt="content.s1image.alt">
       </div>
     </div>
   </div>

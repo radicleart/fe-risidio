@@ -3,7 +3,7 @@
   <footer class="text-white" style="height: 280px;">
     <div class="row text-center m-0" style="height: 240px; background-color: #000;">
       <div class="col-md-4 d-none d-md-block" style="height: 240px;">
-        <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" class="logoFooter"/></router-link>
+        <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" alt="risidio-logo" class="logoFooter"/></router-link>
       </div>
       <div class="col-md-6 col-sm-12 offset-md-1 content-footer">
         <div class="row text-left mt-5">

@@ -23,7 +23,7 @@
       <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
         <div v-if="$route.params.uid !== post.uid">
           <div class="imgPostContainer">
-            <img width="280px" height="200px" :src="getImg(post)"/>
+            <img width="280px" height="200px" :src="getImg(post)" :alt="getImgAlt(post)"/>
             <router-link :to="linkResolver(post)" class="postOverlay">Read More
             </router-link>
           </div>
@@ -87,21 +87,21 @@ export default {
       })
     },
     getAuthor (post) {
-      // Query to get blog posts
+      // Query to get blog posts author
       if (post.data && post.data.author && post.data.author.length > 0) {
         return post.data.author[0].text
       }
     },
-    getTags (post) {
-      // Query to get blog posts
-      if (post && post.tags && post.tags.length > 0) {
-        return '[ ' + post.tags.join(', ') + ' ]'
-      }
-    },
     getImg (post) {
-      // Query to get blog posts
+      // Query to get blog posts img
       if (post.data && post.data.blog_home_image.url.length > 0) {
         return post.data.blog_home_image.url
+      }
+    },
+    getImgAlt (post) {
+      // Query to get blog posts img alt
+      if (post.data && post.data.blog_home_image.alt.length > 0) {
+        return post.data.blog_home_image.alt
       }
     },
     activate (el) {

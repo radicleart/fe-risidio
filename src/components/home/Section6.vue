@@ -2,7 +2,7 @@
 <section id="section6" class="bg-secondary">
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center text-white mobile-gap">
-      <div class="mb-2"><img width="300px" :src="section6.image.url" /></div>
+      <div v-lazyload class="mb-2"><img width="300px" :data-url="section6.image.url" :alt="section6.image.alt"/></div>
       <div class="my-4"><h1 class="text-white">{{section6.title[0].text}}</h1></div>
       <div class="mb-2"><h2 class="text-white">{{section6.subtitle[0].text}}</h2></div>
       <div class="mb-4"><p>{{section6.description[0].text}}</p></div>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'Section4',
+  name: 'Section6',
   components: {
   },
   props: ['viewportDimensions'],

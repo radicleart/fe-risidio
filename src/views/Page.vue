@@ -2,7 +2,7 @@
 <div class="home" v-if="content">
   <h1 class="mb-5">{{content.data.page_title[0].text}}</h1>
   <div class="row">
-    <div class="col-3"><img width="450px" :src="content.data.banner.url"/></div>
+    <div class="col-3"><img width="450px" :src="content.data.banner.url" :alt="content.data.banner.alt"/></div>
     <div class="col-9">{{content.data.page_text[0].text}}</div>
   </div>
   <div class="d-flex justify-content-center">

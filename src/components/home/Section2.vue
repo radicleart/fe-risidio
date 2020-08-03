@@ -16,17 +16,11 @@
           :dragging-distance="100"
           :infinite=false
           :breakpoints="breakpoints">
-          <template v-slot:arrow-left>
-            <img :src="arrowsYellow.left" alt="">
-          </template>
-          <template v-slot:arrow-right>
-            <img :src="arrowsYellow.right" alt="">
-          </template>
           <vueper-slide v-for="(item, index) of content.images" :key="index">
             <template v-slot:content>
               <div class="slider__content-wrap">
-                <div class="slider__img">
-                  <img :src="item.image.url" :alt="item.image.alt" class="image" />
+                <div v-lazyload class="slider__img">
+                  <img :data-url="item.image.url" :alt="item.image.alt" class="image" />
                 </div>
                 <div class="slider__text">
                   <h3 class="text-black">{{item.section_title[0].text}}</h3>
@@ -61,10 +55,6 @@ export default {
           bullets: true,
           bulletsOutside: true
         }
-      },
-      arrowsYellow: {
-        left: require('@/assets/img/Slider arrows/Arrow_left_yellow.png'),
-        right: require('@/assets/img/Slider arrows/Arrow_right_yellow.png')
       }
     }
   },

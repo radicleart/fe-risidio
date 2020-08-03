@@ -13,20 +13,14 @@
                 :bullets=false
                 :slide-ratio="1 / 4"
                 :gap="3"
-                :dragging-distance="50"
+                :dragging-distance="20"
                 :slidesPerGroup= "1"
                 :infinite=false
                 :breakpoints="breakpoints">
-                <template v-slot:arrow-left>
-                  <img :src="arrowsBlue.left" alt="">
-                </template>
-                <template v-slot:arrow-right>
-                  <img :src="arrowsBlue.right" alt="">
-                </template>
                 <vueper-slide v-for="(item, index) of content.products" :key="index">
                   <template v-slot:content>
                     <div class="d-flex flex-column slider-content">
-                      <router-link :to="productUrl(item)" class="text-info"><img width="100%" height="250px" :src="item.image.url" :alt="item.image.alt"/></router-link>
+                      <router-link v-lazyload :to="productUrl(item)" class="text-info"><img width="100%" height="250px" :data-url="item.image.url" :alt="item.image.alt"/></router-link>
                       <div class="d-flex align-items-start flex-column" style="width: 100%">
                         <h2 class="text-white">{{item.title[0].text}}</h2>
                         <div class="mb-0" v-for="(pitem, index2) of item.description" :key="index2">
@@ -76,10 +70,6 @@ export default {
         601: {
           visibleSlides: 1
         }
-      },
-      arrowsBlue: {
-        left: require('@/assets/img/Slider arrows/Arrow_left_blue.png'),
-        right: require('@/assets/img/Slider arrows/Arrow_right_blue.png')
       }
     }
   },

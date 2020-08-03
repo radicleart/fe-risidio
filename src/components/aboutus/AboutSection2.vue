@@ -10,7 +10,7 @@
           <div v-for="(item, index) of content.group1" :key="index" class="col-lg-4 col-md-12">
             <div class="d-flex justify-content-start mobile-margin">
               <div class="">
-                <img :src="item.image.url"/>
+                <img :src="item.image.url" :alt="item.image.alt"/>
               </div>
               <div>
                 <h2 class="" v-html="item.title1[0].text"></h2>

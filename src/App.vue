@@ -22,6 +22,9 @@
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
 import Vue from 'vue'
+import lazyLoadDirective from './directives/lazyLoadDirective'
+
+Vue.directive('lazyload', lazyLoadDirective)
 
 export default {
   name: 'App',

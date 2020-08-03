@@ -16,18 +16,18 @@
                 :bullets-outside=true
                 :breakpoints="breakpoints">
                 <template v-slot:arrow-left>
-                  <img :src="arrowsRed.left" alt="">
+                  <img :src="arrowsRed.left" alt="red-arrow-left">
                 </template>
                 <template v-slot:arrow-right>
-                  <img :src="arrowsRed.right" alt="">
+                  <img :src="arrowsRed.right" alt="red-arrow-right">
                 </template>
                 <vueper-slide v-for="(item, index) of content.posts" :key="index" style="font-size: 0.8em; min-width: 300px;">
                   <template v-slot:content>
                     <div class="text-left">
-                      <div class="d-flex align-items-start flex-column" style="min-height: 280px; width: 280px; margin: 0 auto;">
-                        <img width="280px" height="200px" :src="item.image.url" :alt="item.image.alt" class="image" />
-                        <h3 class="text-black"><router-link to="/blog" class="text-danger">{{item.date}}</router-link></h3>
-                        <h2 class="text-black"><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
+                      <div v-lazyload class="d-flex align-items-start flex-column" style="min-height: 280px; width: 280px; margin: 0 auto;">
+                        <img width="280px" height="200px" :data-url="item.image.url" :alt="item.image.alt" class="image" />
+                        <p class="post-date-wrapper"><router-link to="/blog" class="text-danger">{{item.date}}</router-link></p>
+                        <h2><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
                         <div class="mb-auto" v-for="(pitem, index2) of item.description" :key="index2">
                           <div v-if="pitem.type === 'paragraph'" class=""><p style="font-size: 12px; font-weight: 500" class="mb-3" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
                         </div>
@@ -50,7 +50,7 @@
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import BlogPosts from '../BlogPosts.vue'
 export default {
-  name: 'Section5',
+  name: 'Section7',
   components: {
     VueperSlides,
     VueperSlide,
@@ -94,6 +94,20 @@ export default {
 .section-7 p {
   font-size: 11px;
   font-weight: 300;
+  color: #000;
+}
+
+.section-7 .post-date-wrapper {
+  font-size: 10px;
+  margin: 20px 0 8px;
+}
+
+.section-7 h2 a {
+  color: #000;
+}
+
+.section-7 a:hover {
+  color: #000;
 }
 
 /* Mobile design */
