@@ -7,14 +7,6 @@
     <link rel="icon" href="<%= BASE_URL %>img/icons/favicon_dice16x161.png">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <script type="module" src="<%= BASE_URL %>lsat-entry.min.js"></script>
-    <!-- built files will be auto injected -->
     <script>
       (function() {
         // Optimization for Repeat Views
@@ -51,5 +43,14 @@
         }
       })();
       </script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <script type="module" src="<%= BASE_URL %>lsat-entry.min.js"></script>
+    <!-- built files will be auto injected -->
+
   </body>
 </html>
