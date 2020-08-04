@@ -9,7 +9,7 @@ export default new Vuex.Store({
     windims: { innerWidth: window.innerWidth, innerHeight: window.innerHeight },
     apiKey: 'blockstack-loopbomb-01234',
     creditAttributes: {
-      amountFiatPerCredit: 0.5,
+      amountFiatPerCredit: 0.1,
       fiatCurrency: 'EUR',
       useCredits: true,
       start: 2,
