@@ -1,11 +1,11 @@
 <template>
 <section id="section6" class="bg-secondary">
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="my-auto text-center text-white mobile-gap">
+    <div class="my-auto text-center text-white">
       <div v-lazyload class="mb-2"><img width="300px" :data-url="section6.image.url" :alt="section6.image.alt"/></div>
       <div class="my-4"><h1 class="text-white">{{section6.title[0].text}}</h1></div>
-      <div class="mb-2"><h2 class="text-white">{{section6.subtitle[0].text}}</h2></div>
-      <div class="mb-4"><p>{{section6.description[0].text}}</p></div>
+      <div class="mb-2"><h2 class="text-white h2-on-mobile">{{section6.subtitle[0].text}}</h2></div>
+      <div class="mb-4"><p class="text-on-mobile">{{section6.description[0].text}}</p></div>
       <div class="d-flex justify-content-center">
         <div class="mr-4"><button v-scroll-to="{ element: '#contactSection', duration: 2000 }"><span class="call-button-text">{{section6.link1[0].text}}</span></button></div>
         <div><button class="button1" v-scroll-to="{ element: '#contactSection', duration: 2000 }"><span class="call-button-text">{{section6.link2[0].text}}</span></button></div>
@@ -35,6 +35,11 @@ export default {
 </script>
 
 <style scoped>
+.text-on-mobile {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
 p {
   text-align: center;
 }

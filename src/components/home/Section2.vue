@@ -4,7 +4,7 @@
       <div class="my-auto text-center">
         <div>
         <h1 class="text-black mb-4">{{content.section2_title[0].text}}</h1>
-        <h2 class="text-black mb-5">{{content.section2_message[0].text}}</h2>
+        <h2 class="text-black mb-5 h2-on-mobile">{{content.section2_message[0].text}}</h2>
         </div>
         <vueper-slides
           class="no-shadow "

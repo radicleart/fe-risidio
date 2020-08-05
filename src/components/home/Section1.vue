@@ -1,9 +1,9 @@
   <template>
 <section id="section0">
-  <div class="mt-5 d-flex align-items-center flex-column mobile-gap" :style="viewportDimensions">
+  <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="d-flex align-items-center flex-column">
       <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
-      <div class="mb-4"><h2 class="text-white text-center">{{section.subtitle[0].text}}</h2></div>
+      <div class="mb-4"><h2 class="text-white text-center h2-on-mobile">{{section.subtitle[0].text}}</h2></div>
       <div class="mb-4 blurb1 text-white"  v-for="(item, index) of section.description" :key="index">
         <p class="text-center">{{item.text}}</p>
       </div>

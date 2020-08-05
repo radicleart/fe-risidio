@@ -1,9 +1,9 @@
 <template>
 <div class="d-flex justify-content-center">
-  <b-navbar toggleable="md" type="dark" class="transparent p-0 my-nav" v-if="content" style="z-index: 2;">
+  <b-navbar toggleable="md" type="dark" class="p-0 my-nav navbar-expand-sm" v-if="content">
     <b-navbar-brand href="#"><router-link to="/" class="pl-5 navbar-brand"><img :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-navbar-toggle target="nav-collapse" @click="noScroll()"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <!--
@@ -29,6 +29,16 @@
           <b-dropdown-item><span @click="logout()"><i class="fas fa-sign-out-alt"></i> Logout</span></b-dropdown-item>
         </b-nav-item-dropdown>
         <!-- <b-nav-item @click.prevent="login" href="#" v-else>Login</b-nav-item> -->
+      </b-navbar-nav>
+      <b-navbar-nav class="mobile-nav-items">
+        <b-nav-text class="text-white mobile-nav-items--social">
+          <a href="https://discord.gg/qvuxB9P"><span style="font-size: 15px;"><i class="fab fa-discord"></i></span></a>
+          <a href="https://twitter.com/Risidio1"><span style="font-size: 15px;"><i class="fab fa-twitter"></i></span></a>
+          <a href="http://"><span style="font-size: 15px;"><i class="fab fa-linkedin-in"></i></span></a>
+        </b-nav-text>
+        <b-nav-text class="nav-text text-white mobile-nav-items--terms">
+          <router-link to="/aboutus">Terms & conditions</router-link> • <router-link to="/aboutus">Privacy policy</router-link>
+        </b-nav-text>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -66,6 +76,9 @@ export default {
     },
     login () {
       this.$router.push('/login')
+    },
+    noScroll () {
+      document.body.classList.toggle('no-scroll')
     }
   },
   computed: {
@@ -106,6 +119,13 @@ export default {
 </script>
 
 <style scoped>
+.navbar {
+  background-color: transparent;
+  z-index: 100;
+}
+.navbar-brand {
+  margin-right: 0;
+}
 .text-white a.nav-link {
   color: #FFFFFF;
 }
@@ -151,28 +171,80 @@ export default {
   background-color: transparent;
 }
 
-.navbar-nav .nav-link {
+.navbar .navbar-nav .nav-link {
     padding-left: 0;
-    padding-right: 1.5rem;
+    padding-right: 0;
     padding-top: 1.9rem;
 }
 
 .nav-link {
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
-@media only screen and (max-width: 767px) {
-  .navbar-nav {
-    align-items: flex-end;
-    margin-right: 0 !important;
+/* MOBILE DESIGN */
+.mobile-nav-items {
+  display: none;
+}
+
+.mobile-nav-items--social a:not(:last-child) {
+  margin-right: 15px;
+}
+
+.navbar .navbar-nav .mobile-nav-items--terms {
+  margin-bottom: 15px;
+}
+
+.navbar .navbar-nav .mobile-nav-items--terms a {
+  font-size: 10px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 575px) {
+  .mobile-nav-items {
+    display: flex;
+    margin-top: auto;
   }
-  .navbar-nav  {
-    align-items: flex-end;
+  .navbar {
+    background-color: #000;
+    position: fixed !important;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+  .navbar-collapse {
+    background-color: #000;
+    z-index: -1;
+    height: 100vh;
+    margin-top: -60px;
+    display: flex;
+    flex-flow: column;
+    transition: height 0.5s ease-out;
+  }
+  .navbar .navbar-nav .nav-link {
+    margin-bottom: 22px;
+    margin-left: 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 200;
+  }
+  .navbar-nav:first-child {
+    margin-top: 10rem;
+  }
+  .navbar-nav {
+    align-items: center;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
   .navbar-nav .joinUsButton button {
     background-color: transparent;
     width: auto;
+    height: auto;
     padding: 0;
+  }
+  .call-button-text {
+    font-size: 24px;
+    font-weight: 500;
   }
   .navbar-brand a {
     padding-right: 0;
