@@ -36,7 +36,7 @@
         <span style="font-size: 15px;">
           <a href="https://discord.gg/qvuxB9P"><i class="fab fa-discord"></i></a>
           <a href="https://twitter.com/Risidio1"><i class="fab fa-twitter"></i></a>
-          <a href="http://"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/risidio_official/"><i class="fab fa-instagram"></i></a>
         </span>
       </div>
     </div>

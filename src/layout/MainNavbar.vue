@@ -1,11 +1,11 @@
 <template>
 <div class="d-flex justify-content-center">
   <b-navbar toggleable="md" type="dark" class="p-0 my-nav navbar-expand-sm" v-if="content">
-    <b-navbar-brand href="#"><router-link to="/" class="pl-5 navbar-brand"><img :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
+    <b-navbar-brand href="#"><router-link to="/" class="navbar-brand"><img :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" @click="noScroll()"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
+      <b-navbar-nav v-b-toggle.nav-collapse @click="noScroll()">
         <!--
         <b-nav-item><router-link class="text-white" to="/education">Education</router-link></b-nav-item>
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
@@ -16,7 +16,7 @@
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
-        <b-nav-item class="joinUsButton"><button class="text-info" v-scroll-to="{ element: '#section6', duration: 2500 }"><a href="#" class="call-button-text">Join Us</a></button></b-nav-item>
+        <b-nav-item class="joinUsButton"><button v-b-toggle.nav-collapse @click="noScroll()" class="text-info" v-scroll-to="{ element: '#section6', duration: 2500 }"><a data-toggle="collapse" href="#nav-collapse" class="call-button-text">Join Us</a></button></b-nav-item>
         <!-- <lsat-entry :configuration="configuration" style="text-decoration: none;"/> -->
         <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
           <template v-slot:button-content>
@@ -34,9 +34,9 @@
         <b-nav-text class="text-white mobile-nav-items--social">
           <a href="https://discord.gg/qvuxB9P"><span style="font-size: 15px;"><i class="fab fa-discord"></i></span></a>
           <a href="https://twitter.com/Risidio1"><span style="font-size: 15px;"><i class="fab fa-twitter"></i></span></a>
-          <a href="http://"><span style="font-size: 15px;"><i class="fab fa-linkedin-in"></i></span></a>
+          <a href="https://www.instagram.com/risidio_official/"><span style="font-size: 15px;"><i class="fab fa-instagram"></i></span></a>
         </b-nav-text>
-        <b-nav-text class="nav-text text-white mobile-nav-items--terms">
+        <b-nav-text v-b-toggle.nav-collapse @click="noScroll()" class="nav-text text-white mobile-nav-items--terms">
           <router-link to="/aboutus">Terms & conditions</router-link> • <router-link to="/aboutus">Privacy policy</router-link>
         </b-nav-text>
       </b-navbar-nav>
@@ -126,6 +126,9 @@ export default {
 .navbar-brand {
   margin-right: 0;
 }
+.navbar-brand a {
+  padding-left: 3rem;
+}
 .text-white a.nav-link {
   color: #FFFFFF;
 }
@@ -198,6 +201,16 @@ export default {
   font-size: 10px;
   font-weight: 300;
   margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 660px) and (min-width: 576px) {
+  .nav-link {
+    margin-left: 20px;
+  }
+  .navbar-brand a {
+    padding-left: 2rem;
+    margin-right: 10px;
+  }
 }
 
 @media only screen and (max-width: 575px) {
