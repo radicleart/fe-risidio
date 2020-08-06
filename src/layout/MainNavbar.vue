@@ -261,7 +261,7 @@ export default {
   }
   .navbar-brand a {
     padding-right: 0;
-    padding-left: 1.5rem !important;
+    padding-left: 1.5rem;
   }
   .navbar-brand img {
     height: 45px;
