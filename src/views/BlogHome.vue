@@ -135,15 +135,15 @@ a:hover {
   border-bottom: 1px solid #DADADA;
 }
 /* Media Queries */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .home {
     padding: 0 20px;
   }
 }
-@media (max-width: 414px) {
+@media only screen and (max-width: 414px) {
   h2 { margin-bottom: 0 !important; }
 }
-@media (max-width: 320px) {
+@media only screen and (max-width: 320px) {
   .section-one {
     height: 320px !important;
   }

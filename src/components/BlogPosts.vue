@@ -227,7 +227,7 @@ export default {
   opacity: 1;
 }
 /* Media Queries */
-@media (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   .page .blog-main {
     padding: 3rem 0;
   }
@@ -236,7 +236,7 @@ export default {
     margin: 0 9px;
   }
 }
-@media (max-width: 360px) {
+@media only screen and (max-width: 360px) {
   .blog-main {
     grid-template-columns: repeat(auto-fill, minmax(240px, max-content)) !important;
   }

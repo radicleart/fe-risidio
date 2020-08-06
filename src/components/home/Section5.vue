@@ -128,31 +128,31 @@ export default {
 /* Paddings for next/previous slide on the edge effect */
 #products-section .vueperslides { padding: 0 7rem; }
 
-@media ( max-width: 900px ) and ( min-width: 801px ) {
+@media only screen and ( max-width: 900px ) and ( min-width: 801px ) {
   #products-section .vueperslides { padding: 0 4.5rem; }
 }
 
-@media ( max-width: 670px ) {
+@media only screen and ( max-width: 670px ) {
   #products-section .vueperslides { padding: 0 4.5rem; }
 }
 
-@media ( max-width: 600px ) {
+@media only screen and ( max-width: 600px ) {
   #products-section .vueperslides { padding: 0 8rem; }
 }
 
-@media ( max-width: 480px ) {
+@media only screen and ( max-width: 480px ) {
   #products-section .vueperslides { padding: 0 6rem; }
 }
 
-@media ( max-width: 414px ) {
+@media only screen and ( max-width: 414px ) {
   #products-section .vueperslides { padding: 0 5rem; }
 }
 
-@media ( max-width: 375px ) {
+@media only screen and ( max-width: 375px ) {
   #products-section .vueperslides { padding: 0 4rem; }
 }
 
-@media ( max-width: 320px ) {
+@media only screen and ( max-width: 320px ) {
   #products-section .vueperslides { padding: 0 3rem; }
 }
 </style>

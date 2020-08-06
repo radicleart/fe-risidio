@@ -44,7 +44,7 @@ img {
   width: 70%;
   font-size: 14px;
 }
-@media (min-width: 767px) {
+@media only screen and (min-width: 767px) {
   .blurb1 {
     width: 50%;
   }
@@ -88,7 +88,7 @@ button:hover .call-button-text {
   color: #5FBDC1;
 }
 
-@media (min-width:769px) {
+@media only screen and (min-width:769px) {
   p { font-size: 14px; }
 }
 </style>

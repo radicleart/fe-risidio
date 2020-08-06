@@ -100,7 +100,7 @@ img {
   color: #949494;
 }
 /* Media Queries */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .blog-header {
     padding: 5px;
   }
@@ -108,7 +108,7 @@ img {
     width: 80%;
   }
 }
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   /* Blog post images */
   .block-img.emphasized {
     width: 130%;
