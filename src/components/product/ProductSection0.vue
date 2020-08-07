@@ -105,7 +105,7 @@ export default {
   width: 75%;
 }
 
-@media ( max-width: 1024px ) {
+@media only screen and ( max-width: 1024px ) {
   .blurb2 {
     text-align: left;
   }

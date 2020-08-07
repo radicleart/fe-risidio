@@ -114,7 +114,7 @@ export default {
   .section-2 .slider__img { margin-right: 1.5rem; }
 }
 
-@media ( max-width: 700px ) {
+@media only screen and ( max-width: 700px ) {
   .section-2 .vueperslides { width: 63vw; }
   .section-2 .slider__img img { height: 120px; width: auto; margin-left: 3rem; }
 }
@@ -145,7 +145,7 @@ export default {
   background-color: rgb(249, 184, 7);
 }
 
-@media (max-width:600px) {
+@media only screen and (max-width:600px) {
   .section-2 .vueperslides { width: 100vw; }
   .section-2 .slider__img { margin-right: 0; }
   .section-2 .slider__img img { height: 205px; width: 185px; margin-left: 0; }
@@ -156,17 +156,16 @@ export default {
   .section-2 .vueperslides { height: 400px; }
   .section-2 .vueperslide { height: 400px; }
 }
-
-@media (max-width:414px) {
+@media only screen and (max-width:414px) {
   .section-2 .slider__text { max-width: 220px; }
   .section-2 .vueperslides__bullets { bottom: -65px; }
 }
 
-@media (max-width:375px) {
+@media only screen and (max-width:375px) {
   .section-2 { min-height: 750px; }
 }
 
-@media (max-width:320px) {
+@media only screen and (max-width:320px) {
   .section-2 { min-height: 650px; }
 }
 

@@ -71,16 +71,16 @@ img {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
-@media (max-width: 1100px) and (min-width: 992px) {
+@media only screen and (max-width: 1100px) and (min-width: 992px) {
   img { width: 60px; margin-left: 0; }
 }
-@media (max-width: 991px) {
+@media only screen and  (max-width: 991px) {
   .mobile-margin { margin-bottom: 2rem; }
 }
-@media (max-width: 414px) {
+@media only screen and  (max-width: 414px) {
   img { margin-left: 0; }
 }
-@media (max-width: 360px) {
+@media only screen and (max-width: 360px) {
   img { width: 55px; margin-right: 1rem; }
 }
 </style>

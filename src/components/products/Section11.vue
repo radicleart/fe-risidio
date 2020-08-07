@@ -1,20 +1,19 @@
 <template>
 <section :class="bgClass" class="" v-if="content" :style="viewportDimensions">
-  <div class="d-flex justify-content-center p-5">
-    <div class="mx-5 row text-center">
-        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-4" v-for="(item, index) of content.group_set" :key="index">
+  <div class="d-flex justify-content-center card-container">
+    <div class="row text-center card-row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center" v-for="(item, index) of content.group_set" :key="index">
           <b-card
             :title="item.group_item_title[0].text"
             :img-src="item.item_image.url"
             img-alt="Image"
             img-top
             tag="article"
-            style="min-width: 15rem;"
-            class="mb-2 text-left">
+            class="text-left card-style">
             <b-card-text>
               {{item.item_main_text[0].text}}
             </b-card-text>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex">
               <div class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.item_sub_text[0].text}}</router-link></div>
               <div class="more-text" v-html="demoLink(item)"></div>
             </div>
@@ -41,11 +40,11 @@ export default {
     demoLink (item) {
       const productId = item.product_name[0].text
       if (productId === 'lsat') {
-        return '<a class="text-warning" href="/lsat-demo">Try The Demo</a>'
+        return '<a class="text-warning" href="/lsat-demo">Try it now</a>'
       } else if (productId === 'loopbomb') {
-        return '<a class="text-warning" href="https://loopbomb.com">Try The Demo</a>'
+        return '<a class="text-warning" href="https://loopbomb.com">Try it now</a>'
       } else if (productId === 'nongibles') {
-        return '<a class="text-warning" href="https://radicle.art">Try The Demo</a>'
+        return '<a class="text-warning" href="https://radicle.art">Try it now</a>'
       } else if (productId === 'dsearch') {
         return '<a class="text-warning" href="https://github.com/radicleart/brightblock-search">Find Us On Github</a>'
       } else if (productId === 'hubber') {
@@ -76,13 +75,36 @@ img {
   text-transform: capitalize;
   opacity: 1;
 }
+.card-container {
+  padding: 8rem 3rem 3rem;
+}
+.card-row {
+  max-width: 988px;
+}
+.card {
+  border: none;
+  width: 217px;
+  min-width: 217px;
+  margin-bottom: 80px;
+}
+.card-body {
+  padding: 1.25rem 0 0;
+}
 .card-title {
   white-space: nowrap;
 }
 .card-text {
-  height: 100px;
+  height: 90px;
 }
 .card-img-top {
-  height: 300px;
+  height: auto;
+}
+.more-text:first-child {
+  margin-right: 17px;
+}
+@media only screen and ( max-width:575px ) {
+  .card-text {
+    height: auto;
+  }
 }
 </style>

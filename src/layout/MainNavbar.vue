@@ -77,7 +77,10 @@ export default {
       this.$router.push('/login')
     },
     noScroll () {
-      document.body.classList.toggle('no-scroll')
+      const width = window.innerHeight
+      if (width <= 575) {
+        document.body.classList.toggle('no-scroll')
+      }
     }
   },
   computed: {
@@ -173,6 +176,10 @@ export default {
   background-color: transparent;
 }
 
+.navbar-nav:focus {
+  outline: none;
+}
+
 .navbar .navbar-nav .nav-link {
     padding-left: 0;
     padding-right: 0;
@@ -200,6 +207,12 @@ export default {
   font-size: 10px;
   font-weight: 300;
   margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 576px) {
+  #nav-collapse {
+    transition: none;
+  }
 }
 
 @media only screen and (max-width: 660px) and (min-width: 576px) {
