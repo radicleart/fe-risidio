@@ -26,9 +26,9 @@ function __pushcode() {
   rsync -aP -e "ssh  -p 7019" $PATH_DEPLOY/* bob@$SERVER:/var/www/risidio
 }
 
-BUILD_PATH=../fe-lsat
+BUILD_PATH=../fe-rpay
 __build
-cp $BUILD_PATH/dist/lsat-entry*.js $PATH_DEPLOY/.
+cp $BUILD_PATH/dist/rpay-entry*.js $PATH_DEPLOY/.
 
 BUILD_PATH=./
 __build

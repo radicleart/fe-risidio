@@ -5,7 +5,7 @@
     <div class="my-auto">
       <div class="d-flex justify-content-center mt-5 mb-4">
         <div v-if="demoMode">
-          <lsat-entry :paymentConfig="configuration" @paymentEvent="paymentEvent"/>
+          <rpay-entry :paymentConfig="configuration" @paymentEvent="paymentEvent"/>
         </div>
         <div class="bg-light text-black p-4" v-else>
           <p>Payment received with thanks - here are you're Satoshi jokes</p>
