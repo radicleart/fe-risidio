@@ -1,5 +1,5 @@
 <template>
-<section :class="bgClass" class="" v-if="content" :style="viewportDimensions">
+<section :class="bgClass" class="" v-if="content" :style="viewportDimensions" id="section-11">
   <div class="d-flex justify-content-center card-container">
     <div class="row text-center card-row">
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center" v-for="(item, index) of content.group_set" :key="index">
@@ -98,6 +98,7 @@ img {
 }
 .card-img-top {
   height: auto;
+  border-radius: 0;
 }
 .more-text:first-child {
   margin-right: 17px;

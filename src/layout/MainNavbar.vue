@@ -78,7 +78,7 @@ export default {
       this.$router.push('/login')
     },
     noScroll () {
-      const width = window.innerHeight
+      const width = window.innerWidth
       if (width <= 575) {
         document.body.classList.toggle('no-scroll')
       }

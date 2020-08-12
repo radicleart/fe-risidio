@@ -156,7 +156,7 @@ export default {
   .section-2 .vueperslides { height: 400px; }
   .section-2 .vueperslide { height: 400px; }
 }
-@media only screen and (max-width:414px) {
+@media only screen and (max-width:425px) {
   .section-2 .slider__text { max-width: 220px; }
   .section-2 .vueperslides__bullets { bottom: -65px; }
 }

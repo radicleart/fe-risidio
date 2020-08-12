@@ -2,16 +2,16 @@
 <section class="bg-dark" v-if="content">
   <div class="bg-dark d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center text-white">
-      <div class="w-75 mx-auto">
+      <div class="text-container mx-auto">
         <h1>{{content.section3_title[0].text}}</h1>
         <div class="my-5 row">
-          <div class="col-6 mt-4" v-for="(item, index) of content.section3_group" :key="index">
+          <div class="col-sm-6 col-12 mt-4" v-for="(item, index) of content.section3_group" :key="index">
             <h2 class="">{{item.s3_title[0].text}}</h2>
             <p class="">{{content.section3_group2[index].description1[0].text}}</p>
           </div>
         </div>
       </div>
-      <p v-if="hasDemoLink" class="text-center"><button class="more-text"><a :href="demoLink()" class="text-info">{{demoText()}}</a></button></p>
+      <p v-if="hasDemoLink" class="text-center button-container"><button class="more-text"><a :href="demoLink()" class="text-info">{{demoText()}}</a></button></p>
     </div>
   </div>
 </section>
@@ -31,7 +31,7 @@ export default {
       if (productId === 'dsearch' || productId === 'hubber') {
         return 'Find Us On Github'
       } else {
-        return 'Try The Demo'
+        return 'Try It Now'
       }
     },
     demoLink () {
@@ -64,6 +64,9 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  margin-top: 40px;
+}
 h2 {
   text-align: left;
   font-size: 26px;
@@ -71,5 +74,24 @@ h2 {
   letter-spacing: 0px;
   color: #FFFFFF;
   opacity: 1;
+}
+.button-container {
+  margin-bottom: 40px;
+}
+button {
+  width: 177px;
+}
+.text-container {
+  width: 50%;
+}
+@media only screen and (max-width:768px) {
+  .text-container {
+    width: 75%;
+  }
+}
+@media only screen and (max-width:425px) {
+  .text-container {
+    width: 85%;
+  }
 }
 </style>
