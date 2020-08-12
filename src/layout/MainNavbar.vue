@@ -17,7 +17,6 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
         <b-nav-item class="joinUsButton"><button v-b-toggle.nav-collapse @click="noScroll()" class="text-info" v-scroll-to="{ element: '#section6', duration: 2500 }"><a data-toggle="collapse" href="#nav-collapse" class="call-button-text">Join Us</a></button></b-nav-item>
-        <!-- <lsat-entry :configuration="configuration" style="text-decoration: none;"/> -->
         <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
           <template v-slot:button-content>
             <i class="far fa-heart"></i>

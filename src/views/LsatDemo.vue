@@ -4,10 +4,12 @@
   <div class="d-flex align-items-center flex-column">
     <div class="my-auto">
       <div class="d-flex justify-content-center mt-5 mb-4">
-        <div v-if="demoMode">
-          <lsat-entry :paymentConfig="configuration" @paymentEvent="paymentEvent"/>
+        <div>
+          <rpay-entry :paymentConfig="configuration" @paymentEvent="paymentEvent"/>
         </div>
-        <div class="bg-light text-black p-4" v-else>
+      </div>
+      <div class="d-flex justify-content-center mt-5 mb-4">
+        <div class="bg-light text-black p-4" v-if="!demoMode">
           <p>Payment received with thanks - here are you're Satoshi jokes</p>
           <h4>Joke 1</h4>
           <ul>
@@ -67,7 +69,7 @@ export default {
   name: 'LsatDemo',
   data () {
     return {
-      demoMode: true,
+      demoMode: true, // leave r-pay up..
       j1: false,
       j2: false,
       j3: false,
@@ -100,7 +102,7 @@ export default {
       const paymentData = event.detail[0]
       this.eventData += '<p><pre style="color: #fff;">' + JSON.stringify(paymentData) + '</pre></p>'
       if (paymentData.opcode === 'lsat-payment-confirmed') {
-        this.demoMode = false
+        this.demoMode = true
       }
     }
   },
@@ -123,6 +125,7 @@ export default {
       const lookAndFeel = {
         labels: {
           orderMsg: 'Place order for \'Satoshi Jokes\' select number required and pay.',
+          successMsg: 'Your order for jokes has been received with thanks.',
           title: 'Pay With',
           subtitle: 'LSAT Pay',
           card1Label: 'Select payment option',
@@ -163,7 +166,7 @@ export default {
         paymentId: myKey,
         opcode: 'lsat-place-order',
         purchaseEndpoint: '/assets/buy-now',
-        apiKey: 'demo-digital-01234',
+        apiKey: 'risidio-1',
         lookAndFeel: lookAndFeel,
         paymentOptions: { allowLightning: true, allowEthereum: false, allowBitcoin: false, allowStacks: true },
         paymentOption: 'lightning',
