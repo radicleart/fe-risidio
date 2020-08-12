@@ -1,6 +1,6 @@
 <template>
 <section id="section0" :style="bannerImage" v-if="content.banner">
-  <div class="mt-5 d-flex align-items-center flex-column">
+  <div class="d-flex align-items-center flex-column h-100">
     <div class="my-auto text-center">
       <div class="mt-5"><h1 class="text-white">{{content.page_title[0].text}}</h1></div>
       <div class="mx-auto my-4 text-white w-75">
@@ -8,6 +8,9 @@
       </div>
       <div class="mx-auto my-4 text-white w-75">
         <p class="text-center text-large">{{content.page_text[1].text}}</p>
+      </div>
+      <div v-scroll-to="{ element: '#section-11', duration: 1000 }" class="icon-down">
+        <i class="fas fa-chevron-down"></i>
       </div>
     </div>
   </div>
@@ -26,7 +29,7 @@ export default {
     bannerImage () {
       return {
         padding: '40px 0 0 0',
-        height: '400px',
+        height: '450px',
         width: '100%',
         position: 'relative',
         top: '0px',
@@ -55,14 +58,12 @@ export default {
   font-weight: 200;
   letter-spacing: 0px;
   color: #FFFFFF;
-  opacity: 1;
 }
 @media only screen and (max-width: 900px) {
   .quote {
     margin: 0 100px;
   }
 }
-
 .blurb3 {
   width: 100%;
   font-size: 17px;
@@ -70,6 +71,20 @@ export default {
   text-align: center;
   letter-spacing: 0px;
   color: #FFFFFF;
-  opacity: 1;
+}
+.icon-down {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 1px solid rgba(95, 189, 193, 0.2);
+  border-radius: 50%;
+  color: #5FBDC1;
+}
+.icon-down i {
+  position: relative;
+  top: 8px;
+}
+.icon-down:hover {
+  cursor: pointer;
 }
 </style>

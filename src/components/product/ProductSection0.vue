@@ -1,17 +1,23 @@
 <template>
 <section id="section0" v-if="content.banner">
-  <div :style="bannerImage" class="d-flex align-items-center flex-column">
-    <div class="mt-auto mobile-view-1 mobile-gap">
+  <div :style="bannerImage" class="d-flex justify-content-center flex-column first-half">
+    <div class="my-auto text-center">
       <div class="mt-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
-      <div class="">
-        <p class="blurb2 text-white">{{content.title1[0].text}}</p>
+      <div class="h2">
+        <h2 class="text-white">{{content.title1[0].text}}</h2>
+      </div>
+      <div v-scroll-to="{ element: '#product-section-1', duration: 1000 }" class="icon-down">
+        <i class="fas fa-chevron-down"></i>
       </div>
     </div>
+    <div class="mb-4 back">
+        <router-link to="./"><span class="text-warning">&#10094;</span> Back to All Products</router-link>
+    </div>
   </div>
-  <div class="mt-2 d-flex align-items-center flex-column mobile-view-2 mobile-gap"  :style="halfDims">
-    <div class="my-auto">
+  <div class="d-flex align-items-center flex-column second-half"  :style="halfDims">
+    <div class="my-auto second-half__text-container">
       <div class="mt-0"><h1 class="text-black">{{content.title2[0].text}}</h1></div>
-      <div class="mx-auto my-4 mobile-view-2__text">
+      <div class="mx-auto my-4">
         <p class="mb-4 blurb2 text-black" v-html="content.description[0].text"></p>
         <p class="title3" v-html="content.title3[0].text"></p>
         <!-- <p class="text-center continue text-info"><i class="text-warning fa-1x fas fa-angle-down"></i></p> -->
@@ -53,8 +59,8 @@ export default {
     bannerImage () {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return {
-        padding: '40px 0 0 0',
-        height: height / 2 + 'px',
+        padding: '70px 0 0 0',
+        height: (height / 2 + 50) + 'px',
         width: '100%',
         position: 'relative',
         top: '0px',
@@ -71,7 +77,7 @@ export default {
     },
     halfDims () {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
-      return 'min-height: ' + height / 2 + 'px; width: auto;'
+      return 'min-height: ' + (height / 2 - 50) + 'px; width: auto;'
     }
   }
 }
@@ -101,42 +107,57 @@ export default {
   color: #000000;
   opacity: 1;
 }
-.mobile-view-2__text {
+.icon-down {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 1px solid rgba(249, 184, 7, 0.2);
+  border-radius: 50%;
+  color: #F9B807;
+}
+.icon-down i {
+  position: relative;
+  top: 8px;
+}
+.icon-down:hover {
+  cursor: pointer;
+}
+.first-half h1 {
+  margin-bottom: 1rem;
+}
+.first-half h2 {
+  margin-bottom: 2rem;
+}
+.back {
+  width: 75%;
+  margin: 0 auto;
+}
+.back span {
+  margin-right: 10px;
+}
+.back a {
+  color: #fff;
+  font-size: 10px;
+}
+.second-half__text-container {
   width: 75%;
 }
-
-@media only screen and ( max-width: 1024px ) {
-  .blurb2 {
-    text-align: left;
-  }
-  h1 {
-    text-align: left;
-    margin-top: 25px;
-    margin-bottom: 12px;
-  }
-  .title3 {
-      text-align: left;
-  }
-  .mobile-gap {
-    max-width: 704px;
-    width: 100%;
-  }
-  .mobile-view-1 {
-    margin-bottom: 0;
-  }
-  .mobile-view-1 p {
-    margin-bottom: 25px;
-  }
-  .mobile-view-2 {
+@media only screen and (max-width:425px) {
+  .first-half .h2 {
+    width: 85%;
     margin: 0 auto;
-    min-height: 0;
   }
-  .mobile-view-2__text {
+  .back {
+    width: 85%;
+  }
+  .second-half {
+    margin: 40px 0;
+  }
+  .second-half p {
     text-align: left;
-    width: 100%;
   }
-  .mobile-view-2__text .title3 {
-    margin-bottom: 0;
+  .second-half__text-container {
+    width: 85%;
   }
 }
 </style>

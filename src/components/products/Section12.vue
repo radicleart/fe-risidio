@@ -5,13 +5,13 @@
       <div class="main-heading"><h1 class="text-black">{{content.section2_title[0].text}}</h1></div>
       <div class="row content-container">
         <div class="col-lg-4 col-md-12 mb-5 mx-auto px-md-5 px-sm-0 text-black w-75" v-for="(item, index) of content.group2" :key="index">
-          <div v-lazyload class="whatsit" :class="'bg-' + getBgClass(index)"><img class="p-3" :data-url="features[index]" alt="icon"/></div>
+          <div v-lazyload class="whatsit" :class="'bg-' + getBgClass(index)"><img class="" :data-url="features[index]" alt="icon"/></div>
           <h2 class="text-center blurb2">{{item.title[0].text}}</h2>
           <p class="text-center blurb2">{{item.description[0].text}}</p>
         </div>
       </div>
       <div class="my-5 d-flex justify-content-center">
-        <button class="btn-services text-black"><router-link class="more-text" to='/aboutus'>{{content.section2_link[0].text}}</router-link></button>
+        <button class="btn-services"><router-link class="more-text" to='/aboutus'>{{content.section2_link[0].text}}</router-link></button>
       </div>
     </div>
   </div>
@@ -25,9 +25,9 @@ export default {
   data () {
     return {
       features: [
-        require('@/assets/img/xd/bitcoin.svg'),
-        require('@/assets/img/xd/report.svg'),
-        require('@/assets/img/xd/Page-1.svg')
+        require('@/assets/img/icons/Chess_figure.svg'),
+        require('@/assets/img/icons/Website_development.svg'),
+        require('@/assets/img/icons/Magnifying_glass.svg')
       ]
     }
   },
@@ -66,6 +66,7 @@ img {
   height: 72px;
   border-radius: 50%;
   margin: 0 auto 12px;
+  display: flex;
 }
 .more-text {
   text-align: center;
@@ -101,6 +102,15 @@ h1 {
   color: #000000;
   opacity: 1;
 }
+img {
+  margin: auto;
+}
+button:hover {
+  background-color: #5FBDC1;
+}
+button:hover a {
+  color: #fff;
+}
 
 @media only screen and (max-width:991px) {
   .content-container {
@@ -109,7 +119,7 @@ h1 {
   }
 }
 
-@media only screen and (max-width:414px) {
+@media only screen and (max-width:425px) {
   .content-container {
     width: 100%;
   }

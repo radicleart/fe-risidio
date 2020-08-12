@@ -112,7 +112,7 @@ img {
   width: 256px;
 }
 
-@media only screen and (max-width:414px) {
+@media only screen and (max-width:425px) {
   .mobile-gap { padding: 0 !important; }
   img {
     width: 70px;

@@ -1,18 +1,18 @@
 <template>
-<section class="bg-lighter" v-if="content" :style="viewportDimensions">
-  <div class="d-flex align-items-center flex-column mobile-gap">
-    <div class="container m-5 px-5">
+<section class="d-flex justify-content-center bg-lighter" v-if="content" :style="viewportDimensions" id="product-section-1">
+  <div class="d-flex justify-content-center flex-column gap-on-mobile">
+    <div class="container">
       <div class="row">
-        <div class="mb-5 col-md-6 col-sm-12">
-          <img width="100%" :src="content.section1_image.url" :alt="content.section1_image.alt"/>
+        <div class="col-6 text-right d-md-block d-none">
+          <img :src="content.section1_image.url" :alt="content.section1_image.alt"/>
         </div>
         <div class="col-md-6 col-sm-12">
-          <h1 class="text-left">{{content.section1_title[0].text}}</h1>
-          <div class="my-5" v-for="(item, index) of content.section1" :key="index">
+          <h1 class="mb-5">{{content.section1_title[0].text}}</h1>
+          <div class="three-paragraphs" v-for="(item, index) of content.section1" :key="index">
             <h2 class="" v-html="item.tile[0].text"></h2>
             <p class="" v-html="item.description1[0].text"></p>
           </div>
-          <p v-if="hasDemoLink" class="text-center"><button class="more-text bg-info"><a :href="demoLink()" class="text-white">{{demoText()}}</a></button></p>
+          <p v-if="hasDemoLink" class="button-contaner"><button class="btn-services more-text"><a :href="demoLink()">{{demoText()}}</a></button></p>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@ export default {
       if (productId === 'dsearch' || productId === 'hubber') {
         return 'Find Us On Github'
       } else {
-        return 'Try The Demo'
+        return 'Try It Now!'
       }
     },
     demoLink () {
@@ -67,4 +67,37 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  text-align: left;
+}
+img {
+  width: 310px;
+  margin-right: 40px;
+}
+.three-paragraphs {
+  margin-bottom: 21px;
+}
+.button-contaner {
+  margin-top: 11px;
+  margin-bottom: 0;
+}
+@media only screen and (max-width:767px) {
+  h1 {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .button-contaner {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+@media only screen and (max-width:425px) {
+  .gap-on-mobile {
+    width: 85%;
+    margin: 0 auto;
+  }
+  .container {
+    padding: 0;
+  }
+}
 </style>
