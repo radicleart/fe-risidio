@@ -125,7 +125,7 @@ export default {
       const lookAndFeel = {
         labels: {
           orderMsg: 'Place order for \'Satoshi Jokes\' select number required and pay.',
-          successMsg: 'Your order for jokes has been received with thanks.',
+          successMsg: 'Click to reveal punchlines!',
           title: 'Pay With',
           subtitle: 'LSAT Pay',
           card1Label: 'Select payment option',
