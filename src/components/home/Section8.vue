@@ -24,6 +24,7 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
+      bgStatic: require('@/assets/img/Group994.svg'),
       mailp: require('@/assets/img/Group 15784/Group 15784.png'),
       discordp: require('@/assets/img/Group 15783/Group 15783.png'),
       social: {
@@ -57,20 +58,38 @@ export default {
       if (!content) {
         return
       }
-      return {
-        padding: '40px 0 0 0',
-        height: height + 'px',
-        width: '100%',
-        position: 'relative',
-        top: '0px',
-        'background-color': '#111111',
-        'background-repeat': 'no-repeat',
-        'background-position': 'center center',
-        '-webkit-background-size': 'cover',
-        '-moz-background-size': 'cover',
-        '-o-background-size': 'cover',
-        'background-size': 'cover',
-        opacity: 1
+      if (this.$route.name === 'home') {
+        return {
+          padding: '40px 0 0 0',
+          height: height + 'px',
+          width: '100%',
+          position: 'relative',
+          top: '0px',
+          'background-color': 'transparent',
+          'background-repeat': 'no-repeat',
+          'background-position': 'center center',
+          '-webkit-background-size': 'cover',
+          '-moz-background-size': 'cover',
+          '-o-background-size': 'cover',
+          'background-size': 'cover',
+          opacity: 1
+        }
+      } else {
+        return {
+          padding: '40px 0 0 0',
+          height: height + 'px',
+          width: '100%',
+          position: 'relative',
+          top: '0px',
+          'background-image': `url(${this.bgStatic})`,
+          'background-repeat': 'no-repeat',
+          'background-position': 'center center',
+          '-webkit-background-size': 'cover',
+          '-moz-background-size': 'cover',
+          '-o-background-size': 'cover',
+          'background-size': 'cover',
+          opacity: 1
+        }
       }
     },
     mailImage () {

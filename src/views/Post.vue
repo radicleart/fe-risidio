@@ -61,7 +61,7 @@ export default {
         img: null
       },
       slices: [],
-      pageSize: 5
+      pageSize: 4
     }
   },
   methods: {

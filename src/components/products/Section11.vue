@@ -1,8 +1,9 @@
 <template>
 <section :class="bgClass" class="" v-if="content" :style="viewportDimensions" id="section-11">
-  <div class="d-flex justify-content-center card-container">
-    <div class="row text-center card-row">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center" v-for="(item, index) of content.group_set" :key="index">
+  <div class="card-container">
+    <div v-if="$route.name != 'products'"><h1>Related products</h1></div>
+    <div class="row text-center card-row mx-auto">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center" v-for="(item, index) of relatedProducts()" :key="index">
           <b-card
             :title="item.group_item_title[0].text"
             :img-src="item.item_image.url"
@@ -31,6 +32,7 @@ export default {
   props: ['viewportDimensions', 'content', 'bgClass'],
   data () {
     return {
+      numberOfItems: 4
     }
   },
   methods: {
@@ -52,6 +54,19 @@ export default {
       } else {
         return null
       }
+    },
+    relatedProducts () {
+      const arr = this.content.group_set
+      const arr1 = []
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i].product_name[0].text !== this.$route.params.productId) {
+          arr1.push(arr[i])
+        }
+      }
+      if (this.$route.name === 'product') {
+        arr1.splice(this.numberOfItems)
+      }
+      return arr1
     }
   },
   computed: {
@@ -66,6 +81,9 @@ img {
   height: auto;
 }
 */
+h1 {
+  margin-bottom: 40px;
+}
 .tagline {
   text-align: center;
   font-size: 17px;

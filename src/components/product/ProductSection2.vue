@@ -41,7 +41,7 @@ export default {
     getVideoUrl () {
       const productId = this.$route.params.productId
       if (productId === 'lsat') {
-        return null
+        return 'https://www.youtube.com/embed/oJCys8ESqEc'
       } else if (productId === 'loopbomb') {
         return 'https://www.youtube.com/embed/ZBHtab-yPqY'
       } else if (productId === 'nongibles') {

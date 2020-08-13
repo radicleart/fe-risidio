@@ -21,21 +21,18 @@
     <div slot="Posts" v-if="posts.length !== 0" class="blog-main">
       <!-- Template for blog posts -->
       <div v-for="post in posts" :key="post.id" v-bind:post="post" class="blog-post">
-        <div v-if="$route.params.uid !== post.uid">
-          <div class="imgPostContainer">
-            <img width="280px" height="200px" :src="getImg(post)" :alt="getImgAlt(post)"/>
-            <router-link :to="linkResolver(post)" class="postOverlay">Read More
-            </router-link>
-          </div>
-          <div class="d-flex justify-content-between">
-            <p class="blog-post-meta text-danger"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
-          </div>
-          <h2><router-link :to="linkResolver(post)">{{ $prismic.richTextAsPlain(post.data.title) }}</router-link></h2>
-          <div class="post-paragraph">
-            <p><router-link :to="linkResolver(post)">{{getFirstParagraph(post)}}</router-link></p>
-          </div>
+        <div class="imgPostContainer">
+          <img width="280px" height="200px" :src="getImg(post)" :alt="getImgAlt(post)"/>
+          <router-link :to="linkResolver(post)" class="postOverlay">Read More
+          </router-link>
         </div>
-        <div v-else class="empty-blog-main"></div>
+        <div class="d-flex justify-content-between">
+          <p class="blog-post-meta text-danger"><span class="created-at">{{ Intl.DateTimeFormat('en-US', dateOptions).format(new Date(post.data.date)) }}</span></p>
+        </div>
+        <h2><router-link :to="linkResolver(post)">{{ $prismic.richTextAsPlain(post.data.title) }}</router-link></h2>
+        <div class="post-paragraph">
+          <p><router-link :to="linkResolver(post)">{{getFirstParagraph(post)}}</router-link></p>
+        </div>
       </div>
     </div>
     <!-- If no blog posts return message -->
@@ -60,22 +57,22 @@ export default {
   methods: {
     getPosts () {
       // Query to get blog posts (using different parameters for different pages)
-      // Check what page it is
-      if (this.$route.name === 'blog-home') {
-        this.$prismic.client.query(
-          [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['live'])],
-          { orderings: '[my.post.date desc]' }
-        ).then((response) => {
-          this.posts = response.results
-        })
-      } else {
-        this.$prismic.client.query(
-          [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['live'])],
-          { orderings: '[my.post.date desc]', pageSize: this.pageSize }
-        ).then((response) => {
-          this.posts = response.results
-        })
-      }
+      const arr = []
+      this.$prismic.client.query(
+        [this.$prismic.Predicates.at('document.type', 'post'), this.$prismic.Predicates.any('my.post.post_status', ['live'])],
+        { orderings: '[my.post.date desc]' }
+      ).then((response) => {
+        for (let i = 0; i < response.results.length; i++) {
+          if (response.results[i].uid !== this.$route.params.uid) {
+            arr.push(response.results[i])
+          }
+        }
+        // Check what page it is
+        if (this.$route.name === 'post') {
+          arr.splice(this.pageSize)
+        }
+        this.posts = arr
+      })
     },
     getPostsByTag (tag) {
       // Query to get blog posts by tag
