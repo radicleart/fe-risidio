@@ -7,7 +7,7 @@
         <p class="text-center blurb2">{{content.page_text[0].text}}</p>
       </div>
       <div class="mx-auto my-4 text-white w-75">
-        <p class="text-center text-large">{{content.page_text[1].text}}</p>
+        <h4 class="text-center text-large">{{content.page_text[1].text}}</h4>
       </div>
       <div v-scroll-to="{ element: '#section-11', duration: 1000 }" class="icon-down">
         <i class="fas fa-chevron-down"></i>
@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style scoped>
+h4 {
+  font-weight: 500;
+  font-size: 17px;
+}
 .blurb1 {
   width: 450px;
   font-size: 14px;

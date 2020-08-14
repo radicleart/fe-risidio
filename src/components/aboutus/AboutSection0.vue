@@ -1,24 +1,31 @@
 <template>
 <section id="section0" v-if="content.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
-    <div class="my-auto text-center  ">
-      <div class="my-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
+    <div class="my-auto text-center w-75">
+      <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.title[0].text}}</h1></div>
       <div class="">
-        <p class="mb-4 text-center blurb text-white mx-auto w-75" v-html="content.description1[0].text"></p>
+        <p class="mb-4 text-center blurb text-white mx-auto w-100">
+        <span v-html="content.description1[0].text"></span><br><span v-html="content.description1_5[0].text"></span>
+        </p>
         <h4 class="text-center text-white" v-html="content.description2[0].text"></h4>
+      </div>
+      <div v-scroll-to="{ element: '#about-section-1', duration: 1000 }" class="icon-down">
+        <i class="fas fa-chevron-down"></i>
       </div>
     </div>
   </div>
-  <div class="bg-white mt-2 d-flex align-items-center flex-column"  :style="halfDims">
-    <div class="my-auto mobile-gap">
-      <div class="mt-0 mb-4"><h1 class="text-black" v-html="content.s1title1[0].text"></h1></div>
-      <div class="mb-4"><h2 class="text-center" v-html="content.s1title2[0].text"></h2></div>
-      <div class="mx-auto my-4 w-100 text-center">
-        <p class="mb-4 mx-auto w-50 text-center blurb2 text-black" v-html="content.s1description[0].text"></p>
+  <div class="bg-white d-flex align-items-center flex-column second-half"  :style="halfDims">
+    <div class="my-auto">
+      <div class="my-5">
+        <div class="mt-0 mb-4"><h1 class="text-black" v-html="content.s1title1[0].text"></h1></div>
+        <div class="mb-4"><h2 class="text-center" v-html="content.s1title2[0].text"></h2></div>
+        <div class="mx-auto my-4 w-100 text-center">
+          <p class="mb-4 mx-auto text-center blurb2 text-black" v-html="content.s1description[0].text"></p>
+        </div>
       </div>
-      <div class="mx-auto my-4 w-75 text-center">
+    </div>
+    <div class="w-75 text-center section0-image-container">
         <img width="100%" :src="content.s1image.url" :alt="content.s1image.alt">
-      </div>
     </div>
   </div>
 </section>
@@ -64,7 +71,7 @@ export default {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return {
         padding: '40px 0 0 0',
-        height: height / 2 + 'px',
+        'min-height': height / 2 + 89 + 'px',
         width: '100%',
         position: 'relative',
         top: '0px',
@@ -88,6 +95,12 @@ export default {
 </script>
 
 <style scoped>
+.second-half p {
+  width: 50%;
+}
+.first-half-h1 {
+  margin-top: 4rem;
+}
 h4 {
   font-weight: 500;
   font-size: 17px;
@@ -99,5 +112,46 @@ h4 {
   letter-spacing: 0px;
   color: #FFFFFF;
   opacity: 1;
+}
+.icon-down {
+  width: 40px;
+  height: 40px;
+  margin: 25px auto;
+  border: 1px solid rgba(249, 184, 7, 0.2);
+  border-radius: 50%;
+  color: #F9B807;
+}
+.icon-down i {
+  position: relative;
+  top: 8px;
+}
+.icon-down:hover {
+  cursor: pointer;
+}
+.section0-image-container {
+  margin: 0 auto -10rem;
+}
+@media only screen and (max-width: 900px) {
+  .section0-image-container {
+    margin: 0 auto -7rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .section0-image-container {
+    margin: 0 auto -5rem;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .section0-image-container {
+    margin: 0 auto -3rem;
+  }
+  .second-half p {
+    width: 75%;
+  }
+  .second-half h2 {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-<section class="bg-lighter" v-if="content">
-  <div class="d-flex justify-content-center mobile-gap">
-    <div class="d-flex align-items-center flex-column" :style="halfDims">
+<section class="bg-lighter" v-if="content" id="about-section-1">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
       <div class="my-auto text-center">
         <div class="mb-auto d-flex align-items-center flex-column">
           <h1 class="mb-4">{{content.s2title1[0].text}}</h1>
-          <h1 class="mb-4">{{content.s2title2[0].text}}</h1>
-          <p class="mx-auto w-75">{{content.s2description[0].text}}</p>
+          <h2 class="mb-4">{{content.s2title2[0].text}}</h2>
+          <p class="mx-auto">{{content.s2description[0].text}}</p>
         </div>
       </div>
     </div>
@@ -48,6 +48,7 @@ p {
   letter-spacing: 0px;
   color: #000000;
   opacity: 1;
+  width: 50%;
 }
 .bg-lighter {
   background-color: '#F5F5F5';
@@ -59,5 +60,29 @@ p {
   font-weight: 200;
   letter-spacing: 0px;
   opacity: 1;
+}
+#about-section-1 {
+  padding-top: 10rem;
+}
+@media only screen and (max-width: 900px) {
+  #about-section-1 {
+    padding-top: 7rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #about-section-1 {
+    padding-top: 5rem;
+  }
+}
+@media only screen and (max-width: 425px) {
+  #about-section-1 {
+    padding-top: 3rem;
+  }
+  h2 {
+    width: 75%;
+  }
+  p {
+    width: 75%;
+  }
 }
 </style>

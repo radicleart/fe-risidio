@@ -1,14 +1,14 @@
 <template>
 <section class="bg-white" v-if="content">
-  <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="my-5">
+  <div class="d-flex align-items-center flex-column py-5" :style="viewportDimensions">
+    <div class="my-auto">
       <h1 class="mb-3 text-center blurb2">{{content.s3title1[0].text}}</h1>
       <h2 class="mb-5 text-center blurb2">{{content.s3title2[0].text}}</h2>
       <div class="d-flex justify-content-start">
       <div class="mx-5 mt-5">
         <div class="row">
           <div v-for="(item, index) of content.group1" :key="index" class="col-lg-4 col-md-12">
-            <div class="d-flex justify-content-start mobile-margin">
+            <div class="d-flex justify-content-start mobile-margin content-wrap">
               <div class="">
                 <img :src="item.image.url" :alt="item.image.alt"/>
               </div>
@@ -49,7 +49,7 @@ img {
   height: auto;
 }
 */
-h1 {
+.content-wrap h1 {
   white-space: nowrap;
   text-align: left;
   font-size: 12px;
@@ -58,7 +58,7 @@ h1 {
   color: #000000;
   opacity: 1;
 }
-h2 {
+.content-wrap h2 {
   white-space: nowrap;
   text-align: left;
   font-size: 17px;
@@ -77,7 +77,7 @@ img {
 @media only screen and  (max-width: 991px) {
   .mobile-margin { margin-bottom: 2rem; }
 }
-@media only screen and  (max-width: 414px) {
+@media only screen and  (max-width: 425px) {
   img { margin-left: 0; }
 }
 @media only screen and (max-width: 360px) {

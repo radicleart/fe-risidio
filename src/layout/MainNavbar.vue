@@ -10,13 +10,13 @@
         <b-nav-item><router-link class="text-white" to="/education">Education</router-link></b-nav-item>
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
-        <b-nav-item to="/aboutus" class="nav-text text-white">About</b-nav-item>
-        <b-nav-item to="/products" class="nav-text text-white">Products</b-nav-item>
-        <b-nav-item to="/blog" class="nav-text text-white">News</b-nav-item>
+        <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
+        <b-nav-item to="/products" class="nav-text products-link">Products</b-nav-item>
+        <b-nav-item to="/blog" class="nav-text news-link">News</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
-        <b-nav-item class="joinUsButton"><button v-b-toggle.nav-collapse @click="noScroll()" class="text-info" v-scroll-to="{ element: '#contactSection', duration: 2500 }"><a data-toggle="collapse" href="#nav-collapse" class="call-button-text">Join Us</a></button></b-nav-item>
+        <b-nav-item class="joinUsButton"><button v-b-toggle.nav-collapse @click="noScroll(); goToContact();" class="text-info" v-scroll-to="{ element: '#contactSection', duration: 2500 }"><a data-toggle="collapse" href="#nav-collapse" class="call-button-text">Join Us</a></button></b-nav-item>
         <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
           <template v-slot:button-content>
             <i class="far fa-heart"></i>
@@ -77,13 +77,14 @@ export default {
       this.$router.push('/login')
     },
     noScroll () {
-      if (this.$route.name === 'blog-home') {
-        this.$router.push('/?scrollTo=join')
-      } else {
-        const width = window.innerWidth
-        if (width <= 575) {
-          document.body.classList.toggle('no-scroll')
-        }
+      const width = window.innerWidth
+      if (width <= 575) {
+        document.body.classList.toggle('no-scroll')
+      }
+    },
+    goToContact () {
+      if (this.$route.name === 'blog-home' || this.$route.name === 'post') {
+        this.$router.push('/')
       }
     }
   },
@@ -138,11 +139,32 @@ export default {
 .navbar-brand a {
   padding-left: 3rem;
 }
-.text-white a.nav-link {
+.nav-text a.nav-link {
   color: #FFFFFF;
 }
-.text-white a.nav-link:hover {
+.nav-text a.nav-link:hover {
   color: #FFFFFF;
+}
+.about-link a.router-link-active {
+  color: #F9B807;
+}
+.about-link a.router-link-active:focus, .about-link a.router-link-active:hover {
+  color: #F9B807;
+  font-weight: 500;
+}
+.products-link a.router-link-active {
+  color: #5FBDC1;
+}
+.products-link a.router-link-active:focus, .products-link a.router-link-active:hover {
+  color: #5FBDC1;
+  font-weight: 500;
+}
+.news-link a.router-link-active {
+  color: #E9493D;
+}
+.news-link a.router-link-active:focus, .news-link a.router-link-active:hover{
+  color: #E9493D;
+  font-weight: 500;
 }
 .join-us {
   width: 97px;

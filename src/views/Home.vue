@@ -41,9 +41,6 @@ export default {
     Section8
   },
   mounted () {
-    if (this.$route.query.scrollTo === 'join') {
-      window.scrollTo(0, 500)
-    }
     console.log(this.$route)
     // Nasty hack related to bug Camiel found.
     // Issue is homepage on mobile lands in middle of the blog section and not at {0, 0}
