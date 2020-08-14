@@ -77,9 +77,13 @@ export default {
       this.$router.push('/login')
     },
     noScroll () {
-      const width = window.innerWidth
-      if (width <= 575) {
-        document.body.classList.toggle('no-scroll')
+      if (this.$route.name === 'blog-home') {
+        this.$router.push('/?scrollTo=join')
+      } else {
+        const width = window.innerWidth
+        if (width <= 575) {
+          document.body.classList.toggle('no-scroll')
+        }
       }
     }
   },
