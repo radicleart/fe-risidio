@@ -138,6 +138,15 @@ export default {
         sections: {
           stepper: true
         },
+        text1Color: {
+          color: '#000'
+        },
+        text2Color: {
+          color: '#F9B807'
+        },
+        text3Color: {
+          color: '#fff'
+        },
         cardStyle: {
           margin: '0',
           border: '0pt solid #232323',
