@@ -16,9 +16,9 @@ const contentStore = {
     },
     productIds: {
       loopbomb: 'XvthzhAAACYAeYsC',
-      lsat: 'XvzS_BAAACUAf-p_',
+      'r-pay': 'XvzS_BAAACUAf-p_',
       dsearch: 'XwWsMBEAACIAXzGC',
-      hubber: 'XwdBhREAACIAZjWH',
+      'r-stack': 'XwdBhREAACIAZjWH',
       nongibles: 'XwXHAREAACMAX6m8',
       ownai: 'Xvzg-RAAACYAgCBY'
     }

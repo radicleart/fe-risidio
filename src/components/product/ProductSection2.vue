@@ -40,7 +40,7 @@ export default {
     },
     getVideoUrl () {
       const productId = this.$route.params.productId
-      if (productId === 'lsat') {
+      if (productId === 'r-pay') {
         return 'https://www.youtube.com/embed/oJCys8ESqEc'
       } else if (productId === 'loopbomb') {
         return 'https://www.youtube.com/embed/ZBHtab-yPqY'
@@ -48,7 +48,7 @@ export default {
         return null
       } else if (productId === 'dsearch') {
         return null
-      } else if (productId === 'hubber') {
+      } else if (productId === 'r-stack') {
         return null
       } else {
         return null

@@ -41,16 +41,16 @@ export default {
     },
     demoLink (item) {
       const productId = item.product_name[0].text
-      if (productId === 'lsat') {
-        return '<a class="text-warning" href="/lsat-demo">Try it now</a>'
+      if (productId === 'r-pay') {
+        return '<a class="text-warning" href="/rpay-demo">Try it now</a>'
       } else if (productId === 'loopbomb') {
         return '<a class="text-warning" href="https://loopbomb.com">Try it now</a>'
       } else if (productId === 'nongibles') {
         return '<a class="text-warning" href="https://radicle.art">Try it now</a>'
       } else if (productId === 'dsearch') {
         return '<a class="text-warning" href="https://github.com/radicleart/brightblock-search">Find Us On Github</a>'
-      } else if (productId === 'hubber') {
-        return '<a class="text-warning" href="https://github.com/radicleart/brightblock-gaia">Find Us On Github</a>'
+      } else if (productId === 'r-stack') {
+        return '<a class="text-warning" href="https://stax.risidio.com">Get Stacking</a>'
       } else {
         return null
       }

@@ -48,8 +48,8 @@ const routes: Array<RouteConfig> = [
     components: { default: Products, header: MainNavbar, footer: MainFooter }
   },
   {
-    path: '/lsat-demo',
-    name: 'lsat-demo',
+    path: '/rpay-demo',
+    name: 'rpay-demo',
     components: { default: LsatDemo, header: MainNavbar, footer: MainFooter }
   },
   {
@@ -98,7 +98,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '*',
-    redirect: { name: 'not-found' }
+    redirect: { path: '/' }
   }
 ]
 
@@ -106,7 +106,7 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior () {
     return { x: 0, y: 0 }
   }
 })
