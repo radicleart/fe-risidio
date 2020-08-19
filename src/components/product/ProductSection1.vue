@@ -1,6 +1,6 @@
 <template>
 <section class="d-flex justify-content-center bg-lighter" v-if="content" :style="viewportDimensions" id="product-section-1">
-  <div class="d-flex justify-content-center flex-column gap-on-mobile">
+  <div class="d-flex justify-content-center flex-column product--gap">
     <div class="container">
       <div class="row">
         <div class="col-6 text-right d-md-block d-none">
@@ -99,6 +99,10 @@ img {
   padding: 0;
 }
 
+.product--gap {
+  width: auto;
+}
+
 @media only screen and (max-width:767px) {
   h1 {
     text-align: center;
@@ -115,10 +119,6 @@ img {
   }
 }
 @media only screen and (max-width:425px) {
-  .gap-on-mobile {
-    width: 85%;
-    margin: 0 auto;
-  }
   .container {
     padding: 0;
   }

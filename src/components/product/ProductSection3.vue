@@ -2,7 +2,7 @@
 <section class="bg-dark" v-if="content">
   <div class="bg-dark d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center text-white">
-      <div class="text-container mx-auto">
+      <div class="text-container product--gap mx-auto">
         <h1>{{content.section3_title[0].text}}</h1>
         <div class="my-5 row">
           <div class="col-sm-6 col-12 mt-4" v-for="(item, index) of content.section3_group" :key="index">

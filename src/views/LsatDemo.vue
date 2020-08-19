@@ -1,6 +1,6 @@
 <template>
 <div v-if="content">
-<section :style="bannerImage" id="section0" v-if="content.banner">
+<section :style="bannerImage" id="section0" v-if="content.banner" class="lsatDemo">
   <div class="d-flex align-items-center flex-column">
     <div class="my-auto">
       <div class="d-flex justify-content-center mt-5 mb-4">
@@ -37,25 +37,37 @@
           </ul>
         </div>
       </div>
-      <div class="d-flex justify-content-around">
-        <div class="scrolls w-50 bg-white text-black p-5 mx-4" style="">
-            <h4 class="text-left">LSAT Pay Tutorial...</h4>
-            <h5 class="text-left">A) Place Order...</h5>
-            <p>1. Purchase order is sent to merchant</p>
-            <p>2. Merchant finds no valid payment token (LSAT) and does a POST redirect (307) to lsat server.</p>
-            <p>3. Lsat server creates an invoice and send a 402 back to user browsers.</p>
-            <p>4. Browser present the payment invoice to user.</p>
-            <h5 class="text-left">B) User Pays...</h5>
-            <p>5. User pays with their lightning enabled wallet.</p>
-            <p>6. Auth server watches for payment and sends the payment preimage back to the user.</p>
-            <p>7. Client save the token in local storage and sends to merchant as proof of payment.</p>
-            <p>8. Client sends the token back to merchant to exchange for goods.</p>
-            <p>9. Merchants decodes token - checks preimage is present and verifies.</p>
-            <p>10. Merchants sends goods back to user.</p>
-        </div>
-        <div class="scrolls w-50 bg-black text-white p-5 border-top">
-          <div v-html="eventData"></div>
-        </div>
+      <div class="tabs-wrap px-4 mb-5">
+        <b-tabs>
+          <b-tab active>
+            <template v-slot:title>
+              <i class="fas fa-shoe-prints fa-rotate-270"></i><span>Instructions</span>
+            </template>
+            <div class="scrolls bg-white text-black p-4" style="">
+              <h4>1. Place an Order</h4>
+              <p class="text-in-black">Select the amount of Satoshi Jokes that you want to buy.</p>
+              <p class="text-in-blue">Your order is sent to the merchant/ supplier/ provider.</p>
+              <p class="text-in-blue">The merchant finds that you haven't paid for the goods yet. That is why it will create an invoice for you to pay.</p>
+              <p class="text-in-blue">The invoice is now being sent to you.</p>
+              <p class="text-in-blue last-blue">Your browser will display the invoice so you are able to pay it.</p>
+              <h4>2. Pay the invoice</h4>
+              <p class="text-in-black">Use your Lightning Wallet to pay the invoice, you can either scan the QR Code or copy the link.</p>
+              <p class="text-in-blue">You will be sent a token as a proof of payment.</p>
+              <p class="text-in-blue">The token is automatically forwarded to the retailer who verifies that the payment has been made.</p>
+              <p class="text-in-blue last-blue">The retailer is now able to dispatch your goods.</p>
+              <h4>3. Receive the purchased goods</h4>
+              <p class="text-in-black">Your payment has gone through, so your browser will display your purchased goods.</p>
+            </div>
+          </b-tab>
+          <b-tab>
+            <template v-slot:title>
+              <i class="fas fa-code"></i><span>System</span>
+            </template>
+            <div class="scrolls text-black p-4 second-tab-content">
+              <div v-html="eventData"></div>
+            </div>
+          </b-tab>
+        </b-tabs>
       </div>
     </div>
   </div>
@@ -188,8 +200,8 @@ export default {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return {
         padding: '40px 0 0 0',
-        height: height * 2 + 'px',
         width: '100%',
+        'min-height': height + 'px',
         position: 'relative',
         top: '0px',
         'background-repeat': 'no-repeat',
@@ -207,22 +219,18 @@ export default {
 }
 </script>
 
-<style scoped>
-.scrolls {
-    max-width: 950px;
-    overflow: hidden;
-}
-
-h4 {
+<style>
+/* PAGE STYLE */
+.lsatDemo h4 {
   text-align: left;
 }
-p {
+.lsatDemo p {
   margin-bottom: 0px;
   color: #000;
   padding: 5px 0;
   font-size: 1.0em;
 }
-li {
+.lsatDemo li {
   list-style: none;
 }
 .p-inverse {
@@ -230,5 +238,83 @@ li {
   color: #fff;
   padding: 5px 0;
   font-size: 1.0em;
+}
+
+/* TAB CONTAINER STYLE */
+.tabs-wrap {
+  width: 100%;
+  max-width: 448px;
+}
+
+/* TAB TITLES SECTION STYLE */
+.tabs-wrap .nav-tabs li.nav-item:first-child {
+  width: 60%;
+}
+.tabs-wrap .nav-tabs li.nav-item:last-child {
+  width: 40%;
+}
+.tabs-wrap .nav-tabs {
+  border-bottom: none;
+}
+.tabs-wrap .nav-tabs a.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  background-color: #ffffff;
+  border-radius: 10px 10px 0px 0px;
+  border: none;
+}
+.tabs-wrap .nav-tabs a.nav-link i {
+  font-size: 19px;
+  margin-right: 10px;
+}
+.tabs-wrap .nav-tabs a.nav-link:focus {
+  outline: none;
+}
+
+/* TAB CONTENT SECTION STYLE */
+.tabs-wrap h4 {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+p.text-in-black {
+  font-size: 14px;
+  padding: 0 0 10px;
+}
+p.text-in-blue {
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+  color: #50B1B5;
+  padding: 10px 0;
+  border-top: solid 1px #50B1B5;
+}
+p.last-blue {
+  margin-bottom: 15px;
+  border-bottom: solid 1px #50B1B5;
+}
+.tabs-wrap .nav-tabs .nav-item:last-child a {
+  background-color: #DFF2F2;
+}
+.second-tab-content {
+  background-color: #DFF2F2;
+}
+.scrolls {
+  height: auto;
+  border-radius: 0 0 10px 10px;
+  min-height: 749px;
+}
+
+/* MEDIA QUERIES */
+@media (pointer:coarse) {
+  .scrolls {
+    overflow-y: scroll;
+    height: 310px;
+    min-height: 0;
+  }
 }
 </style>

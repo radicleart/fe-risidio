@@ -63,11 +63,6 @@ h4 {
   letter-spacing: 0px;
   color: #FFFFFF;
 }
-@media only screen and (max-width: 900px) {
-  .quote {
-    margin: 0 100px;
-  }
-}
 .blurb3 {
   width: 100%;
   font-size: 17px;
@@ -77,18 +72,7 @@ h4 {
   color: #FFFFFF;
 }
 .icon-down {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
   border: 1px solid rgba(95, 189, 193, 0.2);
-  border-radius: 50%;
   color: #5FBDC1;
-}
-.icon-down i {
-  position: relative;
-  top: 8px;
-}
-.icon-down:hover {
-  cursor: pointer;
 }
 </style>

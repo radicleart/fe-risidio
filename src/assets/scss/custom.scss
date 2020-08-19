@@ -312,6 +312,23 @@ a:hover {
   opacity: 1;
 }
 
+// ARROW-ICON DOWN
+.icon-down {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 1px solid rgba(249, 184, 7, 0.2);
+  border-radius: 50%;
+  color: #F9B807;
+}
+.icon-down i {
+  position: relative;
+  top: 8px;
+}
+.icon-down:hover {
+  cursor: pointer;
+}
+
 // SLIDERS
 .vueperslides .vueperslides__parallax-wrapper, .vueperslides__parallax-wrapper .vueperslides__track 
 { overflow: visible; }
@@ -338,6 +355,18 @@ a:hover {
 .section-7 .vueperslides__bullet {
   color: #E9493D;
   max-width: 50px;
+}
+
+//PRODUCT PAGE GAP
+.product--gap {
+  width: 75%;
+  margin: 0 auto;
+}
+@media only screen and (max-width:425px) {
+  .product--gap {
+    width: 85%;
+    margin: 0 auto;
+  }
 }
 
 //MOBILE TEXT

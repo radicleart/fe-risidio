@@ -9,12 +9,12 @@
         </p>
         <h4 class="text-center text-white" v-html="content.description2[0].text"></h4>
       </div>
-      <div v-scroll-to="{ element: '#about-section-1', duration: 1000 }" class="icon-down">
+      <div v-scroll-to="{ element: '#section0-second-half', duration: 1000 }" class="icon-down">
         <i class="fas fa-chevron-down"></i>
       </div>
     </div>
   </div>
-  <div class="bg-white d-flex align-items-center flex-column second-half"  :style="halfDims">
+  <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
     <div class="my-auto">
       <div class="my-5">
         <div class="mt-0 mb-4"><h1 class="text-black" v-html="content.s1title1[0].text"></h1></div>
@@ -114,19 +114,7 @@ h4 {
   opacity: 1;
 }
 .icon-down {
-  width: 40px;
-  height: 40px;
   margin: 25px auto;
-  border: 1px solid rgba(249, 184, 7, 0.2);
-  border-radius: 50%;
-  color: #F9B807;
-}
-.icon-down i {
-  position: relative;
-  top: 8px;
-}
-.icon-down:hover {
-  cursor: pointer;
 }
 .section0-image-container {
   margin: 0 auto -10rem;

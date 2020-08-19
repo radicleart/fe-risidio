@@ -3,19 +3,19 @@
   <div :style="bannerImage" class="d-flex justify-content-center flex-column first-half">
     <div class="my-auto text-center">
       <div class="mt-5"><h1 class="text-white">{{content.title[0].text}}</h1></div>
-      <div class="h2">
+      <div class="h2 product--gap">
         <h2 class="text-white">{{content.title1[0].text}}</h2>
       </div>
       <div v-scroll-to="{ element: '#product-section-1', duration: 1000 }" class="icon-down">
         <i class="fas fa-chevron-down"></i>
       </div>
     </div>
-    <div class="mb-4 back">
+    <div class="mb-4 back product--gap">
         <router-link to="./"><span class="text-warning">&#10094;</span> Back to All Products</router-link>
     </div>
   </div>
   <div class="d-flex align-items-center flex-column second-half"  :style="halfDims">
-    <div class="my-auto second-half__text-container">
+    <div class="my-auto product--gap">
       <div class="mt-0"><h1 class="text-black">{{content.title2[0].text}}</h1></div>
       <div class="mx-auto my-4">
         <p class="mb-4 blurb2 text-black" v-html="content.description[0].text"></p>
@@ -115,22 +115,11 @@ export default {
   border-radius: 50%;
   color: #F9B807;
 }
-.icon-down i {
-  position: relative;
-  top: 8px;
-}
-.icon-down:hover {
-  cursor: pointer;
-}
 .first-half h1 {
   margin-bottom: 1rem;
 }
-.first-half h2 {
+.first-half .h2 {
   margin-bottom: 2rem;
-}
-.back {
-  width: 75%;
-  margin: 0 auto;
 }
 .back span {
   margin-right: 10px;
@@ -139,25 +128,12 @@ export default {
   color: #fff;
   font-size: 10px;
 }
-.second-half__text-container {
-  width: 75%;
-}
 @media only screen and (max-width:425px) {
-  .first-half .h2 {
-    width: 85%;
-    margin: 0 auto;
-  }
-  .back {
-    width: 85%;
-  }
   .second-half {
     margin: 40px 0;
   }
   .second-half p {
     text-align: left;
-  }
-  .second-half__text-container {
-    width: 85%;
   }
 }
 </style>

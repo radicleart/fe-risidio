@@ -1,7 +1,7 @@
 <template>
 <section class="bg-black" v-if="content" :style="viewportDimensions">
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="my-auto mx-auto gap-on-mobile text-center">
+    <div class="my-auto mx-auto product--gap text-center">
       <h2 class="text-center blurb2 text-white">{{content.section2[0].title4[0].text}}</h2>
       <template v-if="getVideoUrl()">
         <div class="video-container">
@@ -113,15 +113,5 @@ h2 {
   width: 100%;
   height: 100%;
   border: 0;
-}
-.gap-on-mobile {
-  width: 75%;
-  margin: 0 auto;
-}
-@media only screen and (max-width:425px) {
-  .gap-on-mobile {
-    width: 85%;
-    margin: 0 auto;
-  }
 }
 </style>

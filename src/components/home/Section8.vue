@@ -71,8 +71,7 @@ export default {
           '-webkit-background-size': 'cover',
           '-moz-background-size': 'cover',
           '-o-background-size': 'cover',
-          'background-size': 'cover',
-          opacity: 1
+          'background-size': 'cover'
         }
       } else {
         return {
@@ -87,8 +86,7 @@ export default {
           '-webkit-background-size': 'cover',
           '-moz-background-size': 'cover',
           '-o-background-size': 'cover',
-          'background-size': 'cover',
-          opacity: 1
+          'background-size': 'cover'
         }
       }
     },
