@@ -40,16 +40,16 @@ export default {
   methods: {
     demoLink () {
       const productId = this.$route.params.productId
-      if (productId === 'lsat') {
-        return '/lsat-demo'
+      if (productId === 'r-pay') {
+        return '/rpay-demo'
       } else if (productId === 'loopbomb') {
         return 'https://loopbomb.com'
       } else if (productId === 'nongibles') {
         return 'https://radicle.art'
       } else if (productId === 'dsearch') {
         return 'https://github.com/radicleart/brightblock-search'
-      } else if (productId === 'hubber') {
-        return 'https://github.com/radicleart/brightblock-gaia'
+      } else if (productId === 'r-stack') {
+        return 'https://stax.risidio.com'
       } else {
         return '/ownai'
       }

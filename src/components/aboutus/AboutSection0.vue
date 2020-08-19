@@ -44,15 +44,15 @@ export default {
   methods: {
     demoLink () {
       const productId = this.$route.params.productId
-      if (productId === 'lsat') {
-        return '/lsat-demo'
+      if (productId === 'r-pay') {
+        return '/rpay-demo'
       } else if (productId === 'loopbomb') {
         return 'https://loopbomb.com'
       } else if (productId === 'nongibles') {
         return 'https://radicle.art'
       } else if (productId === 'dsearch') {
         return 'https://github.com/radicleart/brightblock-search'
-      } else if (productId === 'hubber') {
+      } else if (productId === 'r-stack') {
         return 'https://github.com/radicleart/brightblock-gaia'
       } else {
         return '/ownai'
@@ -62,7 +62,7 @@ export default {
   computed: {
     hasDemoLink () {
       const productId = this.$route.params.productId
-      if (productId === 'lsat' || productId === 'loopbomb' || productId === 'nongibles') {
+      if (productId === 'r-pay' || productId === 'r-stack' || productId === 'loopbomb' || productId === 'nongibles') {
         return true
       }
       return false

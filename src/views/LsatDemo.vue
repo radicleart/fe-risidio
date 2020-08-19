@@ -124,22 +124,20 @@ export default {
       return 'min-height: ' + height * 2 + 'px; width: auto;'
     },
     content () {
-      const content = this.$store.getters['contentStore/getProductPage']('lsat')
+      const content = this.$store.getters['contentStore/getProductPage']('r-pay')
       if (content) {
         return content.data
       }
       return null
     },
     configuration () {
-      // const content = this.$store.getters['contentStore/getProductPage']('lsat')
       const myKey = 'satoshi-jokes'
-      // const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       const lookAndFeel = {
         labels: {
           orderMsg: 'Place order for \'Satoshi Jokes\' select number required and pay.',
           successMsg: 'Click to reveal punchlines!',
           title: 'Pay With',
-          subtitle: 'LSAT Pay',
+          subtitle: 'Risidio Pay',
           card1Label: 'Select payment option',
           card2Label1: 'Number of jokes required?',
           card2Label2: 'Select operation',
@@ -151,6 +149,15 @@ export default {
         },
         sections: {
           stepper: true
+        },
+        text1Color: {
+          color: '#000'
+        },
+        text2Color: {
+          color: '#F9B807'
+        },
+        text3Color: {
+          color: '#fff'
         },
         cardStyle: {
           margin: '0',
