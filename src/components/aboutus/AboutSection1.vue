@@ -47,7 +47,6 @@ p {
   font-size: 12px;
   letter-spacing: 0px;
   color: #000000;
-  opacity: 1;
   width: 50%;
 }
 .bg-lighter {
@@ -59,7 +58,6 @@ p {
   font-size: 26px;
   font-weight: 200;
   letter-spacing: 0px;
-  opacity: 1;
 }
 #about-section-1 {
   padding-top: 10rem;

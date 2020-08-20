@@ -97,7 +97,6 @@ export default {
   font-size: 26px;
   font-weight: 200;
   letter-spacing: 0px;
-  opacity: 1;
 }
 .title3 {
   text-align: center;
@@ -105,7 +104,6 @@ export default {
   font-weight: 500;
   letter-spacing: 0px;
   color: #000000;
-  opacity: 1;
 }
 .icon-down {
   width: 40px;

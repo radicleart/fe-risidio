@@ -55,7 +55,6 @@ button {
   height: 43px;
   background: #5FBDC1 0% 0% no-repeat padding-box;
   border-radius: 22px;
-  opacity: 1;
 }
 button:hover .call-button-text {
   color: #5FBDC1;
@@ -67,7 +66,6 @@ button:hover .call-button-text {
   font-weight: 700;
   letter-spacing: 0px;
   color: #FFFFFF;
-  opacity: 1;
 }
 
 .button1 {
@@ -76,7 +74,6 @@ button:hover .call-button-text {
   background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
   border: none;
   border-radius: 22px;
-  opacity: 1;
 }
 .button1:hover {
   background: white 0% 0% no-repeat padding-box;

@@ -91,7 +91,6 @@ h1 {
   letter-spacing: 0px;
   color: #FFFFFF;
   text-transform: capitalize;
-  opacity: 1;
 }
 .card-container {
   padding: 8rem 3rem 3rem;

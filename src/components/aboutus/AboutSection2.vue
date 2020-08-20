@@ -56,7 +56,6 @@ img {
   font-weight: 700;
   letter-spacing: 0px;
   color: #000000;
-  opacity: 1;
 }
 .content-wrap h2 {
   white-space: nowrap;
@@ -65,7 +64,6 @@ img {
   font-weight: 300;
   letter-spacing: 0px;
   color: #000000;
-  opacity: 1;
 }
 img {
   margin-left: 1.5rem;

@@ -181,7 +181,6 @@ export default {
   font: Bold 11px/13px Montserrat;
   letter-spacing: 0px;
   color: #5FBDC1;
-  opacity: 1;
   text-decoration: none;
 }
 .my-nav {

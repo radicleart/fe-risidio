@@ -73,7 +73,6 @@ h2 {
   font-weight: 200;
   letter-spacing: 0px;
   color: #FFFFFF;
-  opacity: 1;
 }
 .button-container {
   margin-bottom: 40px;

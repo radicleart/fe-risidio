@@ -68,7 +68,7 @@ export default {
           }
         }
         // Check what page it is
-        if (this.$route.name === 'post') {
+        if (this.$route.name !== 'blog-home') {
           arr.splice(this.pageSize)
         }
         this.posts = arr

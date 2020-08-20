@@ -203,7 +203,6 @@ export default {
   height: 43px;
   background: #5FBDC1 0% 0% no-repeat padding-box;
   border-radius: 22px;
-  opacity: 1;
 }
 .sidebar button:hover {
   background: #5FBDC1 0% 0% no-repeat padding-box;
@@ -214,7 +213,6 @@ export default {
   font-weight: 700;
   letter-spacing: 0px;
   color: #FFFFFF;
-  opacity: 1;
 }
 /* MEDIA QUERIES */
 @media only screen and (max-width: 1100px) and (min-width: 992px) {

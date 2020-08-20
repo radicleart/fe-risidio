@@ -111,7 +111,6 @@ h4 {
   font-size: 1.4em;
   letter-spacing: 0px;
   color: #FFFFFF;
-  opacity: 1;
 }
 .icon-down {
   margin: 25px auto;

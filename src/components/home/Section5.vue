@@ -1,6 +1,6 @@
 <template>
     <section class="bg-black" id="products-section">
-      <div class="pt-3">
+      <div class="pt-5">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto">
               <div class="mb-5"><h1 class="text-white">{{content.products_title[0].text}}</h1></div>
@@ -103,26 +103,28 @@ export default {
 }
 </script>
 
-<style>
-#products-section .slider-content {
-  max-width: 200px;
-}
+<style lang="scss">
+#products-section {
+  & .slider-content {
+    max-width: 200px;
+  }
 
-#products-section .slider-content h2 {
-  font-size: 24px;
-  margin-top: 12px;
-}
+  & .slider-content h2 {
+    font-size: 24px;
+    margin-top: 12px;
+  }
 
-#products-section .slider-content p {
-  font-size: 10px;
-}
+  & .slider-content p {
+    font-size: 10px;
+  }
 
-#products-section .slider-content {
-  margin: 0 auto;
-}
+  & .slider-content {
+    margin: 0 auto;
+  }
 
-#products-section .slider-content img {
-  pointer-events: none;
+  & .slider-content img {
+    pointer-events: none;
+  }
 }
 
 /* Paddings for next/previous slide on the edge effect */

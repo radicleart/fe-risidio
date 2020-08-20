@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .text-on-mobile {
   width: 60%;
   margin-left: auto;
@@ -53,13 +53,14 @@ button {
   height: 43px;
   background: #5FBDC1 0% 0% no-repeat padding-box;
   border-radius: 22px;
-  opacity: 1;
 }
-button:hover {
-  background: white 0% 0% no-repeat padding-box;
-}
-button:hover .call-button-text {
-  color: #5FBDC1;
+button {
+  &:hover {
+    background: white 0% 0% no-repeat padding-box;
+  }
+  &:hover .call-button-text {
+    color: #5FBDC1;
+  }
 }
 .call-button-text {
   text-align: center;
@@ -67,7 +68,6 @@ button:hover .call-button-text {
   font-weight: 700;
   letter-spacing: 0px;
   color: #FFFFFF;
-  opacity: 1;
 }
 .button1 {
   width: 141px;
@@ -75,15 +75,16 @@ button:hover .call-button-text {
   background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
   border: none;
   border-radius: 22px;
-  opacity: 1;
 }
-.button1:hover {
-  background: white 0% 0% no-repeat padding-box;
-}
-.button1 .call-button-text {
-  color: #5FBDC1;
-}
-.button1:hover .call-button-text {
-  color: #5FBDC1;
+.button1 {
+  &:hover {
+    background: white 0% 0% no-repeat padding-box;
+  }
+  & .call-button-text {
+    color: #5FBDC1;
+  }
+  &:hover .call-button-text {
+    color: #5FBDC1;
+  }
 }
 </style>

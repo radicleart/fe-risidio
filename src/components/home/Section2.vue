@@ -67,33 +67,33 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
 /* Desktop design */
-.section-2 .vueperslides {
-  height: 250px;
-  width: 55vw;
-}
-
-.section-2 .vueperslide {
-  height: 250px;
-}
-
-.section-2 .slider__content-wrap {
-  display: flex;
-  justify-content: center;
-}
-.section-2 .slider__img {
-  margin-right: 3rem;
-}
-.section-2 .slider__img img {
-  height: 250px;
-  width: auto;
-  pointer-events: none;
-}
-.section-2 .slider__text {
-  max-width: 200px;
-  text-align: left;
+.section-2 {
+  & .vueperslides {
+    height: 250px;
+    width: 55vw;
+  }
+  & .vueperslide {
+    height: 250px;
+  }
+  & .slider__content-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  & .slider__img {
+    margin-right: 3rem;
+  }
+  & .slider__img img {
+    height: 250px;
+    width: auto;
+    pointer-events: none;
+  }
+  & .slider__text {
+    max-width: 200px;
+    text-align: left;
+  }
 }
 
 /* Paddings for next/previous slide on the edge effect */
@@ -146,15 +146,17 @@ export default {
 }
 
 @media only screen and (max-width:600px) {
-  .section-2 .vueperslides { width: 100vw; }
-  .section-2 .slider__img { margin-right: 0; }
-  .section-2 .slider__img img { height: 205px; width: 185px; margin-left: 0; }
-  .section-2 .slider__content-wrap { display: flex; flex-flow: column; justify-content: center; align-items: center; }
-  .section-2 .slider__text { max-width: 300px; text-align: center; margin-top: 2rem; }
-  .section-2 .slider__text p, .section-2 .slider__text h3 { text-align: center; }
-  .section-2 { min-height: 800px; }
-  .section-2 .vueperslides { height: 400px; }
-  .section-2 .vueperslide { height: 400px; }
+  .section-2 {
+  & .vueperslides { width: 100vw; }
+  & .slider__img { margin-right: 0; }
+  & .slider__img img { height: 205px; width: 185px; margin-left: 0; }
+  & .slider__content-wrap { display: flex; flex-flow: column; justify-content: center; align-items: center; }
+  & .slider__text { max-width: 300px; text-align: center; margin-top: 2rem; }
+  & .slider__text p, .section-2 .slider__text h3 { text-align: center; }
+  & { min-height: 800px; }
+  & .vueperslides { height: 400px; }
+  & .vueperslide { height: 400px; }
+  }
 }
 @media only screen and (max-width:425px) {
   .section-2 .slider__text { max-width: 220px; }

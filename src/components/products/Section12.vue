@@ -74,7 +74,6 @@ img {
   font-weight: 900;
   color: #5FBDC1;
   text-transform: capitalize;
-  opacity: 1;
 }
 .tagline {
   text-align: center;
@@ -83,7 +82,6 @@ img {
   letter-spacing: 0px;
   color: #FFFFFF;
   text-transform: capitalize;
-  opacity: 1;
 }
 .card-title {
   white-space: nowrap;
@@ -100,7 +98,6 @@ h1 {
   font-weight: 700;
   letter-spacing: 0px;
   color: #000000;
-  opacity: 1;
 }
 img {
   margin: auto;

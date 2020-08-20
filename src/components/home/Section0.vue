@@ -84,7 +84,6 @@ img {
   font-weight: 300;
   letter-spacing: 0px;
   color: #FFFFFF;
-  opacity: 1;
 }
 
 @media only screen

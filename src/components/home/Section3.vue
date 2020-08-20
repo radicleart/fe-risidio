@@ -1,6 +1,6 @@
 <template>
 <section>
-  <div class=" d-flex align-items-center flex-column mobile-gap" :style="viewportDimensions">
+  <div class=" d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center text-white">
       <div v-lazyload class="text-info my-5"><img :data-url="quotes" alt="quotes"/></div>
       <p class="quote mb-4" style="width: 436px">{{content.section_quote[0].text}}</p>

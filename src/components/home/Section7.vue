@@ -82,66 +82,70 @@ export default {
 
 <style lang="scss">
 
-.section-7 h2 {
-  font-size: 14px;
-  font-weight: 800;
-}
-.section-7 h3 {
-  margin-top: 20px;
-  font-size: 10px;
-  font-weight: 600;
-}
-.section-7 p {
-  font-size: 11px;
-  font-weight: 300;
-  color: #000;
-}
+.section-7 {
+  & h2 {
+    font-size: 14px;
+    font-weight: 800;
+  }
+  & h3 {
+    margin-top: 20px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  & p {
+    font-size: 11px;
+    font-weight: 300;
+    color: #000;
+  }
 
-.section-7 .post-date-wrapper {
-  font-size: 10px;
-  margin: 20px 0 8px;
-}
+  & .post-date-wrapper {
+    font-size: 10px;
+    margin: 20px 0 8px;
+  }
 
-.section-7 h2 a {
-  color: #000;
-}
+  & h2 a {
+    color: #000;
+  }
 
-.section-7 a:hover {
-  color: #000;
+  & a:hover {
+    color: #000;
+  }
 }
 
 /* Mobile design */
-.mobile__content .filters {
-  display: none;
-}
+.mobile__content {
+  & .filters {
+    display: none;
+  }
 
-.mobile__content .blog-main {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-}
+  & .blog-main {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
 
-.mobile__content .blog-post {
-  margin-bottom: 2rem;
-}
+  & .blog-post {
+    margin-bottom: 2rem;
+  }
 
-.mobile__content button {
-  background-color: #F5F5F5;
-  color: #E9493D;
-}
+  & button {
+    background-color: #F5F5F5;
+    color: #E9493D;
+  }
 
-.mobile__content button:hover {
-  background-color: #F5F5F5;
-}
+  & button:hover {
+    background-color: #F5F5F5;
+  }
 
-.mobile__content button a {
-  color: #E9493D;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 700;
-}
+  & button a {
+    color: #E9493D;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
 
-.mobile__content button a:hover {
-  text-decoration: none;
+  & button a:hover {
+    text-decoration: none;
+  }
 }
 </style>
