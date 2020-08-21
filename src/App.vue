@@ -2,7 +2,7 @@
 <div id="app" v-if="homepage">
   <div v-if="loading" :style="introScreen">&nbsp;</div>
   <div :key="componentKey" v-else>
-    <video class="bg-black" v-if="homepage" preload="none" muted loop id="myVideo" :style="sectionDimensions">
+    <video class="bg-black" v-if="homepage" preload="none" autoplay="true" muted loop id="myVideo" :style="sectionDimensions">
       <source :src="bgvideo" type="video/mp4">
     </video>
     <router-view class="navbar" name="header" @scrollMeTo="scrollMeTo($event)"/>
