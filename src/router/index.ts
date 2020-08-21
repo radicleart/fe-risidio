@@ -10,7 +10,6 @@ import HelpTopics from '../views/HelpTopics.vue'
 import MainNavbar from '@/layout/MainNavbar.vue'
 import MainFooter from '@/layout/MainFooter.vue'
 import NotFound from '../views/NotFound.vue'
-import Preview from '../views/Preview.vue'
 import BlogHome from '../views/BlogHome.vue'
 import Post from '../views/Post.vue'
 
@@ -222,24 +221,6 @@ const routes: Array<RouteConfig> = [
     components: { default: NotFound, header: MainNavbar, footer: MainFooter }
   },
   {
-    path: '/preview',
-    name: 'preview',
-    components: { default: Preview, header: MainNavbar, footer: MainFooter },
-    meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        },
-        {
-          property: 'og:description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        }
-      ]
-    }
-  },
-  {
     path: '*',
     redirect: { path: '/' }
   }
@@ -261,13 +242,15 @@ router.beforeEach((to, from, next) => {
 
   // Find the nearest route element with meta tags.
   const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags)
-  const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags)
+  // const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags)
 
   // If a route with a title was found, set the document (page) title to that value.
   if (nearestWithTitle) document.title = nearestWithTitle.meta.title
 
   // Remove any stale meta tags from the document using the key attribute we set below.
-  Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => el.parentNode.removeChild(el))
+  Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => {
+    if (el.parentNode !== null) { el.parentNode.removeChild(el) }
+  })
 
   // Skip rendering meta tags if there are none.
   if (!nearestWithMeta) return next()
