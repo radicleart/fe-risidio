@@ -71,24 +71,6 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/services',
-    name: 'services',
-    components: { default: Page, header: MainNavbar, footer: MainFooter },
-    meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        },
-        {
-          property: 'og:description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        }
-      ]
-    }
-  },
-  {
     path: '/products/:productId',
     name: 'product',
     components: { default: Product, header: MainNavbar, footer: MainFooter },

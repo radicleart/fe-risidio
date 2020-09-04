@@ -27,7 +27,7 @@
                   <div v-for="(pitem, index2) of item.image_text" :key="index2">
                     <div v-if="pitem.type === 'paragraph'" class=""><p class="text-black mb-3" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
                   </div>
-                  <div class="more-text"><router-link to="/about" class="text-warning">{{item.section_link[0].text}}</router-link></div>
+                  <div class="more-text"><router-link to="/aboutus" class="text-warning">{{item.section_link[0].text}}</router-link></div>
                 </div>
               </div>
             </template>

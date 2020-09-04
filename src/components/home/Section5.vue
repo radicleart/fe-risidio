@@ -112,6 +112,7 @@ export default {
   & .slider-content h2 {
     font-size: 24px;
     margin-top: 12px;
+    text-transform: none;
   }
 
   & .slider-content p {
