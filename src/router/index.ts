@@ -76,16 +76,7 @@ const routes: Array<RouteConfig> = [
     components: { default: Product, header: MainNavbar, footer: MainFooter },
     meta: {
       title: 'Risidio - Products and Services for Blockchain.',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        },
-        {
-          property: 'og:description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        }
-      ]
+      isProductPage: true
     }
   },
   {
@@ -170,11 +161,11 @@ const routes: Array<RouteConfig> = [
       metaTags: [
         {
           name: 'description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
+          content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
         },
         {
           property: 'og:description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
+          content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
         }
       ]
     }
@@ -215,6 +206,57 @@ const router = new VueRouter({
   scrollBehavior () {
     return { x: 0, y: 0 }
   }
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.isProductPage)) {
+    if (to.params.productId === 'r-pay') {
+      to.meta.metaTags = [
+        {
+          name: 'description',
+          content: "Carry out transactions without having to enter your personal details, use Risidio's own Lightning wallet. Simple | Secure | Fast."
+        },
+        {
+          property: 'og:description',
+          content: "Carry out transactions without having to enter your personal details, use Risidio's own Lightning wallet. Simple | Secure | Fast."
+        }
+      ]
+    } else if (to.params.productId === 'loopbomb') {
+      to.meta.metaTags = [
+        {
+          name: 'description',
+          content: "Get creative with Risidio's Loopbomb, an art mixing engine which lets you create your own unique collectible and trade it. Loopbomb has a Smart Contract feature for provenance."
+        },
+        {
+          property: 'og:description',
+          content: "Get creative with Risidio's Loopbomb, an art mixing engine which lets you create your own unique collectible and trade it. Loopbomb has a Smart Contract feature for provenance."
+        }
+      ]
+    } else if (to.params.productId === 'r-stack') {
+      to.meta.metaTags = [
+        {
+          name: 'description',
+          content: 'Wanna Swap your Bitcoins for STX using Lightning channel or a Smart Contract? Use rStack and get STX using Lightning Bitcoin or simply write a smart contract.'
+        },
+        {
+          property: 'og:description',
+          content: 'Wanna Swap your Bitcoins for STX using Lightning channel or a Smart Contract? Use rStack and get STX using Lightning Bitcoin or simply write a smart contract.'
+        }
+      ]
+    } else {
+      to.meta.metaTags = [
+        {
+          name: 'description',
+          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
+        },
+        {
+          property: 'og:description',
+          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
+        }
+      ]
+    }
+  }
+  next()
 })
 
 router.beforeEach((to, from, next) => {
