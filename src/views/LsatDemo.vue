@@ -112,7 +112,7 @@ export default {
   methods: {
     paymentEvent: function (event) {
       const paymentData = event.detail[0]
-      this.eventData += '<p><pre style="color: #fff;">' + JSON.stringify(paymentData) + '</pre></p>'
+      this.eventData += '<p><pre style="color: #000;">' + JSON.stringify(paymentData) + '</pre></p>'
       if (paymentData.opcode === 'lsat-payment-confirmed') {
         this.demoMode = true
       }
