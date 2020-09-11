@@ -4,6 +4,7 @@ const contentStore = {
     content: {
       homepage: null,
       aboutus: null,
+      proposal: null,
       navigation: null,
       products: null,
       pages: null
@@ -36,6 +37,9 @@ const contentStore = {
     getProductPages: state => {
       return state.content.productPages
     },
+    getProposal: state => {
+      return state.content.proposal
+    },
     getPage: state => pageId => {
       pageId = state.pageIds[pageId]
       return (state.content.pages) ? (state.content.pages.filter(page => page.id === pageId))[0] : null
@@ -63,6 +67,9 @@ const contentStore = {
     },
     addProducts (state, o) {
       state.content.products = o
+    },
+    addProposalContent (state, o) {
+      state.content.proposal = o
     }
   },
   actions: {

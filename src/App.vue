@@ -67,6 +67,11 @@ export default {
         this.$store.commit('contentStore/addHomeContent', document.data)
       }
     })
+    this.$prismic.client.getSingle('proposal').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addProposalContent', document.data)
+      }
+    })
     this.$prismic.client.getSingle('aboutus').then(document => {
       if (document) {
         this.$store.commit('contentStore/addAboutUsContent', document.data)

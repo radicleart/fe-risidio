@@ -4,6 +4,7 @@ import AboutUs from '../views/AboutUs.vue'
 import Home from '../views/Home.vue'
 import Page from '../views/Page.vue'
 import LsatDemo from '../views/LsatDemo.vue'
+import Proposal from '../views/Proposal.vue'
 import Product from '../views/Product.vue'
 import Products from '../views/Products.vue'
 import HelpTopics from '../views/HelpTopics.vue'
@@ -184,6 +185,24 @@ const routes: Array<RouteConfig> = [
         {
           property: 'og:description',
           content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
+        }
+      ]
+    }
+  },
+  {
+    path: '/Risidio_rBid*',
+    name: 'Proposal',
+    components: { default: Proposal, header: MainNavbar, footer: MainFooter },
+    meta: {
+      title: 'Risidio - Products and Services for Blockchain.',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
+        },
+        {
+          property: 'og:description',
+          content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
         }
       ]
     }
