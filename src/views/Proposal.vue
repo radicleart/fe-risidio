@@ -1,7 +1,7 @@
 <template>
 <div v-if="content">
     <section class="d-flex align-items-center flex-column" id="proposal-title" :style="sectionBanner">
-        <div class="my-auto text-center text-white w-75">
+        <div class="my-auto text-center text-white">
           <h2 class="mb-4">{{ content.title[0].text }}</h2>
           <h1>{{ content.subtitle[0].text }}</h1>
         </div>
@@ -58,6 +58,19 @@ export default {
 </script>
 
 <style lang="scss">
+
+#proposal-title {
+
+  & h2 {
+    text-transform: none;
+  }
+
+  & div {
+    max-width: 80%;
+  }
+
+}
+
 #proposal-description {
 
   & .main-content {
@@ -71,32 +84,116 @@ export default {
   }
 
   & h2 {
+    font-size: 22px;
+    font-weight: bold;
     margin: 3rem 0 2rem;
   }
 
   & h3 {
+    font-size: 19px;
     margin: 2rem 0 1rem;
   }
 
   & h4 {
+    font-size: 16px;
     margin: 2rem 0 1rem;
     text-align: left;
   }
 
-  & img {
-    max-width: 50%;
-    height: auto;
-    margin: 5rem 0;
+  & p {
+    font-size: 19px;
+    font-weight: 300;
   }
 
   & table, th, td {
     border: 1px solid #000;
   }
 
-    & table p {
+  & table p {
     margin: 0 5px 0;
+    font-weight: 400;
   }
 
+  & img {
+    height: auto;
+    margin: 5rem 0;
+  }
+
+  & img.roadmap-image {
+    max-width: 70%;
+    margin: 3rem 0 5rem;
+  }
+
+  & img.funding-graphs-image {
+    max-width: 100%;
+  }
+
+  & img.market-segments-image {
+    max-width: 50%;
+  }
+
+  & ul li, ol li {
+    margin-bottom: 7px;
+  }
+
+}
+
+@media only screen and (max-width:1024px) {
+  #proposal-description {
+
+    & img.roadmap-image {
+      max-width: 100%;
+    }
+
+    & img.funding-graphs-image {
+      max-width: 100%;
+    }
+
+    & img.market-segments-image {
+      max-width: 100%;
+    }
+
+  }
+}
+
+@media only screen and (max-width:425px) {
+  #proposal-description {
+
+    & p {
+      font-size: 12px;
+    }
+
+    & ul, ol {
+      font-size: 12px;
+    }
+
+    & table p {
+      font-size: 12px;
+    }
+
+  }
+}
+
+@media only screen and (max-width:400px) {
+  #proposal-description {
+
+    & p.reference-link {
+      font-size: 10px;
+    }
+
+    & table p {
+      font-size: 10px;
+    }
+
+  }
+}
+
+@media only screen and (max-width:320px) {
+  #proposal-description {
+    & table p {
+      font-size: 8px;
+    }
+  }
 }
 
 </style>
