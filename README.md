@@ -1,4 +1,4 @@
-# fe-risidio
+# Risidio Website
 
 ## Project setup
 ```
