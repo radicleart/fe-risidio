@@ -83,7 +83,7 @@ export default {
       }
     },
     goToContact () {
-      if (this.$route.name === 'blog-home' || this.$route.name === 'post') {
+      if (this.$route.name === 'blog-home' || this.$route.name === 'post' || this.$route.name === 'Proposal') {
         this.$router.push('/')
       }
     }

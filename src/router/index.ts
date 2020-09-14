@@ -208,6 +208,24 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
+    path: '/auctions-proposal',
+    name: 'proposal',
+    components: { default: Proposal, header: MainNavbar, footer: MainFooter },
+    meta: {
+      title: 'Risidio - Products and Services for Blockchain.',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
+        },
+        {
+          property: 'og:description',
+          content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
+        }
+      ]
+    }
+  },
+  {
     path: '/not-found',
     name: 'not-found',
     components: { default: NotFound, header: MainNavbar, footer: MainFooter }
