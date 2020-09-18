@@ -153,6 +153,10 @@ export default {
       max-width: 100%;
     }
 
+    & table p {
+      font-size: 14px;
+    }
+
   }
 }
 
