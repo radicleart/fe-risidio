@@ -75,11 +75,16 @@ export default {
   },
   methods: {
     productUrl (item) {
-      return '/products/' + item.product_name[0].text
+      const productId = item.product_name[0].text
+      if (productId === 'r-pay' || productId === 'lsat') {
+        return '/products/r-pay'
+      } else {
+        return '/products/' + item.product_name[0].text
+      }
     },
     demoLink (item) {
       const productId = item.product_name[0].text
-      if (productId === 'r-pay') {
+      if (productId === 'r-pay' || productId === 'lsat') {
         return '<a class="text-warning" href="/rpay-demo">Try The Demo</a>'
       } else if (productId === 'loopbomb') {
         return '<a class="text-warning" href="https://loopbomb.com">Try The Demo</a>'
