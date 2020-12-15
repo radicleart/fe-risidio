@@ -13,6 +13,7 @@ import MainFooter from '@/layout/MainFooter.vue'
 import NotFound from '../views/NotFound.vue'
 import BlogHome from '../views/BlogHome.vue'
 import Post from '../views/Post.vue'
+import JoinUs from '../views/JoinUs.vue'
 
 Vue.use(VueRouter)
 
@@ -221,6 +222,24 @@ const routes: Array<RouteConfig> = [
         {
           property: 'og:description',
           content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
+        }
+      ]
+    }
+  },
+  {
+    path: '/join-us',
+    name: 'join-us',
+    components: { default: JoinUs, header: MainNavbar, footer: MainFooter },
+    meta: {
+      title: 'Risidio - Products and Services for Blockchain.',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
+        },
+        {
+          property: 'og:description',
+          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
         }
       ]
     }

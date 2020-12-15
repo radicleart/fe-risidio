@@ -127,6 +127,7 @@ img {
 }
 .blurb {
   width: 256px;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width:425px) {

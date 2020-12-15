@@ -7,7 +7,8 @@ const contentStore = {
       proposal: null,
       navigation: null,
       products: null,
-      pages: null
+      pages: null,
+      recruitment: null
     },
     pageIds: {
       education: 'XuH1mBIAAFbNZG32',
@@ -27,6 +28,9 @@ const contentStore = {
   getters: {
     getHomepage: state => {
       return state.content.homepage
+    },
+    getRecruitment: state => {
+      return state.content.recruitment
     },
     getAboutUs: state => {
       return state.content.aboutus
@@ -55,6 +59,9 @@ const contentStore = {
   mutations: {
     addHomeContent (state, o) {
       state.content.homepage = o
+    },
+    addRecruitmentContent (state, o) {
+      state.content.recruitment = o
     },
     addAboutUsContent (state, o) {
       state.content.aboutus = o
