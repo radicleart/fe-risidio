@@ -155,7 +155,9 @@ export default {
   left: 31.35%;*/
   margin: -27px auto 0;
   background: #fff;
-  box-shadow: 0px 3px 6px -2px #00000029;
+  box-shadow: 0px 3px 6px -4px #00000029,
+              3px 3px 6px -4px #00000029,
+              -3px 3px 6px -4px #00000029;
   border-radius: 0 0 31px 31px;
 }
 
