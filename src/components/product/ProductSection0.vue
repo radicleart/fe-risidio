@@ -49,7 +49,7 @@ export default {
       } else if (productId === 'dsearch') {
         return 'https://github.com/radicleart/brightblock-search'
       } else if (productId === 'r-stack') {
-        return 'https://stax.risidio.com'
+        return 'https://stacks.risidio.com'
       } else {
         return '/ownai'
       }

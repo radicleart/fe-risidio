@@ -93,7 +93,7 @@ export default {
       } else if (productId === 'dsearch') {
         return '<a class="text-warning" href="https://github.com/radicleart/brightblock-search">Find Us On Github</a>'
       } else if (productId === 'r-stack') {
-        return '<a class="text-warning" href="https://stax.risidio.com">Get Stacking</a>'
+        return '<a class="text-warning" href="https://stacks.risidio.com">Get Stacking</a>'
       } else {
         return null
       }
