@@ -20,7 +20,7 @@
       <div class="intenship-info__container">
         <div class="intenship-info" v-for="(item, index) of content.job_desctiptions" :key="index">
           <div class="intenship-info__content-container">
-            <div class="intenship-info__button--container"><button v-b-toggle="'collapse' + index" class="intenship-info__button"><span class="intenship-info__title">{{ item.job_title[0].text }}</span><b-icon icon="geo-alt" class="mr-2"></b-icon>{{ item.location[0].text }}<b-icon icon="plus" font-scale="1.8" class="ml-auto"></b-icon></button></div>
+            <div @click="isExpand[index] = !isExpand[index]" :class="{plusIconAnimation : isExpand[index]}" class="intenship-info__button--container"><button v-b-toggle="'collapse' + index" class="intenship-info__button"><span class="intenship-info__title">{{ item.job_title[0].text }}</span><b-icon icon="geo-alt" class="mr-2"></b-icon>{{ item.location[0].text }}<b-icon icon="plus" font-scale="1.8" class="ml-auto plus-icon"></b-icon></button></div>
             <b-collapse :id="'collapse' + index" class="intenship-info__collapse">
               <div class="intenship-info__collapse--content">
                 <div v-for="(item2, index2) of item.job_brief" :key="index2"><div v-html="item2.text"></div></div>
@@ -49,7 +49,8 @@ export default {
   },
   data () {
     return {
-      banner: require('@/assets/img/join_us_banner.png')
+      banner: require('@/assets/img/join_us_banner.png'),
+      isExpand: { 0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false }
     }
   },
   computed: {
@@ -140,6 +141,14 @@ export default {
 
 .intenship-info__button:hover {
   background: transparent;
+}
+
+.intenship-info__button .plus-icon {
+  transition: all 0.3s;
+}
+
+.intenship-info .plusIconAnimation .plus-icon {
+  transform: rotate(45deg);
 }
 
 .intenship-info__title {
