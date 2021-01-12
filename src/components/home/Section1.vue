@@ -11,6 +11,11 @@
         <div class="mr-4"><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
         <div><button class="button1" v-scroll-to="{ element: '#products-section', duration: 2000 }"><span class="call-button-text">{{section.link2[0].text}}</span></button></div>
       </div>
+      <div class="my-5 d-flex justify-content-center video-container">
+        <div class="video-wrapper w-100">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/w1jOCmD7Yqs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -83,6 +88,28 @@ button:hover .call-button-text {
 }
 .button1:hover .call-button-text {
   color: #5FBDC1;
+}
+
+/* Video */
+.video-container {
+  width: 50%;
+}
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (max-width: 768px) {
+  .video-container {
+    width: 75%;
+  }
 }
 
 @media only screen and (min-width:769px) {
