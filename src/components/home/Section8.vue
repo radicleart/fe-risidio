@@ -6,8 +6,10 @@
           <div class="mb-3"><h2 class="text-white">{{content.contact_subtitle[0].text}}</h2></div>
           <div class="mb-4 blurb"><span>{{content.contact_description[0].text}}</span></div>
           <div class="m-5 d-flex justify-content-center">
-            <a v-lazyload title="join us on discord" class="mr-4" :href="content.contact_discord_link[0].text"><img :data-url="social.discord.dark" alt="discord-icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
-            <a v-lazyload title="send an email" :href="'mailTo:' + content.contact_email_address[0].text"><img :data-url="social.mail.dark" alt="mail-icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
+            <a v-lazyload title="Join us on Discord" class="mr-sm-4 mr-3" :href="content.contact_discord_link[0].text"><img :data-url="social.discord.dark" alt="discord-icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
+            <a v-lazyload title="Send an email" class="mr-sm-4 mr-3" :href="'mailTo:' + content.contact_email_address[0].text"><img :data-url="social.mail.dark" alt="mail-icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
+            <a v-lazyload title="Join us on Instagram" class="mr-sm-4 mr-3" :href="content.contact_instagram_link[0].text"><img :data-url="social.instagram.dark" alt="mail-icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a>
+            <a v-lazyload title="Watch us on YouTube" :href="content.contact_youtube_link[0].text"><img :data-url="social.youtube.dark" alt="mail-icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a>
           </div>
         </div>
       </div>
@@ -25,8 +27,6 @@ export default {
   data () {
     return {
       bgStatic: require('@/assets/img/Group994.svg'),
-      mailp: require('@/assets/img/Group 15784/Group 15784.png'),
-      discordp: require('@/assets/img/Group 15783/Group 15783.png'),
       social: {
         discord: {
           dark: require('@/assets/img/Group 15783.svg'),
@@ -35,6 +35,14 @@ export default {
         mail: {
           dark: require('@/assets/img/Group 15784.svg'),
           light: require('@/assets/img/Group 15784Light.svg')
+        },
+        instagram: {
+          dark: require('@/assets/img/Instagram black_bg.svg'),
+          light: require('@/assets/img/Instagram white_bg.svg')
+        },
+        youtube: {
+          dark: require('@/assets/img/YouTube black_bg.svg'),
+          light: require('@/assets/img/YouTube white_bg.svg')
         }
       }
     }
@@ -88,32 +96,6 @@ export default {
           '-o-background-size': 'cover',
           'background-size': 'cover'
         }
-      }
-    },
-    mailImage () {
-      return {
-        height: '50px',
-        width: '50px',
-        'background-repeat': 'no-repeat',
-        'background-image': `url(${this.mailp})`,
-        'background-position': 'center center',
-        '-webkit-background-size': 'cover',
-        '-moz-background-size': 'cover',
-        '-o-background-size': 'cover',
-        'background-size': 'cover'
-      }
-    },
-    discordImage () {
-      return {
-        height: '50px',
-        width: '50px',
-        'background-repeat': 'no-repeat',
-        'background-image': `url(${this.discordp})`,
-        'background-position': 'center center',
-        '-webkit-background-size': 'cover',
-        '-moz-background-size': 'cover',
-        '-o-background-size': 'cover',
-        'background-size': 'cover'
       }
     }
   }
