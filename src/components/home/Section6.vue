@@ -64,7 +64,7 @@ button {
 }
 .call-button-text {
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0px;
   color: #FFFFFF;

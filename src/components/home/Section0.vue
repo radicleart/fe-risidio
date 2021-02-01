@@ -80,7 +80,7 @@ img {
 
 .tagline {
   text-align: center;
-  font-size: 17px;
+  font-size: 25px;
   font-weight: 300;
   letter-spacing: 0px;
   color: #FFFFFF;

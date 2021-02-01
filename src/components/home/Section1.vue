@@ -67,7 +67,7 @@ button:hover .call-button-text {
 
 .call-button-text {
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0px;
   color: #FFFFFF;
@@ -113,6 +113,6 @@ button:hover .call-button-text {
 }
 
 @media only screen and (min-width:769px) {
-  p { font-size: 14px; }
+  p { font-size: 20px; }
 }
 </style>

@@ -29,7 +29,7 @@
                         <p class="post-date-wrapper"><router-link to="/blog" class="text-danger">{{item.date}}</router-link></p>
                         <h2><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
                         <div class="mb-auto" v-for="(pitem, index2) of item.description" :key="index2">
-                          <div v-if="pitem.type === 'paragraph'" class=""><p style="font-size: 12px; font-weight: 500" class="mb-3" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
+                          <div v-if="pitem.type === 'paragraph'" class=""><p style="font-size: 14px; font-weight: 500" class="mb-3" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
                         </div>
                       </div>
                     </div>
@@ -93,7 +93,7 @@ export default {
     font-weight: 600;
   }
   & p {
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 300;
     color: #000;
   }

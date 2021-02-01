@@ -36,6 +36,7 @@
                 </vueper-slide>
               </vueper-slides>
               </div>
+              <br/>
               <div class="my-5 text-center"><button class="button1"><router-link to="/products" class="call-button-text">All Products</router-link></button></div>
             </div>
           </div>
@@ -121,7 +122,7 @@ export default {
   }
 
   & .slider-content p {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   & .slider-content {

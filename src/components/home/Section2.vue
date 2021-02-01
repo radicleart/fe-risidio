@@ -8,7 +8,7 @@
         </div>
         <vueper-slides
           class="no-shadow "
-          :bullets=false
+          :bullets=true
           :arrows=false
           :visible-slides="1"
           :gap="0"
@@ -76,6 +76,9 @@ export default {
     width: 55vw;
   }
   & .vueperslide {
+    height: 250px;
+  }
+  & .vueperslides__inner {
     height: 250px;
   }
   & .slider__content-wrap {
