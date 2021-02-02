@@ -44,7 +44,7 @@ img {
 p {
   text-align: center;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0px;
   color: #000000;
   width: 50%;

@@ -70,7 +70,7 @@ img {
 }
 .more-text {
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 900;
   color: #5FBDC1;
   text-transform: capitalize;

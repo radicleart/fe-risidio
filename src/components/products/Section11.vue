@@ -111,7 +111,7 @@ h1 {
   white-space: nowrap;
 }
 .card-text {
-  height: 90px;
+  height: 130px;
 }
 .card-img-top {
   height: auto;
