@@ -16,10 +16,10 @@
                 :bullets-outside=true
                 :breakpoints="breakpoints">
                 <template v-slot:arrow-left>
-                  <img :src="arrowsRed.left" alt="red-arrow-left">
+                  <img :src="arrowsRed.left" alt="Red Arrow Left">
                 </template>
                 <template v-slot:arrow-right>
-                  <img :src="arrowsRed.right" alt="red-arrow-right">
+                  <img :src="arrowsRed.right" alt="Red Arrow Right">
                 </template>
                 <vueper-slide v-for="(item, index) of content.posts" :key="index" style="font-size: 0.8em; min-width: 300px;">
                   <template v-slot:content>

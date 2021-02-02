@@ -1,7 +1,7 @@
 <template>
 <div class="d-flex justify-content-center">
   <b-navbar toggleable="md" type="dark" class="p-0 my-nav navbar-expand-sm" v-if="content">
-    <b-navbar-brand href="#"><router-link to="/" class="navbar-brand"><img :src="logo" alt="risidio-logo"/></router-link></b-navbar-brand>
+    <b-navbar-brand href="#"><router-link to="/" class="navbar-brand"><img :src="logo" alt="Risidio Logo"/></router-link></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" @click="noScroll()"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>

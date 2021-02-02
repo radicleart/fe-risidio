@@ -3,7 +3,7 @@
   <footer class="text-white footer-container">
     <div class="row text-center m-0 d-sm-flex d-none" style="height: 240px;">
       <div class="col-lg-4 col-md-3 d-md-block d-none" style="height: 240px;">
-        <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" alt="risidio-logo" class="footer-logo"/></router-link>
+        <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" alt="Risidio Logo" class="footer-logo"/></router-link>
       </div>
       <div class="col-lg-6 col-md-8 offset-lg-1 content-footer">
         <div class="row text-left mt-5">
@@ -29,7 +29,7 @@
     <!-- MOBILE DESIGN !-->
     <div class="row flex-flow-column justify-content-center text-center m-0 d-sm-none mobile-footer">
       <div class="col-12">
-        <router-link to="/" class="navbar-brand text-white" style="margin: 60px 0 40px 0; height: auto;"><img :src="logo" alt="risidio-logo" class="footer-logo"/></router-link>
+        <router-link to="/" class="navbar-brand text-white" style="margin: 60px 0 40px 0; height: auto;"><img :src="logo" alt="Risidio Logo" class="footer-logo"/></router-link>
       </div>
       <div class="col-12 mobile-footer--contact" v-html="getContent('contact')"></div>
       <div class="col-12 social-icons">

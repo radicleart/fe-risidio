@@ -7,7 +7,7 @@
           <b-card
             :title="item.group_item_title[0].text"
             :img-src="item.item_image.url"
-            img-alt="Image"
+            img-alt="Product Representation Image"
             img-top
             tag="article"
             class="text-left card-style">

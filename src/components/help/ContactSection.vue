@@ -10,7 +10,7 @@
       </div>
       <div class="col-md-5">
         <div class="col-md-12">
-          <b-link to="/" class="navbar-brand" v-if="logo"><img :src="logo" alt="radicle logo" class="img-fluid"></b-link>
+          <b-link to="/" class="navbar-brand" v-if="logo"><img :src="logo" alt="Radicle logo" class="img-fluid"></b-link>
         </div>
         <div class="col-md-12">
           <h5 class="my-4"><strong>Contact Info</strong></h5>
