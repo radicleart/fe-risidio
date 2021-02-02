@@ -115,7 +115,8 @@ img {
     margin: 0 0 0 21px;
   }
   .three-paragraphs-col {
-    margin: 40px 0;
+        margin: 40px 0;
+        margin-left: 10px;
   }
 }
 @media only screen and (max-width:425px) {

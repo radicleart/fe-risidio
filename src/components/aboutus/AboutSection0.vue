@@ -122,6 +122,9 @@ h4 {
   .section0-image-container {
     margin: 0 auto -7rem;
   }
+  .blurb {
+    font-size: 1.2em;
+  }
 }
 @media only screen and (max-width: 600px) {
   .section0-image-container {
