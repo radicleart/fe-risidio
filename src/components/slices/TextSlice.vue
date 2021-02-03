@@ -14,5 +14,6 @@ export default {
 <style scoped>
     .post-part {
       max-width: 70rem;
+      margin: auto;
     }
 </style>
