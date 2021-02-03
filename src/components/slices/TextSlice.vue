@@ -10,3 +10,9 @@ export default {
   name: 'text-slice'
 }
 </script>
+
+<style scoped>
+    .post-part {
+      max-width: 70rem;
+    }
+</style>
