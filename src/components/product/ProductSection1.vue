@@ -46,6 +46,8 @@ export default {
       const productId = this.$route.params.productId
       if (productId === 'dsearch' || productId === 'hubber') {
         return 'Find Us On Github'
+      } else if (productId === 'x-change') {
+        return 'Preview'
       } else {
         return 'Try It Now!'
       }
@@ -56,8 +58,8 @@ export default {
         return '/rpay-demo'
       } else if (productId === 'loopbomb') {
         return 'https://loopbomb.com'
-      } else if (productId === 'nongibles') {
-        return 'https://radicle.art'
+      } else if (productId === 'x-change') {
+        return 'https://tchange.risidio.com'
       } else if (productId === 'dsearch') {
         return 'https://github.com/radicleart/brightblock-search'
       } else if (productId === 'r-stack') {
@@ -70,7 +72,7 @@ export default {
   computed: {
     hasDemoLink () {
       const productId = this.$route.params.productId
-      if (productId === 'r-pay' || productId === 'r-stack' || productId === 'loopbomb' || productId === 'nongibles' || productId === 'dsearch') {
+      if (productId === 'r-pay' || productId === 'r-stack' || productId === 'loopbomb' || productId === 'x-change' || productId === 'dsearch') {
         return true
       }
       return false

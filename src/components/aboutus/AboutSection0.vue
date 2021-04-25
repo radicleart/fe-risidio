@@ -17,10 +17,14 @@
   <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
     <div class="my-auto">
       <div class="my-5">
-        <div class="mt-0 mb-4"><h1 class="text-black" v-html="content.s1title1[0].text"></h1></div>
-        <div class="mb-4"><h2 class="text-center" v-html="content.s1title2[0].text"></h2></div>
+        <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
+        <div class="mb-4"><h4 class="text-center">{{content.s1title2[0].text}}</h4></div>
         <div class="mx-auto my-4 w-100 text-center">
-          <p class="mb-4 mx-auto text-center blurb2 text-black" v-html="content.s1description[0].text"></p>
+          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description[0].text}}</p>
+        </div>
+        <div class="mb-4"><h4 class="text-center">{{content.s1title3[0].text}}</h4></div>
+        <div class="mx-auto my-4 w-100 text-center">
+          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description2[0].text}}</p>
         </div>
       </div>
     </div>

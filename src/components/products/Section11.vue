@@ -15,7 +15,8 @@
               {{item.item_main_text[0].text}}
             </b-card-text>
             <div class="d-flex">
-              <div class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.item_sub_text[0].text}}</router-link></div>
+              <div v-if="productUrl(item) == '/projects/number-one'" class="more-text"><a href="" class="text-info">{{item.item_sub_text[0].text}}</a></div>
+              <div v-else class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.item_sub_text[0].text}}</router-link></div>
               <div class="more-text" v-html="demoLink(item)"></div>
             </div>
           </b-card>
@@ -37,7 +38,7 @@ export default {
   },
   methods: {
     productUrl (item) {
-      return '/products/' + item.product_name[0].text
+      return '/projects/' + item.product_name[0].text
     },
     demoLink (item) {
       const productId = item.product_name[0].text
@@ -45,8 +46,8 @@ export default {
         return '<a class="text-warning" href="/rpay-demo">Try it now</a>'
       } else if (productId === 'loopbomb') {
         return '<a class="text-warning" href="https://loopbomb.com">Try it now</a>'
-      } else if (productId === 'nongibles') {
-        return '<a class="text-warning" href="https://radicle.art">Try it now</a>'
+      } else if (productId === 'x-change') {
+        return '<a class="text-warning" href="https://tchange.risidio.com">Preview</a>'
       } else if (productId === 'dsearch') {
         return '<a class="text-warning" href="https://github.com/radicleart/brightblock-search">Find Us On Github</a>'
       } else if (productId === 'r-stack') {

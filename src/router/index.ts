@@ -73,7 +73,7 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/products/:productId',
+    path: '/projects/:productId',
     name: 'product',
     components: { default: Product, header: MainNavbar, footer: MainFooter },
     meta: {
@@ -82,7 +82,7 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/products',
+    path: '/projects',
     name: 'products',
     components: { default: Products, header: MainNavbar, footer: MainFooter },
     meta: {

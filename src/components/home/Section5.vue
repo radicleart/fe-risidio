@@ -27,7 +27,8 @@
                           <div v-if="pitem.type === 'paragraph'" class=""><p class="mb-3 text-white" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
                         </div>
                         <div class="d-flex justify-content-between w-100">
-                          <div class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.more[0].text}}</router-link></div>
+                          <div v-if="productUrl(item) == '/projects/number-one'" class="more-text"><a href="" class="text-info">{{item.more[0].text}}</a></div>
+                          <div v-else class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.more[0].text}}</router-link></div>
                           <div class="more-text" v-html="demoLink(item)"></div>
                         </div>
                       </div>
@@ -37,7 +38,7 @@
               </vueper-slides>
               </div>
               <br/>
-              <div class="my-5 text-center"><button class="button1"><router-link to="/products" class="call-button-text">All Products</router-link></button></div>
+              <div class="my-5 text-center"><button class="button1"><router-link to="/projects" class="call-button-text">All Projects</router-link></button></div>
             </div>
           </div>
       </div>
@@ -78,9 +79,9 @@ export default {
     productUrl (item) {
       const productId = item.product_name[0].text
       if (productId === 'r-pay' || productId === 'lsat') {
-        return '/products/r-pay'
+        return '/projects/r-pay'
       } else {
-        return '/products/' + item.product_name[0].text
+        return '/projects/' + item.product_name[0].text
       }
     },
     demoLink (item) {
@@ -89,8 +90,8 @@ export default {
         return '<a class="text-warning" href="/rpay-demo">Try The Demo</a>'
       } else if (productId === 'loopbomb') {
         return '<a class="text-warning" href="https://loopbomb.com">Try The Demo</a>'
-      } else if (productId === 'nongibles') {
-        return '<a class="text-warning" href="https://radicle.art">Try The Demo</a>'
+      } else if (productId === 'x-change') {
+        return '<a class="text-warning" href="https://tchange.risidio.com">Preview</a>'
       } else if (productId === 'dsearch') {
         return '<a class="text-warning" href="https://github.com/radicleart/brightblock-search">Find Us On Github</a>'
       } else if (productId === 'r-stack') {
