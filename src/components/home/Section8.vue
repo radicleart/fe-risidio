@@ -5,11 +5,23 @@
           <div class="my-4"><h1 class="text-white">{{content.contact_title[0].text}}</h1></div>
           <div class="mb-3"><h2 class="text-white">{{content.contact_subtitle[0].text}}</h2></div>
           <div class="mb-4 blurb"><span>{{content.contact_description[0].text}}</span></div>
-          <div class="m-5 d-flex justify-content-center">
+          <div class="m-5 d-sm-flex d-none justify-content-center">
             <a v-lazyload title="Join us on Discord" class="mr-sm-4 mr-3" :href="content.contact_discord_link[0].text"><img :data-url="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
             <a v-lazyload title="Send an email" class="mr-sm-4 mr-3" :href="'mailTo:' + content.contact_email_address[0].text"><img :data-url="social.mail.dark" alt="Mail Icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
             <a v-lazyload title="Join us on Instagram" class="mr-sm-4 mr-3" :href="content.contact_instagram_link[0].text"><img :data-url="social.instagram.dark" alt="Instagram Icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a>
-            <a v-lazyload title="Watch us on YouTube" :href="content.contact_youtube_link[0].text"><img :data-url="social.youtube.dark" alt="Youtube Icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a>
+            <a v-lazyload title="Watch us on YouTube" class="mr-sm-4 mr-3" :href="content.contact_youtube_link[0].text"><img :data-url="social.youtube.dark" alt="Youtube Icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a>
+            <a v-lazyload title="Join us on LinkedIn" :href="content.contact_linkedin_link[0].text"><img :data-url="social.linkedin.dark" alt="Youtube Icon" @mouseover="hoverOver(social.linkedin, $event)" @mouseout="hoverOut(social.linkedin, $event)" /></a>
+          </div>
+          <div class="m-3 d-sm-none d-block justify-content-center">
+            <div class="d-flex justify-content-center">
+              <a v-lazyload title="Join us on Discord" class="mr-sm-4 mr-3" :href="content.contact_discord_link[0].text"><img :data-url="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
+              <a v-lazyload title="Send an email" class="mr-sm-4 mr-3" :href="'mailTo:' + content.contact_email_address[0].text"><img :data-url="social.mail.dark" alt="Mail Icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
+              <a v-lazyload title="Join us on Instagram" :href="content.contact_instagram_link[0].text"><img :data-url="social.instagram.dark" alt="Instagram Icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a>
+            </div>
+            <div class="mt-2 d-flex justify-content-center">
+              <a v-lazyload title="Watch us on YouTube" class="mr-sm-4 mr-3" :href="content.contact_youtube_link[0].text"><img :data-url="social.youtube.dark" alt="Youtube Icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a>
+              <a v-lazyload title="Join us on LinkedIn" :href="content.contact_linkedin_link[0].text"><img :data-url="social.linkedin.dark" alt="Youtube Icon" @mouseover="hoverOver(social.linkedin, $event)" @mouseout="hoverOut(social.linkedin, $event)" /></a>
+            </div>
           </div>
         </div>
       </div>
@@ -43,6 +55,10 @@ export default {
         youtube: {
           dark: require('@/assets/img/YouTube black_bg.svg'),
           light: require('@/assets/img/YouTube white_bg.svg')
+        },
+        linkedin: {
+          dark: require('@/assets/img/linkedin.svg'),
+          light: require('@/assets/img/linkedin_hover.svg')
         }
       }
     }

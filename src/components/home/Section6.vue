@@ -7,8 +7,7 @@
       <div class="mb-2"><h2 class="text-white h2-on-mobile">{{section6.subtitle[0].text}}</h2></div>
       <div class="mb-4"><p class="text-on-mobile">{{section6.description[0].text}}</p></div>
       <div class="d-flex justify-content-center">
-        <div class="mr-4"><button v-scroll-to="{ element: '#contactSection', duration: 2000 }"><span class="call-button-text">{{section6.link1[0].text}}</span></button></div>
-        <div><button class="button1" v-scroll-to="{ element: '#contactSection', duration: 2000 }"><span class="call-button-text">{{section6.link2[0].text}}</span></button></div>
+        <div><button><router-link to="/join-us" class="call-button-text">{{section6.link1[0].text}}</router-link></button></div>
       </div>
     </div>
   </div>

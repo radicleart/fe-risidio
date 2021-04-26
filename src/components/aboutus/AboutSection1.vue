@@ -5,8 +5,10 @@
       <div class="my-auto text-center">
         <div class="mb-auto d-flex align-items-center flex-column">
           <h1 class="mb-4">{{content.s2title1[0].text}}</h1>
-          <h2 class="mb-4">{{content.s2title2[0].text}}</h2>
-          <p class="mx-auto">{{content.s2description[0].text}}</p>
+          <!-- <h2 class="mb-4">{{content.s2title2[0].text}}</h2> -->
+          <p class="mx-auto" v-html="content.s2description[0].text"></p>
+          <p class="mx-auto" v-html="content.s2description[1].text"></p>
+          <p class="mx-auto" v-html="content.s2description[2].text"></p>
         </div>
       </div>
     </div>

@@ -23,7 +23,7 @@ const routes: Array<RouteConfig> = [
     name: 'home',
     components: { default: Home, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -41,7 +41,7 @@ const routes: Array<RouteConfig> = [
     name: 'aboutus',
     components: { default: AboutUs, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -59,7 +59,7 @@ const routes: Array<RouteConfig> = [
     name: 'education',
     components: { default: Page, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -77,7 +77,7 @@ const routes: Array<RouteConfig> = [
     name: 'product',
     components: { default: Product, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       isProductPage: true
     }
   },
@@ -86,7 +86,7 @@ const routes: Array<RouteConfig> = [
     name: 'products',
     components: { default: Products, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -104,7 +104,7 @@ const routes: Array<RouteConfig> = [
     name: 'rpay-demo',
     components: { default: LsatDemo, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -125,7 +125,7 @@ const routes: Array<RouteConfig> = [
     // which is lazy-loaded when the route is visited.
     components: { default: Page, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -159,7 +159,7 @@ const routes: Array<RouteConfig> = [
     name: 'blog-home',
     components: { default: BlogHome, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -177,7 +177,7 @@ const routes: Array<RouteConfig> = [
     name: 'post',
     components: { default: Post, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -195,7 +195,7 @@ const routes: Array<RouteConfig> = [
     name: 'Proposal',
     components: { default: Proposal, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -213,7 +213,7 @@ const routes: Array<RouteConfig> = [
     name: 'proposal',
     components: { default: Proposal, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',
@@ -231,7 +231,7 @@ const routes: Array<RouteConfig> = [
     name: 'join-us',
     components: { default: JoinUs, header: MainNavbar, footer: MainFooter },
     meta: {
-      title: 'Risidio - Products and Services for Blockchain.',
+      title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
         {
           name: 'description',

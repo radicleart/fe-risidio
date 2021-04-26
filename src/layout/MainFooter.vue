@@ -45,11 +45,15 @@
         &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
       </div>
     </div>
+    <cookie-law theme="risidio-theme"></cookie-law>
   </footer>
 </div>
 </template>
 <script>
+import CookieLaw from 'vue-cookie-law'
+
 export default {
+  components: { CookieLaw },
   props: {
     backgroundColor: String,
     type: String
@@ -99,6 +103,34 @@ export default {
 .footer-logo {
   width: 255px;
   height: 100px;
+}
+
+/* COOKIES POP UP STYLE */
+.Cookie--risidio-theme {
+  background: rgba(255, 255, 255);
+  box-shadow: 0px -2px 10px #737373;
+  color: #000000;
+  padding: 1rem;
+}
+.Cookie--risidio-theme .Cookie__button {
+  background: #5FBDC1;
+  color: #FFFFFF;
+  border-radius: 22px;
+  width: 141px;
+  height: 43px;
+  border: none;
+}
+.Cookie--risidio-theme .Cookie__button:hover {
+  background: #2d8487;
+}
+
+@media only screen and (max-width: 767px) {
+  .Cookie--risidio-theme .Cookie__content {
+    margin-bottom: 0;
+  }
+  .Cookie--risidio-theme {
+    padding: 0 1rem;
+  }
 }
 
 /* FOOTER ON MOBILE */

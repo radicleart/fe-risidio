@@ -219,7 +219,7 @@ p {
   background-color: #111111;
 }
 button {
-  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
+  background: rgb(255, 255, 255, .2);
   color: #5FBDC1;
   border-radius: 22px;
   width: 141px;
@@ -236,7 +236,7 @@ button {
   text-decoration: none;
 }
 button:hover {
-  background: white 0% 0% no-repeat padding-box;
+  background: #FFFFFF;
 }
 button:focus {
   outline: none;
