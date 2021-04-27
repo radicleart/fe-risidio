@@ -74,15 +74,17 @@ p {
     padding-top: 5rem;
   }
 }
-@media only screen and (max-width: 425px) {
-  #about-section-1 {
-    padding-top: 3rem;
-  }
+@media only screen and (max-width: 768px) {
   h2 {
     width: 75%;
   }
   p {
     width: 75%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  #about-section-1 {
+    padding-top: 3rem;
   }
 }
 </style>

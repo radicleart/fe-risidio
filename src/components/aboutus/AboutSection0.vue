@@ -139,6 +139,8 @@ h4 {
   .section0-image-container {
     margin: 0 auto -3rem;
   }
+}
+@media only screen and (max-width:768px) {
   .second-half p {
     width: 75%;
   }
