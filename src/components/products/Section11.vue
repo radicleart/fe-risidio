@@ -1,7 +1,7 @@
 <template>
 <section :class="bgClass" class="" v-if="content" :style="viewportDimensions" id="section-11">
   <div class="card-container">
-    <div v-if="$route.name != 'products'"><h1>Related products</h1></div>
+    <div v-if="$route.name != 'products'"><h1>Related projects</h1></div>
     <div class="row text-center card-row mx-auto">
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center" v-for="(item, index) of relatedProducts()" :key="index">
           <b-card

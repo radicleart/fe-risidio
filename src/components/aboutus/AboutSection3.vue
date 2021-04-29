@@ -11,7 +11,7 @@
         <p>{{content.s4description1[2].text}}</p>
         <p class="font-weight-bold">{{content.s4description1[3].text}}</p>
         <div class="d-flex justify-content-between align-items-center links flex-column flex-lg-row ">
-          <router-link to="/x-change">Risidio Xchange</router-link>
+          <router-link to="/projects/x-change">Risidio Xchange</router-link>
           <a href="#" style="pointer-events: none;">This is #1 (Coming Soon)</a>
           <a href="https://stacks.org/">Stacks Foundation</a>
         </div>

@@ -62,6 +62,11 @@ export default {
       }
       return null
     }
+  },
+  beforeRouteUpdate (to, from, next) {
+    // Change productId then router link is changed
+    this.productId = to.params.productId
+    next()
   }
 }
 </script>
