@@ -7,13 +7,16 @@
       <button @click="getPostsByTag('blockstack'), activate(2)" :class="{ active : activeEl == 2 }">
         Blockstack
       </button>
-      <button @click="getPostsByTag('lightning'), activate(3)" :class="{ active : activeEl == 3 }">
+      <button @click="getPostsByTag('press_release'), activate(3)" :class="{ active : activeEl == 3 }">
+        Press release
+      </button>
+      <button @click="getPostsByTag('lightning'), activate(4)" :class="{ active : activeEl == 4 }">
         Lightning
       </button>
-      <button @click="getPostsByTag('web3'), activate(4)" :class="{ active : activeEl == 4 }">
+      <button @click="getPostsByTag('web3'), activate(5)" :class="{ active : activeEl == 5 }">
         Web 3.0
       </button>
-      <button @click="getPostsByTag('technical'), activate(5)" :class="{ active : activeEl == 5 }">
+      <button @click="getPostsByTag('technical'), activate(6)" :class="{ active : activeEl == 6 }">
         Technical
       </button>
     </div>

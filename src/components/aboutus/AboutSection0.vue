@@ -9,9 +9,11 @@
         </p>
         <h4 class="text-center text-white" v-html="content.description2[0].text"></h4>
       </div>
+      <!--
       <div v-scroll-to="{ element: '#section0-second-half', duration: 1000 }" class="icon-down">
         <i class="fas fa-chevron-down"></i>
       </div>
+      -->
     </div>
   </div>
   <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">

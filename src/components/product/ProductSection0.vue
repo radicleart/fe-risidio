@@ -6,12 +6,14 @@
       <div class="h2 product--gap">
         <h2 class="text-white">{{content.title1[0].text}}</h2>
       </div>
+      <!--
       <div v-scroll-to="{ element: '#product-section-1', duration: 1000 }" class="icon-down">
         <i class="fas fa-chevron-down"></i>
       </div>
+      -->
     </div>
     <div class="mb-4 back product--gap">
-        <router-link to="./"><span class="text-warning">&#10094;</span> Back to All Products</router-link>
+        <router-link to="./"><span class="text-warning">&#10094;</span> Back to All Projects</router-link>
     </div>
   </div>
   <div class="d-flex align-items-center flex-column second-half"  :style="halfDims">
