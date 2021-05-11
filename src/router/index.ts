@@ -14,6 +14,7 @@ import NotFound from '../views/NotFound.vue'
 import BlogHome from '../views/BlogHome.vue'
 import Post from '../views/Post.vue'
 import JoinUs from '../views/JoinUs.vue'
+import CSR from '../views/CSR.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,24 @@ const routes: Array<RouteConfig> = [
     path: '/aboutus',
     name: 'aboutus',
     components: { default: AboutUs, header: MainNavbar, footer: MainFooter },
+    meta: {
+      title: 'Risidio - Projects and Services for Blockchain.',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
+        },
+        {
+          property: 'og:description',
+          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
+        }
+      ]
+    }
+  },
+  {
+    path: '/CSR',
+    name: 'CSR',
+    components: { default: CSR, header: MainNavbar, footer: MainFooter },
     meta: {
       title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [

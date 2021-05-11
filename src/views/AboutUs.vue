@@ -18,7 +18,7 @@ import Section8 from '@/components/home/Section8'
 import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
-  name: 'Home',
+  name: 'About',
   // mixins: [requestMixins],
   components: {
     AboutSection0,
