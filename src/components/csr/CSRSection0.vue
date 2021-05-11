@@ -15,17 +15,15 @@
       -->
     </div>
   </div>
-  <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
+  <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half">
     <div class="my-auto">
       <div class="my-5">
         <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
         <div class="mb-4"><h2 class="text-center">{{content.s1title2[0].text}}</h2></div>
         <div class="mx-auto my-4 s1-description">
-          <div class="row">
-            <div class="col-12 col-sm-6"><p class="mb-4">{{content.s1description[0].text}}</p></div>
-            <div class="col-12 col-sm-6"><p class="mb-4">{{content.s1description[1].text}}</p></div>
-          </div>
-          <p class="mb-4 mx-auto">{{content.s1description[2].text}}</p>
+        <p class="mb-4 text-center">{{content.s1description[0].text}}</p>
+        <p class="mb-4 text-center">{{content.s1description[1].text}}</p>
+        <p class="mb-4 text-center">{{content.s1description[2].text}}</p>
         </div>
       </div>
     </div>
@@ -64,10 +62,6 @@ export default {
         'background-color': '#121212',
         opacity: 1
       }
-    },
-    halfDims () {
-      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
-      return 'min-height: ' + height + 'px; width: auto;'
     }
   }
 }
