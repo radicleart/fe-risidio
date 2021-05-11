@@ -45,7 +45,11 @@
         &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
       </div>
     </div>
-    <cookie-law theme="risidio-theme"></cookie-law>
+    <cookie-law theme="risidio-theme">
+      <div slot="message">
+        This website uses cookies to work properly but does not use tracking cookies.
+      </div>
+    </cookie-law>
   </footer>
 </div>
 </template>
