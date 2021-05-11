@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import { SITE_CONSTANTS } from '@/site-constants'
 export default {
   name: 'CSRSection1',
   props: ['viewportDimensions', 'content'],
