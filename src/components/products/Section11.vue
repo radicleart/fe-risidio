@@ -46,8 +46,6 @@ export default {
         return '<a class="text-warning" href="/rpay-demo">Try it now</a>'
       } else if (productId === 'loopbomb') {
         return '<a class="text-warning" href="https://loopbomb.com">Try it now</a>'
-      } else if (productId === 'x-change') {
-        return '<a class="text-warning" href="https://tchange.risidio.com">Preview</a>'
       } else if (productId === 'dsearch') {
         return '<a class="text-warning" href="https://github.com/radicleart/brightblock-search">Find Us On Github</a>'
       } else if (productId === 'r-stack') {

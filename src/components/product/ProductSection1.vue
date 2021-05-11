@@ -25,8 +25,9 @@
               <p v-html="item.description1[0].text"></p>
             </template>
           </div>
-          <p v-if="hasDemoLink" class="button-contaner"><button class="btn-services more-text"><a :href="demoLink()">{{demoText()}}</a></button></p>
+          <p v-if="hasDemoLink && hasDemoLink != 'x-change'" class="button-contaner"><a :href="demoLink()"><button class="btn-services more-text">{{demoText()}}</button></a></p>
         </div>
+        <div v-if="hasDemoLink == 'x-change'" class="button-contaner button-contaner--xchange"><a :href="demoLink()"><button class="btn-services more-text">{{demoText()}}</button></a></div>
       </div>
     </div>
   </div>
@@ -47,7 +48,7 @@ export default {
       if (productId === 'dsearch' || productId === 'hubber') {
         return 'Find Us On Github'
       } else if (productId === 'x-change') {
-        return 'Preview'
+        return 'Explore Risidio Xchange Mockup'
       } else {
         return 'Try It Now!'
       }
@@ -72,8 +73,10 @@ export default {
   computed: {
     hasDemoLink () {
       const productId = this.$route.params.productId
-      if (productId === 'r-pay' || productId === 'r-stack' || productId === 'loopbomb' || productId === 'x-change' || productId === 'dsearch') {
+      if (productId === 'r-pay' || productId === 'r-stack' || productId === 'loopbomb' || productId === 'dsearch') {
         return true
+      } else if (productId === 'x-change') {
+        return 'x-change'
       }
       return false
     }
@@ -95,6 +98,19 @@ img {
 .button-contaner {
   margin-top: 11px;
   margin-bottom: 0;
+}
+.button-contaner button:hover {
+  color: #ffffff;
+}
+
+.button-contaner--xchange {
+  width: 100%;
+  text-align: center;
+}
+.button-contaner--xchange button {
+  max-width: 700px;
+  min-width: 300px;
+  width: 100%;
 }
 
 .p-img-container div {
@@ -124,6 +140,12 @@ img {
 @media only screen and (max-width:425px) {
   .container {
     padding: 0;
+  }
+  .button-contaner--xchange {
+    margin-bottom: 20px;
+  }
+  .button-contaner--xchange button {
+    width: auto;
   }
 }
 </style>
