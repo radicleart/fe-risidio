@@ -8,7 +8,7 @@
         Blockstack
       </button>
       <button @click="getPostsByTag('press_release'), activate(3)" :class="{ active : activeEl == 3 }">
-        Press release
+        Press
       </button>
       <button @click="getPostsByTag('lightning'), activate(4)" :class="{ active : activeEl == 4 }">
         Lightning

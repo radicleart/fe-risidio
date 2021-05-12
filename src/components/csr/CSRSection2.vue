@@ -18,7 +18,7 @@
               <img :src="content.s3group[1].image.url" :alt="content.s3group[2].image.alt">
               <h4 class="text-left" v-html="content.s3group[1].s3title[0].text"></h4>
               <p class="text-left" v-html="content.s3group[1].s3description[0].text"></p>
-              <a href="#" style="pointer-events: none;">>>> This is #1 (Coming Soon)</a>
+              <a href="https://thisisnumberone.com/">>>> This is #1</a>
             </div>
           </div>
           <div class="col-lg-4 col-12 d-flex flex-column align-items-center">
