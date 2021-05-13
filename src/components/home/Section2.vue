@@ -150,6 +150,7 @@ export default {
 
 @media only screen and (max-width:600px) {
   .section-2 {
+  & h3 { text-align: center; }
   & .vueperslides { width: 100vw; }
   & .slider__img { margin-right: 0; }
   & .slider__img img { height: 205px; width: 185px; margin-left: 0; }
