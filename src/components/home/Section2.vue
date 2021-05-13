@@ -19,8 +19,8 @@
           <vueper-slide v-for="(item, index) of content.images" :key="index">
             <template v-slot:content>
               <div class="slider__content-wrap">
-                <div v-lazyload class="slider__img">
-                  <img :data-url="item.image.url" :alt="item.image.alt" class="image" />
+                <div class="slider__img">
+                  <img :src="item.image.url" :alt="item.image.alt" class="image" />
                 </div>
                 <div class="slider__text">
                   <h3 class="text-black">{{item.section_title[0].text}}</h3>

@@ -20,7 +20,7 @@
                 <vueper-slide v-for="(item, index) of content.products" :key="index">
                   <template v-slot:content>
                     <div class="d-flex flex-column slider-content">
-                      <router-link v-lazyload :to="productUrl(item)" class="text-info"><img width="100%" height="250px" :data-url="item.image.url" :alt="item.image.alt"/></router-link>
+                      <router-link :to="productUrl(item)" class="text-info"><img width="100%" height="250px" :src="item.image.url" :alt="item.image.alt"/></router-link>
                       <div class="d-flex align-items-start flex-column" style="width: 100%">
                         <h2 class="text-white">{{item.title[0].text}}</h2>
                         <div class="mb-0" v-for="(pitem, index2) of item.description" :key="index2">

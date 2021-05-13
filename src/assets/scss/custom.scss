@@ -143,6 +143,17 @@ body {
 .no-scroll {
   overflow: hidden;
 }
+// fix for bouncing effect
+html {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+body {
+  overflow: auto;
+  height: 100%;
+  overscroll-behavior: none;
+}
 
 ::-webkit-input-placeholder { /* Edge */
   color: red;

@@ -2,7 +2,7 @@
 <section>
   <div class=" d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center text-white">
-      <div v-lazyload class="text-info my-5"><img :data-url="quotes" alt="quotes"/></div>
+      <div class="text-info my-5"><img :src="quotes" alt="quotes"/></div>
       <p class="quote mb-4" style="width: 436px">{{content.section_quote[0].text}}</p>
       <h4 class="mt-auto">{{content.section_quote_author[0].text}}</h4>
     </div>

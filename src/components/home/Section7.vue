@@ -24,8 +24,8 @@
                 <vueper-slide v-for="(item, index) of content.posts" :key="index" style="font-size: 0.8em; min-width: 300px;">
                   <template v-slot:content>
                     <div class="text-left">
-                      <div v-lazyload class="d-flex align-items-start flex-column" style="min-height: 280px; width: 280px; margin: 0 auto;">
-                        <img width="280px" height="200px" :data-url="item.image.url" :alt="item.image.alt" class="image" />
+                      <div class="d-flex align-items-start flex-column" style="min-height: 280px; width: 280px; margin: 0 auto;">
+                        <img width="280px" height="200px" :src="item.image.url" :alt="item.image.alt" class="image" />
                         <p class="post-date-wrapper"><router-link to="/blog" class="text-danger">{{item.date}}</router-link></p>
                         <h2><router-link to="/blog" class="">{{item.title[0].text}}</router-link></h2>
                         <div class="mb-auto" v-for="(pitem, index2) of item.description" :key="index2">

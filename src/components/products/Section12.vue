@@ -5,7 +5,7 @@
       <div class="main-heading"><h1 class="text-black">{{content.section2_title[0].text}}</h1></div>
       <div class="row content-container">
         <div class="col-lg-4 col-md-12 mb-5 mx-auto px-md-5 px-sm-0 text-black w-75" v-for="(item, index) of content.group2" :key="index">
-          <div v-lazyload class="whatsit" :class="'bg-' + getBgClass(index)"><img class="" :data-url="features[index]" alt=""/></div>
+          <div class="whatsit" :class="'bg-' + getBgClass(index)"><img class="" :src="features[index]" alt=""/></div>
           <h2 class="text-center blurb2">{{item.title[0].text}}</h2>
           <p class="text-center blurb2">{{item.description[0].text}}</p>
         </div>
