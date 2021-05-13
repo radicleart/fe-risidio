@@ -143,17 +143,6 @@ body {
 .no-scroll {
   overflow: hidden;
 }
-// fix for bouncing effect
-html {
-  overflow: hidden;
-  height: 100%;
-  overscroll-behavior: none;
-}
-body {
-  overflow: auto;
-  height: 100%;
-  overscroll-behavior: none;
-}
 
 ::-webkit-input-placeholder { /* Edge */
   color: red;
@@ -376,7 +365,25 @@ a:hover {
   p { font-size: 12px;}
 }
 
-@media only screen and (max-width:425px) {
+@media only screen and (max-width: 575px) {
+  /* body {
+    max-height: 95vh;
+    height: 95vh;
+  } */
+  // fix for bouncing effect
+  html {
+    overflow: hidden;
+    height: 100%;
+    overscroll-behavior: none;
+  }
+  body {
+    overflow: auto;
+    height: 100%;
+    overscroll-behavior: none;
+  }
+}
+
+@media only screen and (max-width: 425px) {
   .h2-on-mobile { width: 70%; margin-left: auto; margin-right: auto; }
   h1 { font-size: 17px; }
 }
