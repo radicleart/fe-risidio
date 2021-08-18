@@ -87,6 +87,11 @@ export default {
         this.$store.commit('contentStore/addCSRContent', document.data)
       }
     })
+    this.$prismic.client.getSingle('contact').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addContact', document.data)
+      }
+    })
     this.$prismic.client.getSingle('navigation').then(document => {
       if (document) {
         this.$store.commit('contentStore/addNavigationContent', document.data)

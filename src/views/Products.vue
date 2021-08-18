@@ -2,7 +2,7 @@
 <div v-if="content" class="bg-black" :style="sectionDimensions">
     <section10 :viewportDimensions="sectionDimensions" :content="content"/>
     <section11 :viewportDimensions="sectionDimensions" :content="content" :bgClass="'bg-white'"/>
-    <!-- <section12 :viewportDimensions="sectionDimensions" :content="content"/> -->
+    <section12 :viewportDimensions="sectionDimensions" :content="content"/>
     <section8 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
@@ -11,7 +11,7 @@
 import { SITE_CONSTANTS } from '@/site-constants'
 import Section10 from '@/components/products/Section10'
 import Section11 from '@/components/products/Section11'
-// import Section12 from '@/components/products/Section12'
+import Section12 from '@/components/products/Section12'
 import Section8 from '@/components/home/Section8'
 export default {
   name: 'Products',
@@ -23,7 +23,7 @@ export default {
   components: {
     Section10,
     Section11,
-    // Section12,
+    Section12,
     Section8
   },
   watch: {

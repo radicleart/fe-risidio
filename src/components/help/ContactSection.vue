@@ -4,24 +4,29 @@
   <confirmation-modal class="container text-dark" v-if="showModal" :modal="showModal" :title="modalTitle" :content="modalContent" @closeModal="closeModal"/>
   <section class="px-0">
     <div class="row">
-      <div class="col-12">
+      <div class="">
         <h2 class="large-title mb-5">{{title}}</h2>
         <p v-html="featureMessage"></p>
       </div>
-      <div class="col-md-5">
+      <div class="container1">
+    <b-container class="container12"></b-container></div>
+      <div class="col-md-12">
         <div class="col-md-12">
           <b-link to="/" class="navbar-brand" v-if="logo"><img :src="logo" alt="Radicle logo" class="img-fluid"></b-link>
         </div>
         <div class="col-md-12">
-          <h5 class="my-4"><strong>Contact Info</strong></h5>
-          <p>The Fusebox, Brighton, BN1 4GH, UK</p>
-          <p>Email: info@risidio.com</p>
+          <h4 class="my-5">Any thought, questions, just want to say hello?</h4 >
+          <h5 class="my-4"><strong>Contact Us</strong></h5>
         </div>
-      </div>
-      <div class="col-md-7">
+          <span></span>
+              </div>
+      <div class="contact-form">
         <b-form class="needs-validation form-transparent" novalidate @submit="checkForm" id="contact-form">
+          <b-container class="text-input11">
+            <b-row >
+              <b-col cols="6">
           <b-form-group>
-            <b-form-input
+            <b-form-input class="forn-input4"
               prepend="@"
               id="validation-name"
               v-model="name"
@@ -32,9 +37,10 @@
               Please enter your email - it's not stored - just used to reply..
             </b-form-invalid-feedback>
           </b-form-group>
-
+           </b-col>
+     <b-col cols="6">
           <b-form-group>
-            <b-form-input
+            <b-form-input class="forn-input4"
               prepend="@"
               id="validation-email"
               v-model="email"
@@ -46,9 +52,10 @@
               Please enter your email - it's not stored - just used to reply..
             </b-form-invalid-feedback>
           </b-form-group>
-
+          </b-col>
+            </b-row>
           <b-form-group>
-            <b-form-input
+            <b-form-input class="forn-input4"
               prepend="@"
               id="validation-subject"
               v-model="subject"
@@ -69,8 +76,8 @@
               Please tell us how we can help!
             </b-form-invalid-feedback>
           </b-form-group>
-
-          <b-button block type="submit" variant="primary">Send</b-button>
+</b-container>
+          <b-button class="bb">Send</b-button>
         </b-form>
       </div>
       <div class="row">
@@ -92,7 +99,7 @@ export default {
   props: ['featureMessage'],
   data () {
     return {
-      title: 'Contact Us',
+      title: '',
       name: '',
       subject: '',
       email: null,
@@ -164,11 +171,10 @@ export default {
 </script>
 
 <style>
-.raised {
+.raised  {
   border-radius: 10px;
   position: relative;
   top: 35px;
-  margin: auto auto;
   margin-bottom: 50px;
 }
 .contact-form .md-form label,
@@ -192,6 +198,8 @@ export default {
 </style>
 <style scoped>
 .form-control {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.245) 0% 0% no-repeat padding-box;
 }
   .md-form {
     margin-top: 0.7rem;
@@ -199,5 +207,83 @@ export default {
   }
 .copyright {
   font-size: 0.7rem;
+}
+.bb{
+border-radius: 100px;
+width: 200px;
+text-align: centre;
+   width: 100%;
+  position: relative;
+  left: 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+    width: 141px;
+  height: 43px;
+  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
+  border: none;
+  border-radius: 22px;
+}
+.bb {
+  color: #5FBDC1;
+}
+ .contact-form{
+  min-height:20vh;
+  position:relative;
+  z-index:999;
+  font-size: 14px;
+  margin: 0 auto;
+  width: 918px;
+}
+.col-md-12 .my-4{
+  width: 500px;
+  position:relative;
+  z-index:999;
+  font-size: 50px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  width: 918px;
+  border-top-left-radius: 10px 10px;
+  -moz-border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+  -moz-border-top-right-radius: 10px 10px;
+  color: white;
+ text-align: centre;
+  width: 100%;
+}
+.my-5{
+   width: 500px;
+  position:relative;
+  z-index:999;
+  font-size: 25px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  width: 918px;
+  border-top-left-radius: 10px 10px;
+  -moz-border-top-left-radius: 10px 10px;
+  border-top-right-radius: 10px 10px;
+  -moz-border-top-right-radius: 10px 10px;
+  color: white;
+ text-align: 0 centre;
+  width: 100%;
+}
+.d-flex .align-items-center .flex-column .my-5{
+  color: blueviolet;
+}
+.container {
+  background-color: blueviolet;
+  text-align: center;
+}
+.container12{
+   width: 100%;
+  position: relative;
+  left: 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: black solid 1px;
+}
+.forn-input4 {
+border-radius: 100px;
 }
 </style>

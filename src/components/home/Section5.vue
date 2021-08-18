@@ -39,7 +39,7 @@
               </vueper-slides>
               </div>
               <br/>
-              <div class="my-5 text-center"><button class="button1"><router-link to="/projects" class="call-button-text">All Projects</router-link></button></div>
+              <div class="my-5 text-center"><button class="button1"><router-link to="/projects" class="call-button-text">View All Products</router-link></button></div>
             </div>
           </div>
       </div>
@@ -140,7 +140,7 @@ export default {
 #products-section .vueperslides { padding: 0 7rem; }
 
 @media only screen and ( max-width: 900px ) and ( min-width: 801px ) {
-  #products-section .vueperslides { padding: 0 4.5rem; }
+   .vueperslides { padding: 0 4.5rem; }
 }
 
 @media only screen and ( max-width: 670px ) {

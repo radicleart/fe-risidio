@@ -1,15 +1,17 @@
 <template>
 <div id="my-app-element" class="bg-main container-fluid pt-5 mb-5" v-if="loaded">
   <contact-section class="bg-card"/>
+   <section8 :viewportDimensions="sectionDimensions" />
 </div>
 </template>
 
 <script>
 import ContactSection from '@/components/help/ContactSection'
-
+import Section8 from '@/components/home/Section8'
 export default {
   components: {
-    ContactSection
+    ContactSection,
+    Section8
   },
   name: 'Contact',
   data () {

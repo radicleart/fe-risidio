@@ -1,33 +1,38 @@
   <template>
-<section id="section0">
-  <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="d-flex align-items-center flex-column">
-      <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
-      <div class="mb-4"><h2 class="text-white text-center h2-on-mobile">{{section.subtitle[0].text}}</h2></div>
-      <div class="mb-4 blurb1 text-white"  v-for="(item, index) of section.description" :key="index">
-        <p class="text-center">{{item.text}}</p>
-      </div>
+<section id="section10" class="section10">
+  <b-container style="min-height: 60vh" class="pb-4 text-center">
+      <b-row align-h="center" style="min-height: 91vh">
+        <b-col md="8" sm="10" align-self="center">
+                       <div><p class="text-black1">{{section10.text1[0].text}}</p></div>
+            <div><p class="text-black1">{{section10.text2[0].text}}</p></div>
+                  <div><h1 class="text-black">{{section10.title[0].text}}</h1></div>
+        <div><p class="text-black1">{{section10.text3[0].text}}</p></div>
+         <div><p class="text-black1">{{section10.text4[0].text}}</p></div>
+           <!-- <svg class="svg" src="https://risidio-journal.cdn.prismic.io/risidio-journal/ae6644d6-0cfc-403d-aab8-a7252e5cc8b6_Group+17126.svg" width="100%" height="1100"></svg>-->
+</b-col>
+  </b-row>
+    </b-container>
       <div class="mb-4 d-flex justify-content-center">
-        <div class="mr-4"><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
-        <div><button class="button1" v-scroll-to="{ element: '#products-section', duration: 2000 }"><span class="call-button-text">Our Products</span></button></div>
-      </div>
-    </div>
-  </div>
+            <div class="mr-4"><button><span class="call-button-text">Our Marketplace</span></button></div>
+        <div><button class="button1" ><span class="call-button-text">Read more</span></button></div>
+       </div>
 </section>
 </template>
 
 <script>
 export default {
-  name: 'Section1',
+  name: 'Section10',
+  components: {
+  },
   props: ['viewportDimensions'],
   data () {
     return {
     }
   },
   computed: {
-    section () {
+    section10 () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.section0[0]
+      return content.section10[0]
     }
   }
 }
@@ -108,6 +113,12 @@ button:hover .call-button-text {
 }
 
 @media only screen and (min-width:769px) {
-  p { font-size: 20px; }
+  p { font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;}
 }
+.text-black{ color: #FFFFFF;}
+.section10{
+background: rgb(7,23,100);
+background: linear-gradient(180deg, rgba(7,23,100,1) 0%, rgba(0,0,0,1) 0%, rgba(34,14,149,1) 100%);}
 </style>
