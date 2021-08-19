@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-black" id="products-section">
+    <section style="background-color: transparent" id="products-section">
       <div class="pt-5">
           <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
             <div class="my-auto">
