@@ -1,104 +1,104 @@
 <template>
-<div class="container">
-<div id="ContactSection" class="py-2 contact-section">
-  <confirmation-modal class="container text-dark" v-if="showModal" :modal="showModal" :title="modalTitle" :content="modalContent" @closeModal="closeModal"/>
+<div class="container-fluid">
+<div id="ContactSection" class="pt-5 contact-section">
+
   <section class="px-0">
     <div class="row">
-      <div class="">
-        <h2 class="large-title mb-5">{{title}}</h2>
-        <p v-html="featureMessage"></p>
-      </div>
-      <div class="container1">
-    <b-container class="container12"></b-container></div>
+
       <div class="col-md-12">
-        <div class="col-md-12">
-          <b-link to="/" class="navbar-brand" v-if="logo"><img :src="logo" alt="Radicle logo" class="img-fluid"></b-link>
-        </div>
-        <div class="col-md-12">
-          <h4 class="my-5">Any thought, questions, just want to say hello?</h4 >
-          <h5 class="my-4"><strong>Contact Us</strong></h5>
-        </div>
-          <span></span>
-              </div>
+        <h4>Any thought, questions, just want to say hello?</h4 >
+        <h3>Contact Us</h3>
+      </div>
+
       <div class="contact-form">
         <b-form class="needs-validation form-transparent" novalidate @submit="checkForm" id="contact-form">
           <b-container class="text-input11">
-            <b-row >
-              <b-col cols="6">
-          <b-form-group>
-            <b-form-input class="forn-input4"
-              prepend="@"
-              id="validation-name"
-              v-model="name"
-              type="text"
-              :placeholder="'Your name..'"
-            ></b-form-input>
-            <b-form-invalid-feedback>
-              Please enter your email - it's not stored - just used to reply..
-            </b-form-invalid-feedback>
-          </b-form-group>
-           </b-col>
-     <b-col cols="6">
-          <b-form-group>
-            <b-form-input class="forn-input4"
-              prepend="@"
-              id="validation-email"
-              v-model="email"
-              type="text"
-              :placeholder="'Email address..'"
-              required
-            ></b-form-input>
-            <b-form-invalid-feedback>
-              Please enter your email - it's not stored - just used to reply..
-            </b-form-invalid-feedback>
-          </b-form-group>
-          </b-col>
-            </b-row>
-          <b-form-group>
-            <b-form-input class="forn-input4"
-              prepend="@"
-              id="validation-subject"
-              v-model="subject"
-              type="text"
-              :placeholder="'Subject..'"
-            ></b-form-input>
-          </b-form-group>
+            <b-row class="mt-4">
+              <b-col cols="4" offset="2">
+                <b-form-group>
 
-          <b-form-group>
-            <b-form-textarea
-              class="form-control"
-              id="validation-message"
-              placeholder="How can we help..."
-              v-model="message"
-              required>
-            </b-form-textarea>
-            <b-form-invalid-feedback>
-              Please tell us how we can help!
-            </b-form-invalid-feedback>
-          </b-form-group>
-</b-container>
-          <b-button class="bb">Send</b-button>
+                  <b-form-input
+                    prepend="@"
+                    id="validation-name"
+                    v-model="name"
+                    type="text"
+                    :placeholder="'Your name..'"
+                    required>
+                  </b-form-input>
+
+                  <b-form-invalid-feedback>
+                    Please enter your name, or you artist pseudo !
+                  </b-form-invalid-feedback>
+
+                </b-form-group>
+              </b-col>
+
+              <b-col cols="4">
+                <b-form-group>
+                  <b-form-input
+                    prepend="@"
+                    id="validation-email"
+                    v-model="email"
+                    type="text"
+                    :placeholder="'Email address..'"
+                    required>
+                  </b-form-input>
+
+                  <b-form-invalid-feedback>
+                    Please enter your email - it's not stored - just used to reply..
+                  </b-form-invalid-feedback>
+
+                </b-form-group>
+              </b-col>
+            </b-row>
+
+            <b-row class="mb-4 mt-2">
+              <b-col cols="8" offset="2">
+                <b-form-select v-model="selected" :options="selectionOptions" class="form-control" required></b-form-select>
+              </b-col>
+            </b-row>
+
+            <b-row>
+              <b-col cols="8" offset="2">
+                <b-form-group>
+                  <b-form-textarea
+                    class="form-control"
+                    id="validation-message"
+                    placeholder="How can we help..."
+                    v-model="message"
+                    rows="5"
+                    required>
+                  </b-form-textarea>
+                  <b-form-invalid-feedback>
+                    Please tell us how we can help!
+                  </b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
+            </b-row>
+
+          </b-container>
+
+          <b-button pill type="submit" class="submitButton">Submit</b-button>
         </b-form>
-      </div>
-      <div class="row">
       </div>
     </div>
   </section>
-  </div>
-  </div>
+</div>
+</div>
 </template>
 
 <script>
-import ConfirmationModal from './ConfirmationModal'
 
 export default {
   name: 'ContactSection',
-  components: {
-    ConfirmationModal
-  },
   props: ['featureMessage'],
   data () {
     return {
+      selected: null,
+      selectionOptions: [
+        { value: null, text: 'Tell us who you are !' },
+        { value: 'a', text: 'I am an artist' },
+        { value: 'b', text: 'I am a crypto-curious' }],
       title: '',
       name: '',
       subject: '',
@@ -170,120 +170,42 @@ export default {
 }
 </script>
 
-<style>
-.raised  {
-  border-radius: 10px;
-  position: relative;
-  top: 35px;
-  margin-bottom: 50px;
-}
-.contact-form .md-form label,
-.contact-form .md-form textarea ~ label.active {
-  color: inherit!important;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-
-}
-.submit {
-  border: none;
-}
-.contact-form .form-control {
-  color: inherit;
-  font-weight: normal;
-}
-
-  .contact-form .submit {
-    cursor: pointer;
-  }
-</style>
 <style scoped>
-.form-control {
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.245) 0% 0% no-repeat padding-box;
-}
-  .md-form {
-    margin-top: 0.7rem;
-    margin-bottom: 0.7rem;
-  }
-.copyright {
-  font-size: 0.7rem;
-}
-.bb{
-border-radius: 100px;
-width: 200px;
-text-align: centre;
-   width: 100%;
-  position: relative;
-  left: 0;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  padding: 10px;
-    width: 141px;
-  height: 43px;
-  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
-  border: none;
-  border-radius: 22px;
-}
-.bb {
-  color: #5FBDC1;
-}
- .contact-form{
-  min-height:20vh;
-  position:relative;
-  z-index:999;
-  font-size: 14px;
-  margin: 0 auto;
-  width: 918px;
-}
-.col-md-12 .my-4{
-  width: 500px;
-  position:relative;
-  z-index:999;
-  font-size: 50px;
-  margin: 0 auto;
-  padding: 10px 16px;
-  width: 918px;
-  border-top-left-radius: 10px 10px;
-  -moz-border-top-left-radius: 10px 10px;
-  border-top-right-radius: 10px 10px;
-  -moz-border-top-right-radius: 10px 10px;
+h4 { /*Style of the text above Contact Us */
+  font-size: 17px;
   color: white;
- text-align: centre;
-  width: 100%;
+  text-align: center;
+  margin-top: 6%;
+  text-transform: capitalize;
 }
-.my-5{
-   width: 500px;
-  position:relative;
-  z-index:999;
-  font-size: 25px;
-  margin: 0 auto;
-  padding: 10px 16px;
-  width: 918px;
-  border-top-left-radius: 10px 10px;
-  -moz-border-top-left-radius: 10px 10px;
-  border-top-right-radius: 10px 10px;
-  -moz-border-top-right-radius: 10px 10px;
+
+h3 { /* Contact us style */
+  font-size: 40px;
+  font-weight: 300;
   color: white;
- text-align: 0 centre;
-  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
 }
-.d-flex .align-items-center .flex-column .my-5{
-  color: blueviolet;
+.form-control { /*Style of the form area */
+  border-radius: 17px;
+  border-width: 0;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+.submitButton{
+  background-color: #5FBDC1;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 12%;
+  margin-top: 5%;
+}
+.contact-form{
+  margin: 0 auto;
+  width: 918px;
 }
 .container {
-  background-color: blueviolet;
+  background-color: #5154A1;
   text-align: center;
-}
-.container12{
-   width: 100%;
-  position: relative;
-  left: 0;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  padding: 10px;
-  border-bottom: black solid 1px;
-}
-.forn-input4 {
-border-radius: 100px;
+  width: 100%;
 }
 </style>
