@@ -8,7 +8,7 @@ function sendAEmail (subject, sender, to, content) {
       subject: subject,
       sender: { email: 'api@sendinblue.com', name: 'Sendinblue' },
       replyTo: { email: to, name: sender },
-      to: [{ name: 'Risidio', email: 'thomas.lefebvre@student-cs.fr' }],
+      to: [{ name: 'Risidio', email: 'contact@risidio.com' }],
       htmlContent: '<html><body><p>{{params.bodyMessage}}</h1></body></html>',
       params: { bodyMessage: content }
     }
