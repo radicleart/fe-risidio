@@ -1,18 +1,21 @@
 <template>
 <div v-if="content" class="bg-black" :style="sectionDimensions">
-    <section10 :viewportDimensions="sectionDimensions" :content="content"/>
-    <section11 :viewportDimensions="sectionDimensions" :content="content" :bgClass="'bg-white'"/>
-    <section12 :viewportDimensions="sectionDimensions" :content="content"/>
+    <prod-section10 :viewportDimensions="sectionDimensions" :content="content"/>
+    <section10 :viewportDimensions="sectionDimensions"/>
+    <prod-section11 :viewportDimensions="sectionDimensions" :content="content" :bgClass="'bg-white'"/>
+    <prod-section12 :viewportDimensions="sectionDimensions" :content="content"/>
     <section8 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
 
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
-import Section10 from '@/components/products/Section10'
-import Section11 from '@/components/products/Section11'
-import Section12 from '@/components/products/Section12'
+import ProdSection10 from '@/components/products/Section10'
+import ProdSection11 from '@/components/products/Section11'
+import ProdSection12 from '@/components/products/Section12'
+import Section10 from '@/components/home/Section10'
 import Section8 from '@/components/home/Section8'
+
 export default {
   name: 'Products',
   data () {
@@ -21,10 +24,11 @@ export default {
     }
   },
   components: {
+    Section8,
     Section10,
-    Section11,
-    Section12,
-    Section8
+    ProdSection10,
+    ProdSection11,
+    ProdSection12
   },
   watch: {
   },

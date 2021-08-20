@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'Section10',
+  name: 'ProdSection10',
   props: ['viewportDimensions', 'content'],
   data () {
     return {
