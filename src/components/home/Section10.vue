@@ -14,7 +14,7 @@
     </b-container>
     <div class="d-flex justify-content-center pt-5">
       <div class="mr-4"><button>Our Marketplace</button></div>
-      <div><button class="button1" >Read more</button></div>
+      <div><router-link to="/projects/x-change"><button class="button1">Read more</button></router-link></div>
     </div>
   </section>
 </template>
