@@ -26,10 +26,6 @@
                     required>
                   </b-form-input>
 
-                  <b-form-invalid-feedback>
-                    Please enter your name, or you artist pseudo !
-                  </b-form-invalid-feedback>
-
                 </b-form-group>
               </b-col>
 
@@ -44,17 +40,20 @@
                     required>
                   </b-form-input>
 
-                  <b-form-invalid-feedback>
-                    Please enter your email - it's not stored - just used to reply..
-                  </b-form-invalid-feedback>
-
                 </b-form-group>
               </b-col>
             </b-row>
 
             <b-row class="mb-4 mt-2">
               <b-col cols="8" offset="2">
-                <b-form-select v-model="selected" :options="selectionOptions" class="form-control" required></b-form-select>
+                <!-- <b-form-select v-model="selected" :options="selectionOptions" class="form-control" required></b-form-select> -->
+                <b-form-input
+                prepend="@"
+                v-model="subject"
+                type="text"
+                placeholder="Subject of your question"
+                required>
+                </b-form-input>
               </b-col>
             </b-row>
 
@@ -69,14 +68,13 @@
                     rows="5"
                     required>
                   </b-form-textarea>
-                  <b-form-invalid-feedback>
-                    Please tell us how we can help!
-                  </b-form-invalid-feedback>
                 </b-form-group>
               </b-col>
             </b-row>
 
           </b-container>
+
+          <div v-if="sendMessage"><p class="confirmMessage">Your message has been sent ! Thank you :)</p></div>
 
           <b-button pill type="submit" class="submitButton">Submit</b-button>
         </b-form>
@@ -88,6 +86,8 @@
 </template>
 
 <script>
+
+import sendAEmail from './emailSender'
 
 export default {
   name: 'ContactSection',
@@ -107,10 +107,7 @@ export default {
       description: 'Please get in touch with any questions you have about the platform.',
       fields: [],
       buttonText: null,
-      // logo: 'img/logo/logo-black-256x256.png',
-      showModal: false,
-      modalTitle: 'Sent Message',
-      modalContent: '<p>Thanks for your interest - your message has been sent.</p>'
+      sendMessage: false
     }
   },
   mounted () {
@@ -119,14 +116,12 @@ export default {
   },
   methods: {
     upload () {
-      const email = {
-        text: this.message,
-        subject: this.subject,
-        originatorEmail: this.email,
-        originatorName: this.name
-      }
-      this.$store.dispatch('contentStore/sendContactEmail', email)
-      this.showModal = true
+      sendAEmail(this.subject, this.name, this.email, this.message)
+      this.subject = ''
+      this.name = ''
+      this.email = ''
+      this.message = ''
+      this.sendMessage = true
     },
     checkForm (event) {
       if (event) {
@@ -151,9 +146,6 @@ export default {
       } else {
         this.upload()
       }
-    },
-    closeModal: function () {
-      this.showModal = false
     }
   },
   computed: {
@@ -207,5 +199,10 @@ h3 { /* Contact us style */
   background-color: #5154A1;
   text-align: center;
   width: 100%;
+}
+.confirmMessage {
+  color: white;
+  text-align: center;
+  font-size: 20px;
 }
 </style>

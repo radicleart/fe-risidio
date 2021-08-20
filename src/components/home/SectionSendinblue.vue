@@ -48,7 +48,7 @@
 
 <script>
 export default {
-  name: 'Section Sendinblue',
+  name: 'SectionSendinblue',
   components: {
   },
   data () {
