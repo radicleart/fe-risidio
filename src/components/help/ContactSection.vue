@@ -1,98 +1,105 @@
 <template>
-<div class="container">
-<div id="ContactSection" class="py-2 contact-section">
-  <confirmation-modal class="container text-dark" v-if="showModal" :modal="showModal" :title="modalTitle" :content="modalContent" @closeModal="closeModal"/>
+<div class="container-fluid">
+<div id="ContactSection" class="pt-5 contact-section">
+
   <section class="px-0">
     <div class="row">
-      <div class="col-12">
-        <h2 class="large-title mb-5">{{title}}</h2>
-        <p v-html="featureMessage"></p>
+
+      <div class="col-md-12">
+        <h4>Any thought, questions, just want to say hello?</h4 >
+        <h3>Contact Us</h3>
       </div>
-      <div class="col-md-5">
-        <div class="col-md-12">
-          <b-link to="/" class="navbar-brand" v-if="logo"><img :src="logo" alt="Radicle logo" class="img-fluid"></b-link>
-        </div>
-        <div class="col-md-12">
-          <h5 class="my-4"><strong>Contact Info</strong></h5>
-          <p>The Fusebox, Brighton, BN1 4GH, UK</p>
-          <p>Email: info@risidio.com</p>
-        </div>
-      </div>
-      <div class="col-md-7">
+
+      <div class="contact-form">
         <b-form class="needs-validation form-transparent" novalidate @submit="checkForm" id="contact-form">
-          <b-form-group>
-            <b-form-input
-              prepend="@"
-              id="validation-name"
-              v-model="name"
-              type="text"
-              :placeholder="'Your name..'"
-            ></b-form-input>
-            <b-form-invalid-feedback>
-              Please enter your email - it's not stored - just used to reply..
-            </b-form-invalid-feedback>
-          </b-form-group>
+          <b-container class="text-input11">
+            <b-row class="mt-4">
+              <b-col cols="4" offset="2">
+                <b-form-group>
 
-          <b-form-group>
-            <b-form-input
-              prepend="@"
-              id="validation-email"
-              v-model="email"
-              type="text"
-              :placeholder="'Email address..'"
-              required
-            ></b-form-input>
-            <b-form-invalid-feedback>
-              Please enter your email - it's not stored - just used to reply..
-            </b-form-invalid-feedback>
-          </b-form-group>
+                  <b-form-input
+                    prepend="@"
+                    id="validation-name"
+                    v-model="name"
+                    type="text"
+                    :placeholder="'Your name..'"
+                    required>
+                  </b-form-input>
 
-          <b-form-group>
-            <b-form-input
-              prepend="@"
-              id="validation-subject"
-              v-model="subject"
-              type="text"
-              :placeholder="'Subject..'"
-            ></b-form-input>
-          </b-form-group>
+                </b-form-group>
+              </b-col>
 
-          <b-form-group>
-            <b-form-textarea
-              class="form-control"
-              id="validation-message"
-              placeholder="How can we help..."
-              v-model="message"
-              required>
-            </b-form-textarea>
-            <b-form-invalid-feedback>
-              Please tell us how we can help!
-            </b-form-invalid-feedback>
-          </b-form-group>
+              <b-col cols="4">
+                <b-form-group>
+                  <b-form-input
+                    prepend="@"
+                    id="validation-email"
+                    v-model="email"
+                    type="text"
+                    :placeholder="'Email address..'"
+                    required>
+                  </b-form-input>
 
-          <b-button block type="submit" variant="primary">Send</b-button>
+                </b-form-group>
+              </b-col>
+            </b-row>
+
+            <b-row class="mb-4 mt-2">
+              <b-col cols="8" offset="2">
+                <!-- <b-form-select v-model="selected" :options="selectionOptions" class="form-control" required></b-form-select> -->
+                <b-form-input
+                prepend="@"
+                v-model="subject"
+                type="text"
+                placeholder="Subject of your question"
+                required>
+                </b-form-input>
+              </b-col>
+            </b-row>
+
+            <b-row>
+              <b-col cols="8" offset="2">
+                <b-form-group>
+                  <b-form-textarea
+                    class="form-control"
+                    id="validation-message"
+                    placeholder="How can we help..."
+                    v-model="message"
+                    rows="5"
+                    required>
+                  </b-form-textarea>
+                </b-form-group>
+              </b-col>
+            </b-row>
+
+          </b-container>
+
+          <div v-if="sendMessage"><p class="confirmMessage">Your message has been sent ! Thank you :)</p></div>
+
+          <b-button pill type="submit" class="submitButton">Submit</b-button>
         </b-form>
-      </div>
-      <div class="row">
       </div>
     </div>
   </section>
-  </div>
-  </div>
+</div>
+</div>
 </template>
 
 <script>
-import ConfirmationModal from './ConfirmationModal'
+
+import sendAEmail from './emailSender'
 
 export default {
   name: 'ContactSection',
-  components: {
-    ConfirmationModal
-  },
   props: ['featureMessage'],
   data () {
     return {
-      title: 'Contact Us',
+      selected: null,
+      selectionOptions: [
+        { value: null, text: 'Tell us who you are !' },
+        { value: 'a', text: 'I am an artist' },
+        { value: 'b', text: 'I am a crypto-curious' }],
+      title: '',
       name: '',
       subject: '',
       email: null,
@@ -100,10 +107,7 @@ export default {
       description: 'Please get in touch with any questions you have about the platform.',
       fields: [],
       buttonText: null,
-      // logo: 'img/logo/logo-black-256x256.png',
-      showModal: false,
-      modalTitle: 'Sent Message',
-      modalContent: '<p>Thanks for your interest - your message has been sent.</p>'
+      sendMessage: false
     }
   },
   mounted () {
@@ -112,14 +116,12 @@ export default {
   },
   methods: {
     upload () {
-      const email = {
-        text: this.message,
-        subject: this.subject,
-        originatorEmail: this.email,
-        originatorName: this.name
-      }
-      this.$store.dispatch('contentStore/sendContactEmail', email)
-      this.showModal = true
+      sendAEmail(this.subject, this.name, this.email, this.message)
+      this.subject = ''
+      this.name = ''
+      this.email = ''
+      this.message = ''
+      this.sendMessage = true
     },
     checkForm (event) {
       if (event) {
@@ -144,9 +146,6 @@ export default {
       } else {
         this.upload()
       }
-    },
-    closeModal: function () {
-      this.showModal = false
     }
   },
   computed: {
@@ -163,41 +162,47 @@ export default {
 }
 </script>
 
-<style>
-.raised {
-  border-radius: 10px;
-  position: relative;
-  top: 35px;
-  margin: auto auto;
-  margin-bottom: 50px;
-}
-.contact-form .md-form label,
-.contact-form .md-form textarea ~ label.active {
-  color: inherit!important;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-
-}
-.submit {
-  border: none;
-}
-.contact-form .form-control {
-  color: inherit;
-  font-weight: normal;
-}
-
-  .contact-form .submit {
-    cursor: pointer;
-  }
-</style>
 <style scoped>
-.form-control {
+h4 { /*Style of the text above Contact Us */
+  font-size: 17px;
+  color: white;
+  text-align: center;
+  margin-top: 6%;
+  text-transform: capitalize;
 }
-  .md-form {
-    margin-top: 0.7rem;
-    margin-bottom: 0.7rem;
-  }
-.copyright {
-  font-size: 0.7rem;
+
+h3 { /* Contact us style */
+  font-size: 40px;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+}
+.form-control { /*Style of the form area */
+  border-radius: 17px;
+  border-width: 0;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+.submitButton{
+  background-color: #5FBDC1;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 12%;
+  margin-top: 5%;
+}
+.contact-form{
+  margin: 0 auto;
+  width: 918px;
+}
+.container {
+  background-color: #5154A1;
+  text-align: center;
+  width: 100%;
+}
+.confirmMessage {
+  color: white;
+  text-align: center;
+  font-size: 20px;
 }
 </style>

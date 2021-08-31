@@ -9,12 +9,7 @@
       </div>
       <div class="mb-4 d-flex justify-content-center">
         <div class="mr-4"><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
-        <div><button class="button1" v-scroll-to="{ element: '#products-section', duration: 2000 }"><span class="call-button-text">{{section.link2[0].text}}</span></button></div>
-      </div>
-      <div class="my-5 d-flex justify-content-center video-container">
-        <div class="video-wrapper w-100">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/w1jOCmD7Yqs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        </div>
+        <div><button class="button1" v-scroll-to="{ element: '#products-section', duration: 2000 }"><span class="call-button-text">Our Products</span></button></div>
       </div>
     </div>
   </div>

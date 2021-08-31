@@ -7,7 +7,8 @@
       <div class="mb-2"><h2 class="text-white h2-on-mobile">{{section6.subtitle[0].text}}</h2></div>
       <div class="mb-4"><p class="text-on-mobile">{{section6.description[0].text}}</p></div>
       <div class="d-flex justify-content-center">
-        <div><button><router-link to="/join-us" class="call-button-text">{{section6.link1[0].text}}</router-link></button></div>
+        <!-- <div><button><router-link to="/join-us" class="call-button-text">{{section6.link1[0].text}}</router-link></button></div> -->
+      <section-sendinblue></section-sendinblue>
       </div>
     </div>
   </div>
@@ -15,9 +16,12 @@
 </template>
 
 <script>
+
+import SectionSendinblue from './SectionSendinblue.vue'
 export default {
   name: 'Section6',
   components: {
+    SectionSendinblue
   },
   props: ['viewportDimensions'],
   data () {

@@ -4,7 +4,7 @@
     <product-section1 :viewportDimensions="sectionDimensions" :content="content"/>
     <product-section2 :viewportDimensions="sectionDimensions" :content="content"/>
     <product-section3 :viewportDimensions="sectionDimensions" :content="content"/>
-    <!-- <section12 :viewportDimensions="sectionDimensions" :content="contentServices"/> -->
+    <section12 :viewportDimensions="sectionDimensions" :content="contentServices"/>
     <section11 :viewportDimensions="sectionDimensions" :content="contentServices"/>
     <section8 :viewportDimensions="sectionDimensions"/>
 </div>
@@ -17,7 +17,7 @@ import ProductSection1 from '@/components/product/ProductSection1'
 import ProductSection2 from '@/components/product/ProductSection2'
 import ProductSection3 from '@/components/product/ProductSection3'
 import Section11 from '@/components/products/Section11'
-// import Section12 from '@/components/products/Section12'
+import Section12 from '@/components/products/Section12'
 import Section8 from '@/components/home/Section8'
 export default {
   name: 'Product',
@@ -32,7 +32,7 @@ export default {
     ProductSection2,
     ProductSection3,
     Section11,
-    // Section12,
+    Section12,
     Section8
   },
   watch: {

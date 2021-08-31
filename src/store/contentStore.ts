@@ -9,7 +9,8 @@ const contentStore = {
       products: null,
       pages: null,
       recruitment: null,
-      CSR: null
+      CSR: null,
+      Contact: null
     },
     pageIds: {
       education: 'XuH1mBIAAFbNZG32',
@@ -35,6 +36,9 @@ const contentStore = {
     },
     getAboutUs: state => {
       return state.content.aboutus
+    },
+    getContact: state => {
+      return state.content.Contact
     },
     getCSR: state => {
       return state.content.CSR
@@ -84,6 +88,9 @@ const contentStore = {
     },
     addProposalContent (state, o) {
       state.content.proposal = o
+    },
+    addContant (state, o) {
+      state.content.Contant = o
     }
   },
   actions: {

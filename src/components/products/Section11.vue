@@ -30,7 +30,7 @@
 <script>
 
 export default {
-  name: 'Section11',
+  name: 'ProdSection11',
   props: ['viewportDimensions', 'content', 'bgClass'],
   data () {
     return {

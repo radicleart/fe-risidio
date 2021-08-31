@@ -11,13 +11,12 @@
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
         <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
-        <b-nav-item to="/projects" class="nav-text products-link">Projects</b-nav-item>
-        <b-nav-item to="/blog" class="nav-text news-link">News</b-nav-item>
+        <b-nav-item to="/projects" class="nav-text products-link">products</b-nav-item>
         <b-nav-item to="/CSR" class="nav-text about-link">CSR</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
-        <b-nav-item to="/join-us" class="joinUsButton"><button v-b-toggle.nav-collapse @click="noScroll();" class="text-info"><a data-toggle="collapse" href="#nav-collapse" class="call-button-text">Join Us</a></button></b-nav-item>
+        <b-nav-item to="/contact" class="contactButton"><button v-b-toggle.nav-collapse @click="noScroll();" class="text-info"><a data-toggle="collapse" href="#nav-collapse" class="call-button-text">Contact</a></button></b-nav-item>
         <b-nav-item-dropdown class="v-text ml-3" right v-if="loggedIn && content.privateLinks" no-caret>
           <template v-slot:button-content>
             <i class="far fa-heart"></i>
@@ -290,7 +289,7 @@ export default {
     margin-right: 0 !important;
     margin-left: 0 !important;
   }
-  .navbar-nav .joinUsButton button {
+  .navbar-nav .contactButton button {
     background-color: transparent;
     width: auto;
     height: auto;
