@@ -11,7 +11,7 @@
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
         <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
-        <b-nav-item to="/projects" class="nav-text products-link">products</b-nav-item>
+        <b-nav-item to="/projects" class="nav-text products-link">Products</b-nav-item>
         <b-nav-item to="/CSR" class="nav-text about-link">CSR</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->

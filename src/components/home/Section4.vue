@@ -1,7 +1,7 @@
 <template>
     <section class="bg-white">
       <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-        <div class="my-auto text-center">
+        <div class="my-auto py-5 text-center">
           <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section4_title[0].text}}</h1></div>
           <div class="px-5 row text-center">
             <div class="col-lg-4 col-12 mb-5" v-for="(item, index) in group" :key="index">

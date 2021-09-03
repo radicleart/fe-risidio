@@ -1,7 +1,5 @@
 <template>
-<div v-if="content">
-      <b-nav-item to="/contact" class="joinUsButton"><button v-b-toggle.nav-collapse @click="noScroll();" class="text-info"><a data-toggle="collapse" href="#nav-collapse" class="call-button-text">Contact us</a></button></b-nav-item>
-  <footer class="text-white footer-container">
+  <footer class="text-white footer-container" v-if="content">
     <div class="row text-center m-0 d-sm-flex d-none" style="height: 240px;">
       <div class="col-lg-4 col-md-3 d-md-block d-none" style="height: 240px;">
         <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" alt="Risidio Logo" class="footer-logo"/></router-link>
@@ -52,7 +50,6 @@
       </div>
     </cookie-law>
   </footer>
-</div>
 </template>
 <script>
 import CookieLaw from 'vue-cookie-law'
