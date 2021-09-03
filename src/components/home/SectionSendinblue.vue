@@ -82,6 +82,9 @@ export default {
 </script>
 
 <style scoped>
+.sib-form {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
 input {
   border-radius: 17px;
   border-width: 0;

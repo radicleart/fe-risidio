@@ -2,6 +2,7 @@
 <div v-if="content">
     <section0 :viewportDimensions="sectionDimensions"/>
     <section1 :viewportDimensions="sectionDimensions" />
+    <section11 :viewportDimensions="sectionDimensions" />
     <section10 :viewportDimensions="sectionDimensions" />
     <section4 :viewportDimensions="sectionDimensions"/>
     <section5 :viewportDimensions="sectionDimensions" />
@@ -19,6 +20,7 @@ import Section5 from '@/components/home/Section5'
 import Section6 from '@/components/home/Section6'
 import Section8 from '@/components/home/Section8'
 import Section10 from '@/components/home/Section10'
+import Section11 from '@/components/home/Section11'
 // import Section11 from '@/components/products/Section11'
 import { SITE_CONSTANTS } from '@/site-constants'
 
@@ -32,7 +34,8 @@ export default {
     Section5,
     Section6,
     Section8,
-    Section10
+    Section10,
+    Section11
   },
   mounted () {
     console.log(this.$route)
