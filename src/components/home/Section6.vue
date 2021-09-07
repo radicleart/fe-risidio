@@ -1,27 +1,24 @@
 <template>
-<section id="section6" class="bg-secondary">
-  <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="my-auto text-center text-white">
-      <div class="mb-2"><img width="300px" :src="section6.image.url" :alt="section6.image.alt"/></div>
-      <div class="my-4"><h1 class="text-white">{{section6.title[0].text}}</h1></div>
-      <div class="mb-2"><h2 class="text-white h2-on-mobile">{{section6.subtitle[0].text}}</h2></div>
-      <div class="mb-4"><p class="text-on-mobile">{{section6.description[0].text}}</p></div>
-      <div class="d-flex justify-content-center">
-        <!-- <div><button><router-link to="/join-us" class="call-button-text">{{section6.link1[0].text}}</router-link></button></div> -->
-      <section-sendinblue></section-sendinblue>
-      </div>
-    </div>
-  </div>
-</section>
+  <section id="section6" class="d-flex flex-column justify-content-center bg-white" style="min-height: 80vh">
+    <b-container class="text-center py-5" container-fluid>
+      <b-row align-h="center">
+        <b-col md="8" sm="10" align-self="center">
+          <h1 class="mb-3">{{ section6.title[0].text }}</h1>
+          <h2 class="mb-5">{{ section6.subtitle[0].text }}</h2>
+          <video controls>
+              <source :src="section6.video.url" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos.
+          </video>
+        </b-col>
+      </b-row>
+    </b-container>
+  </section>
 </template>
 
 <script>
-
-import SectionSendinblue from './SectionSendinblue.vue'
 export default {
   name: 'Section6',
   components: {
-    SectionSendinblue
   },
   props: ['viewportDimensions'],
   data () {
@@ -37,57 +34,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.text-on-mobile {
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-}
-p {
-  text-align: center;
-}
-.more {
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0 20px;
-}
-button {
-  width: 141px;
-  height: 43px;
-  background: #5FBDC1 0% 0% no-repeat padding-box;
-  border-radius: 22px;
-}
-button {
-  &:hover {
-    background: white 0% 0% no-repeat padding-box;
+<style scoped>
+  h1 {
+    text-transform: none;
   }
-  &:hover .call-button-text {
-    color: #5FBDC1;
+  video {
+    width: 100%;
   }
-}
-.call-button-text {
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0px;
-  color: #FFFFFF;
-}
-.button1 {
-  width: 141px;
-  height: 43px;
-  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
-  border: none;
-  border-radius: 22px;
-}
-.button1 {
-  &:hover {
-    background: white 0% 0% no-repeat padding-box;
+  video::-webkit-media-controls-fullscreen-button
+  {
+    display: none !important;
   }
-  & .call-button-text {
-    color: #5FBDC1;
-  }
-  &:hover .call-button-text {
-    color: #5FBDC1;
-  }
-}
 </style>

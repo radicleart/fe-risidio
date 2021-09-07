@@ -10,7 +10,7 @@
               <img :src="content.s3group[0].image.url" :alt="content.s3group[2].image.alt">
               <h4 class="text-left" v-html="content.s3group[0].s3title[0].text"></h4>
               <p class="text-left" v-html="content.s3group[0].s3description[0].text"></p>
-              <router-link to="/projects/x-change">>>> Risidio Xchange</router-link>
+              <router-link to="/projects/x-change" class="text-info">Find Out More...</router-link>
             </div>
           </div>
           <div class="col-lg-4 col-12 mb-5 d-flex flex-column align-items-center">
@@ -18,7 +18,7 @@
               <img :src="content.s3group[1].image.url" :alt="content.s3group[2].image.alt">
               <h4 class="text-left" v-html="content.s3group[1].s3title[0].text"></h4>
               <p class="text-left" v-html="content.s3group[1].s3description[0].text"></p>
-              <a href="https://thisisnumberone.com/">>>> This is #1</a>
+              <a href="https://thisisnumberone.com/" class="text-info">Find Out More...</a>
             </div>
           </div>
           <div class="col-lg-4 col-12 d-flex flex-column align-items-center">
@@ -26,7 +26,7 @@
               <img :src="content.s3group[2].image.url" :alt="content.s3group[2].image.alt">
               <h4 class="text-left" v-html="content.s3group[2].s3title[0].text"></h4>
               <p class="text-left" v-html="content.s3group[2].s3description[0].text"></p>
-              <a href="https://stacks.org/">>>> Stacks Foundation</a>
+              <a href="https://stacks.org/" class="text-info">Find Out More...</a>
             </div>
           </div>
         </div>
@@ -61,8 +61,11 @@ export default {
   max-width: 250px;
 }
 .we-work-with--content a {
-  text-decoration: underline;
+  display: flex;
   width: 100%;
+  font-size: 13px;
+  font-weight: 700;
+  justify-content: center;
 }
 .we-work-with--content p {
   width: 100%;

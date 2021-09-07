@@ -51,7 +51,7 @@ ul {
   width: 50%;
 }
 li {
-  text-align: center;
+  text-align: left;
   font-weight: 300;
   font-size: 15px;
   color: #000000;
