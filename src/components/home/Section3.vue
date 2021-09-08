@@ -1,22 +1,27 @@
 <template>
-  <section id="section11" class="section11 text-white" style="min-height: 80vh">
-    <b-container class="text-center" style="padding-top: 15vh" container-fluid>
+  <section id="section3" class="section3 d-flex flex-column justify-content-center" style="min-height: 80vh">
+    <b-container class="text-center pt-5" container-fluid>
       <b-row align-h="center">
         <b-col md="8" sm="10" align-self="center">
-          <prismic-rich-text class="main-content" :field="section11.content"/>
+          <p class="text-white" style="font-weight: bold;">{{section3.text1[0].text}}</p>
+          <h1 class="text-white">{{section3.title[0].text}}</h1>
+          <p class="text-white">{{section3.text2[0].text}}</p>
+          <p class="text-white" style="font-weight: bold;">{{section3.text3[0].text}}</p>
+          <p class="text-white">{{section3.text4[0].text}}</p>
            <!-- <svg class="svg" src="https://risidio-journal.cdn.prismic.io/risidio-journal/ae6644d6-0cfc-403d-aab8-a7252e5cc8b6_Group+17126.svg" width="100%" height="1100"></svg>-->
         </b-col>
       </b-row>
     </b-container>
     <div class="d-flex justify-content-center py-5">
-      <div><a href="https://ruma.risidio.com"><button class="button1">Try now!</button></a></div>
+      <!-- <div class="mr-4"><button>Our Marketplace</button></div> -->
+      <div><router-link to="/projects/x-change"><button class="button1">Read more</button></router-link></div>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Section11',
+  name: 'Section3',
   components: {
   },
   props: ['viewportDimensions'],
@@ -25,17 +30,21 @@ export default {
     }
   },
   computed: {
-    section11 () {
+    section3 () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.section11[0]
+      return content.section3[0]
     }
   }
 }
 </script>
 
 <style scoped>
-.main-content >>> h2:nth-child(3) {
-  margin-bottom: 40px;
+h1 {
+  font-size: 36px;
+  font-weight: 200;
+}
+p {
+  text-align: center;
 }
 button {
   background: #5FBDC1 0% 0% no-repeat padding-box;
@@ -63,9 +72,12 @@ button:hover {
     color: #FFFFFF;
     text-align: center;}
 }
+.text-white {
+  color: #FFFFFF;
+}
 
-.section11 {
-  background: url('https://risidio-journal.cdn.prismic.io/risidio-journal/3a1462cc-ce84-4e1d-a25b-d333a7f4a581_Ruma_bg_jthkwk.svg');
+.section3 {
+  background: url('https://risidio-journal.cdn.prismic.io/risidio-journal/5fc21e1e-56cc-4428-8a21-756c4bf3b9f5_xchange_gradient_pk6qkf.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
