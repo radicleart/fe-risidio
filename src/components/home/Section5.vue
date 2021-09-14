@@ -27,7 +27,7 @@
                           <div v-if="pitem.type === 'paragraph'" class=""><p class="mb-3 text-white" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
                         </div>
                         <div class="d-flex justify-content-between w-100">
-                          <div v-if="productUrl(item) == '/projects/ruma'" class="more-text"><span class="text-info">{{item.more[0].text}}</span></div>
+                          <div v-if="productUrl(item) == '/projects/ruma'" class="more-text d-none"><span class="text-info">{{item.more[0].text}}</span></div>
                           <div v-else-if="productUrl(item) == '/projects/number-one'" class="d-none"></div>
                           <div v-else class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.more[0].text}}</router-link></div>
                           <div class="more-text" v-html="demoLink(item)"></div>
@@ -97,6 +97,8 @@ export default {
         return '<a class="text-warning" href="https://stacks.risidio.com">Get Stacking</a>'
       } else if (productId === 'number-one') {
         return '<a class="text-info" href="https://thisisnumberone.com/">Find Out More</a>'
+      } else if (productId === 'ruma') {
+        return '<a class="text-warning" href="https://ruma.risidio.com/">Try now!</a>'
       } else {
         return null
       }

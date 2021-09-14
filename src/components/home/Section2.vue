@@ -34,8 +34,11 @@ export default {
 </script>
 
 <style scoped>
-.main-content >>> h2:nth-child(3) {
-  margin-bottom: 40px;
+.main-content >>> h4 {
+  margin-bottom: 30px;
+}
+.main-content >>> p {
+  text-align: center;
 }
 button {
   background: #5FBDC1 0% 0% no-repeat padding-box;
@@ -56,12 +59,6 @@ button:hover {
 }
 .button1:hover {
   background: white 0% 0% no-repeat padding-box;
-}
-
-@media only screen and (min-width:769px) {
-  p { font-size: 20px;
-    color: #FFFFFF;
-    text-align: center;}
 }
 
 .section2 {

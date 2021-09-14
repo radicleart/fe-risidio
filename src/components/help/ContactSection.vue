@@ -170,7 +170,12 @@ h4 { /*Style of the text above Contact Us */
   margin-top: 6%;
   text-transform: capitalize;
 }
-
+input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+textarea::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
 h3 { /* Contact us style */
   font-size: 40px;
   font-weight: 300;

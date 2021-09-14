@@ -91,6 +91,9 @@ input {
   background-color: rgba(255, 255, 255, 0.12) !important;
   color: white !important;
 }
+input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
 .sib-form input.input {
   padding: 0 15px;
 }
