@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'ProductSection1',
+  name: 'MarketplaceSection1',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

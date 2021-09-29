@@ -1,5 +1,5 @@
 <template>
-  <section id="section6" class="d-flex flex-column justify-content-center bg-white" style="min-height: 80vh">
+  <section id="section6" class="d-flex flex-column justify-content-center bg-lighter" style="min-height: 80vh">
     <b-container class="text-center py-5" container-fluid>
       <b-row align-h="center">
         <b-col md="8" sm="10" align-self="center">

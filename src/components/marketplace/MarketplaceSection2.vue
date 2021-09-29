@@ -22,7 +22,7 @@
 import Vue from 'vue'
 
 export default {
-  name: 'ProductSection2',
+  name: 'MarketplaceSection2',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

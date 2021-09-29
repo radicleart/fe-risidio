@@ -11,8 +11,8 @@
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
         <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
-        <b-nav-item to="/projects" class="nav-text products-link">Products</b-nav-item>
-        <b-nav-item to="/CSR" class="nav-text about-link">CSR</b-nav-item>
+        <b-nav-item to="/marketplace" class="nav-text marketplace-link">Marketplace</b-nav-item>
+        <b-nav-item to="/CSR" class="nav-text csr-link">CSR</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
@@ -142,29 +142,26 @@ export default {
 .nav-text a.nav-link {
   color: #FFFFFF;
 }
-.nav-text a.nav-link:hover {
+.nav-text a.nav-link:hover, .nav-text a.nav-link.router-link-active {
   color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-.about-link a.router-link-active {
-  color: #F9B807;
+.nav-text.about-link a.nav-link::before {
+  content: 'About';
 }
-.about-link a.router-link-active:focus, .about-link a.router-link-active:hover {
-  color: #F9B807;
-  font-weight: 500;
+.nav-text.marketplace-link a.nav-link::before {
+  content: 'Marketplace';
 }
-.products-link a.router-link-active {
-  color: #5FBDC1;
+.nav-text.csr-link a.nav-link::before {
+  content: 'CSR';
 }
-.products-link a.router-link-active:focus, .products-link a.router-link-active:hover {
-  color: #5FBDC1;
-  font-weight: 500;
-}
-.news-link a.router-link-active {
-  color: #E9493D;
-}
-.news-link a.router-link-active:focus, .news-link a.router-link-active:hover{
-  color: #E9493D;
-  font-weight: 500;
+.nav-text a.nav-link::before {
+    display: block;
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
 }
 .join-us {
   width: 97px;

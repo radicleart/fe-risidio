@@ -8,8 +8,6 @@
         <div class="row text-left mt-5">
           <div class="col-3" v-html="getContent('sitemap')">
           </div>
-          <div class="col-3" v-html="getContent('products1')">
-          </div>
           <div class="col-3" v-html="getContent('joinus')">
           </div>
           <div class="col-3" v-html="getContent('contact')">

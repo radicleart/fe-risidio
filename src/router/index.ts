@@ -5,7 +5,7 @@ import Home from '../views/Home.vue'
 import Page from '../views/Page.vue'
 import LsatDemo from '../views/LsatDemo.vue'
 import Proposal from '../views/Proposal.vue'
-import Product from '../views/Product.vue'
+import Marketplace from '../views/Marketplace.vue'
 import Products from '../views/Products.vue'
 import HelpTopics from '../views/HelpTopics.vue'
 import MainNavbar from '@/layout/MainNavbar.vue'
@@ -93,66 +93,12 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/education',
-    name: 'education',
-    components: { default: Page, header: MainNavbar, footer: MainFooter },
-    meta: {
-      title: 'Risidio - Projects and Services for Blockchain.',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        },
-        {
-          property: 'og:description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        }
-      ]
-    }
-  },
-  {
-    path: '/projects/:productId',
-    name: 'product',
-    components: { default: Product, header: MainNavbar, footer: MainFooter },
+    path: '/marketplace',
+    name: 'marketplace',
+    components: { default: Marketplace, header: MainNavbar, footer: MainFooter },
     meta: {
       title: 'Risidio - Projects and Services for Blockchain.',
       isProductPage: true
-    }
-  },
-  {
-    path: '/projects',
-    name: 'products',
-    components: { default: Products, header: MainNavbar, footer: MainFooter },
-    meta: {
-      title: 'Risidio - Projects and Services for Blockchain.',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        },
-        {
-          property: 'og:description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        }
-      ]
-    }
-  },
-  {
-    path: '/rpay-demo',
-    name: 'rpay-demo',
-    components: { default: LsatDemo, header: MainNavbar, footer: MainFooter },
-    meta: {
-      title: 'Risidio - Projects and Services for Blockchain.',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        },
-        {
-          property: 'og:description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        }
-      ]
     }
   },
   {
@@ -191,42 +137,6 @@ const routes: Array<RouteConfig> = [
     name: 'help-topics',
     meta: { requiresAuth: false },
     components: { default: HelpTopics, header: MainNavbar, footer: MainFooter }
-  },
-  {
-    path: '/blog',
-    name: 'blog-home',
-    components: { default: BlogHome, header: MainNavbar, footer: MainFooter },
-    meta: {
-      title: 'Risidio - Projects and Services for Blockchain.',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
-        },
-        {
-          property: 'og:description',
-          content: 'Find the latest News on Blockchain Technology. Learn about Blockchain | Lightning network Wallet | Web 3.0 | Blockstack Community.'
-        }
-      ]
-    }
-  },
-  {
-    path: '/blog/:uid',
-    name: 'post',
-    components: { default: Post, header: MainNavbar, footer: MainFooter },
-    meta: {
-      title: 'Risidio - Projects and Services for Blockchain.',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        },
-        {
-          property: 'og:description',
-          content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
-        }
-      ]
-    }
   },
   {
     path: '/Risidio_rBid*',

@@ -33,7 +33,7 @@
 import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
-  name: 'ProductSection0',
+  name: 'MarketplaceSection0',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

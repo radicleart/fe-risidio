@@ -8,7 +8,6 @@
           <div class="ml-5"><img :height="iwordHeight" class="ml-5" :src="iwords.itwo.light" alt="involve"/></div>
           <div class="ml-4"><img :height="iwordHeight" :src="iwords.ithree.light" alt="inspire"/></div>
         </div>
-        <div class="mt-5 tagline">{{section.tagline[0].text}}</div>
       </div>
     </div>
   </div>
