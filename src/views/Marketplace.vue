@@ -2,8 +2,7 @@
 <div v-if="content" class="bg-white">
     <marketplace-section0 :viewportDimensions="sectionDimensions" :content="content"/>
     <marketplace-section1 :viewportDimensions="sectionDimensions" :content="content"/>
-    <marketplace-section2 :viewportDimensions="sectionDimensions" :content="content"/>
-    <marketplace-section3 :viewportDimensions="sectionDimensions" :content="content"/>
+    <marketplace-section2 :content="content"/>
     <section12 :viewportDimensions="sectionDimensions" :content="contentServices"/>
     <section8 :viewportDimensions="sectionDimensions"/>
 </div>
@@ -14,7 +13,6 @@ import { SITE_CONSTANTS } from '@/site-constants'
 import MarketplaceSection0 from '@/components/marketplace/MarketplaceSection0'
 import MarketplaceSection1 from '@/components/marketplace/MarketplaceSection1'
 import MarketplaceSection2 from '@/components/marketplace/MarketplaceSection2'
-import MarketplaceSection3 from '@/components/marketplace/MarketplaceSection3'
 import Section12 from '@/components/products/Section12'
 import Section8 from '@/components/home/Section8'
 export default {
@@ -28,7 +26,6 @@ export default {
     MarketplaceSection0,
     MarketplaceSection1,
     MarketplaceSection2,
-    MarketplaceSection3,
     Section12,
     Section8
   },

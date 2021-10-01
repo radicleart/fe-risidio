@@ -1,6 +1,6 @@
 <template>
 <section class="d-flex justify-content-center bg-lighter" v-if="content" :style="viewportDimensions" id="product-section-1">
-  <div class="d-flex justify-content-center flex-column product--gap">
+  <div class="d-flex justify-content-center flex-column">
     <div class="container">
       <div class="row">
         <div class="col-6 text-right d-md-block d-none">
@@ -25,9 +25,7 @@
               <p v-html="item.description1[0].text"></p>
             </template>
           </div>
-          <p v-if="hasDemoLink && hasDemoLink != 'x-change'" class="button-contaner"><a :href="demoLink()"><button class="btn-services more-text">{{demoText()}}</button></a></p>
         </div>
-        <div v-if="hasDemoLink == 'x-change'" class="button-contaner button-contaner--xchange"><a :href="demoLink()"><button class="btn-services more-text">{{demoText()}}</button></a></div>
       </div>
     </div>
   </div>
@@ -43,43 +41,8 @@ export default {
     }
   },
   methods: {
-    demoText () {
-      const productId = this.$route.params.productId
-      if (productId === 'dsearch' || productId === 'hubber') {
-        return 'Find Us On Github'
-      } else if (productId === 'x-change') {
-        return 'Explore Risidio Xchange Mockup'
-      } else {
-        return 'Try It Now!'
-      }
-    },
-    demoLink () {
-      const productId = this.$route.params.productId
-      if (productId === 'r-pay') {
-        return '/rpay-demo'
-      } else if (productId === 'loopbomb') {
-        return 'https://loopbomb.com'
-      } else if (productId === 'x-change') {
-        return 'https://tchange.risidio.com'
-      } else if (productId === 'dsearch') {
-        return 'https://github.com/radicleart/brightblock-search'
-      } else if (productId === 'r-stack') {
-        return 'https://stacks.risidio.com'
-      } else {
-        return '/ownai'
-      }
-    }
   },
   computed: {
-    hasDemoLink () {
-      const productId = this.$route.params.productId
-      if (productId === 'r-pay' || productId === 'r-stack' || productId === 'loopbomb' || productId === 'dsearch') {
-        return true
-      } else if (productId === 'x-change') {
-        return 'x-change'
-      }
-      return false
-    }
   }
 }
 </script>

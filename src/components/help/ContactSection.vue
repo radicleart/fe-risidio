@@ -6,7 +6,7 @@
     <div class="row">
 
       <div class="col-md-12">
-        <h4>Any thought, questions, just want to say hello?</h4 >
+        <h4>Any thoughts, questions, just want to say hello?</h4 >
         <h3>Contact Us</h3>
       </div>
 

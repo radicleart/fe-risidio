@@ -9,7 +9,8 @@
       </b-row>
     </b-container>
     <div class="d-flex justify-content-center py-5">
-      <div><a href="https://ruma.risidio.com"><button class="button1">Try now!</button></a></div>
+      <div><a href="https://ruma.risidio.com"><button class="mr-4">Try now!</button></a></div>
+      <div><a href="/marketplace"><button class="button1">Find out more</button></a></div>
     </div>
   </section>
 </template>
@@ -62,7 +63,7 @@ button:hover {
 }
 
 .section2 {
-  background: url('https://risidio-journal.cdn.prismic.io/risidio-journal/3a1462cc-ce84-4e1d-a25b-d333a7f4a581_Ruma_bg_jthkwk.svg');
+  background: url('https://risidio-journal.cdn.prismic.io/risidio-journal/5315af06-9e9a-4a64-864f-62c0bda75abc_Marketplace+banner.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
