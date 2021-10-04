@@ -1,13 +1,10 @@
 <template>
-<section id="section0" v-if="content.banner" :style="viewportDimensions" class="text-white">
-  <div :style="bannerImage" class="d-flex justify-content-center flex-column">
-    <div class="my-auto text-center">
-      <div class="container">
-        <h1 class="mt-5">{{content.title[0].text}}</h1>
-        <h2 class="">{{content.title1[0].text}}</h2>
-        <prismic-rich-text class="main-content my-4" :field="content.description"/>
-      </div>
-    </div>
+<section id="section0" v-if="content.banner" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
+  <div class="container my-auto pb-5 text-center">
+    <h1 class="mt-5">{{content.title[0].text}}</h1>
+    <h2 class="">{{content.title1[0].text}}</h2>
+    <prismic-rich-text class="main-content my-4" :field="content.description"/>
+    <div><a href="https://ruma.risidio.com"><button class="">Try now!</button></a></div>
   </div>
 </section>
 </template>
@@ -29,16 +26,13 @@ export default {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return {
         padding: '70px 0 0 0',
-        height: (height) + 'px',
+        'min-height': (height * 0.8) + 'px',
+        height: '100%',
         width: '100%',
-        position: 'relative',
-        top: '0px',
         'background-repeat': 'no-repeat',
         'background-image': `url(${this.content.banner.url})`,
         'background-position': 'center',
-        'background-size': 'cover',
-        'background-color': '#121212',
-        opacity: 1
+        'background-size': 'cover'
       }
     }
   }
@@ -54,5 +48,17 @@ h2 {
 }
 .main-content >>> p {
   text-align: center;
+}
+button {
+  background: #5FBDC1 0% 0% no-repeat padding-box;
+  border-radius: 22px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+button:hover {
+  color: #5FBDC1;
 }
 </style>

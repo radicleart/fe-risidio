@@ -12,7 +12,7 @@
         -->
         <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
         <b-nav-item to="/marketplace" class="nav-text marketplace-link">Marketplace</b-nav-item>
-        <b-nav-item to="/CSR" class="nav-text csr-link">CSR</b-nav-item>
+        <b-nav-item to="/CSR" class="nav-text csr-link">Sustainability</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
@@ -144,24 +144,9 @@ export default {
 }
 .nav-text a.nav-link:hover, .nav-text a.nav-link.router-link-active {
   color: #FFFFFF;
+  font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-.nav-text.about-link a.nav-link::before {
-  content: 'About';
-}
-.nav-text.marketplace-link a.nav-link::before {
-  content: 'Marketplace';
-}
-.nav-text.csr-link a.nav-link::before {
-  content: 'CSR';
-}
-.nav-text a.nav-link::before {
-    display: block;
-    font-weight: bold;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
 }
 .join-us {
   width: 97px;

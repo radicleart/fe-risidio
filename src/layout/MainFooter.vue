@@ -6,11 +6,11 @@
       </div>
       <div class="col-lg-6 col-md-8 offset-lg-1 content-footer">
         <div class="row text-left mt-5">
-          <div class="col-3" v-html="getContent('sitemap')">
+          <div class="col-4" v-html="getContent('sitemap')">
           </div>
-          <div class="col-3" v-html="getContent('joinus')">
+          <div class="col-4" v-html="getContent('joinus')">
           </div>
-          <div class="col-3" v-html="getContent('contact')">
+          <div class="col-4" v-html="getContent('contact')">
           </div>
         </div>
       </div>

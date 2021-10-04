@@ -1,5 +1,5 @@
 <template>
-<section class="d-flex justify-content-center bg-lighter" v-if="content" :style="viewportDimensions" id="product-section-1">
+<section class="d-flex justify-content-center bg-lighter py-5" v-if="content" :style="viewportDimensions" id="product-section-1">
   <div class="d-flex justify-content-center flex-column">
     <div class="container">
       <div class="row">

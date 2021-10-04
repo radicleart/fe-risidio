@@ -1,5 +1,6 @@
 <template>
-  <section id="section2" class="section2 text-white d-flex flex-column justify-content-center" style="min-height: 80vh">
+  <section id="section2" class="section2 text-white d-flex flex-column justify-content-center"
+  :style="bannerImage" style="min-height: 80vh">
     <b-container class="text-center pt-5" container-fluid>
       <b-row align-h="center">
         <b-col md="8" sm="10" align-self="center">
@@ -29,6 +30,14 @@ export default {
     section2 () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content.section2[0]
+    },
+    bannerImage () {
+      return {
+        'background-repeat': 'no-repeat',
+        'background-image': `url(${this.section2.banner.url})`,
+        'background-position': 'center',
+        'background-size': 'cover'
+      }
     }
   }
 }
@@ -60,12 +69,5 @@ button:hover {
 }
 .button1:hover {
   background: white 0% 0% no-repeat padding-box;
-}
-
-.section2 {
-  background: url('https://risidio-journal.cdn.prismic.io/risidio-journal/5315af06-9e9a-4a64-864f-62c0bda75abc_Marketplace+banner.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 </style>
