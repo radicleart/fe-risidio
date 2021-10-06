@@ -38,7 +38,6 @@ export default {
     }
   },
   mounted () {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const myself = this
     if (this.$route.name === 'home') {
       setTimeout(() => {

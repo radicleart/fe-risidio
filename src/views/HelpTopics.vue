@@ -85,7 +85,6 @@ export default {
           this.$store.commit('contentStore/helpList', document.data)
           this.aboutContent = this.$store.state.contentStore.content['help-list']
           const topicIds = this.getTopicIds(document)
-          // eslint-disable-next-line @typescript-eslint/no-this-alias
           const that = this
           this.$prismic.client.getByIDs(topicIds).then(function (response) {
             that.setAnswers(that, response, topicIds, slug)

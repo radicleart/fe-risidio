@@ -97,7 +97,6 @@ export default {
   },
   mounted () {
     this.productId = this.$route.name
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const $self = this
     this.timer1 = setInterval(function () {
       if ($self.counter === 7) {
