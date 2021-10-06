@@ -10,7 +10,7 @@
               <img :src="content.s3group[0].image.url" :alt="content.s3group[2].image.alt">
               <h4 class="text-left" v-html="content.s3group[0].s3title[0].text"></h4>
               <p class="text-left" v-html="content.s3group[0].s3description[0].text"></p>
-              <router-link to="/projects/x-change" class="text-info">Find Out More...</router-link>
+              <router-link to="/marketplace" class="text-info">Find Out More...</router-link>
             </div>
           </div>
           <div class="col-lg-4 col-12 mb-5 d-flex flex-column align-items-center">
