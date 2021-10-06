@@ -11,8 +11,8 @@
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
         <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
-        <b-nav-item to="/projects" class="nav-text products-link">Products</b-nav-item>
-        <b-nav-item to="/CSR" class="nav-text about-link">CSR</b-nav-item>
+        <b-nav-item to="/marketplace" class="nav-text marketplace-link">Marketplace</b-nav-item>
+        <b-nav-item to="/CSR" class="nav-text csr-link">Sustainability</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
@@ -142,29 +142,11 @@ export default {
 .nav-text a.nav-link {
   color: #FFFFFF;
 }
-.nav-text a.nav-link:hover {
+.nav-text a.nav-link:hover, .nav-text a.nav-link.router-link-active {
   color: #FFFFFF;
-}
-.about-link a.router-link-active {
-  color: #F9B807;
-}
-.about-link a.router-link-active:focus, .about-link a.router-link-active:hover {
-  color: #F9B807;
   font-weight: 500;
-}
-.products-link a.router-link-active {
-  color: #5FBDC1;
-}
-.products-link a.router-link-active:focus, .products-link a.router-link-active:hover {
-  color: #5FBDC1;
-  font-weight: 500;
-}
-.news-link a.router-link-active {
-  color: #E9493D;
-}
-.news-link a.router-link-active:focus, .news-link a.router-link-active:hover{
-  color: #E9493D;
-  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .join-us {
   width: 97px;

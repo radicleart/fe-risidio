@@ -1,5 +1,6 @@
 <template>
-  <section id="section2" class="section2 text-white d-flex flex-column justify-content-center" style="min-height: 80vh">
+  <section id="section2" class="section2 text-white d-flex flex-column justify-content-center"
+  :style="bannerImage" style="min-height: 80vh">
     <b-container class="text-center pt-5" container-fluid>
       <b-row align-h="center">
         <b-col md="8" sm="10" align-self="center">
@@ -9,7 +10,8 @@
       </b-row>
     </b-container>
     <div class="d-flex justify-content-center py-5">
-      <div><a href="https://ruma.risidio.com"><button class="button1">Try now!</button></a></div>
+      <div><a href="https://ruma.risidio.com"><button class="mr-4">Try now!</button></a></div>
+      <div><a href="/marketplace"><button class="button1">Find out more</button></a></div>
     </div>
   </section>
 </template>
@@ -28,14 +30,25 @@ export default {
     section2 () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content.section2[0]
+    },
+    bannerImage () {
+      return {
+        'background-repeat': 'no-repeat',
+        'background-image': `url(${this.section2.banner.url})`,
+        'background-position': 'center',
+        'background-size': 'cover'
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-.main-content >>> h2:nth-child(3) {
-  margin-bottom: 40px;
+.main-content >>> h4 {
+  margin-bottom: 30px;
+}
+.main-content >>> p {
+  text-align: center;
 }
 button {
   background: #5FBDC1 0% 0% no-repeat padding-box;
@@ -56,18 +69,5 @@ button:hover {
 }
 .button1:hover {
   background: white 0% 0% no-repeat padding-box;
-}
-
-@media only screen and (min-width:769px) {
-  p { font-size: 20px;
-    color: #FFFFFF;
-    text-align: center;}
-}
-
-.section2 {
-  background: url('https://risidio-journal.cdn.prismic.io/risidio-journal/3a1462cc-ce84-4e1d-a25b-d333a7f4a581_Ruma_bg_jthkwk.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 </style>

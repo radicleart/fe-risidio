@@ -14,7 +14,6 @@
                     <h1 class="text-black mb-3 ">{{item.title1[0].text}}</h1>
                     <h2 class="text-black">{{item.title2[0].text}}</h2>
                     <p class="text-black mb-3">{{item.description[0].text}}</p>
-                    <div class="more-text"><router-link to="/aboutus" :class="'text-' + getBgClass(index)">{{item.more[0].text}}</router-link></div>
                   </div>
                 </div>
               </div>

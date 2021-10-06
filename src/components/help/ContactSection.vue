@@ -6,7 +6,7 @@
     <div class="row">
 
       <div class="col-md-12">
-        <h4>Any thought, questions, just want to say hello?</h4 >
+        <h4>Any thoughts, questions, just want to say hello?</h4 >
         <h3>Contact Us</h3>
       </div>
 
@@ -22,7 +22,7 @@
                     id="validation-name"
                     v-model="name"
                     type="text"
-                    :placeholder="'Your name..'"
+                    :placeholder="'Your name'"
                     required>
                   </b-form-input>
 
@@ -36,7 +36,7 @@
                     id="validation-email"
                     v-model="email"
                     type="text"
-                    :placeholder="'Email address..'"
+                    :placeholder="'Email address'"
                     required>
                   </b-form-input>
 
@@ -63,7 +63,7 @@
                   <b-form-textarea
                     class="form-control"
                     id="validation-message"
-                    placeholder="How can we help..."
+                    placeholder="How can we help"
                     v-model="message"
                     rows="5"
                     required>
@@ -170,7 +170,25 @@ h4 { /*Style of the text above Contact Us */
   margin-top: 6%;
   text-transform: capitalize;
 }
-
+input {
+  font-size: 12px;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+textarea{
+  font-size: 12px;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+textarea::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+button {
+  font-size: 13px;
+}
 h3 { /* Contact us style */
   font-size: 40px;
   font-weight: 300;

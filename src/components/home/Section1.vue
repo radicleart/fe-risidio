@@ -8,8 +8,7 @@
         <p class="text-center">{{item.text}}</p>
       </div>
       <div class="mb-4 d-flex justify-content-center">
-        <div class="mr-4"><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
-        <div><button class="button1" v-scroll-to="{ element: '#products-section', duration: 2000 }"><span class="call-button-text">Our Products</span></button></div>
+        <div class=""><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
       </div>
     </div>
   </div>

@@ -4,11 +4,10 @@
     <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="my-auto text-center">
         <div class="mb-auto d-flex align-items-center flex-column">
-          <div class="ml-0"><img :height="iwordHeight" :src="iwords.ione.dark" alt="innovate" @mouseover="hoverOver(iwords.ione, $event)" @mouseout="hoverOut(iwords.ione, $event)"/></div>
-          <div class="ml-5"><img :height="iwordHeight" class="ml-5" :src="iwords.itwo.dark" alt="involve" @mouseover="hoverOver(iwords.itwo, $event)" @mouseout="hoverOut(iwords.itwo, $event)" /></div>
-          <div class="ml-4"><img :height="iwordHeight" :src="iwords.ithree.dark" alt="inspire" @mouseover="hoverOver(iwords.ithree, $event)" @mouseout="hoverOut(iwords.ithree, $event)" /></div>
+          <div class="ml-0"><img :height="iwordHeight" :src="iwords.ione.light" alt="innovate"/></div>
+          <div class="ml-5"><img :height="iwordHeight" class="ml-5" :src="iwords.itwo.light" alt="involve"/></div>
+          <div class="ml-4"><img :height="iwordHeight" :src="iwords.ithree.light" alt="inspire"/></div>
         </div>
-        <div class="mt-5 tagline">{{section.tagline[0].text}}</div>
       </div>
     </div>
   </div>
