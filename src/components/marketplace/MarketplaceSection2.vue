@@ -1,8 +1,7 @@
 <template>
 <section id="section2" class="d-flex justify-content-center align-items-center flex-column">
   <div class="container text-center">
-    <h1>{{content.section2[0].title4[0].text}}</h1>
-    <prismic-rich-text class="main-content mt-5" :field="content.section2[0].text"/>
+    <prismic-rich-text class="main-content" :field="section2.content"/>
   </div>
 </section>
 </template>
@@ -11,7 +10,7 @@
 
 export default {
   name: 'MarketplaceSection2',
-  props: ['content'],
+  props: ['section2'],
   data () {
     return {
     }
@@ -27,10 +26,10 @@ export default {
 #section2 {
   padding: 100px 0;
 }
-h1 {
-  margin-bottom: 1rem;
+.main-content >>> h1 {
+  margin-bottom: 3rem;
 }
-h2 {
+.main-content >>> h2 {
   margin-bottom: 2rem;
 }
 .main-content {

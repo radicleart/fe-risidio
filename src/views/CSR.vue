@@ -1,7 +1,7 @@
 <template>
 <div v-if="content">
-    <CSRSection0 :viewportDimensions="sectionDimensions" :content="content"/>
-    <CSRSection1 :viewportDimensions="sectionDimensions" :content="content"/>
+    <CSRSection0 :viewportDimensions="sectionDimensions" :section0="content.section0[0]"/>
+    <CSRSection1 :viewportDimensions="sectionDimensions" :section1="content.section1[0]"/>
     <CSRSection2 :viewportDimensions="sectionDimensions" :content="content"/>
 </div>
 </template>
@@ -20,9 +20,6 @@ export default {
     CSRSection0,
     CSRSection1,
     CSRSection2
-  },
-  mounted () {
-    console.log(this.$route)
   },
   computed: {
     sectionDimensions () {

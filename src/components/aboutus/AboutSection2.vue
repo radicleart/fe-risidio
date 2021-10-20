@@ -2,20 +2,18 @@
 <section class="bg-white" v-if="content">
   <div class="d-flex align-items-center flex-column py-5" :style="viewportDimensions">
     <div class="my-auto">
-      <h1 class="mb-3 text-center blurb2">{{content.s3title1[0].text}}</h1>
-      <h2 class="mb-5 text-center blurb2">{{content.s3title2[0].text}}</h2>
+      <h1 class="mb-3 text-center">{{content.section2_title[0].text}}</h1>
+      <h2 class="mb-5 text-center">{{content.section2_subtitle[0].text}}</h2>
       <div class="d-flex justify-content-start">
       <div class="mx-5 mt-5">
         <div class="row">
-          <div v-for="(item, index) of content.group1" :key="index" class="col-lg-4 col-md-12">
-            <div class="d-flex justify-content-start mobile-margin content-wrap">
+          <div v-for="(item, index) of content.section2" :key="index" class="col-lg-4 col-md-12">
+            <div class="d-flex justify-content-start mobile-margin">
               <div class="">
-                <img :src="item.image.url" :alt="item.image.alt"/>
+                <img :src="item.icon.url" :alt="item.icon.alt"/>
               </div>
               <div>
-                <h2 class="" v-html="item.title1[0].text"></h2>
-                <h1 class="" v-html="item.title2[0].text"></h1>
-                <p class="" v-html="item.description[0].text"></p>
+                <prismic-rich-text class="main-content" :field="item.content"/>
               </div>
             </div>
           </div>
@@ -43,13 +41,7 @@ export default {
 </script>
 
 <style scoped>
-/*
-img {
-  width: 100%;
-  height: auto;
-}
-*/
-.content-wrap h1 {
+.main-content >>> h1 {
   white-space: nowrap;
   text-align: left;
   font-size: 12px;
@@ -57,7 +49,7 @@ img {
   letter-spacing: 0px;
   color: #000000;
 }
-.content-wrap h2 {
+.main-content >>> h2 {
   white-space: nowrap;
   text-align: left;
   font-size: 17px;
