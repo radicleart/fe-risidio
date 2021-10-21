@@ -1,6 +1,6 @@
 <template>
 <div class="d-flex justify-content-center">
-  <b-navbar toggleable="md" type="dark" class="p-0 my-nav navbar-expand-sm" v-if="content">
+  <b-navbar toggleable="md" type="dark" class="p-0 my-nav navbar-expand-md">
     <b-navbar-brand href="#"><router-link to="/" class="navbar-brand"><img :src="logo" alt="Risidio Logo"/></router-link></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" @click="noScroll()"></b-navbar-toggle>
@@ -67,12 +67,6 @@ export default {
       const keycloak = this.$store.getters[getKeycloak]
       keycloak.logout()
     },
-    getLink (item) {
-      return '/page/' + item.nav_link.id
-    },
-    getLinkName (item) {
-      return item.nav_link.uid.split('-')[1].toLowerCase()
-    },
     login () {
       this.$router.push('/login')
     },
@@ -80,11 +74,6 @@ export default {
       const width = window.innerWidth
       if (width <= 575) {
         document.body.classList.toggle('no-scroll')
-      }
-    },
-    goToContact () {
-      if (this.$route.name === 'blog-home' || this.$route.name === 'post' || this.$route.name === 'Proposal') {
-        this.$router.push('/')
       }
     }
   },
@@ -96,10 +85,6 @@ export default {
     },
     isLoginPage () {
       return this.$route.name === 'login'
-    },
-    content () {
-      const content = this.$store.getters['contentStore/getNavbar']
-      return content
     },
     showAdmin () {
       const keycloak = this.$store.getters[getKeycloak]
@@ -219,23 +204,13 @@ export default {
   margin-bottom: 15px;
 }
 
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 767px) {
   #nav-collapse {
     transition: none;
   }
 }
 
-@media only screen and (max-width: 660px) and (min-width: 576px) {
-  .nav-link {
-    margin-left: 20px;
-  }
-  .navbar-brand a {
-    padding-left: 2rem;
-    margin-right: 10px;
-  }
-}
-
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 767px) {
   .mobile-nav-items {
     display: flex;
     margin-top: auto;

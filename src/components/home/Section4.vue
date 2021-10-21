@@ -1,27 +1,18 @@
 <template>
-    <section class="bg-white">
-      <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-        <div class="my-auto py-5 text-center">
-          <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section4_title[0].text}}</h1></div>
-          <div class="px-5 row text-center">
-            <div class="col-lg-4 col-12 mb-5" v-for="(item, index) in group" :key="index">
-              <div class="row content-wrap">
-                <div class="col-lg-3 col-12 mobile-col mobile-col__img">
-                  <div class="whatsit" :class="'bg-' + getBgClass(index)"><img class="p-3" :src="features[index]" alt=""/></div>
-                </div>
-                <div class="col-lg-8 col-12 text-left mobile-col">
-                  <div class="d-flex flex-column mobile-col__text" style="height: 230px;">
-                    <h1 class="text-black mb-3 ">{{item.title1[0].text}}</h1>
-                    <h2 class="text-black">{{item.title2[0].text}}</h2>
-                    <p class="text-black mb-3">{{item.description[0].text}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="section4" class="d-flex flex-column justify-content-center bg-lighter" style="min-height: 80vh">
+    <b-container class="text-center py-5" container-fluid>
+      <b-row align-h="center">
+        <b-col md="8" sm="10" align-self="center">
+          <h1 class="mb-3">{{ section4.title[0].text }}</h1>
+          <h2 class="mb-5">{{ section4.subtitle[0].text }}</h2>
+          <video controls>
+              <source :src="section4.video.url" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos.
+          </video>
+        </b-col>
+      </b-row>
+    </b-container>
+  </section>
 </template>
 
 <script>
@@ -32,66 +23,26 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
-      features: [
-        require('@/assets/img/xd/bitcoin.svg'),
-        require('@/assets/img/xd/report.svg'),
-        require('@/assets/img/xd/Page-1.svg')
-      ]
-    }
-  },
-  methods: {
-    getBgClass: function (index) {
-      if (index === 0) {
-        return 'warning'
-      } else if (index === 1) {
-        return 'info'
-      } else {
-        return 'danger'
-      }
     }
   },
   computed: {
-    group () {
+    section4 () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.section4_group
-    },
-    content () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      return content
+      return content.section4[0]
     }
   }
 }
 </script>
 
 <style scoped>
-.whatsit {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-}
-
-.mobile-col__img {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.mobile-col__text {
-  align-items: flex-start;
-}
-
-@media only screen and (max-width: 991px) {
-  .content-wrap {
-    flex-flow: column;
+  h1 {
+    text-transform: none;
   }
-  .mobile-col {
-    display: flex;
-    justify-content: center;
+  video {
+    width: 100%;
   }
-  .mobile-col__text {
-    margin-top: 1rem;
-    align-items: center;
-    width: 65%;
+  video::-webkit-media-controls-fullscreen-button
+  {
+    display: none !important;
   }
-  p { text-align: center; }
-}
 </style>

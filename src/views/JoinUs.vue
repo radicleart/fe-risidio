@@ -1,61 +1,56 @@
 <template>
-<section class="bg-white" :sectionDimensions="sectionDimensions">
+<section class="bg-white" :sectionDimensions="sectionDimensions" v-if="content.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center">
       <h2 class="mb-3 text-white">{{ content.title[0].text }}</h2>
-      <p class="text-white">{{ content.subtitle[0].text }}</p>
+      <p class="text-white">{{ content.tagline[0].text }}</p>
     </div>
   </div>
   <div class="d-flex align-items-center flex-column">
     <div class="join-first-section join-content-container">
-      <h3 class="text-center mb-3">{{ content.subheading_1[0].text }}</h3>
-      <p class="text-center">{{ content.first_paragraph[0].text }}</p>
-      <p class="text-center">{{ content.first_paragraph[1].text }}</p>
+      <prismic-rich-text class="joinus-main-content" :field="content.section1"/>
     </div>
     <div class="join-second-section join-content-container">
-      <h3 class="text-center mb-3">{{ content.subheading_2[0].text }}</h3>
-      <p class="text-center mb-0">{{ content.second_paragraph[0].text }}</p>
+      <prismic-rich-text class="joinus-main-content" :field="content.section2"/>
     </div>
     <div class="join-third-section">
       <div class="intenship-info__container">
-        <div class="intenship-info" v-for="(item, index) of content.job_desctiptions" :key="index">
+        <div class="intenship-info" v-for="(item, index) of content.section3" :key="index">
           <div class="intenship-info__content-container">
             <div @click="isExpand[index] = !isExpand[index]" :class="{plusIconAnimation : isExpand[index]}" class="intenship-info__button--container"><button v-b-toggle="'collapse' + index" class="intenship-info__button"><span class="intenship-info__title">{{ item.job_title[0].text }}</span><b-icon icon="geo-alt" class="mr-2"></b-icon>{{ item.location[0].text }}<b-icon icon="plus" font-scale="1.8" class="ml-auto plus-icon"></b-icon></button></div>
             <b-collapse :id="'collapse' + index" class="intenship-info__collapse">
               <div class="intenship-info__collapse--content">
-                <div v-for="(item2, index2) of item.job_brief" :key="index2"><div v-html="item2.text"></div></div>
+                <prismic-rich-text class="joinus-s3-main-content" :field="item.content"/>
               </div>
             </b-collapse>
           </div>
         </div>
       </div>
-      <p class="text-center join-important-note" v-html="content.note[0].text"></p>
+      <prismic-rich-text class="join-important-note" :field="content.note"/>
     </div>
   </div>
   <div class="join-fouth-section">
-    <section8 :viewportDimensions="sectionDimensions"/>
+    <section6 :viewportDimensions="sectionDimensions"/>
   </div>
 </section>
 </template>
 
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
-import Section8 from '@/components/home/Section8'
+import Section6 from '@/components/home/Section6'
 
 export default {
   name: 'join-us',
   components: {
-    Section8
+    Section6
   },
   data () {
     return {
-      banner: require('@/assets/img/join_us_banner.png'),
       isExpand: { 0: false, 1: false, 2: false, 3: false, 4: false, 5: false, 6: false }
     }
   },
   computed: {
     bannerImage () {
-      // const content = this.$store.getters['contentStore/getPage']('bloghome')
       return {
         padding: '80px 0 0 0',
         height: '320px',
@@ -63,7 +58,7 @@ export default {
         position: 'relative',
         top: '0px',
         'background-repeat': 'no-repeat',
-        'background-image': `url(${this.banner})`,
+        'background-image': `url(${this.content.banner.url})`,
         'background-position': 'center center',
         '-webkit-background-size': 'cover',
         '-moz-background-size': 'cover',
@@ -78,7 +73,7 @@ export default {
       return 'min-height: ' + height + 'px; width: auto;'
     },
     content () {
-      const content = this.$store.getters['contentStore/getRecruitment']
+      const content = this.$store.getters['contentStore/getJoinUs']
       return content
     }
   },
@@ -88,7 +83,12 @@ export default {
 </script>
 
 <style>
-
+.joinus-main-content h3 {
+  text-align: center;
+}
+.joinus-main-content p {
+  text-align: center;
+}
 .join-content-container {
   width: 50%;
   margin: 0 auto;
@@ -104,8 +104,12 @@ export default {
   padding-bottom: 50px;
 }
 
-.join-important-note {
+.join-important-note strong {
+  font-weight: 700;
+}
+.join-important-note p {
   font-size: 18px;
+  text-align: center;
 }
 
 .intenship-info__container {
@@ -209,7 +213,7 @@ export default {
     font-size: 12px;
   }
 
-  .join-important-note {
+  .join-important-note p {
     font-size: 14px;
   }
 

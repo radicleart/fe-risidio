@@ -1,9 +1,9 @@
 <template>
 <div v-if="content">
-    <about-section0 :viewportDimensions="sectionDimensions" :content="content"/>
-    <about-section1 :viewportDimensions="sectionDimensions" :content="content"/>
+    <about-section0 :viewportDimensions="sectionDimensions" :section0="content.section0[0]"/>
+    <about-section1 :viewportDimensions="sectionDimensions" :section1="content.section1[0]"/>
     <about-section2 :viewportDimensions="sectionDimensions" :content="content"/>
-    <section8 :viewportDimensions="sectionDimensions"/>
+    <section6 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
 
@@ -12,7 +12,7 @@
 import AboutSection0 from '@/components/aboutus/AboutSection0'
 import AboutSection1 from '@/components/aboutus/AboutSection1'
 import AboutSection2 from '@/components/aboutus/AboutSection2'
-import Section8 from '@/components/home/Section8'
+import Section6 from '@/components/home/Section6'
 import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     AboutSection0,
     AboutSection1,
     AboutSection2,
-    Section8
+    Section6
   },
   mounted () {
     console.log(this.$route)
@@ -33,7 +33,7 @@ export default {
       return 'min-height: ' + height + 'px; width: auto;'
     },
     content () {
-      const content = this.$store.getters['contentStore/getAboutUs']
+      const content = this.$store.getters['contentStore/getAbout']
       return content
     }
   }

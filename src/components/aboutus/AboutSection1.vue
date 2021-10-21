@@ -1,13 +1,9 @@
 <template>
-<section class="bg-lighter" v-if="content" id="about-section-1">
+<section class="bg-lighter" v-if="section1" id="about-section-1">
   <div class="d-flex justify-content-center">
     <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
-      <div class="my-auto text-center">
-        <div class="mb-auto px-5 d-flex align-items-center flex-column">
-          <h1 class="mb-4">{{content.s2title1[0].text}}</h1>
-          <!-- <h2 class="mb-4">{{content.s2title2[0].text}}</h2> -->
-          <prismic-rich-text class="main-content" :field="content.s2description"/>
-        </div>
+      <div class="mb-auto px-5 d-flex align-items-center flex-column">
+        <prismic-rich-text class="main-content" :field="section1.content"/>
       </div>
     </div>
   </div>
@@ -18,7 +14,7 @@
 import { SITE_CONSTANTS } from '@/site-constants'
 export default {
   name: 'AboutSection1',
-  props: ['viewportDimensions', 'content'],
+  props: ['viewportDimensions', 'section1'],
   data () {
     return {
     }
@@ -35,12 +31,12 @@ export default {
 </script>
 
 <style scoped>
-/*
-img {
-  width: 100%;
-  height: auto;
+.main-content {
+  max-width: 750px;
 }
-*/
+.main-content >>> h1 {
+  margin-bottom: 1.5rem;
+}
 .main-content >>> p {
   text-align: center;
   font-weight: 300;
@@ -50,13 +46,6 @@ img {
 }
 .bg-lighter {
   background-color: '#F5F5F5';
-}
-.blurb2 {
-  width: 100%;
-  text-align: center;
-  font-size: 26px;
-  font-weight: 200;
-  letter-spacing: 0px;
 }
 #about-section-1 {
   padding-top: 10rem;
