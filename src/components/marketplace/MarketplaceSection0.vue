@@ -2,7 +2,7 @@
 <section id="section0" v-if="section0.banner" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
   <div class="container my-auto pb-5 text-center">
     <prismic-rich-text class="main-content mt-5 mb-4" :field="section0.content"/>
-    <div><a href="https://ruma.risidio.com"><button class="">{{section0.button[0].text}}</button></a></div>
+    <!-- <div><a href="https://ruma.risidio.com"><button class="">{{section0.button[0].text}}</button></a></div> -->
   </div>
 </section>
 </template>

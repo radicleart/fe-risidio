@@ -9,7 +9,7 @@
       </b-row>
     </b-container>
     <div class="d-flex justify-content-center py-5">
-      <div><a href="https://ruma.risidio.com"><button class="mr-4">Try now!</button></a></div>
+      <!-- <div><a href="https://ruma.risidio.com"><button class="mr-4">Try now!</button></a></div> -->
       <div><a href="/marketplace"><button class="button1">Find out more</button></a></div>
     </div>
   </section>
