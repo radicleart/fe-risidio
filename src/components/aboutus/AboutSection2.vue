@@ -41,7 +41,23 @@ export default {
 </script>
 
 <style scoped>
+<<<<<<< Updated upstream
 .main-content >>> h1 {
+=======
+/*
+img {
+  width: 100%;
+  height: auto;
+}
+*/
+.who-we-are {
+  max-width: 1280px;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.content-wrap h1 {
+>>>>>>> Stashed changes
   white-space: nowrap;
   text-align: left;
   font-size: 12px;
