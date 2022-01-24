@@ -2,7 +2,6 @@
 <section id="section0" v-if="section0.banner" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
   <div class="container my-auto pb-5 text-center">
     <prismic-rich-text class="main-content mt-5 mb-4" :field="section0.content"/>
-    <div><button class="launching">Launching December 2021!</button></div>
   </div>
 </section>
 </template>

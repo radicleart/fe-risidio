@@ -4,7 +4,7 @@
       <div class="d-flex align-items-center flex-column">
         <prismic-rich-text class="main-content my-4 text-white" :field="section1.content"/>
         <div class="mb-4 d-flex justify-content-center">
-          <div class=""><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section1.link[0].text}}</span></button></div>
+          <div class=""><button><a href="/aboutus" class="call-button-text">{{section1.link[0].text}}</a></button></div>
         </div>
       </div>
     </div>

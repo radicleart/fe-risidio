@@ -2,7 +2,7 @@
 <div v-if="content" class="bg-white">
     <marketplace-section0 :viewportDimensions="sectionDimensions" :section0="content.section0[0]"/>
     <marketplace-section1 :viewportDimensions="sectionDimensions" :section1="content.section1[0]"/>
-    <marketplace-section2 :section2="content.section2[0]"/>
+    <!-- <marketplace-section2 :section2="content.section2[0]"/> -->
     <marketplace-section3 :viewportDimensions="sectionDimensions" :content="content"/>
     <section6 :viewportDimensions="sectionDimensions"/>
 </div>
