@@ -179,12 +179,15 @@ textarea{
   font-size: 12px;
   padding-left: 19px;
   padding-right: 19px;
+  resize: none;
 }
 input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
 textarea::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
 button {
   font-size: 13px;

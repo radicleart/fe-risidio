@@ -2,23 +2,25 @@
     <section :style="bannerImage" id="contactSection">
       <div class="mx-5 px-5 d-flex align-items-center flex-column" :style="viewportDimensions">
         <div class="my-auto text-center text-white">
-          <prismic-rich-text class="main-content my-4" :field="section6.content"/>
+          <div class="my-4"><h1 class="text-white">{{content.contact_title[0].text}}</h1></div>
+          <div class="mb-3"><h2 class="text-white">{{content.contact_subtitle[0].text}}</h2></div>
+          <div class="mb-4 blurb"><span>{{content.contact_description[0].text}}</span></div>
           <div class="m-5 d-sm-flex d-none justify-content-center">
-            <a title="Join us on Discord" class="mr-sm-4 mr-3" :href="section6.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
-            <a title="Send an email" class="mr-sm-4 mr-3" :href="'mailTo:' + section6.contact_email_address[0].text"><img :src="social.mail.dark" alt="Mail Icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
-            <a title="Join us on Instagram" class="mr-sm-4 mr-3" :href="section6.contact_instagram_link[0].text"><img :src="social.instagram.dark" alt="Instagram Icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a>
-            <!-- <a title="Watch us on YouTube" class="mr-sm-4 mr-3" :href="section6.contact_youtube_link[0].text"><img :src="social.youtube.dark" alt="Youtube Icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a> -->
-            <a title="Join us on LinkedIn" :href="section6.contact_linkedin_link[0].text"><img :src="social.linkedin.dark" alt="Youtube Icon" @mouseover="hoverOver(social.linkedin, $event)" @mouseout="hoverOut(social.linkedin, $event)" /></a>
+            <a title="Join us on Discord" class="mr-sm-4 mr-3" :href="content.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
+            <a title="Send an email" class="mr-sm-4 mr-3" :href="'mailTo:' + content.contact_email_address[0].text"><img :src="social.mail.dark" alt="Mail Icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
+            <a title="Join us on Instagram" class="mr-sm-4 mr-3" :href="content.contact_instagram_link[0].text"><img :src="social.instagram.dark" alt="Instagram Icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a>
+            <!-- <a title="Watch us on YouTube" class="mr-sm-4 mr-3" :href="content.contact_youtube_link[0].text"><img :src="social.youtube.dark" alt="Youtube Icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a> -->
+            <a title="Join us on LinkedIn" :href="content.contact_linkedin_link[0].text"><img :src="social.linkedin.dark" alt="Youtube Icon" @mouseover="hoverOver(social.linkedin, $event)" @mouseout="hoverOut(social.linkedin, $event)" /></a>
          </div>
           <div class="m-3 d-sm-none d-block justify-content-center">
             <div class="d-flex justify-content-center">
-              <a title="Join us on Discord" class="mr-sm-4 mr-3" :href="section6.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
-              <a title="Send an email" class="mr-sm-4 mr-3" :href="'mailTo:' + section6.contact_email_address[0].text"><img :src="social.mail.dark" alt="Mail Icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
-              <a title="Join us on Instagram" :href="section6.contact_instagram_link[0].text"><img :src="social.instagram.dark" alt="Instagram Icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a>
+              <a title="Join us on Discord" class="mr-sm-4 mr-3" :href="content.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
+              <a title="Send an email" class="mr-sm-4 mr-3" :href="'mailTo:' + content.contact_email_address[0].text"><img :src="social.mail.dark" alt="Mail Icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
+              <a title="Join us on Instagram" :href="content.contact_instagram_link[0].text"><img :src="social.instagram.dark" alt="Instagram Icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a>
             </div>
             <div class="mt-2 d-flex justify-content-center">
-              <!-- <a title="Watch us on YouTube" class="mr-sm-4 mr-3" :href="section6.contact_youtube_link[0].text"><img :src="social.youtube.dark" alt="Youtube Icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a> -->
-              <a title="Join us on LinkedIn" :href="section6.contact_linkedin_link[0].text"><img :src="social.linkedin.dark" alt="Youtube Icon" @mouseover="hoverOver(social.linkedin, $event)" @mouseout="hoverOut(social.linkedin, $event)" /></a>
+              <!-- <a title="Watch us on YouTube" class="mr-sm-4 mr-3" :href="content.contact_youtube_link[0].text"><img :src="social.youtube.dark" alt="Youtube Icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a> -->
+              <a title="Join us on LinkedIn" :href="content.contact_linkedin_link[0].text"><img :src="social.linkedin.dark" alt="Youtube Icon" @mouseover="hoverOver(social.linkedin, $event)" @mouseout="hoverOut(social.linkedin, $event)" /></a>
             </div>
           </div>
         </div>
@@ -30,7 +32,7 @@
 import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
-  name: 'Section6',
+  name: 'Section8',
   components: {
   },
   props: ['viewportDimensions'],
@@ -70,12 +72,16 @@ export default {
     }
   },
   computed: {
-    section6 () {
+    content () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.contact_section[0]
+      return content
     },
     bannerImage () {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      const content = this.$store.getters['contentStore/getPage']('products')
+      if (!content) {
+        return
+      }
       if (this.$route.name === 'home') {
         return {
           padding: '40px 0 0 0',
@@ -117,15 +123,8 @@ img {
   width: 78px;
   height: 78px;
 }
-.main-content >>> h1 {
-  margin-bottom: 1.5rem;
-}
-.main-content >>> h2 {
-  margin-bottom: 1rem;
-}
-.main-content >>> p {
+.blurb {
   width: 256px;
-  text-align: center;
   margin: 0 auto;
 }
 
