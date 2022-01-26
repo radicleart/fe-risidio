@@ -5,12 +5,11 @@
       <b-row align-h="center">
         <b-col md="8" sm="10" align-self="center">
           <prismic-rich-text class="main-content" :field="section2.content"/>
-           <!-- <svg class="svg" src="https://risidio-journal.cdn.prismic.io/risidio-journal/ae6644d6-0cfc-403d-aab8-a7252e5cc8b6_Group+17126.svg" width="100%" height="1100"></svg>-->
         </b-col>
       </b-row>
     </b-container>
     <div class="d-flex justify-content-center py-5">
-      <div><a href="https://ruma.risidio.com"><button class="mr-4">Try now!</button></a></div>
+      <!-- <div><a href="https://ruma.risidio.com"><button class="mr-4">Try now!</button></a></div> -->
       <div><a href="/marketplace"><button class="button1">Find out more</button></a></div>
     </div>
   </section>

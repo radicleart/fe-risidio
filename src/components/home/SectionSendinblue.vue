@@ -84,6 +84,7 @@ export default {
 <style scoped>
 .sib-form {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  max-width: 1100px;
 }
 input {
   border-radius: 17px;
@@ -93,6 +94,7 @@ input {
 }
 input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
 .sib-form input.input {
   padding: 0 19px;

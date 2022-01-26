@@ -1,5 +1,4 @@
 # Risidio Website
-
 ## Project setup
 ```
 npm install

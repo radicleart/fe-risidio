@@ -4,7 +4,7 @@
     <section2 :viewportDimensions="sectionDimensions"/>
     <prod-section11 :viewportDimensions="sectionDimensions" :content="content" :bgClass="'bg-white'"/>
     <prod-section12 :viewportDimensions="sectionDimensions" :content="content"/>
-    <section8 :viewportDimensions="sectionDimensions"/>
+    <section6 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
 
@@ -14,7 +14,7 @@ import ProdSection10 from '@/components/products/Section10'
 import ProdSection11 from '@/components/products/Section11'
 import ProdSection12 from '@/components/products/Section12'
 import Section2 from '@/components/home/Section2'
-import Section8 from '@/components/home/Section8'
+import Section6 from '@/components/home/Section6'
 
 export default {
   name: 'Products',
@@ -25,7 +25,7 @@ export default {
   },
   components: {
     Section2,
-    Section8,
+    Section6,
     ProdSection10,
     ProdSection11,
     ProdSection12

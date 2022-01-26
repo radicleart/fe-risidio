@@ -100,6 +100,10 @@ export default {
   font-size: 12px;font-weight: 700; padding: 5px 0 0 0; margin: 0;
 }
 
+.footer-container a {
+    color: white!important;
+}
+
 .footer-logo {
   width: 255px;
   height: 100px;

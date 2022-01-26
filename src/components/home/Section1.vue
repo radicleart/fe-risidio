@@ -1,18 +1,14 @@
-  <template>
-<section id="section0">
-  <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="d-flex align-items-center flex-column">
-      <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
-      <div class="mb-4"><h2 class="text-white text-center h2-on-mobile">{{section.subtitle[0].text}}</h2></div>
-      <div class="mb-4 blurb1 text-white"  v-for="(item, index) of section.description" :key="index">
-        <p class="text-center">{{item.text}}</p>
-      </div>
-      <div class="mb-4 d-flex justify-content-center">
-        <div class=""><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
+<template>
+  <section id="section1">
+    <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
+      <div class="d-flex align-items-center flex-column">
+        <prismic-rich-text class="main-content my-4 text-white" :field="section1.content"/>
+        <div class="mb-4 d-flex justify-content-center">
+          <div class=""><button><a href="/aboutus" class="call-button-text">{{section1.link[0].text}}</a></button></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 
 <script>
@@ -24,9 +20,9 @@ export default {
     }
   },
   computed: {
-    section () {
+    section1 () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.section0[0]
+      return content.section1[0]
     }
   }
 }
@@ -39,14 +35,24 @@ img {
   height: auto;
 }
 */
-.blurb1 {
+.main-content {
   width: 70%;
-  font-size: 14px;
+  text-align: center;
 }
 @media only screen and (min-width: 767px) {
-  .blurb1 {
+  .main-content {
     width: 50%;
   }
+}
+
+.main-content >>> h1 {
+  margin-bottom: 1.5rem;
+}
+.main-content >>> h2 {
+  margin-bottom: 1.5rem;
+}
+.main-content >>> p {
+  text-align: center;
 }
 
 button {
@@ -84,29 +90,7 @@ button:hover .call-button-text {
   color: #5FBDC1;
 }
 
-/* Video */
-.video-container {
-  width: 50%;
-}
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-@media only screen and (max-width: 768px) {
-  .video-container {
-    width: 75%;
-  }
-}
-
 @media only screen and (min-width:769px) {
-  p { font-size: 20px; }
+  .main-content >>> p { font-size: 20px; }
 }
 </style>
