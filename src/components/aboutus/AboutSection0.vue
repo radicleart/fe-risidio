@@ -14,7 +14,6 @@
     </div>
     <div class="w-75 text-center section0-image-container">
         <img width="100%" :src="section0.image.url" :alt="section0.image.alt">
-        <!-- testing -->
     </div>
   </div>
 </section>
