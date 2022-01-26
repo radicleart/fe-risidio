@@ -8,13 +8,12 @@
   </div>
   <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
     <div class="my-auto">
-      <div class="my-5">
+      <div class="my-5 second-half-text">
         <prismic-rich-text class="main-content my-4" :field="section0.content"/>
       </div>
     </div>
     <div class="w-75 text-center section0-image-container">
         <img width="100%" :src="section0.image.url" :alt="section0.image.alt">
-        <!-- testing -->
     </div>
   </div>
 </section>
@@ -81,7 +80,7 @@ export default {
  margin-bottom: 1.5rem;
 }
 .main-content >>> p {
-  width: 50%;
+  max-width: 750px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;

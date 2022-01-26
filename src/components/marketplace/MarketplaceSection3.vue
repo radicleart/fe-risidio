@@ -1,6 +1,6 @@
 <template>
-<section class="bg-lighter" v-if="content" :style="viewportDimensions">
-  <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
+<section class="bg-lighter our-services" v-if="content">
+  <div class="d-flex align-items-center flex-column">
     <div class="my-auto text-center">
       <div class="main-heading"><h1 class="text-black">{{content.section3_title[0].text}}</h1></div>
       <div class="row content-container">
@@ -53,6 +53,9 @@ export default {
 .content-container {
   max-width: 1350px;
   margin: 0 1.5rem;
+}
+.our-services {
+  padding: 2.5rem 0;
 }
 .whatsit {
   width: 72px;

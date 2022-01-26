@@ -1,6 +1,6 @@
 <template>
 <section class="bg-white" v-if="content">
-  <div class="d-flex align-items-center flex-column py-5 who-we-are" :style="viewportDimensions">
+  <div class="d-flex align-items-center flex-column who-we-are">
     <div class="my-auto">
       <h1 class="mb-3 text-center">{{content.section2_title[0].text}}</h1>
       <h2 class="mb-5 text-center">{{content.section2_subtitle[0].text}}</h2>
@@ -59,10 +59,11 @@ export default {
   color: #000000;
 }
 .who-we-are {
-  max-width: 1250px;
+  max-width: 1300px;
   display: flex;
   justify-content: space-evenly;
-  margin: auto;
+  margin: 0 auto;
+  padding: 7rem 0;
 }
 
 img {
