@@ -1,5 +1,5 @@
 <template>
-<section class="d-flex justify-content-center bg-white py-5" v-if="section1" :style="viewportDimensions" id="product-section-1">
+<section class="d-flex justify-content-center bg-white discover-market" v-if="section1" id="product-section-1">
   <div class="d-flex justify-content-center flex-column">
     <div class="container">
       <div class="row">
@@ -35,6 +35,10 @@ export default {
 img {
   width: 310px;
   margin-right: 40px;
+}
+
+.discover-market {
+  padding: 6.5rem 0;
 }
 
 .main-content >>> h1 {
