@@ -3,6 +3,7 @@
     <section0 :viewportDimensions="sectionDimensions"/>
     <section1 :viewportDimensions="sectionDimensions" />
     <section2 :viewportDimensions="sectionDimensions" />
+    <section25 :viewportDimensions="sectionDimensions" />
     <section3 :viewportDimensions="sectionDimensions"/>
     <section4 :viewportDimensions="sectionDimensions" />
     <section5 :viewportDimensions="sectionDimensions" />
