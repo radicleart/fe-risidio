@@ -1,5 +1,5 @@
 <template>
-<section class="bg-white" v-if="content">
+<section class="bg-lighter" v-if="content">
   <div class="d-flex align-items-center flex-column py-5" :style="viewportDimensions">
     <div class="my-auto">
       <h1 class="mb-3 text-center blurb2">{{content.s3title1[0].text}}</h1>
