@@ -1,27 +1,47 @@
 <template>
-<section class="bg-lighter" v-if="content" id="crs-section-1">
-  <div class="d-flex justify-content-center">
-    <div class="d-flex align-items-center flex-column my-5">
-      <div class="my-auto text-center">
-        <div class="mb-auto d-flex align-items-center flex-column">
-          <h1 class="mb-4">{{content.s2title1[0].text}}</h1>
-          <h2 class="mb-4">{{content.s2title2[0].text}}</h2>
-          <p class="mx-auto" v-html="content.s2description[0].text"></p>
-          <ul>
-            <li v-html="content.s2description[1].text"></li>
-            <li v-html="content.s2description[2].text"></li>
-          </ul>
-          <img :src="content.s2image.url" :alt="content.s2image.alt">
-        </div>
+    <section class="bg-lighter">
+        <div class="header-title">
+          <div>
+          <h1> We Care</h1>
+          </div>
+            <div> <h2 > Our Focuses</h2>
+            </div>
+            </div>
+            <div class="sustainability">
+    <div>
+        <div>
+            <div class="csrinfo">
+             <img src="../../assets/img/service.png" alt="placeholder" class="image"/>
+                <p class="title"> Environment</p>
+                <p class="text">We aim to tackle issues of digital and ecological pollution alongside our habitat and carbon sink regeneration work, with the overall aim to reduce Earth’s carbon footprint.</p>
+            </div>
+          </div>
       </div>
-    </div>
-  </div>
-</section>
+    <div>
+          <div>
+            <div class="csrinfo">
+             <img src="../../assets/img/services1.png" alt="placeholder" class="image"/>
+                <p class="title"> Biodiversity</p>
+                <p class="text">Restore biodiversity and conserve natural habitats. The work we carry out as part of our Sustainable UK Agriculture initiative will foster.</p>
+            </div>
+          </div>
+      </div>
+      <div>
+          <div>
+            <div class="csrinfo">
+             <img src="../../assets/img/services2.png" alt="placeholder" class="image"/>
+                <p class="title"> Socioeconomy</p>
+                <p class="text">Socioeconomic inclusion by giving opportunities to creative actors and end-users to utilise a decentralised way of working and its advantages. New initiatives (mention indigenous projects).</p>
+            </div>
+          </div>
+      </div>
+      </div>
+    </section>
 </template>
 
 <script>
 export default {
-  name: 'CSRSection1',
+  name: 'AboutSection3',
   props: ['viewportDimensions', 'content'],
   data () {
     return {
@@ -33,42 +53,73 @@ export default {
   }
 }
 </script>
-
 <style scoped>
+/*
 img {
-  max-width: 75%;
-  max-height: 500px;
-  margin: 1rem 0 2rem 0;
+  width: 100%;
+  height: auto;
 }
-p {
-  text-align: center;
-  font-weight: 300;
-  font-size: 15px;
-  color: #000000;
-  width: 50%;
+*/
+.bg-lighter{
+    min-height: 800px;
+    padding: 10rem 1rem;
+    text-align: center;
 }
-ul {
-  width: 50%;
-}
-li {
-  text-align: left;
-  font-weight: 300;
-  font-size: 15px;
-  color: #000000;
-  margin-bottom: 10px;
-}
-.bg-lighter {
-  background-color: '#F5F5F5';
-}
-@media only screen and (max-width: 768px) {
-  h2 {
-    width: 75%;
+
+.sustainability{
+   max-width: 1500px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: -20px;
   }
-  p {
-    width: 90%;
+  .csrinfo{
+    position: relative;
+    flex: 0 1 300px;
+    padding: 35px 20px;
+    text-align: center;
+    margin-top: 150px;
+    }
+    .csrinfo p{
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .image{
+    position: absolute;
+    top: 10px;
+    right: 0; left: 0;
+    margin: auto;
+    width: 72px;
+    height: 72px;
   }
-  ul {
-    width: 90%;
+  .title{
+    font-size: 35px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 90px;
   }
-}
-</style>
+  .text{
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+  }
+  .header-title{
+      text-align: center;
+      margin-top: -40px;
+      gap: 20px;
+
+    }
+  .header-title h1{
+      font-weight:600;
+      font-size: 20px;
+      }
+  .header-title h2{
+      font-weight: 200;
+      font-size: 36px;
+      margin-top: 40px;
+      }
+      </style>

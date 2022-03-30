@@ -16,7 +16,7 @@
     <div>
           <div>
             <div class="aboutinfo">
-             <img src="../../assets/img/service.png" alt="placeholder" class="image"/>
+             <img src="../../assets/img/services1.png" alt="placeholder" class="image"/>
                 <p class="title"> Development</p>
                 <p class="text">Our product development team are constantly on the lookout for new integrations and directions for our core offerings. We build modular web components and micro-services from the ground up.</p>
             </div>
@@ -25,7 +25,7 @@
       <div>
           <div>
             <div class="aboutinfo">
-             <img src="../../assets/img/service.png" alt="placeholder" class="image"/>
+             <img src="../../assets/img/services2.png" alt="placeholder" class="image"/>
                 <p class="title"> Marketing</p>
                 <p class="text">While blockchain opens the door to entirely new business cases it can also be a complex and daunting space. We can help sort the wheat from the chaff and navigate problems like scalability that will underpin the success of your endeavours with blockchain technology.</p>
             </div>

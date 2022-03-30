@@ -139,12 +139,21 @@ h4 {
 .text-center{
   margin-top: 50px;
   }
+@media only screen and (max-width: 1499px) {
+  .image{
+    margin-right: 650px;
+  }
+}
 @media only screen and (max-width: 900px) {
   .section0-image-container {
     margin: 0 auto -7rem;
   }
   .blurb {
     font-size: 1.2em;
+  }
+  .image{
+    margin-left: 300px;
+    margin-right: 300px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -159,12 +168,12 @@ h4 {
 }
 @media only screen and (max-width:768px) {
   .second-half p {
-    width: 75%;
+    width: 50%;
   }
   .second-half h2 {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
   }
-}
+  }
 </style>
