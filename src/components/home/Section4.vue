@@ -33,7 +33,6 @@ export default {
   },
   methods: {
   },
-  
   computed: {
     group () {
       const content = this.$store.getters['contentStore/getHomepage']
@@ -57,7 +56,6 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 .touch-button {
   width: 224px;
   height: 43px;
@@ -68,9 +66,9 @@ export default {
 .touch-button span{
   color: rgba(95, 189, 193, 1);
   font-weight: 700;
-  font: normal normal bold 11px/14px Montserrat; 
+  font: normal normal bold 11px/14px Montserrat;
 }
-.mobile-col__img {
+.mobile-col__img{
   display: flex;
   justify-content: flex-end;
 }

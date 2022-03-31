@@ -81,19 +81,19 @@ export default {
   data () {
     return {
       slide: [
-      {
-        id: '1',
-        text: 'Upload Your Item'
-      },
-      {
-        id: '2',
-        text: 'Mint the Bitcoin'
-      },
-      {
-        id: '3',
-        text: 'Mint the Bitcoin'
-      }
-    ],
+        {
+          id: '1',
+          text: 'Upload Your Item'
+        },
+        {
+          id: '2',
+          text: 'Mint the Bitcoin'
+        },
+        {
+          id: '3',
+          text: 'Mint the Bitcoin'
+        }
+      ]
     }
   },
   computed: {

@@ -51,8 +51,8 @@ img {
   height: auto;
 }
 */
-.i.innovate{  
-  color: #FDA800 ;
+.i.innovate{
+  color: #FDA800;
 }
 .i.involve {
   color: #5FBDC1;
@@ -62,7 +62,7 @@ img {
 }
 .i:before {
   content: "ı";
-  position: absolute; 
+  position: absolute;
   color: #383838;
 }
 .slogan{
@@ -101,7 +101,6 @@ img {
   letter-spacing: 0px;
   color: #FFFFFF;
 }
-
 
 @media only screen
   and (min-device-width: 1024px)
