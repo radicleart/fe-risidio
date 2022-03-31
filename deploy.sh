@@ -4,9 +4,9 @@ set -e;
 export DEPLOYMENT=$1
 PATH_DEPLOY=../radsoc/volumes/www/production/risidio
 mkdir -p $PATH_DEPLOY
-export SERVER=locke.brightblock.org
+export SERVER=zeno.brightblock.org
 if [ "$DEPLOYMENT" == "prod" ]; then
-  SERVER=chomsky.brightblock.org;
+  SERVER=hume.brightblock.org;
 fi
 
 printf "\n-----------------------------------------------------------------------------------------------------\n";

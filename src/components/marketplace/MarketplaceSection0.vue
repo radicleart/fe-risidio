@@ -1,5 +1,5 @@
 <template>
-<section id="section0" v-if="section0.banner" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
+<section id="section0" v-if="content.banner" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
   <div class="container my-auto pb-5 text-center">
     <h1 class="mt-5">Our Work</h1>
     <p class="para">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
@@ -16,7 +16,7 @@ import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
   name: 'MarketplaceSection0',
-  props: ['viewportDimensions', 'section0'],
+  props: ['viewportDimensions', 'content'],
   data () {
     return {
       image: 'https://res.cloudinary.com/risidio/image/upload/v1648721676/Risidio.com/bannerimage_imauhu.png'
@@ -43,10 +43,10 @@ export default {
 </script>
 
 <style scoped>
-.main-content >>> h1 {
+h1 {
   margin-bottom: 1rem;
 }
-.main-content >>> h2 {
+h2 {
   margin-bottom: 2rem;
 }
 .main-content >>> p {

@@ -67,6 +67,16 @@ export default {
         this.$store.commit('contentStore/addHomeContent', document.data)
       }
     })
+    this.$prismic.client.getSingle('recruitment').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addRecruitmentContent', document.data)
+      }
+    })
+    this.$prismic.client.getSingle('proposal').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addProposalContent', document.data)
+      }
+    })
     this.$prismic.client.getSingle('aboutus').then(document => {
       if (document) {
         this.$store.commit('contentStore/addAboutUsContent', document.data)
@@ -77,14 +87,26 @@ export default {
         this.$store.commit('contentStore/addCSRContent', document.data)
       }
     })
-    this.$prismic.client.getSingle('marketplace').then(document => {
+    this.$prismic.client.getSingle('contact').then(document => {
       if (document) {
-        this.$store.commit('contentStore/addMarketplace', document.data)
+        this.$store.commit('contentStore/addContact', document.data)
       }
     })
-    this.$prismic.client.getSingle('join_us').then(document => {
+    this.$prismic.client.getSingle('navigation').then(document => {
       if (document) {
-        this.$store.commit('contentStore/addJoinUs', document.data)
+        this.$store.commit('contentStore/addNavigationContent', document.data)
+        this.$prismic.client.query(
+          this.$prismic.Predicates.at('document.type', 'page'),
+          { pageSize: 20, page: 1 }
+        ).then((response) => {
+          this.$store.commit('contentStore/addPages', response.results)
+        })
+        this.$prismic.client.query(
+          this.$prismic.Predicates.at('document.type', 'product'),
+          { pageSize: 20, page: 1 }
+        ).then((response) => {
+          this.$store.commit('contentStore/addProducts', response.results)
+        })
       }
     })
   },

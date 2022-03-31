@@ -66,7 +66,7 @@
 <script>
 export default {
   name: 'MarketplaceSection1',
-  props: ['viewportDimensions', 'section1'],
+  props: ['viewportDimensions', 'content'],
   data () {
     return {
     }

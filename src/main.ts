@@ -33,7 +33,7 @@ Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(PrismicVue, {
-  endpoint: 'https://risidiocorp.prismic.io/api/v2',
+  endpoint: 'https://risidio-journal.prismic.io/api/v2',
   linkResolver,
   htmlSerializer
 })
