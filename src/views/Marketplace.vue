@@ -21,9 +21,8 @@
 import { SITE_CONSTANTS } from '@/site-constants'
 import MarketplaceSection0 from '@/components/marketplace/MarketplaceSection0'
 import MarketplaceSection1 from '@/components/marketplace/MarketplaceSection1'
-// import MarketplaceSection2 from '@/components/marketplace/MarketplaceSection2'
-import MarketplaceSection3 from '@/components/marketplace/MarketplaceSection3'
-import Section6 from '@/components/home/Section6'
+import MarketplaceSection2 from '@/components/marketplace/MarketplaceSection2'
+import Section8 from '@/components/home/Section8'
 export default {
   name: 'Marketplace',
   data () {
@@ -32,9 +31,12 @@ export default {
   components: {
     MarketplaceSection0,
     MarketplaceSection1,
-    // MarketplaceSection2,
-    MarketplaceSection3,
-    Section6
+    MarketplaceSection2,
+    Section8
+  },
+  watch: {
+  },
+  methods: {
   },
   watch: {},
   methods: {},

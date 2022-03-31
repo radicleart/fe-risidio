@@ -8,13 +8,23 @@
   </div>
   <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
     <div class="my-auto">
-      <div class="my-5 second-half-text">
-        <prismic-rich-text class="main-content my-4" :field="section0.content"/>
+      <div class="my-5">
+        <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
+        <img src="../../assets/img/ourvision.png" alt="placeholder" class="image"/>
+        <div class="mb-4"><h4 class="text-center">{{content.s1title2[0].text}}</h4></div>
+        <div class="mx-auto my-4 w-100 text-center">
+          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description[0].text}}</p>
+        </div>
+         <img src="../../assets/img/ourvision.png" alt="placeholder" class="image"/>
+        <div class="mb-4"><h4 class="text-center">{{content.s1title3[0].text}}</h4></div>
+        <div class="mx-auto my-4 w-100 text-center">
+          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description2[0].text}}</p>
+        </div>
       </div>
     </div>
-    <div class="w-75 text-center section0-image-container">
-        <img width="100%" :src="section0.image.url" :alt="section0.image.alt">
-    </div>
+  <!--  <div class="w-75 text-center section0-image-container">
+        <img width="100%" :src="content.s1image.url" :alt="content.s1image.alt">
+    </div>-->
   </div>
 </section>
 </template>
@@ -76,14 +86,12 @@ export default {
 </script>
 
 <style scoped>
-.main-content >>> p, .main-content >>> h1, .main-content >>> h4 {
- margin-bottom: 1.5rem;
+.second-half{
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
-.main-content >>> p {
-  max-width: 750px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+.second-half p {
+  width: 50%;
 }
 .first-half-h1 {
   margin-top: 4rem;
@@ -102,12 +110,30 @@ export default {
 .section0-image-container {
   margin: 0 auto -10rem;
 }
+.image{
+  width: 235px;
+  height: 198px;
+  margin-left: 650px;
+  margin-top:80px
+}
+.text-center{
+  margin-top: 50px;
+  }
+@media only screen and (max-width: 1499px) {
+  .image{
+    margin-right: 650px;
+  }
+}
 @media only screen and (max-width: 900px) {
   .section0-image-container {
     margin: 0 auto -7rem;
   }
   .blurb {
     font-size: 1.2em;
+  }
+  .image{
+    margin-left: 300px;
+    margin-right: 300px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -121,13 +147,13 @@ export default {
   }
 }
 @media only screen and (max-width:768px) {
-  .main-content >>> p {
-    width: 75%;
+  .second-half p {
+    width: 50%;
   }
   .main-content >>> h2 {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
   }
-}
+  }
 </style>

@@ -1,40 +1,39 @@
 <template>
     <section class="bg-lighter">
         <div class="header-title">
-          <div>
-          <h1> We Care</h1>
-          </div>
-            <div> <h2 > Our Focuses</h2>
+             <h2 > Discover Our Services</h2>
             </div>
-            </div>
-            <div class="sustainability">
+            <div class="about">
     <div>
         <div>
-            <div class="csrinfo">
+            <div class="aboutinfo">
              <img src="../../assets/img/service.png" alt="placeholder" class="image"/>
-                <p class="title"> Environment</p>
-                <p class="text">We aim to tackle issues of digital and ecological pollution alongside our habitat and carbon sink regeneration work, with the overall aim to reduce Earth’s carbon footprint.</p>
+                <p class="title"> Design</p>
+                <p class="text">We have the network, skills and experience to grow a team from zero to production ready. Whether you need secondary or primary research to support a blockchain business plan or you’re ready for a full blown dev team we can help.</p>
             </div>
           </div>
       </div>
     <div>
           <div>
-            <div class="csrinfo">
+            <div class="aboutinfo">
              <img src="../../assets/img/services1.png" alt="placeholder" class="image"/>
-                <p class="title"> Biodiversity</p>
-                <p class="text">Restore biodiversity and conserve natural habitats. The work we carry out as part of our Sustainable UK Agriculture initiative will foster.</p>
+                <p class="title"> Development</p>
+                <p class="text">Our product development team are constantly on the lookout for new integrations and directions for our core offerings. We build modular web components and micro-services from the ground up.</p>
             </div>
           </div>
       </div>
       <div>
           <div>
-            <div class="csrinfo">
+            <div class="aboutinfo">
              <img src="../../assets/img/services2.png" alt="placeholder" class="image"/>
-                <p class="title"> Socioeconomy</p>
-                <p class="text">Socioeconomic inclusion by giving opportunities to creative actors and end-users to utilise a decentralised way of working and its advantages. New initiatives (mention indigenous projects).</p>
+                <p class="title"> Marketing</p>
+                <p class="text">While blockchain opens the door to entirely new business cases it can also be a complex and daunting space. We can help sort the wheat from the chaff and navigate problems like scalability that will underpin the success of your endeavours with blockchain technology.</p>
             </div>
           </div>
       </div>
+      </div>
+      <div>
+          <button class="button">Interested ? Get In Touch</button>
       </div>
     </section>
 </template>
@@ -66,7 +65,7 @@ img {
     text-align: center;
 }
 
-.sustainability{
+.about{
    max-width: 1500px;
     margin: auto;
     display: flex;
@@ -74,16 +73,15 @@ img {
     gap: 20px;
     justify-content: space-evenly;
     flex-direction: row;
-    margin-top: -20px;
   }
-  .csrinfo{
+  .aboutinfo{
     position: relative;
     flex: 0 1 300px;
     padding: 35px 20px;
     text-align: center;
     margin-top: 150px;
     }
-    .csrinfo p{
+    .aboutinfo p{
       max-width: 350px;
       margin-left: auto;
       margin-right: auto;
@@ -109,17 +107,20 @@ img {
   }
   .header-title{
       text-align: center;
-      margin-top: -40px;
-      gap: 20px;
-
+      font-weight:1000;
+      font-size: 30px;
     }
-  .header-title h1{
-      font-weight:600;
-      font-size: 20px;
-      }
   .header-title h2{
-      font-weight: 200;
-      font-size: 36px;
-      margin-top: 40px;
+      font-weight:600;
+      font-size: 30px;
       }
-      </style>
+  .button{
+     width: 224px;
+     height: 43px;
+     background: #5FBDC1 0% 0% no-repeat padding-box;
+     border-radius: 22px;
+     opacity: 0.35;
+     color:black;
+     font-size: 14px;
+     }
+  </style>

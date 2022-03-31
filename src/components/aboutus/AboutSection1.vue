@@ -1,5 +1,5 @@
 <template>
-<section class="bg-lighter" v-if="section1" id="about-section-1">
+<section class="bg-white" v-if="content" id="about-section-1">
   <div class="d-flex justify-content-center">
     <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
       <div class="mb-auto px-5 d-flex align-items-center flex-column">
@@ -48,7 +48,8 @@ export default {
   background-color: '#F5F5F5';
 }
 #about-section-1 {
-  padding-top: 10rem;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 @media only screen and (max-width: 900px) {
   #about-section-1 {

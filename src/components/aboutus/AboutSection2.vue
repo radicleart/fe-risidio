@@ -1,5 +1,5 @@
 <template>
-<section class="bg-white" v-if="content">
+<section class="bg-lighter" v-if="content">
   <div class="d-flex align-items-center flex-column who-we-are">
     <div class="my-auto">
       <h1 class="mb-3 text-center">{{content.section2_title[0].text}}</h1>
