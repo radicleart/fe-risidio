@@ -1,9 +1,19 @@
 <template>
-<section id="section0" v-if="section0.banner">
+<section id="section0" v-if="content.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center w-75">
-      <div class="mb-4 first-half-h1"><h1 class="text-white">{{section0.title[0].text}}</h1></div>
-      <div><p class="mb-4 text-center blurb text-white mx-auto w-100">{{section0.tagline[0].text}}</p></div>
+      <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.title[0].text}}</h1></div>
+      <div class="">
+        <p class="mb-4 text-center blurb text-white mx-auto w-100">
+        <span v-html="content.description1[0].text"></span><br><span v-html="content.description1_5[0].text"></span>
+        </p>
+        <h4 class="text-center text-white" v-html="content.description2[0].text"></h4>
+      </div>
+      <!--
+      <div v-scroll-to="{ element: '#section0-second-half', duration: 1000 }" class="icon-down">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      -->
     </div>
   </div>
   <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
@@ -34,7 +44,7 @@ import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
   name: 'AboutSection0',
-  props: ['viewportDimensions', 'section0'],
+  props: ['viewportDimensions', 'content'],
   data () {
     return {
     }
@@ -58,6 +68,13 @@ export default {
     }
   },
   computed: {
+    hasDemoLink () {
+      const productId = this.$route.params.productId
+      if (productId === 'r-pay' || productId === 'r-stack' || productId === 'loopbomb' || productId === 'nongibles') {
+        return true
+      }
+      return false
+    },
     bannerImage () {
       const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
       return {
@@ -67,7 +84,7 @@ export default {
         position: 'relative',
         top: '0px',
         'background-repeat': 'no-repeat',
-        'background-image': `url(${this.section0.banner.url})`,
+        'background-image': `url(${this.content.banner.url})`,
         'background-position': 'center center',
         '-webkit-background-size': 'cover',
         '-moz-background-size': 'cover',
@@ -96,7 +113,7 @@ export default {
 .first-half-h1 {
   margin-top: 4rem;
 }
-.main-content >>> h4 {
+h4 {
   font-weight: 500;
   font-size: 17px;
 }
@@ -106,6 +123,9 @@ export default {
   font-size: 1.4em;
   letter-spacing: 0px;
   color: #FFFFFF;
+}
+.icon-down {
+  margin: 25px auto;
 }
 .section0-image-container {
   margin: 0 auto -10rem;
@@ -150,7 +170,7 @@ export default {
   .second-half p {
     width: 50%;
   }
-  .main-content >>> h2 {
+  .second-half h2 {
     width: 75%;
     margin-left: auto;
     margin-right: auto;

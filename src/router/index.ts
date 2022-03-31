@@ -53,7 +53,7 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/CSR',
+    path: '/sustainability',
     name: 'CSR',
     components: { default: CSR, header: MainNavbar, footer: MainFooter },
     meta: {
@@ -89,7 +89,7 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/marketplace',
+    path: '/our-work',
     name: 'marketplace',
     components: { default: Marketplace, header: MainNavbar, footer: MainFooter },
     meta: {

@@ -60,7 +60,7 @@ export default {
   margin-bottom: 1.5rem;
 }
 .main-content >>> p {
-  width: 50%;
+  /* width: 50%; */
   margin: 0 auto 1.5rem;
   text-align: center;
 }

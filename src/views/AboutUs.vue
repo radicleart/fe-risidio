@@ -1,11 +1,9 @@
 <template>
 <div v-if="content">
-    <about-section0 :viewportDimensions="sectionDimensions" :section0="content.section0[0]"/>
-    <about-section1 :viewportDimensions="sectionDimensions" :section1="content.section1[0]"/>
+    <about-section0 :viewportDimensions="sectionDimensions" :content="content"/>
     <about-section2 :viewportDimensions="sectionDimensions" :content="content"/>
     <about-section1 :viewportDimensions="sectionDimensions" :content="content"/>
     <about-section3 :viewportDimensions="sectionDimensions" :content="content"/>
-    <!-- <section6 :viewportDimensions="sectionDimensions"/> -->
     <section8 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
@@ -27,6 +25,7 @@ export default {
     AboutSection2,
     AboutSection1,
     AboutSection3,
+
     Section8
   },
   mounted () {
@@ -38,7 +37,7 @@ export default {
       return 'min-height: ' + height + 'px; width: auto;'
     },
     content () {
-      const content = this.$store.getters['contentStore/getAbout']
+      const content = this.$store.getters['contentStore/getAboutUs']
       return content
     }
   }

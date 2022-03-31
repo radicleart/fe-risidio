@@ -10,9 +10,9 @@
         <b-nav-item><router-link class="text-white" to="/education">Education</router-link></b-nav-item>
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
+        <b-nav-item to="/our-work" class="nav-text marketplace-link">Our Work</b-nav-item>
         <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
-        <b-nav-item to="/marketplace" class="nav-text marketplace-link">Marketplace</b-nav-item>
-        <b-nav-item to="/CSR" class="nav-text csr-link">Sustainability</b-nav-item>
+        <b-nav-item to="/sustainability" class="nav-text csr-link">Sustainability</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">

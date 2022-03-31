@@ -1,19 +1,21 @@
 <template>
 <section class="bg-lighter" v-if="content">
-  <div class="d-flex align-items-center flex-column who-we-are">
+  <div class="d-flex align-items-center flex-column py-5" :style="viewportDimensions">
     <div class="my-auto">
-      <h1 class="mb-3 text-center">{{content.section2_title[0].text}}</h1>
-      <h2 class="mb-5 text-center">{{content.section2_subtitle[0].text}}</h2>
+      <h1 class="mb-3 text-center blurb2">{{content.s3title1[0].text}}</h1>
+      <h2 class="mb-5 text-center blurb2">{{content.s3title2[0].text}}</h2>
       <div class="d-flex justify-content-start">
       <div class="mx-5 mt-5">
         <div class="row">
-          <div v-for="(item, index) of content.section2" :key="index" class="col-lg-4 col-md-12">
-            <div class="d-flex justify-content-start mobile-margin">
+          <div v-for="(item, index) of content.group1" :key="index" class="col-lg-4 col-md-12">
+            <div class="d-flex justify-content-start mobile-margin content-wrap">
               <div class="">
-                <img :src="item.icon.url" :alt="item.icon.alt"/>
+                <img :src="item.image.url" :alt="item.image.alt"/>
               </div>
               <div>
-                <prismic-rich-text class="main-content" :field="item.content"/>
+                <h2 class="" v-html="item.title1[0].text"></h2>
+                <h1 class="" v-html="item.title2[0].text"></h1>
+                <p class="" v-html="item.description[0].text"></p>
               </div>
             </div>
           </div>
@@ -41,7 +43,13 @@ export default {
 </script>
 
 <style scoped>
-.main-content >>> h1 {
+/*
+img {
+  width: 100%;
+  height: auto;
+}
+*/
+.content-wrap h1 {
   white-space: nowrap;
   text-align: left;
   font-size: 12px;
@@ -49,8 +57,7 @@ export default {
   letter-spacing: 0px;
   color: #000000;
 }
-
-.main-content >>> h2 {
+.content-wrap h2 {
   white-space: nowrap;
   text-align: left;
   font-size: 17px;
@@ -58,14 +65,6 @@ export default {
   letter-spacing: 0px;
   color: #000000;
 }
-.who-we-are {
-  max-width: 1300px;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0 auto;
-  padding: 7rem 0;
-}
-
 img {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
