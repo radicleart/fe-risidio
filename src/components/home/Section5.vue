@@ -54,7 +54,7 @@ p {
 button {
   width: 141px;
   height: 43px;
-  background: #5FBDC1 0% 0% no-repeat padding-box;
+  background: #5fbdc1 0% 0% no-repeat padding-box;
   border-radius: 22px;
 }
 button {
@@ -62,7 +62,7 @@ button {
     background: white 0% 0% no-repeat padding-box;
   }
   &:hover .call-button-text {
-    color: #5FBDC1;
+    color: #5fbdc1;
   }
 }
 .call-button-text {
@@ -70,12 +70,12 @@ button {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .button1 {
   width: 141px;
   height: 43px;
-  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
+  background: rgb(255, 255, 255, 0.2) 0% 0% no-repeat padding-box;
   border: none;
   border-radius: 22px;
 }
@@ -84,10 +84,10 @@ button {
     background: white 0% 0% no-repeat padding-box;
   }
   & .call-button-text {
-    color: #5FBDC1;
+    color: #5fbdc1;
   }
   &:hover .call-button-text {
-    color: #5FBDC1;
+    color: #5fbdc1;
   }
 }
 </style>
