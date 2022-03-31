@@ -1,5 +1,5 @@
 <template>
-<section class="bg-lighter" v-if="content" id="about-section-1">
+<section class="bg-white" v-if="content" id="about-section-1">
   <div class="d-flex justify-content-center">
     <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
       <div class="my-auto text-center">
@@ -59,7 +59,8 @@ img {
   letter-spacing: 0px;
 }
 #about-section-1 {
-  padding-top: 10rem;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 @media only screen and (max-width: 900px) {
   #about-section-1 {

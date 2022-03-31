@@ -13,7 +13,6 @@ import { SITE_CONSTANTS } from '@/site-constants'
 import MarketplaceSection0 from '@/components/marketplace/MarketplaceSection0'
 import MarketplaceSection1 from '@/components/marketplace/MarketplaceSection1'
 import MarketplaceSection2 from '@/components/marketplace/MarketplaceSection2'
-import Section12 from '@/components/products/Section12'
 import Section8 from '@/components/home/Section8'
 export default {
   name: 'Marketplace',
@@ -26,7 +25,6 @@ export default {
     MarketplaceSection0,
     MarketplaceSection1,
     MarketplaceSection2,
-    Section12,
     Section8
   },
   watch: {

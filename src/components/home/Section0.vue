@@ -5,7 +5,7 @@
       <div class="my-auto text-center">
         <div class="mb-auto d-flex align-items-center flex-column">
           <div class="ml-0"><img :height="iwordHeight" :src="iwords.ione.light" alt="innovate"/></div>
-          <div class="ml-5"><img :height="iwordHeight" class="ml-5" :src="iwords.itwo.light" alt="involve"/></div>
+          <div class="ml-5"><img :height="iwordHeight" class="ml-5" :src="iwords.itwo.light" alt="involved"/></div>
           <div class="ml-4"><img :height="iwordHeight" :src="iwords.ithree.light" alt="inspire"/></div>
         </div>
       </div>

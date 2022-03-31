@@ -20,19 +20,21 @@
     <div class="my-auto">
       <div class="my-5">
         <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
+        <img src="../../assets/img/ourvision.png" alt="placeholder" class="image"/>
         <div class="mb-4"><h4 class="text-center">{{content.s1title2[0].text}}</h4></div>
         <div class="mx-auto my-4 w-100 text-center">
           <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description[0].text}}</p>
         </div>
+         <img src="../../assets/img/ourvision.png" alt="placeholder" class="image"/>
         <div class="mb-4"><h4 class="text-center">{{content.s1title3[0].text}}</h4></div>
         <div class="mx-auto my-4 w-100 text-center">
           <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description2[0].text}}</p>
         </div>
       </div>
     </div>
-    <div class="w-75 text-center section0-image-container">
+  <!--  <div class="w-75 text-center section0-image-container">
         <img width="100%" :src="content.s1image.url" :alt="content.s1image.alt">
-    </div>
+    </div>-->
   </div>
 </section>
 </template>
@@ -101,6 +103,10 @@ export default {
 </script>
 
 <style scoped>
+.second-half{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 .second-half p {
   width: 50%;
 }
@@ -124,12 +130,30 @@ h4 {
 .section0-image-container {
   margin: 0 auto -10rem;
 }
+.image{
+  width: 235px;
+  height: 198px;
+  margin-left: 650px;
+  margin-top:80px
+}
+.text-center{
+  margin-top: 50px;
+  }
+@media only screen and (max-width: 1499px) {
+  .image{
+    margin-right: 650px;
+  }
+}
 @media only screen and (max-width: 900px) {
   .section0-image-container {
     margin: 0 auto -7rem;
   }
   .blurb {
     font-size: 1.2em;
+  }
+  .image{
+    margin-left: 300px;
+    margin-right: 300px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -144,12 +168,12 @@ h4 {
 }
 @media only screen and (max-width:768px) {
   .second-half p {
-    width: 75%;
+    width: 50%;
   }
   .second-half h2 {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
   }
-}
+  }
 </style>
