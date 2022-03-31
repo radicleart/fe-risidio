@@ -1,32 +1,17 @@
 <template>
-<section id="crs-section-0" v-if="content.banner">
+<section id="crs-section-0" v-if="section0.banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center w-75">
-      <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.title[0].text}}</h1></div>
+      <div class="mb-4 first-half-h1"><h1 class="text-white">{{section0.title[0].text}}</h1></div>
       <div class="">
         <p class="mb-4 text-center blurb text-white mx-auto w-100">
-        <span v-html="content.description[0].text"></span>
+        <span v-html="section0.subtitle[0].text"></span>
         </p>
       </div>
-      <!--
-      <div v-scroll-to="{ element: '#csrsection1', duration: 1000 }" class="icon-down">
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      -->
     </div>
   </div>
   <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half">
-    <div class="my-auto">
-      <div class="my-5">
-        <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
-        <div class="mb-4"><h2 class="text-center">{{content.s1title2[0].text}}</h2></div>
-        <div class="mx-auto my-4 s1-description">
-        <p class="mb-4 text-center">{{content.s1description[0].text}}</p>
-        <p class="mb-4 text-center">{{content.s1description[1].text}}</p>
-        <p class="mb-4 text-center">{{content.s1description[2].text}}</p>
-        </div>
-      </div>
-    </div>
+    <prismic-rich-text class="main-content my-5" :field="section0.content"/>
   </div>
 </section>
 </template>
@@ -36,7 +21,7 @@ import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
   name: 'CSRSection0',
-  props: ['viewportDimensions', 'content'],
+  props: ['viewportDimensions', 'section0'],
   data () {
     return {
     }
@@ -53,7 +38,7 @@ export default {
         position: 'relative',
         top: '0px',
         'background-repeat': 'no-repeat',
-        'background-image': `url(${this.content.banner.url})`,
+        'background-image': `url(${this.section0.banner.url})`,
         'background-position': 'center center',
         '-webkit-background-size': 'cover',
         '-moz-background-size': 'cover',
@@ -68,15 +53,19 @@ export default {
 </script>
 
 <style scoped>
-.s1-description {
+.main-content {
+  text-align: center;
+}
+.main-content >>> h1, .main-content >>> h2 {
+  margin-bottom: 1.5rem;
+}
+.main-content >>> p {
   width: 50%;
+  margin: 0 auto 1.5rem;
+  text-align: center;
 }
 .first-half-h1 {
   margin-top: 4rem;
-}
-h4 {
-  font-weight: 500;
-  font-size: 17px;
 }
 .blurb {
   text-align: center;
@@ -85,11 +74,8 @@ h4 {
   letter-spacing: 0px;
   color: #FFFFFF;
 }
-.icon-down {
-  margin: 25px auto;
-}
 @media only screen and (max-width:1200px) {
-  .s1-description {
+  .main-content >>> p {
     width: 75%;
   }
 }

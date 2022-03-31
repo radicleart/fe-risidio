@@ -2,23 +2,20 @@
     <section class="bg-white">
       <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
         <div class="my-auto py-5 text-center">
-          <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section4_title[0].text}}</h1></div>
+          <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section3_title[0].text}}</h1></div>
           <div class="px-5 row text-center">
-            <div class="col-lg-4 col-12 mb-5" v-for="(item, index) in group" :key="index">
-              <div class="row content-wrap">
-                <div class="col-lg-3 col-12 mobile-col mobile-col__img">
-                  <div class="whatsit" :class="'bg-' + getBgClass(index)"><img class="p-3" :src="features[index]" alt=""/></div>
+            <div class="col-lg-4" v-for="(item, index) in group" :key="index">
+              <div class="container">
+                <div class="image-container">
+                  <img class="p-3" :src="content.section3_content[index].icon.url" alt=""/>
                 </div>
-                <div class="col-lg-8 col-12 text-left mobile-col">
-                  <div class="d-flex flex-column mobile-col__text" style="height: 230px;">
-                    <h1 class="text-black mb-3 ">{{item.title1[0].text}}</h1>
-                    <h2 class="text-black">{{item.title2[0].text}}</h2>
-                    <p class="text-black mb-3">{{item.description[0].text}}</p>
-                  </div>
+                <div class="text-container">
+                  <prismic-rich-text :field="item.content"/>
                 </div>
               </div>
             </div>
           </div>
+          <button class="touch-button"><span>Interested ? Get In Touch</span></button>
         </div>
       </div>
     </section>
@@ -26,34 +23,20 @@
 
 <script>
 export default {
-  name: 'Section4',
+  name: 'Section3',
   components: {
   },
   props: ['viewportDimensions'],
   data () {
     return {
-      features: [
-        require('@/assets/img/xd/bitcoin.svg'),
-        require('@/assets/img/xd/report.svg'),
-        require('@/assets/img/xd/Page-1.svg')
-      ]
     }
   },
   methods: {
-    getBgClass: function (index) {
-      if (index === 0) {
-        return 'warning'
-      } else if (index === 1) {
-        return 'info'
-      } else {
-        return 'danger'
-      }
-    }
   },
   computed: {
     group () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.section4_group
+      return content.section3_content
     },
     content () {
       const content = this.$store.getters['contentStore/getHomepage']
@@ -64,13 +47,28 @@ export default {
 </script>
 
 <style scoped>
-.whatsit {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+.main-content >>> h1 {
+  text-align: left;
 }
-
-.mobile-col__img {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.touch-button {
+  width: 224px;
+  height: 43px;
+  background: rgba(95, 189, 193, 0.15);
+  border-radius: 22px;
+  margin-top: 50px;
+}
+.touch-button span{
+  color: rgba(95, 189, 193, 1);
+  font-weight: 700;
+  font: normal normal bold 11px/14px Montserrat;
+}
+.mobile-col__img{
   display: flex;
   justify-content: flex-end;
 }
@@ -91,6 +89,12 @@ export default {
     margin-top: 1rem;
     align-items: center;
     width: 65%;
+  }
+  .main-content >>> h1 {
+    text-align: center;
+  }
+  .main-content {
+    text-align: center;
   }
   p { text-align: center; }
 }

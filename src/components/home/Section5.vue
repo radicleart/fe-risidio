@@ -1,171 +1,93 @@
 <template>
-    <section style="background-color: transparent" id="products-section">
-      <div class="pt-5">
-          <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-            <div class="my-auto">
-              <div class="mb-5"><h1 class="text-white">{{content.products_title[0].text}}</h1></div>
-              <div>
-                <vueper-slides style="width: 100vw;"
-                class="no-shadow"
-                fixed-height="450px"
-                :visible-slides="5"
-                :arrows=false
-                :bullets=false
-                :slide-ratio="1 / 4"
-                :gap="3"
-                :dragging-distance="20"
-                :slidesPerGroup= "1"
-                :infinite=false
-                :breakpoints="breakpoints">
-                <vueper-slide v-for="(item, index) of content.products" :key="index">
-                  <template v-slot:content>
-                    <div class="d-flex flex-column slider-content">
-                      <router-link :to="productUrl(item)" class="text-info"><img width="100%" height="250px" :src="item.image.url" :alt="item.image.alt"/></router-link>
-                      <div class="d-flex align-items-start flex-column" style="width: 100%">
-                        <h2 class="text-white">{{item.title[0].text}}</h2>
-                        <div class="mb-0" v-for="(pitem, index2) of item.description" :key="index2">
-                          <div v-if="pitem.type === 'paragraph'" class=""><p class="mb-3 text-white" v-if="pitem.type === 'paragraph'" v-html="pitem.text"></p></div>
-                        </div>
-                        <div class="d-flex justify-content-between w-100">
-                          <div v-if="productUrl(item) == '/projects/ruma'" class="more-text d-none"><span class="text-info">{{item.more[0].text}}</span></div>
-                          <div v-else-if="productUrl(item) == '/projects/number-one'" class="d-none"></div>
-                          <div v-else class="more-text"><router-link :to="productUrl(item)" class="text-info">{{item.more[0].text}}</router-link></div>
-                          <div class="more-text" v-html="demoLink(item)"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </template>
-                </vueper-slide>
-              </vueper-slides>
-              </div>
-              <br/>
-              <div class="my-5 text-center"><button class="button1"><router-link to="/projects" class="call-button-text">View All Products</router-link></button></div>
-            </div>
-          </div>
+<section id="section5" class="bg-secondary">
+  <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
+    <div class="my-auto text-center text-white main-container">
+      <div class="mb-2"><img width="300px" :src="section5.image.url" :alt="section5.image.alt"/></div>
+      <prismic-rich-text class="main-content mt-4" :field="section5.content"/>
+      <div class="d-flex justify-content-center">
+      <section-sendinblue></section-sendinblue>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 </template>
 
 <script>
-import { VueperSlides, VueperSlide } from 'vueperslides'
 
+import SectionSendinblue from './SectionSendinblue.vue'
 export default {
-  name: 'Section5',
+  name: 'section5',
   components: {
-    VueperSlides,
-    VueperSlide
+    SectionSendinblue
   },
   props: ['viewportDimensions'],
   data () {
     return {
-      breakpoints: {
-        1250: {
-          visibleSlides: 4
-        },
-        1050: {
-          visibleSlides: 3,
-          slideRatio: 1 / 3
-        },
-        800: {
-          visibleSlides: 2,
-          slideRatio: 1 / 2
-        },
-        601: {
-          visibleSlides: 1
-        }
-      }
-    }
-  },
-  methods: {
-    productUrl (item) {
-      const productId = item.product_name[0].text
-      if (productId === 'r-pay' || productId === 'lsat') {
-        return '/projects/r-pay'
-      } else {
-        return '/projects/' + item.product_name[0].text
-      }
-    },
-    demoLink (item) {
-      const productId = item.product_name[0].text
-      if (productId === 'r-pay' || productId === 'lsat') {
-        return '<a class="text-warning" href="/rpay-demo">Try The Demo</a>'
-      } else if (productId === 'loopbomb') {
-        return '<a class="text-warning" href="https://loopbomb.com">Try The Demo</a>'
-      } else if (productId === 'dsearch') {
-        return '<a class="text-warning" href="https://github.com/radicleart/brightblock-search">Find Us On Github</a>'
-      } else if (productId === 'r-stack') {
-        return '<a class="text-warning" href="https://stacks.risidio.com">Get Stacking</a>'
-      } else if (productId === 'number-one') {
-        return '<a class="text-info" href="https://thisisnumberone.com/">Find Out More</a>'
-      } else if (productId === 'ruma') {
-        return '<a class="text-warning" href="https://ruma.risidio.com/">Try now!</a>'
-      } else {
-        return null
-      }
     }
   },
   computed: {
-    content () {
+    section5 () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content
+      return content.section5[0]
     }
   }
 }
 </script>
 
-<style lang="scss">
-#products-section {
-  & .slider-content {
-    max-width: 200px;
+<style lang="scss" scoped>
+.text-on-mobile {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-container {
+  width: 70%;
+}
+p {
+  text-align: center;
+}
+.more {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0 20px;
+}
+button {
+  width: 141px;
+  height: 43px;
+  background: #5fbdc1 0% 0% no-repeat padding-box;
+  border-radius: 22px;
+}
+button {
+  &:hover {
+    background: white 0% 0% no-repeat padding-box;
   }
-
-  & .slider-content h2 {
-    font-size: 24px;
-    margin-top: 12px;
-    text-transform: none;
-  }
-
-  & .slider-content p {
-    font-size: 14px;
-  }
-
-  & .slider-content {
-    margin: 0 auto;
-  }
-
-  & .slider-content img {
-    pointer-events: none;
+  &:hover .call-button-text {
+    color: #5fbdc1;
   }
 }
-
-/* Paddings for next/previous slide on the edge effect */
-#products-section .vueperslides { padding: 0 7rem; }
-
-@media only screen and ( max-width: 900px ) and ( min-width: 801px ) {
-   .vueperslides { padding: 0 4.5rem; }
+.call-button-text {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #ffffff;
 }
-
-@media only screen and ( max-width: 670px ) {
-  #products-section .vueperslides { padding: 0 4.5rem; }
+.button1 {
+  width: 141px;
+  height: 43px;
+  background: rgb(255, 255, 255, 0.2) 0% 0% no-repeat padding-box;
+  border: none;
+  border-radius: 22px;
 }
-
-@media only screen and ( max-width: 600px ) {
-  #products-section .vueperslides { padding: 0 8rem; }
-}
-
-@media only screen and ( max-width: 480px ) {
-  #products-section .vueperslides { padding: 0 6rem; }
-}
-
-@media only screen and ( max-width: 414px ) {
-  #products-section .vueperslides { padding: 0 5rem; }
-}
-
-@media only screen and ( max-width: 375px ) {
-  #products-section .vueperslides { padding: 0 4rem; }
-}
-
-@media only screen and ( max-width: 320px ) {
-  #products-section .vueperslides { padding: 0 3rem; }
+.button1 {
+  &:hover {
+    background: white 0% 0% no-repeat padding-box;
+  }
+  & .call-button-text {
+    color: #5fbdc1;
+  }
+  &:hover .call-button-text {
+    color: #5fbdc1;
+  }
 }
 </style>
