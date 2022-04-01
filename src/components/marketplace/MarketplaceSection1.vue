@@ -16,7 +16,9 @@
       <a class="try">Try It Now</a>
     </div>
     <div class="gallery">
-      <img src="../../assets/img/thisisnumberone.png" alt="placeholder" class="image"/>
+      <div class="image-cont">
+        <img src="../../assets/img/thisisnumberone.png" alt="placeholder" class="image"/>
+      </div>
       <h1 class="header">#1</h1>
       <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
       <a class="find">Fint out more</a>
@@ -39,7 +41,9 @@
       <a class="try">Try It Now</a>
     </div>
     <div class="gallery">
-      <img src="../../assets/img/ruma.png" alt="placeholder" class="image"/>
+      <div class="image-cont">
+        <img src="../../assets/img/ruma.png" alt="placeholder" class="image"/>
+      </div>
       <h1 class="header">Novum Design</h1>
       <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
       <a class="find">Fint out more</a>
@@ -100,7 +104,6 @@ export default {
   flex-direction: row;
   margin-top: 100px;
   margin-bottom: 100px;
-
 }
 .gallery
 {
