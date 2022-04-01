@@ -3,7 +3,6 @@
     <marketplace-section0 :viewportDimensions="sectionDimensions" :content="content"/>
     <marketplace-section1 :viewportDimensions="sectionDimensions" :content="content"/>
     <marketplace-section2 :content="content"/>
-    <section12 :viewportDimensions="sectionDimensions" :content="contentServices"/>
     <section8 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
