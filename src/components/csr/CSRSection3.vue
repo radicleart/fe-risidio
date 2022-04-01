@@ -4,9 +4,9 @@
     <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
       <div class="my-auto text-center">
         <div class="mb-auto px-5 d-flex align-items-center flex-column section3Text">
-          <h1 class="mb-4">{{content.section3[0].title[0].text}}</h1>
-          <h2 class="mb-4">{{content.section3[0].subtitle[0].text}}</h2>
-          <prismic-rich-text class="main-content" :field="content.section3[0].content"/>
+          <!-- <h1 class="mb-4">{{content.section0[0].title[0].text}}</h1>
+          <h2 class="mb-4">{{content.section0[0].subtitle[0].text}}</h2> -->
+          <prismic-rich-text class="main-content" :field="content.section0[0].content"/>
         </div>
       </div>
     </div>
@@ -17,7 +17,7 @@
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
 export default {
-  name: 'AboutSection1',
+  name: 'CSRSection3',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

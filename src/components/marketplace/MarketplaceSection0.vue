@@ -1,5 +1,5 @@
 <template>
-<section id="section0" v-if="content.banner" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
+<section id="section0" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
   <div class="container my-auto pb-5 text-center">
     <h1 class="mt-5">Our Work</h1>
     <p class="para">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
@@ -54,8 +54,7 @@ h2 {
 }
 .para{
   font-size: 26px;
-  width: 1057px;
-  height: 68px;
+  max-width: 1057px;
   text-align: center;
   color: #FFFFFF;
   opacity: 1;

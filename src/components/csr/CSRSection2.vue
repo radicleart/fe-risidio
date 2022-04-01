@@ -95,7 +95,7 @@
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 export default {
-  name: 'AboutSection3',
+  name: 'CSRSection2',
   props: ['viewportDimensions', 'content'],
 
   components: {

@@ -32,33 +32,33 @@
     </div>
     <div class="container2">
     <div class="gallery">
-      <img src="../../assets/img/thisisnumberone.png" alt="placeholder" class="image"/>
+      <img src="../../assets/img/novum.png" alt="placeholder" class="image"/>
       <h1 class="header">RUMA</h1>
       <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
       <a class="find">Fint out more</a>
       <a class="try">Try It Now</a>
     </div>
     <div class="gallery">
-      <img src="../../assets/img/thisisnumberone.png" alt="placeholder" class="image"/>
+      <img src="../../assets/img/ruma.png" alt="placeholder" class="image"/>
       <h1 class="header">Novum Design</h1>
       <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
       <a class="find">Fint out more</a>
       <a class="try">Try It Now</a>
     </div>
     <div class="gallery">
-      <img src="../../assets/img/thisisnumberone.png" alt="placeholder" class="image"/>
+      <img src="../../assets/img/prom.png" alt="placeholder" class="image"/>
       <h1 class="header">PROM</h1>
       <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
       <a class="find">Fint out more</a>
       <a class="try">Try It Now</a>
     </div>
-    <div class="gallery">
+    <!-- <div class="gallery">
       <img src="../../assets/img/thisisnumberone.png" alt="placeholder" class="image"/>
       <h1 class="header">Project Name</h1>
       <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
       <a class="find">Fint out more</a>
       <a class="try">Try It Now</a>
-    </div>
+    </div> -->
     </div>
   </section>
 </template>

@@ -77,7 +77,7 @@ export default {
         this.$store.commit('contentStore/addProposalContent', document.data)
       }
     })
-    this.$prismic.client.getSingle('aboutus').then(document => {
+    this.$prismic.client.getSingle('about').then(document => {
       if (document) {
         this.$store.commit('contentStore/addAboutUsContent', document.data)
       }
@@ -85,6 +85,11 @@ export default {
     this.$prismic.client.getSingle('csr').then(document => {
       if (document) {
         this.$store.commit('contentStore/addCSRContent', document.data)
+      }
+    })
+    this.$prismic.client.getSingle('marketplace').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addMarketContent', document.data)
       }
     })
     this.$prismic.client.getSingle('contact').then(document => {

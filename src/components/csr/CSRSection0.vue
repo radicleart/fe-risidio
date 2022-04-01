@@ -1,11 +1,11 @@
 <template>
-<section id="crs-section-0" v-if="content.banner">
+<section id="crs-section-0" v-if="content.section0[0].banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center w-75">
-      <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.title[0].text}}</h1></div>
+      <div class="mb-4 first-half-h1"><h1 class="text-white" style="font: normal normal bold 17px/20px Montserrat;">{{content.section0[0].title[0].text}}</h1></div>
       <div class="">
-        <p class="mb-4 text-center blurb text-white mx-auto w-100">
-        <span v-html="content.description[0].text"></span>
+        <p class="mb-4 text-center blurb text-white mx-auto w-100" style="font: normal normal 200 26px/32px Montserrat;">
+        <span v-html="content.section0[0].subtitle[0].text"></span>
         </p>
       </div>
       <!--
@@ -18,13 +18,13 @@
   <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half">
     <div class="my-auto">
       <div class="my-5">
-        <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
+        <!-- <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
         <div class="mb-4"><h2 class="text-center">{{content.s1title2[0].text}}</h2></div>
         <div class="mx-auto my-4 s1-description">
         <p class="mb-4 text-center">{{content.s1description[0].text}}</p>
         <p class="mb-4 text-center">{{content.s1description[1].text}}</p>
         <p class="mb-4 text-center">{{content.s1description[2].text}}</p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@ export default {
         position: 'relative',
         top: '0px',
         'background-repeat': 'no-repeat',
-        'background-image': `url(${this.content.banner.url})`,
+        'background-image': `url(${this.content.section0[0].banner.url})`,
         'background-position': 'center center',
         '-webkit-background-size': 'cover',
         '-moz-background-size': 'cover',

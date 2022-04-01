@@ -10,7 +10,8 @@ const contentStore = {
       pages: null,
       recruitment: null,
       CSR: null,
-      Contact: null
+      Contact: null,
+      Marketplace: null
     },
     pageIds: {
       education: 'XuH1mBIAAFbNZG32',
@@ -39,6 +40,9 @@ const contentStore = {
     },
     getContact: state => {
       return state.content.Contact
+    },
+    getMarketPlace: state => {
+      return state.content.Marketplace
     },
     getCSR: state => {
       return state.content.CSR
@@ -76,6 +80,9 @@ const contentStore = {
     },
     addCSRContent (state, o) {
       state.content.CSR = o
+    },
+    addMarketContent (state, o) {
+      state.content.Marketplace = o
     },
     addNavigationContent (state, o) {
       state.content.navigation = o

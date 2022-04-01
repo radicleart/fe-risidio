@@ -1,13 +1,13 @@
 <template>
-<section id="section0" v-if="content.banner">
+<section id="section0" v-if="content.section0[0].banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center w-75">
-      <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.title[0].text}}</h1></div>
+      <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.section0[0].title[0].text}}</h1></div>
       <div class="">
         <p class="mb-4 text-center blurb text-white mx-auto w-100">
-        <span v-html="content.description1[0].text"></span><br><span v-html="content.description1_5[0].text"></span>
+        <span v-html="content.section0[0].pretagline[0].text"></span>
         </p>
-        <h4 class="text-center text-white" v-html="content.description2[0].text"></h4>
+        <h4 class="text-center text-white" v-html="content.section0[0].tagline[0].text"></h4>
       </div>
       <!--
       <div v-scroll-to="{ element: '#section0-second-half', duration: 1000 }" class="icon-down">
@@ -19,16 +19,16 @@
   <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
     <div class="my-auto">
       <div class="my-5">
-        <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
-        <img src="../../assets/img/ourvision.png" alt="placeholder" class="image"/>
-        <div class="mb-4"><h4 class="text-center">{{content.s1title2[0].text}}</h4></div>
+        <div class="mt-0 mb-4"><h1 class="text-black">{{content.section0[0].content[0].text}}</h1></div>
+        <img :src="content.section0[0].visionmission.url" alt="placeholder" class="image"/>
+        <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[1].text}}</h4></div>
         <div class="mx-auto my-4 w-100 text-center">
-          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description[0].text}}</p>
+          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.section0[0].content[2].text}}</p>
         </div>
-         <img src="../../assets/img/ourvision.png" alt="placeholder" class="image"/>
-        <div class="mb-4"><h4 class="text-center">{{content.s1title3[0].text}}</h4></div>
+         <img :src="content.section0[0].mission.url" alt="placeholder" class="image"/>
+        <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[3].text}}</h4></div>
         <div class="mx-auto my-4 w-100 text-center">
-          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description2[0].text}}</p>
+          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.section0[0].content[4].text}}</p>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@ export default {
         position: 'relative',
         top: '0px',
         'background-repeat': 'no-repeat',
-        'background-image': `url(${this.content.banner.url})`,
+        'background-image': `url(${this.content.section0[0].banner.url})`,
         'background-position': 'center center',
         '-webkit-background-size': 'cover',
         '-moz-background-size': 'cover',

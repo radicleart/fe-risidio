@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  name: 'AboutSection3',
+  name: 'CSRSection1',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

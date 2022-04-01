@@ -4,7 +4,7 @@
     <marketplace-section1 :viewportDimensions="sectionDimensions" :content="content"/>
     <marketplace-section2 :content="content"/>
     <section12 :viewportDimensions="sectionDimensions" :content="contentServices"/>
-    <section8 :viewportDimensions="sectionDimensions"/>
+    <section6 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
 
@@ -13,7 +13,7 @@ import { SITE_CONSTANTS } from '@/site-constants'
 import MarketplaceSection0 from '@/components/marketplace/MarketplaceSection0'
 import MarketplaceSection1 from '@/components/marketplace/MarketplaceSection1'
 import MarketplaceSection2 from '@/components/marketplace/MarketplaceSection2'
-import Section8 from '@/components/home/Section8'
+import Section6 from '@/components/home/Section6'
 export default {
   name: 'Marketplace',
   data () {
@@ -25,7 +25,7 @@ export default {
     MarketplaceSection0,
     MarketplaceSection1,
     MarketplaceSection2,
-    Section8
+    Section6
   },
   watch: {
   },
@@ -45,11 +45,8 @@ export default {
       return null
     },
     content () {
-      const content = this.$store.getters['contentStore/getProductPage']('x-change')
-      if (content) {
-        return content.data
-      }
-      return null
+      const content = this.$store.getters['contentStore/getMarketPlace']
+      return content
     }
   }
 }
