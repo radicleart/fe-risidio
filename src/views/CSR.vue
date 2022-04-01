@@ -3,6 +3,7 @@
     <CSRSection0 :viewportDimensions="sectionDimensions" :content="content"/>
     <CSRSection1 :viewportDimensions="sectionDimensions" :content="content"/>
     <CSRSection2 :viewportDimensions="sectionDimensions" :content="content"/>
+    <section8 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
 
@@ -11,6 +12,7 @@
 import CSRSection0 from '@/components/csr/CSRSection0'
 import CSRSection1 from '@/components/csr/CSRSection1'
 import CSRSection2 from '@/components/csr/CSRSection2'
+import Section8 from '@/components/home/Section8'
 import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
@@ -19,7 +21,8 @@ export default {
   components: {
     CSRSection0,
     CSRSection1,
-    CSRSection2
+    CSRSection2,
+    Section8
   },
   mounted () {
     console.log(this.$route)

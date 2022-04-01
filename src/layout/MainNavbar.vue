@@ -10,8 +10,8 @@
         <b-nav-item><router-link class="text-white" to="/education">Education</router-link></b-nav-item>
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
+        <b-nav-item to="/marketplace" class="nav-text marketplace-link">Our Work</b-nav-item>
         <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
-        <b-nav-item to="/marketplace" class="nav-text marketplace-link">Marketplace</b-nav-item>
         <b-nav-item to="/CSR" class="nav-text csr-link">Sustainability</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
@@ -31,9 +31,9 @@
       </b-navbar-nav>
       <b-navbar-nav class="mobile-nav-items">
         <b-nav-text class="text-white mobile-nav-items--social">
-          <a href="https://discord.gg/qvuxB9P"><span style="font-size: 15px;"><i class="fab fa-discord"></i></span></a>
-          <a href="https://twitter.com/Risidio1"><span style="font-size: 15px;"><i class="fab fa-twitter"></i></span></a>
-          <a href="https://www.instagram.com/risidio_official/"><span style="font-size: 15px;"><i class="fab fa-instagram"></i></span></a>
+          <a href="https://discord.gg/nmKx5WkPaG" target="_blank"><span style="font-size: 15px;"><i class="fab fa-discord"></i></span></a>
+          <a href="https://twitter.com/Risidio1" target="_blank"><span style="font-size: 15px;"><i class="fab fa-twitter"></i></span></a>
+          <a href="https://www.instagram.com/risidio_official/" target="_blank"><span style="font-size: 15px;"><i class="fab fa-instagram"></i></span></a>
         </b-nav-text>
         <b-nav-text v-b-toggle.nav-collapse @click="noScroll()" class="nav-text text-white mobile-nav-items--terms">
           <router-link to="/aboutus">Terms & conditions</router-link> • <router-link to="/aboutus">Privacy policy</router-link>
