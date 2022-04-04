@@ -5,12 +5,34 @@
         <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" alt="Risidio Logo" class="footer-logo"/></router-link>
       </div>
       <div class="col-lg-6 col-md-8 offset-lg-1 content-footer">
-        <div class="row text-left mt-5">
-          <div class="col-4" v-html="getContent('sitemap')">
+       <div class="row text-left mt-5">
+         <!-- <div class="col-4" v-html="getContent('sitemap')">-->
+           <div class="col-4">
+             <h1 class="header">Sitemap</h1>
+              <div><a class="list">Our Work</a></div>
+              <div><a class="list">About</a></div>
+              <div><a class="list">Sustainability</a></div>
+
           </div>
-          <div class="col-4" v-html="getContent('joinus')">
+          <!--<div class="col-4" v-html="getContent('joinus')">-->
+            <div class="col-4">
+              <h1 class="header">Products</h1>
+              <div><a class="list">Marketplace</a></div>
+              <div><a class="list">Indige</a></div>
+              <div><a class="list">This is #1</a></div>
           </div>
-          <div class="col-4" v-html="getContent('contact')">
+          <!--<div class="col-4" v-html="getContent('contact')">-->
+            <div class="col-4">
+              <h1 class="header">Contact</h1>
+              <div><p class="address">Kemp House 152 - 160 City Road, London Ec1V 2Nx</p></div>
+              <div><a class="email">info@risidio.com</a></div>
+              <div class="socialmedia">
+                <span style="font-size: 15px;">
+                <a href="https://discord.gg/qvuxB9P" target="_blank"><img src="@/assets/img/facebook.png" ></a>
+                <a href="https://twitter.com/Risidio1" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/risidio_official/" target="_blank"><img src="@/assets/img/linkedin-16.png"></a>
+            </span>
+              </div>
           </div>
         </div>
       </div>
@@ -99,11 +121,6 @@ export default {
 .footer-container p {
   font-size: 12px;font-weight: 700; padding: 5px 0 0 0; margin: 0;
 }
-
-.footer-container a {
-    color: white!important;
-}
-
 .footer-logo {
   width: 255px;
   height: 100px;
@@ -179,14 +196,57 @@ export default {
   font-weight: 300;
   padding-bottom: 22px;
 }
+.header{
+  font-weight: 250;
+  font-size: 17px;
+}
+.list{
+  color: white;
+  font-size: 12px;
+  margin-left: 75px;
+  font-weight: 600;
+}
+.address{
+  width: 116px;
+  display: block;
+  }
+.content-footer p{
+  margin-left: 75px;
+  font-size: 12px;
+}
+.email{
+  color: #F9B807;
+  width: 100px;
+  font-size: 12px;
+  margin-left: 75px;
+}
+.socialmedia {
+  margin-top: 11px;
+  margin-left: 75px;
+}
 
+.socialmedia a:not(:last-child) {
+  margin-right: 15px;
+}
+
+.socialmedia a {
+  color: #fff;
+}
+
+.socialmedia a:hover {
+  color: #fff;
+}
+.navbar-brand img{
+}
+.text-left{
+  margin-left: 100px;
+}
 @media only screen and (max-width: 991px) {
   .footer-logo {
     width: 138px;
     height: 55px;
   }
 }
-
 @media only screen and (max-width: 768px) {
   .content-footer {
     margin-left: 3rem;
