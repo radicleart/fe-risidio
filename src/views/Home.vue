@@ -7,6 +7,7 @@
     <section3 :viewportDimensions="sectionDimensions"/>
     <section4 :viewportDimensions="sectionDimensions" />
     <section5 :viewportDimensions="sectionDimensions" />
+    <section55 :viewportDimensions="sectionDimensions" />
     <section6 :viewportDimensions="sectionDimensions" />
 </div>
 </template>
@@ -19,6 +20,7 @@ import Section2 from '@/components/home/Section2'
 import Section3 from '@/components/home/Section3'
 import Section4 from '@/components/home/Section4'
 import Section5 from '@/components/home/Section5'
+import Section55 from '@/components/home/Section55'
 import Section6 from '@/components/home/Section6'
 import { SITE_CONSTANTS } from '@/site-constants'
 
@@ -31,6 +33,7 @@ export default {
     Section3,
     Section4,
     Section5,
+    Section55,
     Section6
   },
   mounted () {
