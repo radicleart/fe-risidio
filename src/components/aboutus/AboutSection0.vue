@@ -16,26 +16,18 @@
       -->
     </div>
   </div>
-  <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
-    <div class="my-auto">
-      <div class="my-5">
-        <div class="mt-0 mb-4"><h1 class="text-black">{{content.section0[0].content[0].text}}</h1></div>
-        <img :src="content.section0[0].visionmission.url" alt="placeholder" class="image"/>
-        <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[1].text}}</h4></div>
-        <div class="mx-auto my-4 w-100 text-center">
-          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.section0[0].content[2].text}}</p>
-        </div>
-         <img :src="content.section0[0].mission.url" alt="placeholder" class="image"/>
-        <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[3].text}}</h4></div>
-        <div class="mx-auto my-4 w-100 text-center">
-          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.section0[0].content[4].text}}</p>
-        </div>
-      </div>
-    </div>
-  <!--  <div class="w-75 text-center section0-image-container">
+  <div class="bg-white d-flex align-items-center justify-content-center flex-column second-half" id="section0-second-half"  :style="halfDims">
+      <div class="mt-0 mb-4"><h1 class="text-black">{{content.section0[0].content[0].text}}</h1></div>
+      <img :src="content.section0[0].visionmission.url" alt="placeholder" class="image"/>
+      <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[1].text}}</h4></div>
+      <p class="my-4 text-center">{{content.section0[0].content[2].text}}</p>
+      <img :src="content.section0[0].mission.url" alt="placeholder" class="image"/>
+      <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[3].text}}</h4></div>
+      <p class="my-4 text-center">{{content.section0[0].content[4].text}}</p>
+  </div>
+    <!--<div class="w-75 text-center section0-image-container">
         <img width="100%" :src="content.s1image.url" :alt="content.s1image.alt">
     </div>-->
-  </div>
 </section>
 </template>
 
@@ -108,7 +100,9 @@ export default {
   padding-bottom: 100px;
 }
 .second-half p {
-  width: 50%;
+  max-width: 750px;
+  width: 100%;
+  padding: 0 15px;
 }
 .first-half-h1 {
   margin-top: 4rem;
@@ -167,9 +161,6 @@ h4 {
   }
 }
 @media only screen and (max-width:768px) {
-  .second-half p {
-    width: 50%;
-  }
   .second-half h2 {
     width: 75%;
     margin-left: auto;

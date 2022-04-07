@@ -28,12 +28,6 @@ export default {
     }
   },
   methods: {
-    hoverOver: function (img, ev) {
-      ev.currentTarget.src = img.light
-    },
-    hoverOut: function (img, ev) {
-      ev.currentTarget.src = img.dark
-    }
   },
   computed: {
     section () {
@@ -85,6 +79,8 @@ img {
   font: normal normal 300 17px/20px Montserrat;
   color: white;
   margin-top: 29px;
+  padding: 0 10px;
+  text-align: center;
 }
 
 .vertical-line {
@@ -118,24 +114,19 @@ img {
     .vertical-line { margin: -18rem auto 0; height: 300px; }
   }
 
-@media only screen and (max-width: 768px) {
-  img { height: 90px; }
+@media only screen and (max-width: 426px) {
+  .slogan {
+    width: 350px;
+    height: 90px;
+    font-size: 70px;
+  }
 }
 
-@media only screen and (max-width: 575px) {
-  img { height: 70px; }
-  .vertical-line { margin: -10rem auto 0; }
-}
-
-@media only screen and (max-width: 375px) {
-  .vertical-line { margin: -8rem auto 0; }
-  .tagline { font-size: 12px; }
-}
-
-@media only screen and (max-width: 320px) {
-  img { height: 60px; }
-  .vertical-line { margin: -7rem auto 0; }
-  .tagline { font-size: 12px; }
-
+@media only screen and (max-width: 374px) {
+  .slogan {
+    width: 290px;
+    height: 90px;
+    font-size: 60px;
+  }
 }
 </style>

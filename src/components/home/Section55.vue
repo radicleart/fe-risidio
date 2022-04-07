@@ -16,8 +16,7 @@
               :arrows="showArrow"
               :arrows-outside="showArrow"
               :touchable="touchableSlide"
-              :gap="3"
-              bullets-outside
+              :gap="10"
               :visible-slides="1"
               >
                 <template v-if="showArrow == true" #arrow-left>
@@ -26,62 +25,22 @@
                 <template v-if="showArrow == true" #arrow-right>
                   <img src="../../assets/img/arrow.png" alt="placeholder" class="arrow2"/>
                 </template>
-                <vueper-slide
-                v-for="(slide) in slide"
-                :key="slide.id"
-                >
+                <vueper-slide v-for="(slide, index) of slides" :key="index">
                     <template #content>
-                        <div v-if="slide.id==1" class = "slideContainer">
+                        <div class="slideContainer">
                             <div class="slideImage">
-                              <h2 class="mobileHeader">Innovate</h2>
                               <div class="collectionImageBack">
                                 <img
-                                src="../../assets/img/slide1.png"
+                                :src="slide.image.url"
                                 alt="slide"
                                 class="slide"/>
                             </div>
                            <div class="slideText">
                               <div class="title">
-                              <h2 class="innovate">Innovate</h2>
+                              <h2 class="innovate">{{slide.title[0].text}}</h2>
                             </div>
-                              <p class="slide-text-p"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-                              <a class="text">Find Out More</a>
-                            </div>
-                            </div>
-                        </div>
-                          <div v-if="slide.id == 2" class = "slideContainer">
-                            <div class="slideImage">
-                            <h2 class="mobileHeader">Involve</h2>
-                              <div class="collectionImageBack">
-                                <img
-                                src="../../assets/img/slide2.png"
-                                alt="slide"
-                                class="slide"/>
-                            </div>
-                            <div class="slideText">
-                              <div class="title">
-                              <h2 class="notmobileHeader">Involve</h2>
-                            </div>
-                              <p class="slide-text-p"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-                              <a class="text">Find Out More</a>
-                            </div>
-                            </div>
-                        </div>
-                        <div v-if="slide.id == 3" class = "slideContainer">
-                            <div class="slideImage">
-                            <h2 class="mobileHeader">Inspire</h2>
-                             <div class="collectionImageBack">
-                                <img
-                                src="../../assets/img/slide1.png"
-                                alt="slide"
-                                class="slide"/>
-                            </div>
-                            <div class="slideText">
-                              <div class="title">
-                              <h2 class="notmobileHeader">Inspire</h2>
-                            </div>
-                              <p class="slide-text-p"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-                              <a class="text">Find Out More</a>
+                              <p class="slide-text-p">{{slide.text[0].text}}</p>
+                              <a :href="slide.link[0].text" class="text">Find Out More</a>
                             </div>
                             </div>
                         </div>
@@ -131,6 +90,12 @@ export default {
   created () {
     window.addEventListener('resize', this.checkScreen)
     this.checkScreen()
+  },
+  computed: {
+    slides () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      return content.section55
+    }
   }
 }
 </script>
@@ -221,6 +186,9 @@ export default {
   color: white;
   position: relative;
 }
+.vueperslides::v-deep .vueperslides__bullets {
+  bottom: -35%;
+}
 .slideContainer{
   display: flex;
   flex-wrap: wrap;
@@ -270,28 +238,8 @@ export default {
 }
 @media only screen and (max-width:1290px) {
     .vueperslides--fixed-height {
-    max-width: 85%;
-  }
-}
-@media only screen and (max-width:1120px) {
-
-  .vueperslides--fixed-height {
-    height: 50rem;
-    // max-width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    backdrop-filter: blur(2rem);
-  }
-  .slideContainer{
-    text-align: center;
-    gap: 50px;
-  }
-  .bannerContainer{
-    min-height: 62rem;
-  }
-  .banner{
-    min-height: 70rem;
-  }
+      max-width: 85%;
+    }
 }
 .notMobileHeader, .mobileHeader{
     margin-bottom: 1rem;
@@ -305,40 +253,63 @@ export default {
 .notMobileHeader{
   display: block;
 }
-@media only screen and (max-width: 720px){
-  .vueperslides--fixed-height {
-    max-width: 800px;
+@media only screen and (max-width: 800px){
+  .vueperslides::v-deep .title {
+    margin-left: 147px;
   }
-  .arrow1{
-    margin-left: 100px;
+  .vueperslides::v-deep .slide-text-p {
+    margin-left: 320px;
   }
-  .arrow2{
-    margin-right: 100px;
+  .vueperslides::v-deep .text {
+    margin-left: 158px;
   }
 }
-@media only screen and (max-width: 550px) {
-  .slide-text-p{
-    margin-top: -80px;
-  }
-  .mobileHeader{
-    display: block;
-    margin-bottom: 35px;
-  }
-  .notMobileHeader{
-    display:block;
-    max-width: 50%;
-  }
+@media only screen and (max-width: 767px){
   .vueperslides--fixed-height {
-    height: 60rem;
-    // max-width: 85%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
-    backdrop-filter: blur(2rem);
+    height: 510px;
   }
-  .collectionImage{
-    width: 150px;
-    height: 150px;
+  .vueperslides::v-deep .slideImage {
+    display: flex;
+    flex-direction: column;
+  }
+  .vueperslides::v-deep .collectionImageBack {
+    display: block;
+  }
+  .vueperslides::v-deep .title, .vueperslides::v-deep .innovate, .vueperslides::v-deep .slideText {
+    margin: 0;
+  }
+  .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 260px;
+    text-align: center;
+  }
+  .vueperslides::v-deep .title {
+    margin-top: 10px;
+  }
+  .vueperslides::v-deep .vueperslides__bullets {
+    bottom: -15%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .arrow1{
+    display: none;
+  }
+  .arrow2{
+    display: none;
+  }
+}
+@media only screen and (max-width: 389px) {
+  .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text, .vueperslides::v-deep .slideImage, .vueperslides::v-deep .slideImage img {
+    width: 100%;
+  }
+  .vueperslides::v-deep .vueperslides__bullets {
+    bottom: -10%;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .vueperslides::v-deep .vueperslides__bullets {
+    bottom: -7%;
   }
 }
 </style>

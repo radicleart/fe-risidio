@@ -30,7 +30,7 @@ export default {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  padding: 113px;
+  padding: 113px 15px;
 }
 .main-text {
   display: flex;
@@ -47,13 +47,22 @@ export default {
   text-align: center;
   font: normal normal 200 36px/44px Montserrat;
   color: #FFFFFF;
-  width: 436px;
-  height: 178px;
+  max-width: 436px;
+  width: 100%;
 }
 .main-text strong {
   color: #FFFFFF;
 }
 .container button {
   font: normal normal bold 11px/14px Montserrat;
+}
+@media only screen and (max-width: 470px) {
+  .main-text p { font-size: 30px; }
+}
+@media only screen and (max-width: 400px) {
+  .main-text p { font-size: 26px; }
+}
+@media only screen and (max-width: 350px) {
+  .main-text p { font-size: 22px; }
 }
 </style>

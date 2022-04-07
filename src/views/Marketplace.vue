@@ -45,7 +45,7 @@ export default {
       return null
     },
     content () {
-      const content = this.$store.getters['contentStore/getMarketPlace']
+      const content = this.$store.getters['contentStore/getOurWork']
       return content
     }
   }

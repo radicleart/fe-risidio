@@ -1,68 +1,11 @@
 <template>
   <section class="bg-white">
-    <div class="container1">
-      <div class="gallery">
-      <img src="../../assets/img/marketplace.png" alt="placeholder" class="image"/>
-      <h1 class="header">Marketplace</h1>
-      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-      <a class="find">Fint out more</a>
+    <div v-for="(project, index) of content.projects" :key="index" class="item-container">
+      <img :src="project.image.url" alt="placeholder" class="image"/>
+      <h1 class="header">{{ project.title[0].text }}</h1>
+      <p class="text">{{ project.text[0].text }}</p>
+      <a :href="project.link[0].text" class="find">Fint out more</a>
       <a class="try">Try It Now</a>
-    </div>
-    <div class="gallery">
-      <img src="../../assets/img/indige.png" alt="placeholder" class="image"/>
-      <h1 class="header">Indige</h1>
-      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-      <a class="find">Fint out more</a>
-      <a class="try">Try It Now</a>
-    </div>
-    <div class="gallery">
-      <div class="image-cont">
-        <img src="../../assets/img/thisisnumberone.png" alt="placeholder" class="image"/>
-      </div>
-      <h1 class="header">#1</h1>
-      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-      <a class="find">Fint out more</a>
-      <a class="try">Try It Now</a>
-    </div>
-    <div class="gallery">
-      <img src="../../assets/img/rpay.png" alt="placeholder" class="image"/>
-      <h1 class="header">rPay</h1>
-      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-      <a class="find">Fint out more</a>
-      <a class="try">Try It Now</a>
-    </div>
-    </div>
-    <div class="container2">
-    <div class="gallery">
-      <img src="../../assets/img/novum.png" alt="placeholder" class="image"/>
-      <h1 class="header">RUMA</h1>
-      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-      <a class="find">Fint out more</a>
-      <a class="try">Try It Now</a>
-    </div>
-    <div class="gallery">
-      <div class="image-cont">
-        <img src="../../assets/img/ruma.png" alt="placeholder" class="image"/>
-      </div>
-      <h1 class="header">Novum Design</h1>
-      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-      <a class="find">Fint out more</a>
-      <a class="try">Try It Now</a>
-    </div>
-    <div class="gallery">
-      <img src="../../assets/img/prom.png" alt="placeholder" class="image"/>
-      <h1 class="header">PROM</h1>
-      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-      <a class="find">Fint out more</a>
-      <a class="try">Try It Now</a>
-    </div>
-    <!-- <div class="gallery">
-      <img src="../../assets/img/thisisnumberone.png" alt="placeholder" class="image"/>
-      <h1 class="header">Project Name</h1>
-      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-      <a class="find">Fint out more</a>
-      <a class="try">Try It Now</a>
-    </div> -->
     </div>
   </section>
 </template>
@@ -86,53 +29,38 @@ export default {
 .bg-white{
   min-height: 800px;
 }
-.container1{
-  max-width: 1100PX;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-direction: row;
-  margin-top: 100px;
+section {
+  display: grid;
+  padding: 100px 15px;
+  max-width: 990px;
+  margin: 0 auto;
+  width: 100%;
+  grid-template-rows: repeat(2, max-content);
+  grid-template-columns: repeat(auto-fill, minmax(217px, max-content));
+  justify-content: center;
+  gap: 80px 30px;
 }
-.container2{
-  max-width: 1100PX;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-direction: row;
-  margin-top: 100px;
-  margin-bottom: 100px;
+.item-container {
+  width: 217px;
 }
-.gallery
-{
-  width: 220px;
+.item-container img {
+  width: 217px;
+  height: 287px;
 }
-.gallery img{
-width: 217px;
-height: 287px;
-opacity: 1;
-background: black;
-}
-.gallery p{
-width: 218px;
-height: 42px;
-text-align: left;
-font: normal normal 300 11px/18px Montserrat;
-letter-spacing: 0px;
-opacity: 1;
-}
-.gallery h1{
-  text-align: left;
-  font-size: 28px;
-  font-weight: 300;
+.item-container p {
   width: 218px;
-  height: 34px;
-  margin-top: 10px;
+  height: 60px;
+  text-align: left;
+  font: normal normal 300 11px/18px Montserrat;
+  letter-spacing: 0px;
+  opacity: 1;
 }
-.gallery a{
-  margin-top: -5px;
+.item-container h1 {
+  text-align: left;
+  font: normal normal 200 28px/34px Montserrat;
+  letter-spacing: 0px;
+  color: #000000;
+  margin-top: 14px;
 }
 .find{
   width: 83px;

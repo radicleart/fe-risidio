@@ -11,7 +11,8 @@ const contentStore = {
       recruitment: null,
       CSR: null,
       Contact: null,
-      Marketplace: null
+      Marketplace: null,
+      ourWork: null
     },
     pageIds: {
       education: 'XuH1mBIAAFbNZG32',
@@ -47,6 +48,9 @@ const contentStore = {
     getCSR: state => {
       return state.content.CSR
     },
+    getOurWork: state => {
+      return state.content.ourWork
+    },
     getPages: state => {
       return state.content.pages
     },
@@ -80,6 +84,9 @@ const contentStore = {
     },
     addCSRContent (state, o) {
       state.content.CSR = o
+    },
+    addOurWorkContent (state, o) {
+      state.content.ourWork = o
     },
     addMarketContent (state, o) {
       state.content.Marketplace = o

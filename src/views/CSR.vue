@@ -2,7 +2,7 @@
 <div v-if="content">
     <CSRSection0 :viewportDimensions="sectionDimensions" :content="content"/>
     <CSRSection3 :viewportDimensions="sectionDimensions" :content="content"/>
-    <CSRSection1 :viewportDimensions="sectionDimensions" :content="content"/>
+    <!-- <CSRSection1 :viewportDimensions="sectionDimensions" :content="content"/> -->
     <CSRSection2 :viewportDimensions="sectionDimensions" :content="content"/>
     <Section6 :viewportDimensions="sectionDimensions"/>
 </div>
@@ -22,7 +22,7 @@ export default {
   // mixins: [requestMixins],
   components: {
     CSRSection0,
-    CSRSection1,
+    // CSRSection1,
     CSRSection2,
     CSRSection3,
     Section6

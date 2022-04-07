@@ -87,6 +87,11 @@ export default {
         this.$store.commit('contentStore/addCSRContent', document.data)
       }
     })
+    this.$prismic.client.getSingle('our_work').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addOurWorkContent', document.data)
+      }
+    })
     this.$prismic.client.getSingle('marketplace').then(document => {
       if (document) {
         this.$store.commit('contentStore/addMarketContent', document.data)

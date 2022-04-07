@@ -1,63 +1,27 @@
 <template>
-  <!-- <section id="section2" class="section2 text-white d-flex flex-column justify-content-center"
-  :style="bannerImage" style="min-height: 80vh">
-    <b-container class="text-center pt-5" container-fluid>
-      <b-row align-h="center">
-        <b-col md="8" sm="10" align-self="center">
-          <prismic-rich-text class="main-content" :field="section2.content"/>
-        </b-col>
-      </b-row>
-    </b-container>
-    <div class="d-flex justify-content-center py-5"> -->
-      <!-- <div><a href="https://ruma.risidio.com"><button class="mr-4">Try now!</button></a></div> -->
-      <!-- <div><a href="/marketplace"><button class="button1">Find out more</button></a></div>
-    </div>
-  </section> -->
  <section id="section2" class="home-section2">
    <strong>What We do</strong>
-   <span>Discover Our Projects</span>
-   <vueper-slides class="no-shadow home-slider" :arrows="false" fixed-height="true" >
-    <vueper-slide
-      v-for="(slide) in slide"
-      :key="slide.id"
-      :title="slide.title">
+   <span class="headline">Discover Our Projects</span>
+   <vueper-slides  class="no-shadow home-slider"
+   :arrows="false"
+   fixed-height="true"
+   :dragging-distance="70"
+   prevent-y-scroll
+   :gap="5"
+   :breakpoints="breakpoints"
+   >
+    <vueper-slide v-for="(slide, index) of slides" :key="index">
       <template #content>
-        <div v-if="slide.id==1" class = "container">
+        <div class = "container">
           <div class="imageContainer">
-            <img src="../../assets/img/risidio-marketplace.svg"/>
+            <img :src="slide.image.url"/>
           </div>
           <div class = "textContainer">
-            <h5>Risidio Marketplace</h5>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</p>
+            <h5>{{slide.title[0].text}}</h5>
+            <p>{{slide.content[0].text}}</p>
             <div>
-              <a>Find Out More</a>
+              <a :href="slide.link[0].text">Find Out More</a>
               <a>See All Projects</a>
-            </div>
-          </div>
-        </div>
-        <div v-if="slide.id==2" class = "container">
-          <div class="imageContainer ">
-            <img src="../../assets/img/indige-image.png"/>
-          </div>
-          <div class = "textContainer">
-            <h4></h4>
-            <p></p>
-            <div>
-              <a></a>
-              <a></a>
-            </div>
-          </div>
-        </div>
-        <div v-if="slide.id==3" class = "container">
-          <div class="imageContainer ">
-            <img src="../../assets/img/indige-image.png"/>
-          </div>
-          <div class = "textContainer">
-            <h4></h4>
-            <p></p>
-            <div>
-              <a></a>
-              <a></a>
             </div>
           </div>
         </div>
@@ -93,21 +57,24 @@ export default {
           id: '3',
           text: 'Mint the Bitcoin'
         }
-      ]
+      ],
+      breakpoints: {
+        900: {
+          gap: 15
+        },
+        700: {
+          visibleSlides: 1
+        },
+        600: {
+          gap: 5
+        }
+      }
     }
   },
   computed: {
-    section2 () {
+    slides () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.section2[0]
-    },
-    bannerImage () {
-      return {
-        'background-repeat': 'no-repeat',
-        'background-image': `url(${this.section2.banner.url})`,
-        'background-position': 'center',
-        'background-size': 'cover'
-      }
+      return content.section2
     }
   }
 }
@@ -130,7 +97,7 @@ export default {
   gap: 30px;
   padding: 146px;
 }
-.home-section2 span{
+.home-section2 .headline{
   font: normal normal 200 36px/44px Montserrat;
 }
 .home-slider {
@@ -183,5 +150,53 @@ button:hover {
 .vueperslides--fixed-height {
   height: 500px;
 }
+.vueperslides >>> .vueperslides__bullets {
+  bottom: 10%;
+}
 
+@media only screen and (max-width: 930px) {
+  .textContainer {
+    margin-left: 20px;
+  }
+  .textContainer a {
+    font-size: 12px;
+  }
+  .textContainer p {
+    font-size: 12px;
+  }
+  .textContainer h5 {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  #section2 {
+    padding: 100px 0 200px;
+  }
+  .vueperslides >>> .container {
+    height: auto;
+    flex-direction: column;
+  }
+  .textContainer {
+    width: 246px;
+    margin-top: 20px;
+    margin-left: 0;
+    height: auto;
+  }
+  .vueperslides >>> .vueperslides__bullets {
+    bottom: -25%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .home-section2 .headline{
+    font-size: 28px;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .vueperslides >>> .vueperslides__bullets {
+    bottom: -15%;
+  }
+  .imageContainer, .textContainer {
+    width: 200px;
+  }
+}
 </style>

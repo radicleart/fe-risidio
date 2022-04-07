@@ -347,6 +347,36 @@ a:hover {
   max-width: 50px;
 }
 
+//Sliders
+.vueperslides.vueperslides--fixed-height {
+  backdrop-filter: none;
+}
+.vueperslides button.vueperslides__bullet {
+  width: 15px;
+  height: 15px;
+}
+.vueperslides .vueperslides__bullet .default  {
+  color: #f9b8073d;
+  background-color: #f9b8073d;
+  box-shadow: none;
+}
+.vueperslides .vueperslides__bullet--active .default {
+  color: #F9B807;
+}
+@media only screen and (max-width: 450px) {
+  .vueperslides button.vueperslides__bullet {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .vueperslides button.vueperslides__bullet .default {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .vueperslides__bullet--active .default {
+      border-width: 4px;
+  }
+}
 //PRODUCT PAGE GAP
 .product--gap {
   width: 75%;

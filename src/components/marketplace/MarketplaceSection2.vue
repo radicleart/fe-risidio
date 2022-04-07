@@ -3,24 +3,14 @@
     <div class="mainheader">
       <h1>Latest Articles Written By Our Team</h1>
     </div>
-    <div class="container">
-      <div class="gallery">
-      <img src="../../assets/img/articles1.png" alt="placeholder" class="image"/>
-      <a class="date">10 Feb 20</a>
-      <h1 class="header">User Owned Data And Web 3.0</h1>
-      <p class="text">The creaking foundations of internet are groaning under the strain of centrally owned user data.</p>
-      </div>
-    <div class="gallery">
-      <img src="../../assets/img/articles2.png" alt="placeholder" class="image"/>
-      <a class="date">20 Jan 20</a>
-      <h1 class="header">Art On The Block</h1>
-      <p class="text">Art and technology seem to be clutching hands on a rollercoaster ride like never before. Several art on blockchain projects have sprung up over the past year and this article</p>
-      </div>
-    <div class="gallery">
-      <img src="../../assets/img/articles3.png" alt="placeholder" class="image"/>
-      <a class="date">10 Jan 20</a>
-      <h1 class="header">Lorem ipsum sint</h1>
-      <p class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
+    <div class="items-container">
+      <div v-for="(article, index) of content.articles" :key="index" class="item-container">
+        <a :href="article.link[0].text">
+          <img :src="article.image.url" alt="placeholder" class="image"/>
+          <span class="date">{{ article.date[0].text }}</span>
+          <h1 class="header">{{ article.title[0].text }}</h1>
+          <p class="text">{{ article.text[0].text }}</p>
+        </a>
       </div>
     </div>
   </section>
@@ -44,54 +34,51 @@ export default {
 <style scoped>
 .bg-lighter{
   min-height: 700px;
+  padding: 100px 0;
 }
 .mainheader h1{
-  padding-top: 100px;
   font-size: 17px;
 }
-.container{
-  max-width: 1100PX;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-direction: row;
-  margin-top: 100px;
+.items-container {
+    display: grid;
+    padding: 80px 15px 0;
+    max-width: 970px;
+    margin: 0 auto;
+    width: 100%;
+    grid-template-rows: repeat(1, max-content);
+    grid-template-columns: repeat(auto-fill, minmax(280px, max-content));
+    justify-content: center;
+    gap: 80px 50px;
 }
-.gallery
-{
-  width: 320px;
+.item-container {
+  width: 280px;
 }
-.gallery img{
-width: 310px;
-height: 200px;
-opacity: 1;
-background: black;
+.item-container img {
+  width: 280px;
+  height: 200px;
+  margin-bottom: 5px;
 }
-.gallery p{
-width: 310px;
-height: 42px;
-text-align: left;
-font: normal normal 300 11px/18px Montserrat;
-letter-spacing: 0px;
-opacity: 1;
+.item-container p {
+  text-align: left;
+  font: normal normal 300 11px/18px Montserrat;
+  letter-spacing: 0px;
+  margin-bottom: 0;
+  color: #000;
 }
-.gallery h1{
+.item-container h1 {
   text-align: left;
   font-size: 18px;
   font-weight: 600;
-  width: 320px;
-  height: 23px;
-  margin-top: 10px;
+  margin-top: 5px;
+  color: #000;
 }
-.date{
-  margin-top: 10px;
-  width: 280px;
-  height: 17px;
+.item-container a:hover {
+  color: #000;
+}
+.date {
   text-align: left;
   font: normal normal 300 10px/19px Montserrat;
   letter-spacing: 0px;
   color: #E9493D;
-  opacity: 1;
 }
 </style>
