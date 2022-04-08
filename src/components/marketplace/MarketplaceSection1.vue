@@ -4,8 +4,9 @@
       <img :src="project.image.url" alt="placeholder" class="image"/>
       <h1 class="header">{{ project.title[0].text }}</h1>
       <p class="text">{{ project.text[0].text }}</p>
-      <a :href="project.link[0].text" class="find">Fint out more</a>
-      <a class="try">Try It Now</a>
+      <!-- <a  class="find">Fint out more</a> -->
+      <a v-if="project.title[0].text === 'Marketplace' || project.title[0].text === 'Indige'" class="try">Coming Soon</a>
+      <a v-if="project.title[0].text === '#1'" :href="project.link[0].text" class="try">Try It Now</a>
     </div>
   </section>
 </template>
@@ -49,7 +50,7 @@ section {
 }
 .item-container p {
   width: 218px;
-  height: 60px;
+  height: 80px;
   text-align: left;
   font: normal normal 300 11px/18px Montserrat;
   letter-spacing: 0px;
@@ -71,6 +72,7 @@ section {
   letter-spacing: 0px;
   color: #5FBDC1;
   opacity: 1;
+  margin-right: 10px;
 }
 .try{
   width: 59px;
@@ -82,6 +84,5 @@ section {
   color: #F9B807;
   text-transform: capitalize;
   opacity: 1;
-  margin-left: 10px;
 }
 </style>

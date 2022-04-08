@@ -20,8 +20,9 @@
             <h5>{{slide.title[0].text}}</h5>
             <p>{{slide.content[0].text}}</p>
             <div>
-              <a :href="slide.link[0].text">Find Out More</a>
-              <a>See All Projects</a>
+              <a v-if="slide.title[0].text === 'This Is Number One'" :href="slide.link[0].text">Find Out More</a>
+              <a v-if="slide.title[0].text === 'Marketplace' || slide.title[0].text === 'Indige'" style="color: #4B515D;">Coming Soon</a>
+              <a href="/our-work">See All Projects</a>
             </div>
           </div>
         </div>

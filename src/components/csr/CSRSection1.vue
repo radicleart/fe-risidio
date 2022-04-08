@@ -12,8 +12,8 @@
         <div>
             <div class="csrinfo">
              <img src="../../assets/img/service.png" alt="placeholder" class="image"/>
-                <p class="title"> Environment</p>
-                <p class="text">We aim to tackle issues of digital and ecological pollution alongside our habitat and carbon sink regeneration work, with the overall aim to reduce Earth’s carbon footprint.</p>
+                <p class="title"> Governance</p>
+                <p class="text">Corporate Social Responsibility is at the heart of Risidio. Our governing ethos involves expanding our existing ecosystem of partners to establish an environmentally and socially conscious network.</p>
             </div>
           </div>
       </div>
@@ -21,8 +21,8 @@
           <div>
             <div class="csrinfo">
              <img src="../../assets/img/services1.png" alt="placeholder" class="image"/>
-                <p class="title"> Biodiversity</p>
-                <p class="text">Restore biodiversity and conserve natural habitats. The work we carry out as part of our Sustainable UK Agriculture initiative will foster.</p>
+                <p class="title"> Strategy</p>
+                <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism in our NFT marketplace.</p>
             </div>
           </div>
       </div>
@@ -30,11 +30,16 @@
           <div>
             <div class="csrinfo">
              <img src="../../assets/img/services2.png" alt="placeholder" class="image"/>
-                <p class="title"> Socioeconomy</p>
-                <p class="text">Socioeconomic inclusion by giving opportunities to creative actors and end-users to utilise a decentralised way of working and its advantages. New initiatives (mention indigenous projects).</p>
+                <p class="title"> Risk Management</p>
+                <p class="text">We have conducted research into a range of CSR projects within the NFT sphere and <a href="https://medium.com/risidio/fake-art-nfts-and-indigenous-rights-be2d8f32deb8">published our research</a> to showcase the fake indigenous art issue and how NFT technologies can support indigenous communities.</p>
             </div>
           </div>
       </div>
+      </div>
+      <div>
+        <p class="title">Roadmap and Targets</p>
+        <p class="text">EARTH DAY – APRIL 22ND 2022</p>
+        <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our Indige Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
       </div>
     </section>
 </template>

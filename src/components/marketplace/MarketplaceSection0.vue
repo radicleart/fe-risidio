@@ -2,8 +2,8 @@
 <section id="section0" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
   <div class="container my-auto pb-5 text-center">
     <h1 class="mt-5">{{ content.main_title[0].text }}</h1>
-    <p class="para">{{ content.subtitle_0[0].text }}</p>
-    <a class="text">{{ content.subtitle_1[0].text }}</a>
+    <!-- <p class="para">{{ content.subtitle_0[0].text }}</p>
+    <a class="text">{{ content.subtitle_1[0].text }}</a> -->
     <!--<h2 class="">{{content.title1[0].text}}</h2>
     <prismic-rich-text class="main-content my-4" :field="content.description"/>
     <div><a href="https://ruma.risidio.com"><button class="">Try now!</button></a></div>-->
