@@ -1,8 +1,8 @@
 <template>
-  <section class="bg-white">
+  <section id="slider" class="bg-white">
     <div class="header-title">
       <div>
-        <h1 >How We Work</h1>
+        <h1>How We Work</h1>
       </div>
       <div>
         <h2 >Cachy Thingy</h2>
@@ -10,6 +10,7 @@
     </div>
             <div class="vueSlideContainer galleryContainer">
               <vueper-slides
+              ref="slides"
               :infinite="false"
               fixed-height="true"
               class="no-shadow"
@@ -96,6 +97,11 @@ export default {
       const content = this.$store.getters['contentStore/getHomepage']
       return content.section55
     }
+  },
+  mounted () {
+    this.$root.$on('particularSlide', (n) => {
+      this.$refs.slides.goToSlide(n)
+    })
   }
 }
 </script>

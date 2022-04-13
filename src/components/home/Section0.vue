@@ -4,10 +4,10 @@
     <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="my-auto text-center">
         <div class="mb-auto d-flex align-items-center flex-column">
-            <div class="slogan"><span class="i innovate">i</span>nnovate</div>
-            <div class="slogan right"><span class="i involve">i</span>nvolve</div>
-            <div class="slogan"><span class="i inspire">i</span>nspire</div>
-            <p class="catch-phrase">Catch Phrase - You Can’t Keep This Empty!</p>
+            <div @click="goto('slider', 0)" class="slogan"><span class="i innovate">i</span>nnovate</div>
+            <div @click="goto('slider', 1)" class="slogan right"><span class="i involve">i</span>nvolve</div>
+            <div @click="goto('slider', 2)" class="slogan"><span class="i inspire">i</span>nspire</div>
+            <p class="catch-phrase">Creating Decentralised Future</p>
         </div>
       </div>
     </div>
@@ -28,6 +28,12 @@ export default {
     }
   },
   methods: {
+    goto (id, n) {
+      document.getElementById(id).scrollIntoView({
+        behavior: 'smooth'
+      })
+      this.$root.$emit('particularSlide', n)
+    }
   },
   computed: {
     section () {

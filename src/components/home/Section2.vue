@@ -20,9 +20,9 @@
             <h5>{{slide.title[0].text}}</h5>
             <p>{{slide.content[0].text}}</p>
             <div>
-              <a v-if="slide.title[0].text === 'This Is Number One'" :href="slide.link[0].text">Find Out More</a>
-              <a v-if="slide.title[0].text === 'Marketplace' || slide.title[0].text === 'Indige'" style="color: #4B515D;">Coming Soon</a>
-              <a href="/our-work">See All Projects</a>
+              <a class="more" v-if="slide.title[0].text === 'This Is Number One'" :href="slide.link[0].text">Find Out More</a>
+              <a class="more" v-if="slide.title[0].text === 'Marketplace' || slide.title[0].text === 'Indige'">Coming Soon</a>
+              <a class="all" href="/our-work">See All Projects</a>
             </div>
           </div>
         </div>
@@ -102,9 +102,17 @@ export default {
   font: normal normal 200 36px/44px Montserrat;
 }
 .home-slider {
-  width: 100%;
+  width: 75%;
 }
-
+.more {
+  margin-right: 35px;
+  font: normal normal bold 12px/15px Montserrat;
+  color: #63037E;
+}
+.all {
+  font: normal normal bold 12px/15px Montserrat;
+  color: #000000;
+}
 /* button {
   background: #5FBDC1 0% 0% no-repeat padding-box;
   border-radius: 22px;
@@ -130,23 +138,25 @@ button:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-top: 30px;
 }
 .imageContainer{
-  height: 100%;
   width: 246px;
 }
 .imageContainer img{
   width: 100%;
 }
 .textContainer {
-  width: 258px;
-  height: 267px;
-  margin-left: 120px;
+  max-width: 250px;
+  width: 100%;
+  margin-left: 50px;
+}
+.textContainer p {
+  font: normal normal 300 14px/18px Montserrat;
 }
 .textContainer div{
-  display: flex;
-  justify-content: space-between;
+  margin-top: 40px;
 }
 .vueperslides--fixed-height {
   height: 500px;
@@ -154,22 +164,20 @@ button:hover {
 .vueperslides >>> .vueperslides__bullets {
   bottom: 10%;
 }
-
+@media only screen and (max-width: 1201px) {
+  .home-slider {
+    width: 85%;
+  }
+}
 @media only screen and (max-width: 930px) {
+  .home-slider {
+    width: 100%;
+  }
   .textContainer {
     margin-left: 20px;
   }
-  .textContainer a {
-    font-size: 12px;
-  }
-  .textContainer p {
-    font-size: 12px;
-  }
-  .textContainer h5 {
-    font-size: 14px;
-  }
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 767px) {
   #section2 {
     padding: 100px 0 200px;
   }
@@ -186,6 +194,16 @@ button:hover {
   .vueperslides >>> .vueperslides__bullets {
     bottom: -25%;
   }
+  .textContainer div{
+    display: flex;
+    justify-content: space-between;
+  }
+  .more {
+    margin-right: 0;
+  }
+  .vueperslides >>> .vueperslides__bullets {
+    bottom: -20%;
+  }
 }
 @media only screen and (max-width: 450px) {
   .home-section2 .headline{
@@ -194,7 +212,7 @@ button:hover {
     text-align: center;
   }
   .vueperslides >>> .vueperslides__bullets {
-    bottom: -15%;
+    bottom: -10%;
   }
   .imageContainer, .textContainer {
     width: 200px;

@@ -1,22 +1,18 @@
 <template>
     <section class="bg-white">
-      <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-        <div class="my-auto py-5 text-center">
-          <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section3_title[0].text}}</h1></div>
-          <div class="px-5 row text-center">
-            <div class="col-lg-4" v-for="(item, index) in group" :key="index">
-              <div class="container">
-                <div class="image-container">
-                  <img class="p-3" :src="content.section3_content[index].icon.url" alt=""/>
-                </div>
-                <div class="text-container">
-                  <prismic-rich-text :field="item.content"/>
-                </div>
+      <div class="d-flex align-items-center flex-column my-auto py-5 text-center" :style="viewportDimensions">
+        <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section3_title[0].text}}</h1></div>
+        <div class="row-container">
+          <div class="content-container" v-for="(item, index) in group" :key="index">
+              <div class="image-container">
+                <img class="p-3" :src="content.section3_content[index].icon.url" alt=""/>
               </div>
-            </div>
+              <div class="text-container">
+                <prismic-rich-text :field="item.content"/>
+              </div>
           </div>
-          <button class="touch-button"><span>Interested ? Get In Touch</span></button>
         </div>
+        <button class="touch-button"><span>Interested ? Get In Touch</span></button>
       </div>
     </section>
 </template>
@@ -50,11 +46,28 @@ export default {
 .main-content >>> h1 {
   text-align: left;
 }
-.container {
+.row-container {
+  max-width: 1130px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+.text-container {
+  max-width: 300px;
+  width: 100%;
+}
+.text-container >>> p {
+  font: normal normal 300 12px/18px Montserrat;
+  text-align: center;
+}
+.content-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+.content-container:not(:last-child) {
+  margin-right: 30px;
 }
 .touch-button {
   width: 224px;
@@ -77,6 +90,17 @@ export default {
   align-items: flex-start;
 }
 
+@media only screen and (max-width: 1023px) {
+  .content-container:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .row-container {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+}
 @media only screen and (max-width: 991px) {
   .content-wrap {
     flex-flow: column;

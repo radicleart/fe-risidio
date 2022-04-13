@@ -50,7 +50,6 @@ section {
 }
 .item-container p {
   width: 218px;
-  height: 80px;
   text-align: left;
   font: normal normal 300 11px/18px Montserrat;
   letter-spacing: 0px;

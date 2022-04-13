@@ -31,14 +31,8 @@
                             <div class="slideImage">
                               <div class="collectionImageBack">
                                 <img :src="slide.image.url" alt="slide" class="slide"/>
-                            </div>
-                           <div class="slideText">
-                              <div class="title">
-                              <h2 class="notmobileHeader"></h2>
-                            </div>
+                              </div>
                               <p class="slide-text-p">{{slide.content[0].text}}</p>
-                              <a :href="slide.link[0].text" class="text">Find Out More</a>
-                            </div>
                             </div>
                         </div>
                        </template>
@@ -119,20 +113,10 @@ export default {
   max-width: 1300px;
   margin: auto;
 }
-.slideText{
-  position: relative;
-  margin-top: -30px;
-  h2{
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-    font: normal normal 300 30px/55px Montserrat;
-  }
-  .slide-text-p{
+.slide-text-p{
     font: normal normal 300 14px/18px Montserrat;
-    max-width: 250px;
-    margin-left: 350px;
-    margin-top: 15px;
-  }
+    max-width: 205px;
+    margin-left: 50px;
 }
 .slideText a{
   margin-left: 190px;
@@ -180,16 +164,10 @@ export default {
 .slideContainer{
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: center;
   height:100%;
   padding: 25px 20px;
   margin-top: 20px;
-}
-.slideContainer > *:nth-child(1){
-  margin: auto;
-}
-.slideContainer > *:nth-child(2){
-  margin: auto;
 }
 .collectionImage{
   display: block;
@@ -201,7 +179,8 @@ export default {
   object-fit: cover;
 }
 .slideImage{
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 .collectionImageBack{
   position: relative;

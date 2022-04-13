@@ -1,40 +1,18 @@
 <template>
     <section class="bg-lighter">
         <div class="header-title">
-             <h2 > Discover Our Services</h2>
-            </div>
-            <div class="about">
-    <div>
+          <h2 > Discover Our Services</h2>
+        </div>
+        <div class="about">
+          <div class="aboutinfo" v-for="(item, index) in content.section4" :key="index">
+            <img :src="item.image.url" alt="" class="image"/>
+              <p class="title">{{ item.title[0].text }}</p>
+              <p class="text">{{ item.text[0].text }}</p>
+          </div>
+        </div>
         <div>
-            <div class="aboutinfo">
-             <img src="../../assets/img/service.png" alt="placeholder" class="image"/>
-                <p class="title"> Design</p>
-                <p class="text">We have the network, skills and experience to grow a team from zero to production ready. Whether you need secondary or primary research to support a blockchain business plan or you’re ready for a full blown dev team we can help.</p>
-            </div>
-          </div>
-      </div>
-    <div>
-          <div>
-            <div class="aboutinfo">
-             <img src="../../assets/img/services1.png" alt="placeholder" class="image"/>
-                <p class="title"> Development</p>
-                <p class="text">Our product development team are constantly on the lookout for new integrations and directions for our core offerings. We build modular web components and micro-services from the ground up.</p>
-            </div>
-          </div>
-      </div>
-      <div>
-          <div>
-            <div class="aboutinfo">
-             <img src="../../assets/img/services2.png" alt="placeholder" class="image"/>
-                <p class="title"> Marketing</p>
-                <p class="text">While blockchain opens the door to entirely new business cases it can also be a complex and daunting space. We can help sort the wheat from the chaff and navigate problems like scalability that will underpin the success of your endeavours with blockchain technology.</p>
-            </div>
-          </div>
-      </div>
-      </div>
-      <div>
           <button class="button">Interested ? Get In Touch</button>
-      </div>
+        </div>
     </section>
 </template>
 
@@ -59,68 +37,72 @@ img {
   height: auto;
 }
 */
-.bg-lighter{
+.bg-lighter {
     min-height: 800px;
-    padding: 10rem 1rem;
+    padding: 130px 15px;
     text-align: center;
 }
-
-.about{
-   max-width: 1500px;
-    margin: auto;
+.about {
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.aboutinfo {
+  text-align: center;
+  margin-top: 85px;
+}
+.aboutinfo p {
+  max-width: 300px;
+}
+.image {
+  width: 72px;
+  height: 72px;
+}
+.title {
+  font-weight: 300;
+  text-align: center;
+  font: normal normal 200 35px/43px Montserrat;
+  margin-top: 10px;
+}
+.text {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  font: normal normal 300 12px/18px Montserrat;
+}
+.header-title {
+  text-align: center;
+  font-weight:1000;
+  font-size: 30px;
+}
+.header-title h2 {
+  font-weight:600;
+  font-size: 30px;
+}
+.button {
+  width: 224px;
+  height: 43px;
+  background: rgba(95, 190, 193, 0.15);
+  border-radius: 22px;
+  color: #5FBDC1;
+  font: normal normal bold 11px/14px Montserrat;
+}
+@media only screen and (max-width: 1000px) {
+  .about {
+    flex-direction: column;
+  }
+  .aboutinfo {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-evenly;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
   }
-  .aboutinfo{
-    position: relative;
-    flex: 0 1 300px;
-    padding: 35px 20px;
-    text-align: center;
-    margin-top: 150px;
-    }
-    .aboutinfo p{
-      max-width: 350px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .image{
-    position: absolute;
-    top: 10px;
-    right: 0; left: 0;
-    margin: auto;
-    width: 72px;
-    height: 72px;
+  .aboutinfo:not(:first-child) {
+    margin-top: 30px;
   }
-  .title{
-    font-size: 35px;
-    font-weight: 300;
-    text-align: center;
-    margin-top: 90px;
+  .aboutinfo:last-child {
+    margin-bottom: 20px;
   }
-  .text{
-    font-size: 14px;
-    line-height: 18px;
-    text-align: center;
-  }
-  .header-title{
-      text-align: center;
-      font-weight:1000;
-      font-size: 30px;
-    }
-  .header-title h2{
-      font-weight:600;
-      font-size: 30px;
-      }
-  .button{
-     width: 224px;
-     height: 43px;
-     background: #5FBDC1 0% 0% no-repeat padding-box;
-     border-radius: 22px;
-     opacity: 0.35;
-     color:black;
-     font-size: 14px;
-     }
-  </style>
+}
+</style>

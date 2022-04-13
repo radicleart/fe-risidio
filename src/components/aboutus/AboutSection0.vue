@@ -5,9 +5,9 @@
       <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.section0[0].title[0].text}}</h1></div>
       <div class="">
         <p class="mb-4 text-center blurb text-white mx-auto w-100">
-        <span v-html="content.section0[0].pretagline[0].text"></span>
+        <span v-html="content.section0[0].tagline[0].text"></span>
         </p>
-        <h4 class="text-center text-white" v-html="content.section0[0].tagline[0].text"></h4>
+        <!-- <h4 class="text-center text-white" v-html="content.section0[0].tagline[0].text"></h4> -->
       </div>
       <!--
       <div v-scroll-to="{ element: '#section0-second-half', duration: 1000 }" class="icon-down">

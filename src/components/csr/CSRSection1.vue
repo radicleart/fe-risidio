@@ -7,12 +7,17 @@
             <div> <h2 > Our Focuses</h2>
             </div>
             </div>
+            <div>
+              <p class="title">Roadmap and Targets</p>
+              <p class="text">EARTH DAY – APRIL 22ND 2022</p>
+              <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our Indige Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
+            </div>
             <div class="sustainability">
     <div>
         <div>
             <div class="csrinfo">
              <img src="../../assets/img/service.png" alt="placeholder" class="image"/>
-                <p class="title"> Governance</p>
+                <p class="title1"> Governance</p>
                 <p class="text">Corporate Social Responsibility is at the heart of Risidio. Our governing ethos involves expanding our existing ecosystem of partners to establish an environmentally and socially conscious network.</p>
             </div>
           </div>
@@ -21,7 +26,7 @@
           <div>
             <div class="csrinfo">
              <img src="../../assets/img/services1.png" alt="placeholder" class="image"/>
-                <p class="title"> Strategy</p>
+                <p class="title1"> Strategy</p>
                 <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism in our NFT marketplace.</p>
             </div>
           </div>
@@ -30,16 +35,11 @@
           <div>
             <div class="csrinfo">
              <img src="../../assets/img/services2.png" alt="placeholder" class="image"/>
-                <p class="title"> Risk Management</p>
+                <p class="title1"> Risk Management</p>
                 <p class="text">We have conducted research into a range of CSR projects within the NFT sphere and <a href="https://medium.com/risidio/fake-art-nfts-and-indigenous-rights-be2d8f32deb8">published our research</a> to showcase the fake indigenous art issue and how NFT technologies can support indigenous communities.</p>
             </div>
           </div>
       </div>
-      </div>
-      <div>
-        <p class="title">Roadmap and Targets</p>
-        <p class="text">EARTH DAY – APRIL 22ND 2022</p>
-        <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our Indige Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
       </div>
     </section>
 </template>
@@ -67,7 +67,7 @@ img {
 */
 .bg-lighter{
     min-height: 800px;
-    padding: 10rem 1rem;
+    padding: 50px 15px;
     text-align: center;
 }
 
@@ -79,14 +79,13 @@ img {
     gap: 20px;
     justify-content: space-evenly;
     flex-direction: row;
-    margin-top: -20px;
   }
   .csrinfo{
     position: relative;
     flex: 0 1 300px;
     padding: 35px 20px;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 90px;
     }
     .csrinfo p{
       max-width: 350px;
@@ -105,6 +104,12 @@ img {
     font-size: 35px;
     font-weight: 300;
     text-align: center;
+    margin-top: 30px;
+  }
+  .title1 {
+    font-size: 35px;
+    font-weight: 300;
+    text-align: center;
     margin-top: 90px;
   }
   .text{
@@ -114,7 +119,6 @@ img {
   }
   .header-title{
       text-align: center;
-      margin-top: -40px;
       gap: 20px;
 
     }
