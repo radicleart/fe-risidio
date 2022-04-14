@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white">
+  <section id="our-work-section1" class="bg-white">
     <div v-for="(project, index) of content.projects" :key="index" class="item-container">
       <img :src="project.image.url" alt="placeholder" class="image"/>
       <h1 class="header">{{ project.title[0].text }}</h1>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'MarketplaceSection1',
+  name: 'OurWorkSection1',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

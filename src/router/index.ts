@@ -4,7 +4,7 @@ import AboutUs from '../views/AboutUs.vue'
 import Home from '../views/Home.vue'
 import Page from '../views/Page.vue'
 import Proposal from '../views/Proposal.vue'
-import Marketplace from '../views/Marketplace.vue'
+import OurWork from '../views/OurWork.vue'
 import HelpTopics from '../views/HelpTopics.vue'
 import MainNavbar from '@/layout/MainNavbar.vue'
 import MainFooter from '@/layout/MainFooter.vue'
@@ -90,8 +90,8 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/our-work',
-    name: 'marketplace',
-    components: { default: Marketplace, header: MainNavbar, footer: MainFooter },
+    name: 'our-work',
+    components: { default: OurWork, header: MainNavbar, footer: MainFooter },
     meta: {
       title: 'Risidio - Projects and Services for Blockchain.',
       isProductPage: true

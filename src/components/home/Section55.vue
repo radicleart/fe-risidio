@@ -5,7 +5,7 @@
         <h1>How We Work</h1>
       </div>
       <div>
-        <h2 >Cachy Thingy</h2>
+        <h2>Creating Decentralised Future</h2>
       </div>
     </div>
             <div class="vueSlideContainer galleryContainer">
@@ -116,20 +116,18 @@ export default {
     text-align: center;
 }
 .header-title{
-      text-align: center;
-      margin-top: -40px;
-      gap: 20px;
-
-    }
-  .header-title h1{
-      font-weight:600;
-      font-size: 20px;
-      }
-  .header-title h2{
-      font-weight: 200;
-      font-size: 36px;
-      margin-top: 40px;
-      }
+  text-align: center;
+  margin-top: -40px;
+  gap: 20px;
+}
+.header-title h1{
+  font-weight:600;
+  font-size: 20px;
+}
+.header-title h2{
+  font-weight: 200;
+  font-size: 36px;
+}
 .if{
   max-width: 1300px;
   margin: auto;
@@ -164,7 +162,7 @@ export default {
    font-weight: 600;
    font-size: 20px;
  }
- .innovate{
+ .vueperslide:first-child .innovate {
      margin-left: 20px;
  }
 .vueperslide{

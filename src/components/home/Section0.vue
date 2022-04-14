@@ -4,9 +4,9 @@
     <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="my-auto text-center">
         <div class="mb-auto d-flex align-items-center flex-column">
-            <div @click="goto('slider', 0)" class="slogan"><span class="i innovate">i</span>nnovate</div>
-            <div @click="goto('slider', 1)" class="slogan right"><span class="i involve">i</span>nvolve</div>
-            <div @click="goto('slider', 2)" class="slogan"><span class="i inspire">i</span>nspire</div>
+            <div v-scroll-to="{ element: '#slider', duration: 1500 }" class="slogan"><span class="i innovate">i</span>nnovate</div>
+            <div v-scroll-to="{ element: '#slider', duration: 1500 }" class="slogan right"><span class="i involve">i</span>nvolve</div>
+            <div v-scroll-to="{ element: '#slider', duration: 1500 }" class="slogan"><span class="i inspire">i</span>nspire</div>
             <p class="catch-phrase">Creating Decentralised Future</p>
         </div>
       </div>
@@ -28,12 +28,9 @@ export default {
     }
   },
   methods: {
-    goto (id, n) {
-      document.getElementById(id).scrollIntoView({
-        behavior: 'smooth'
-      })
-      this.$root.$emit('particularSlide', n)
-    }
+    // slider (n) {
+    //   this.$root.$emit('particularSlide', n)
+    // }
   },
   computed: {
     section () {

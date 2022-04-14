@@ -8,26 +8,24 @@
         <span v-html="content.section0[0].subtitle[0].text"></span>
         </p>
       </div>
-      <!--
-      <div v-scroll-to="{ element: '#csrsection1', duration: 1000 }" class="icon-down">
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      -->
+    </div>
+    <div v-scroll-to="{ element: '#about-section-1', duration: 750 }" class="icon-down">
+      <i class="fas fa-chevron-down"></i>
     </div>
   </div>
-  <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half">
+  <!-- <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half">
     <div class="my-auto">
       <div class="my-5">
-        <!-- <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
+        <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
         <div class="mb-4"><h2 class="text-center">{{content.s1title2[0].text}}</h2></div>
         <div class="mx-auto my-4 s1-description">
         <p class="mb-4 text-center">{{content.s1description[0].text}}</p>
         <p class="mb-4 text-center">{{content.s1description[1].text}}</p>
         <p class="mb-4 text-center">{{content.s1description[2].text}}</p>
-        </div> -->
+        </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 </template>
 
@@ -84,9 +82,6 @@ h4 {
   font-size: 1.4em;
   letter-spacing: 0px;
   color: #FFFFFF;
-}
-.icon-down {
-  margin: 25px auto;
 }
 @media only screen and (max-width:1200px) {
   .s1-description {

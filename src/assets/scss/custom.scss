@@ -306,14 +306,16 @@ a:hover {
 .icon-down {
   width: 40px;
   height: 40px;
-  margin: 0 auto;
+  margin: 0 0 25px;
   border: 1px solid rgba(249, 184, 7, 0.2);
   border-radius: 50%;
   color: #F9B807;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .icon-down i {
-  position: relative;
-  top: 8px;
+  margin-top: 2px;
 }
 .icon-down:hover {
   cursor: pointer;

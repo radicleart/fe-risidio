@@ -1,5 +1,5 @@
 <template>
-<section id="section0" :style="bannerImage" class="d-flex justify-content-center flex-column text-white">
+<section id="section0" :style="bannerImage" class="d-flex justify-content-center align-items-center flex-column text-white">
   <div class="container my-auto pb-5 text-center">
     <h1 class="mt-5">{{ content.main_title[0].text }}</h1>
     <!-- <p class="para">{{ content.subtitle_0[0].text }}</p>
@@ -8,6 +8,9 @@
     <prismic-rich-text class="main-content my-4" :field="content.description"/>
     <div><a href="https://ruma.risidio.com"><button class="">Try now!</button></a></div>-->
   </div>
+  <div v-scroll-to="{ element: '#our-work-section1', duration: 750 }" class="icon-down">
+    <i class="fas fa-chevron-down"></i>
+  </div>
 </section>
 </template>
 
@@ -15,7 +18,7 @@
 import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
-  name: 'MarketplaceSection0',
+  name: 'OurWorkSection0',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

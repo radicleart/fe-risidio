@@ -4,7 +4,7 @@
           <div>
           <h1> We Care</h1>
           </div>
-            <div> <h2 > Our Focuses</h2>
+            <div> <h2 >Sustainable Development Goals</h2>
             </div>
             </div>
             <div>

@@ -1,8 +1,8 @@
 <template>
 <div v-if="content" class="bg-white">
-    <marketplace-section0 :viewportDimensions="sectionDimensions" :content="content"/>
-    <marketplace-section1 :viewportDimensions="sectionDimensions" :content="content"/>
-    <marketplace-section2 :content="content"/>
+    <our-work-section0 :viewportDimensions="sectionDimensions" :content="content"/>
+    <our-work-section1 :viewportDimensions="sectionDimensions" :content="content"/>
+    <our-work-section2 :content="content"/>
     <section12 :viewportDimensions="sectionDimensions" :content="contentServices"/>
     <section6 :viewportDimensions="sectionDimensions"/>
 </div>
@@ -10,9 +10,9 @@
 
 <script>
 import { SITE_CONSTANTS } from '@/site-constants'
-import MarketplaceSection0 from '@/components/marketplace/MarketplaceSection0'
-import MarketplaceSection1 from '@/components/marketplace/MarketplaceSection1'
-import MarketplaceSection2 from '@/components/marketplace/MarketplaceSection2'
+import OurWorkSection0 from '@/components/ourwork/OurWorkSection0'
+import OurWorkSection1 from '@/components/ourwork/OurWorkSection1'
+import OurWorkSection2 from '@/components/ourwork/OurWorkSection2'
 import Section6 from '@/components/home/Section6'
 export default {
   name: 'Marketplace',
@@ -22,9 +22,9 @@ export default {
     }
   },
   components: {
-    MarketplaceSection0,
-    MarketplaceSection1,
-    MarketplaceSection2,
+    OurWorkSection0,
+    OurWorkSection1,
+    OurWorkSection2,
     Section6
   },
   watch: {

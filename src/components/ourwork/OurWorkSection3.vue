@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'MarketplaceSection3',
+  name: 'OurWorkSection3',
   props: ['viewportDimensions', 'content'],
   data () {
     return {

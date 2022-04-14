@@ -9,17 +9,17 @@
          <!-- <div class="col-4" v-html="getContent('sitemap')">-->
            <div class="col-4">
              <h1 class="header">Sitemap</h1>
-              <div><a class="list">Our Work</a></div>
-              <div><a class="list">About</a></div>
-              <div><a class="list">Sustainability</a></div>
+              <div><a href="/our-work" class="list">Our Work</a></div>
+              <div><a href="/aboutus" class="list">About</a></div>
+              <div><a href="/sustainability" class="list">Sustainability</a></div>
 
           </div>
           <!--<div class="col-4" v-html="getContent('joinus')">-->
             <div class="col-4">
               <h1 class="header">Products</h1>
-              <div><a class="list">Marketplace</a></div>
-              <div><a class="list">Indige</a></div>
-              <div><a class="list">This is #1</a></div>
+              <div><a href="" class="list">Marketplace</a></div>
+              <div><a href="" class="list">Indige</a></div>
+              <div><a href="" class="list">This is #1</a></div>
           </div>
           <!--<div class="col-4" v-html="getContent('contact')">-->
             <div class="col-4">
@@ -28,10 +28,10 @@
               <div><a class="email">info@risidio.com</a></div>
               <div class="socialmedia">
                 <span style="font-size: 15px;">
-                <a href="https://discord.gg/qvuxB9P" target="_blank"><img src="@/assets/img/facebook.png" ></a>
-                <a href="https://twitter.com/Risidio1" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/risidio_official/" target="_blank"><img src="@/assets/img/linkedin-16.png"></a>
-            </span>
+                  <a href="https://discord.gg/qvuxB9P" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://twitter.com/Risidio1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="https://www.instagram.com/risidio_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </span>
               </div>
           </div>
         </div>
@@ -53,9 +53,9 @@
       <div class="col-12 mobile-footer--contact" v-html="getContent('contact')"></div>
       <div class="col-12 social-icons">
         <span style="font-size: 15px;">
-          <a href="https://discord.gg/qvuxB9P"><i class="fab fa-discord"></i></a>
-          <a href="https://twitter.com/Risidio1"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/risidio_official/"><i class="fab fa-instagram"></i></a>
+          <a href="https://discord.gg/qvuxB9P"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://twitter.com/Risidio1"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.instagram.com/risidio_official/"><i class="fa-brands fa-instagram"></i></a>
         </span>
       </div>
     </div>
@@ -112,7 +112,9 @@ export default {
   height: 280px;
   background-color: #000;
 }
-
+.footer-container h1 {
+  text-align: left;
+}
 .footer-container h2 {
   font-size: 17px;
   font-weight: 200;
@@ -158,7 +160,7 @@ export default {
 .mobile-footer p {
   width: 30%;
   margin: 0 auto !important;
-  text-align: center;
+  text-align: left;
   font-size: 10px !important;
   font-weight: 400 !important;
   letter-spacing: 0.5px;
@@ -174,7 +176,9 @@ export default {
 .mobile-footer--contact p:last-child, .mobile-footer--contact p:nth-child(3) {
   display: none;
 }
-
+.mobile-footer--contact p {
+  text-align: center;
+}
 .social-icons {
   margin-top: 11px;
 }
@@ -203,7 +207,6 @@ export default {
 .list{
   color: white;
   font-size: 12px;
-  margin-left: 75px;
   font-weight: 600;
 }
 .address{
@@ -211,18 +214,15 @@ export default {
   display: block;
   }
 .content-footer p{
-  margin-left: 75px;
   font-size: 12px;
 }
 .email{
   color: #F9B807;
   width: 100px;
   font-size: 12px;
-  margin-left: 75px;
 }
 .socialmedia {
   margin-top: 11px;
-  margin-left: 75px;
 }
 
 .socialmedia a:not(:last-child) {
@@ -235,8 +235,6 @@ export default {
 
 .socialmedia a:hover {
   color: #fff;
-}
-.navbar-brand img{
 }
 .text-left{
   margin-left: 100px;
