@@ -5,7 +5,7 @@
         <prismic-rich-text class="main-content my-4 text-white" :field="section1[0].content"/>
         <div class="mb-4 d-flex justify-content-center">
           <div class="mr-2"><button class="about-us"><a href="/aboutus" class="about-text">{{section1[0].link[0].text}}</a></button></div>
-          <div class="ml-2"><button><a href="/aboutus" class="call-button-text">{{section1[1].link[0].text}}</a></button></div>
+          <div class="ml-2"><button><a href="/our-work" class="call-button-text">{{section1[1].link[0].text}}</a></button></div>
         </div>
       </div>
     </div>

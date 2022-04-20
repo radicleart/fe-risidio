@@ -20,7 +20,7 @@
       <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[1].text}}</h4></div>
       <p class="my-4 text-center">{{content.section0[0].content[2].text}}</p>
       <img :src="content.section0[0].mission.url" alt="placeholder" class="image"/>
-      <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[3].text}}</h4></div>
+      <div class="mb-4 mt-2"><h4 class="text-center">{{content.section0[0].content[3].text}}</h4></div>
       <p class="my-4 text-center">{{content.section0[0].content[4].text}}</p>
   </div>
     <!--<div class="w-75 text-center section0-image-container">
@@ -122,17 +122,11 @@ h4 {
 .image{
   width: 235px;
   height: 198px;
-  margin-left: 650px;
   margin-top:80px
 }
 .text-center{
   margin-top: 25px;
   }
-@media only screen and (max-width: 1499px) {
-  .image{
-    margin-right: 650px;
-  }
-}
 @media only screen and (max-width: 900px) {
   .section0-image-container {
     margin: 0 auto -7rem;

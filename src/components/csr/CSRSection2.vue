@@ -5,7 +5,7 @@
         <h1 >Our Values</h1>
       </div>
       <div>
-        <h2 >For A Better Furture</h2>
+        <h2 >For A Better Future</h2>
       </div>
     </div>
             <div class="vueSlideContainer galleryContainer">
@@ -220,17 +220,6 @@ export default {
 .notMobileHeader{
   display: block;
 }
-@media only screen and (max-width: 800px){
-  .vueperslides::v-deep .title {
-    margin-left: 147px;
-  }
-  .vueperslides::v-deep .slide-text-p {
-    margin-left: 320px;
-  }
-  .vueperslides::v-deep .text {
-    margin-left: 158px;
-  }
-}
 @media only screen and (max-width: 767px){
   .vueperslides--fixed-height {
     height: 510px;
@@ -246,16 +235,14 @@ export default {
     margin: 0;
   }
   .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 260px;
-    text-align: center;
+    margin: 25px 0 0;
+    max-width: 208px;
   }
   .vueperslides::v-deep .title {
     margin-top: 10px;
   }
   .vueperslides::v-deep .vueperslides__bullets {
-    bottom: -15%;
+    bottom: 13%;
   }
 }
 @media only screen and (max-width: 500px) {

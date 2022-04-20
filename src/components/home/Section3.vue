@@ -7,7 +7,7 @@
           <strong>Albert Einstein</strong>
         </div>
         <div>
-          <button>More About Us</button>
+          <a class="more-about-us secondary-button" href="/aboutus">More About Us</a>
         </div>
     </div>
   </section>
@@ -53,7 +53,7 @@ export default {
 .main-text strong {
   color: #FFFFFF;
 }
-.container button {
+.container .more-about-us {
   font: normal normal bold 11px/14px Montserrat;
 }
 @media only screen and (max-width: 470px) {

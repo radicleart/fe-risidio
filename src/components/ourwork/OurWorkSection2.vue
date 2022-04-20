@@ -1,7 +1,7 @@
 <template>
   <section class="bg-lighter">
     <div class="mainheader">
-      <h1>Latest Articles Written By Our Team</h1>
+      <h1>Recent Articles Written By Our Team</h1>
     </div>
     <div class="items-container">
       <div v-for="(article, index) of content.articles" :key="index" class="item-container">

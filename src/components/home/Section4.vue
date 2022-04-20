@@ -12,7 +12,7 @@
               </div>
           </div>
         </div>
-        <button class="touch-button"><span>Interested ? Get In Touch</span></button>
+        <button class="touch-button"><a href="/contact">Interested? Get In Touch</a></button>
       </div>
     </section>
 </template>
@@ -76,7 +76,7 @@ export default {
   border-radius: 22px;
   margin-top: 50px;
 }
-.touch-button span{
+.touch-button a{
   color: rgba(95, 189, 193, 1);
   font-weight: 700;
   font: normal normal bold 11px/14px Montserrat;

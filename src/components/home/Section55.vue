@@ -279,6 +279,12 @@ export default {
   .vueperslides::v-deep .collectionImageBack {
     display: block;
   }
+  .vueperslides::v-deep h2 {
+    line-height: 1;
+  }
+  .vueperslide:first-child .innovate {
+     margin-left: 0;
+  }
   .vueperslides::v-deep .title, .vueperslides::v-deep .innovate, .vueperslides::v-deep .slideText {
     margin: 0;
   }
@@ -289,10 +295,10 @@ export default {
     text-align: center;
   }
   .vueperslides::v-deep .title {
-    margin-top: 10px;
+    margin-top: 25px;
   }
   .vueperslides::v-deep .vueperslides__bullets {
-    bottom: -15%;
+    bottom: -8%;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -302,13 +308,13 @@ export default {
   .arrow2{
     display: none;
   }
+  .vueperslides::v-deep .vueperslides__bullets {
+    bottom: -10%;
+  }
 }
 @media only screen and (max-width: 389px) {
   .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text, .vueperslides::v-deep .slideImage, .vueperslides::v-deep .slideImage img {
     width: 100%;
-  }
-  .vueperslides::v-deep .vueperslides__bullets {
-    bottom: -10%;
   }
 }
 @media only screen and (max-width: 350px) {

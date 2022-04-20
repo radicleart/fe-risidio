@@ -10,7 +10,7 @@
             <div>
               <p class="title">Roadmap and Targets</p>
               <p class="text">EARTH DAY – APRIL 22ND 2022</p>
-              <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our Indige Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
+              <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our IndigeNFT Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
             </div>
             <div class="sustainability">
     <div>

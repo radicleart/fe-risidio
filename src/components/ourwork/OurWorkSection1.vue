@@ -5,8 +5,8 @@
       <h1 class="header">{{ project.title[0].text }}</h1>
       <p class="text">{{ project.text[0].text }}</p>
       <!-- <a  class="find">Fint out more</a> -->
-      <a v-if="project.title[0].text === 'Marketplace' || project.title[0].text === 'Indige'" class="try">Coming Soon</a>
-      <a v-if="project.title[0].text === '#1'" :href="project.link[0].text" class="try">Try It Now</a>
+      <a v-if="project.title[0].text === 'Marketplace'" class="try">Coming Soon</a>
+      <a v-else class="try">Find Out More</a>
     </div>
   </section>
 </template>

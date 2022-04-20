@@ -11,7 +11,7 @@
           </div>
         </div>
         <div>
-          <button class="button">Interested ? Get In Touch</button>
+          <button class="button mx-auto"><a href="/contact">Interested? Get In Touch</a></button>
         </div>
     </section>
 </template>
@@ -87,6 +87,11 @@ img {
   background: rgba(95, 190, 193, 0.15);
   border-radius: 22px;
   color: #5FBDC1;
+  font: normal normal bold 11px/14px Montserrat;
+}
+.button a{
+  color: rgba(95, 189, 193, 1);
+  font-weight: 700;
   font: normal normal bold 11px/14px Montserrat;
 }
 @media only screen and (max-width: 1000px) {

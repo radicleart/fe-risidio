@@ -16,16 +16,16 @@
           </div>
           <!--<div class="col-4" v-html="getContent('joinus')">-->
             <div class="col-4">
-              <h1 class="header">Products</h1>
-              <div><a href="" class="list">Marketplace</a></div>
-              <div><a href="" class="list">Indige</a></div>
-              <div><a href="" class="list">This is #1</a></div>
+              <h1 class="header">Projects</h1>
+              <div><a href="/our-work" class="list">Marketplace</a></div>
+              <div><a href="https://www.indigenft.io/" class="list">IndigeNFT</a></div>
+              <div><a href="https://thisisnumberone.com/" class="list">This is #1</a></div>
           </div>
           <!--<div class="col-4" v-html="getContent('contact')">-->
             <div class="col-4">
               <h1 class="header">Contact</h1>
               <div><p class="address">Kemp House 152 - 160 City Road, London Ec1V 2Nx</p></div>
-              <div><a class="email">info@risidio.com</a></div>
+              <div><a href="mailto:info@risidio.com" class="email">info@risidio.com</a></div>
               <div class="socialmedia">
                 <span style="font-size: 15px;">
                   <a href="https://discord.gg/qvuxB9P" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>

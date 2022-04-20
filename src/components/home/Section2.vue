@@ -7,8 +7,6 @@
    fixed-height="true"
    :dragging-distance="70"
    prevent-y-scroll
-   :gap="5"
-   :breakpoints="breakpoints"
    >
     <vueper-slide v-for="(slide, index) of slides" :key="index">
       <template #content>
@@ -20,8 +18,8 @@
             <h5>{{slide.title[0].text}}</h5>
             <p>{{slide.content[0].text}}</p>
             <div>
-              <a class="more" v-if="slide.title[0].text === 'This Is Number One'" :href="slide.link[0].text">Find Out More</a>
-              <a class="more" v-if="slide.title[0].text === 'Marketplace' || slide.title[0].text === 'Indige'">Coming Soon</a>
+              <a class="more" v-if="slide.title[0].text === 'Risidio Marketplace'">Coming Soon</a>
+              <a class="more" v-else :href="slide.link[0].text">Find Out More</a>
               <a class="all" href="/our-work">See All Projects</a>
             </div>
           </div>
@@ -58,18 +56,7 @@ export default {
           id: '3',
           text: 'Mint the Bitcoin'
         }
-      ],
-      breakpoints: {
-        900: {
-          gap: 15
-        },
-        700: {
-          visibleSlides: 1
-        },
-        600: {
-          gap: 5
-        }
-      }
+      ]
     }
   },
   computed: {
@@ -102,8 +89,10 @@ export default {
   font: normal normal 200 36px/44px Montserrat;
 }
 .home-slider {
-  width: 75%;
+  width: 100%;
 }
+.vueperslides {padding: 0 30em;}
+.vueperslides__parallax-wrapper, .vueperslides__track {overflow: visible;}
 .more {
   margin-right: 35px;
   font: normal normal bold 12px/15px Montserrat;
@@ -164,22 +153,34 @@ button:hover {
 .vueperslides >>> .vueperslides__bullets {
   bottom: 10%;
 }
-@media only screen and (max-width: 1201px) {
-  .home-slider {
-    width: 85%;
-  }
+@media only screen and (max-width: 2200px) {
+  .vueperslides {padding: 0 25em;}
+}
+@media only screen and (max-width: 1900px) {
+  .vueperslides {padding: 0 17em;}
+}
+@media only screen and (max-width: 1600px) {
+  .vueperslides {padding: 0 10em;}
+}
+@media only screen and (max-width: 1300px) {
+  .vueperslides {padding: 0 5em;}
+}
+@media only screen and (max-width: 1100px) {
+  .vueperslides {padding: 0 2em;}
 }
 @media only screen and (max-width: 930px) {
-  .home-slider {
-    width: 100%;
-  }
+  .vueperslides {padding: 0;}
   .textContainer {
     margin-left: 20px;
   }
 }
 @media only screen and (max-width: 767px) {
+  .vueperslides {padding: 0 10em;}
   #section2 {
     padding: 100px 0 200px;
+  }
+  .textContainer div{
+    margin-top: 20px;
   }
   .vueperslides >>> .container {
     height: auto;
@@ -212,10 +213,25 @@ button:hover {
     text-align: center;
   }
   .vueperslides >>> .vueperslides__bullets {
-    bottom: -10%;
+    bottom: -5%;
   }
   .imageContainer, .textContainer {
     width: 200px;
   }
+  .home-section2{
+    gap: 0;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .vueperslides {padding: 0 7em;}
+}
+@media only screen and (max-width: 550px) {
+  .vueperslides {padding: 0 5em;}
+}
+@media only screen and (max-width: 424px) {
+  .vueperslides {padding: 0 4em;}
+}
+@media only screen and (max-width: 374px) {
+  .vueperslides {padding: 0;}
 }
 </style>

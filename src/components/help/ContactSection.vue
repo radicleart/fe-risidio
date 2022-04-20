@@ -63,7 +63,7 @@
                   <b-form-textarea
                     class="form-control"
                     id="validation-message"
-                    placeholder="How can we help"
+                    placeholder="How can we help?"
                     v-model="message"
                     rows="5"
                     required>
