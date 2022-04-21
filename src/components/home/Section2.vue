@@ -1,6 +1,6 @@
 <template>
  <section id="section2" class="home-section2">
-   <strong>What We do</strong>
+   <strong>What We Do</strong>
    <span class="headline">Discover Our Projects</span>
    <vueper-slides  class="no-shadow home-slider"
    :arrows="false"
@@ -206,6 +206,12 @@ button:hover {
     bottom: -20%;
   }
 }
+@media only screen and (max-width: 650px) {
+  .vueperslides {padding: 0 7em;}
+}
+@media only screen and (max-width: 550px) {
+  .vueperslides {padding: 0 5em;}
+}
 @media only screen and (max-width: 450px) {
   .home-section2 .headline{
     font-size: 28px;
@@ -213,7 +219,7 @@ button:hover {
     text-align: center;
   }
   .vueperslides >>> .vueperslides__bullets {
-    bottom: -5%;
+    bottom: -16%;
   }
   .imageContainer, .textContainer {
     width: 200px;
@@ -221,17 +227,6 @@ button:hover {
   .home-section2{
     gap: 0;
   }
-}
-@media only screen and (max-width: 650px) {
-  .vueperslides {padding: 0 7em;}
-}
-@media only screen and (max-width: 550px) {
-  .vueperslides {padding: 0 5em;}
-}
-@media only screen and (max-width: 424px) {
-  .vueperslides {padding: 0 4em;}
-}
-@media only screen and (max-width: 374px) {
   .vueperslides {padding: 0;}
 }
 </style>

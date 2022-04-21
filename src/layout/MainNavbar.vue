@@ -31,8 +31,8 @@
       </b-navbar-nav>
       <b-navbar-nav class="mobile-nav-items">
         <b-nav-text class="text-white mobile-nav-items--social">
-          <a href="https://discord.gg/qvuxB9P"><span style="font-size: 15px;"><i class="fa-brands fa-discord"></i></span></a>
-          <a href="https://twitter.com/Risidio1"><span style="font-size: 15px;"><i class="fa-brands fa-facebook-f"></i></span></a>
+          <a href="https://discord.com/invite/sQaKVft"><span style="font-size: 15px;"><i class="fa-brands fa-discord"></i></span></a>
+          <a href="https://twitter.com/Risidio1"><span style="font-size: 15px;"><i class="fa-brands fa-twitter"></i></span></a>
           <a href="https://www.instagram.com/risidio_official/"><span style="font-size: 15px;"><i class="fa-brands fa-instagram"></i></span></a>
         </b-nav-text>
         <b-nav-text v-b-toggle.nav-collapse @click="noScroll()" class="nav-text text-white mobile-nav-items--terms">

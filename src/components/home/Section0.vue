@@ -68,7 +68,7 @@ img {
   font: normal normal bold 88px/107px Montserrat;
   color: #383838;
   text-align: center;
-  cursor: default;
+  cursor: pointer;
 }
 .slogan.right{
   text-align: end;

@@ -226,4 +226,9 @@ h3 { /* Contact us style */
   text-align: center;
   font-size: 20px;
 }
+@media only screen and (max-width: 768px) {
+  #ContactSection {
+    padding-top: 100px !important;
+  }
+}
 </style>

@@ -5,7 +5,7 @@
         <h1>How We Work</h1>
       </div>
       <div>
-        <h2>Creating Decentralised Future</h2>
+        <h2>Creating Your Decentralised Future</h2>
       </div>
     </div>
             <div class="vueSlideContainer galleryContainer">

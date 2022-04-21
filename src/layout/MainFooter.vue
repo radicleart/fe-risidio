@@ -9,15 +9,15 @@
          <!-- <div class="col-4" v-html="getContent('sitemap')">-->
            <div class="col-4">
              <h1 class="header">Sitemap</h1>
-              <div><a href="/our-work" class="list">Our Work</a></div>
-              <div><a href="/aboutus" class="list">About</a></div>
-              <div><a href="/sustainability" class="list">Sustainability</a></div>
+              <div><router-link to="/our-work" class="list">Our Work</router-link></div>
+              <div><router-link to="/aboutus" class="list">About</router-link></div>
+              <div><router-link to="/sustainability" class="list">Sustainability</router-link></div>
 
           </div>
           <!--<div class="col-4" v-html="getContent('joinus')">-->
             <div class="col-4">
               <h1 class="header">Projects</h1>
-              <div><a href="/our-work" class="list">Marketplace</a></div>
+              <div><router-link to="/our-work" class="list">Marketplace</router-link></div>
               <div><a href="https://www.indigenft.io/" class="list">IndigeNFT</a></div>
               <div><a href="https://thisisnumberone.com/" class="list">This is #1</a></div>
           </div>
@@ -28,7 +28,7 @@
               <div><a href="mailto:info@risidio.com" class="email">info@risidio.com</a></div>
               <div class="socialmedia">
                 <span style="font-size: 15px;">
-                  <a href="https://discord.gg/qvuxB9P" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://discord.com/invite/sQaKVft" target="_blank"><i class="fa-brands fa-discord"></i></a>
                   <a href="https://twitter.com/Risidio1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
                   <a href="https://www.instagram.com/risidio_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </span>
@@ -53,7 +53,7 @@
       <div class="col-12 mobile-footer--contact" v-html="getContent('contact')"></div>
       <div class="col-12 social-icons">
         <span style="font-size: 15px;">
-          <a href="https://discord.gg/qvuxB9P"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://discord.com/invite/sQaKVft"><i class="fa-brands fa-discord"></i></a>
           <a href="https://twitter.com/Risidio1"><i class="fa-brands fa-twitter"></i></a>
           <a href="https://www.instagram.com/risidio_official/"><i class="fa-brands fa-instagram"></i></a>
         </span>

@@ -1,6 +1,6 @@
 <template>
     <section class="bg-white">
-      <div class="d-flex align-items-center flex-column my-auto py-5 text-center" :style="viewportDimensions">
+      <div class="d-flex align-items-center justify-content-center flex-column my-auto py-5 text-center" :style="viewportDimensions">
         <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section3_title[0].text}}</h1></div>
         <div class="row-container">
           <div class="content-container" v-for="(item, index) in group" :key="index">

@@ -9,7 +9,7 @@
             </div>
             <div>
               <p class="title">Roadmap and Targets</p>
-              <p class="text">EARTH DAY – APRIL 22ND 2022</p>
+              <p class="text">EARTH DAY – APRIL 22, 2022</p>
               <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our IndigeNFT Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
             </div>
             <div class="sustainability">
@@ -27,7 +27,7 @@
             <div class="csrinfo">
              <img src="../../assets/img/services1.png" alt="placeholder" class="image"/>
                 <p class="title1"> Strategy</p>
-                <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism in our NFT marketplace.</p>
+                <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism for Bitcoin in our NFT marketplace and support the  <a href="https://www.sustainablebtc.org/" style="color: #E9493D;">Sustainable Bitcoin Standard</a>.</p>
             </div>
           </div>
       </div>
@@ -36,7 +36,7 @@
             <div class="csrinfo">
              <img src="../../assets/img/services2.png" alt="placeholder" class="image"/>
                 <p class="title1"> Risk Management</p>
-                <p class="text">We have conducted research into a range of CSR projects within the NFT sphere and <a href="https://medium.com/risidio/fake-art-nfts-and-indigenous-rights-be2d8f32deb8">published our research</a> to showcase the fake indigenous art issue and how NFT technologies can support indigenous communities.</p>
+                <p class="text">We've conducted and published research into a range of CSR projects <a href="https://medium.com/risidio/fake-art-nfts-and-indigenous-rights-be2d8f32deb8"></a> to highlight the fake indigenous art issue and how NFT technologies can support indigenous communities.</p>
             </div>
           </div>
       </div>

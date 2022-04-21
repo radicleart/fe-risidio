@@ -32,7 +32,8 @@
                               <div class="collectionImageBack">
                                 <img :src="slide.image.url" alt="slide" class="slide"/>
                               </div>
-                              <p class="slide-text-p">{{slide.content[0].text}}</p>
+                              <prismic-rich-text class="slide-text-p" :field="slide.content"/>
+                              <!-- <p class="slide-text-p">{{slide.content[0].text}}</p> -->
                             </div>
                         </div>
                        </template>
@@ -118,6 +119,9 @@ export default {
     max-width: 205px;
     margin-left: 50px;
 }
+.slide-text-p::v-deep a {
+  color: #E9493D;
+}
 .slideText a{
   margin-left: 190px;
   font-size: 12px;
@@ -137,7 +141,6 @@ export default {
   background-color:rgba(255, 255, 255, 0.637);
   border-radius: 30px;
 }
-
 .vueperslides--fixed-height {
   height: 287px;
   max-width: 1135px;
@@ -221,6 +224,10 @@ export default {
   display: block;
 }
 @media only screen and (max-width: 767px){
+  .collectionImageBack img{
+    width: 200px;
+    height: auto;
+  }
   .vueperslides--fixed-height {
     height: 510px;
   }
@@ -234,9 +241,10 @@ export default {
   .vueperslides::v-deep .title, .vueperslides::v-deep .innovate, .vueperslides::v-deep .slideText {
     margin: 0;
   }
-  .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text {
+  .vueperslides::v-deep .slide-text-p, .vueperslides::v-deep .text {
     margin: 25px 0 0;
-    max-width: 208px;
+    margin-left: 0;
+    max-width: 200px;
   }
   .vueperslides::v-deep .title {
     margin-top: 10px;
@@ -253,9 +261,9 @@ export default {
     display: none;
   }
 }
-@media only screen and (max-width: 389px) {
-  .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text, .vueperslides::v-deep .slideImage, .vueperslides::v-deep .slideImage img {
-    width: 100%;
-  }
-}
+// @media only screen and (max-width: 389px) {
+//   .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text, .vueperslides::v-deep .slideImage, .vueperslides::v-deep .slideImage img {
+//     width: 100%;
+//   }
+// }
 </style>
