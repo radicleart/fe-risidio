@@ -41,7 +41,7 @@ img {
   text-align: center;
 }
 
-.main-content em {
+.main-content::v-deep em {
   font-size: 1rem;
   margin-bottom: 0.5rem;
   margin-top: 0;

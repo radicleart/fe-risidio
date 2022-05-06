@@ -47,6 +47,13 @@ export default {
 .main-container {
   width: 70%;
 }
+.main-content::v-deep h2 {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
+}
 p {
   text-align: center;
 }
