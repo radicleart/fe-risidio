@@ -1,5 +1,5 @@
 <template>
-  <section id="section25">
+  <div id="section3">
     <div class="container" :style="viewportDimensions">
         <div class="main-text">
           <span>“</span>
@@ -10,12 +10,12 @@
           <a class="more-about-us secondary-button" href="/aboutus">More About Us</a>
         </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Section2.5',
+  name: 'Section3',
   data () {
     return {
     }

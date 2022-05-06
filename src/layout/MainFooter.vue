@@ -1,74 +1,77 @@
 <template>
   <footer class="text-white footer-container" v-if="content">
-    <div class="row text-center m-0 d-sm-flex d-none" style="height: 240px;">
-      <div class="col-lg-4 col-md-3 d-md-block d-none" style="height: 240px;">
-        <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" alt="Risidio Logo" class="footer-logo"/></router-link>
-      </div>
-      <div class="col-lg-6 col-md-8 offset-lg-1 content-footer">
-       <div class="row text-left mt-5">
-         <!-- <div class="col-4" v-html="getContent('sitemap')">-->
-           <div class="col-4">
-             <h1 class="header">Sitemap</h1>
-              <div><router-link to="/our-work" class="list">Our Work</router-link></div>
-              <div><router-link to="/aboutus" class="list">About</router-link></div>
-              <div><router-link to="/sustainability" class="list">Sustainability</router-link></div>
+    <section>
+      <h2 class="visually-hidden">Sub navigation</h2>
+      <div class="row text-center m-0 d-sm-flex d-none" style="height: 240px;">
+        <div class="col-lg-4 col-md-3 d-md-block d-none" style="height: 240px;">
+          <router-link to="/" class="pl-5 navbar-brand text-white" style="margin: 70px 0 0 0;"><img :src="logo" alt="Risidio" class="footer-logo"/></router-link>
+        </div>
+        <div class="col-lg-6 col-md-8 offset-lg-1 content-footer">
+        <div class="row text-left mt-5">
+          <!-- <div class="col-4" v-html="getContent('sitemap')">-->
+            <div class="col-4">
+              <h3 class="header">Sitemap</h3>
+                <div><router-link to="/our-work" class="list">Our Work</router-link></div>
+                <div><router-link to="/aboutus" class="list">About</router-link></div>
+                <div><router-link to="/sustainability" class="list">Sustainability</router-link></div>
 
-          </div>
-          <!--<div class="col-4" v-html="getContent('joinus')">-->
-            <div class="col-4">
-              <h1 class="header">Projects</h1>
-              <div><router-link to="/our-work" class="list">Marketplace</router-link></div>
-              <div><a href="https://www.indigenft.io/" class="list">IndigeNFT</a></div>
-              <div><a href="https://thisisnumberone.com/" class="list">This is #1</a></div>
-          </div>
-          <!--<div class="col-4" v-html="getContent('contact')">-->
-            <div class="col-4">
-              <h1 class="header">Contact</h1>
-              <div><p class="address">Kemp House 152 - 160 City Road, London Ec1V 2Nx</p></div>
-              <div><a href="mailto:info@risidio.com" class="email">info@risidio.com</a></div>
-              <div class="socialmedia">
-                <span style="font-size: 15px;">
-                  <a href="https://discord.com/invite/sQaKVft" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                  <a href="https://twitter.com/Risidio1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                  <a href="https://www.instagram.com/risidio_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                </span>
-              </div>
+            </div>
+            <!--<div class="col-4" v-html="getContent('joinus')">-->
+              <div class="col-4">
+                <h3 class="header">Projects</h3>
+                <div><router-link to="/our-work" class="list">Marketplace</router-link></div>
+                <div><a href="https://www.indigenft.io/" class="list">IndigeNFT</a></div>
+                <div><a href="https://thisisnumberone.com/" class="list">This is #1</a></div>
+            </div>
+            <!--<div class="col-4" v-html="getContent('contact')">-->
+              <div class="col-4">
+                <h3 class="header">Contact</h3>
+                <div><p class="address">Kemp House 152 - 160 City Road, London EC1V&nbsp;2NX</p></div>
+                <div><a href="mailto:info@risidio.com" class="email">info@risidio.com</a></div>
+                <div class="socialmedia">
+                  <span style="font-size: 15px;">
+                    <a href="https://discord.com/invite/sQaKVft" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                    <a href="https://twitter.com/Risidio1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/risidio_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                  </span>
+                </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="pt-3 px-4 justify-content-between d-sm-flex d-none" style="height: 40px; font-size: 0.6rem;">
-      <div>
-        &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
+      <div class="pt-3 px-4 justify-content-between d-sm-flex d-none" style="height: 40px; font-size: 0.6rem;">
+        <div>
+          &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
+        </div>
+        <div>
+          Privacy Policy
+        </div>
       </div>
-      <div>
-        Privacy Policy
+      <!-- MOBILE DESIGN !-->
+      <div class="row flex-flow-column justify-content-center text-center m-0 d-sm-none mobile-footer">
+        <div class="col-12">
+          <router-link to="/" class="navbar-brand text-white" style="margin: 60px 0 40px 0; height: auto;"><img :src="logo" alt="Risidio" class="footer-logo"/></router-link>
+        </div>
+        <div class="col-12 mobile-footer--contact" v-html="getContent('contact')"></div>
+        <div class="col-12 social-icons">
+          <span style="font-size: 15px;">
+            <a href="https://discord.com/invite/sQaKVft"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://twitter.com/Risidio1"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/risidio_official/"><i class="fa-brands fa-instagram"></i></a>
+          </span>
+        </div>
       </div>
-    </div>
-    <!-- MOBILE DESIGN !-->
-    <div class="row flex-flow-column justify-content-center text-center m-0 d-sm-none mobile-footer">
-      <div class="col-12">
-        <router-link to="/" class="navbar-brand text-white" style="margin: 60px 0 40px 0; height: auto;"><img :src="logo" alt="Risidio Logo" class="footer-logo"/></router-link>
+      <div class="row text-center d-sm-none mobile-footer--copyright">
+        <div class="col-12">
+          &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
+        </div>
       </div>
-      <div class="col-12 mobile-footer--contact" v-html="getContent('contact')"></div>
-      <div class="col-12 social-icons">
-        <span style="font-size: 15px;">
-          <a href="https://discord.com/invite/sQaKVft"><i class="fa-brands fa-discord"></i></a>
-          <a href="https://twitter.com/Risidio1"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://www.instagram.com/risidio_official/"><i class="fa-brands fa-instagram"></i></a>
-        </span>
-      </div>
-    </div>
-    <div class="row text-center d-sm-none mobile-footer--copyright">
-      <div class="col-12">
-        &copy; &nbsp; {{ year }} Risidio Ltd. All right reserved.
-      </div>
-    </div>
-    <cookie-law theme="risidio-theme">
-      <div slot="message">
-        This website uses cookies to work properly but does not use tracking cookies.
-      </div>
-    </cookie-law>
+      <cookie-law theme="risidio-theme">
+        <div slot="message">
+          This website uses cookies to work properly but does not use tracking cookies.
+        </div>
+      </cookie-law>
+    </section>
   </footer>
 </template>
 <script>
@@ -112,14 +115,13 @@ export default {
   height: 280px;
   background-color: #000;
 }
-.footer-container h1 {
+.footer-container h2 {
   text-align: left;
 }
-.footer-container h2 {
+/* .footer-container h2 {
   font-size: 17px;
   font-weight: 200;
-}
-
+} */
 .footer-container p {
   font-size: 12px;font-weight: 700; padding: 5px 0 0 0; margin: 0;
 }
@@ -167,11 +169,11 @@ export default {
   padding-top: 8px !important;
 }
 
-.mobile-footer h2 {
+/* .mobile-footer h2 {
   font-size: 15px !important;
   letter-spacing: 0.75px;
   margin-bottom: 2px;
-}
+} */
 
 .mobile-footer--contact p:last-child, .mobile-footer--contact p:nth-child(3) {
   display: none;

@@ -1,91 +1,263 @@
 <template>
-<section class="bg-white" v-if="content" id="about-section-1">
-  <div class="d-flex justify-content-center">
-    <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
-      <div class="my-auto text-center">
-        <div class="mb-auto px-5 d-flex align-items-center flex-column section3Text">
-          <!-- <h1 class="mb-4">{{content.section0[0].title[0].text}}</h1>
-          <h2 class="mb-4">{{content.section0[0].subtitle[0].text}}</h2> -->
-          <prismic-rich-text class="main-content" :field="content.section0[0].content"/>
-        </div>
+  <section id="csr-section3" class="bg-white">
+    <div class="header-title">
+      <div>
+        <h2>Our Values</h2>
+      </div>
+      <div>
+        <h3>For A Better Future</h3>
       </div>
     </div>
-  </div>
-</section>
+            <div class="vueSlideContainer galleryContainer">
+              <vueper-slides
+              :infinite="false"
+              fixed-height="true"
+              class="no-shadow"
+              :arrows="showArrow"
+              :arrows-outside="showArrow"
+              :touchable="touchableSlide"
+              :gap="10"
+              :visible-slides="1"
+              >
+                <template v-if="showArrow == true" #arrow-left>
+                  <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
+                </template>
+                <template v-if="showArrow == true" #arrow-right>
+                  <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
+                </template>
+                <vueper-slide v-for="(slide, index) of content.section2" :key="index">
+                    <template #content>
+                        <div class="slideContainer">
+                            <div class="slideImage">
+                              <div class="collectionImageBack">
+                                <img :src="slide.image.url" alt="" class="slide"/>
+                              </div>
+                              <prismic-rich-text class="slide-text-p" :field="slide.content"/>
+                              <!-- <p class="slide-text-p">{{slide.content[0].text}}</p> -->
+                            </div>
+                        </div>
+                       </template>
+                </vueper-slide>
+              </vueper-slides>
+            </div>
+      </section>
 </template>
 
 <script>
-import { SITE_CONSTANTS } from '@/site-constants'
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 export default {
   name: 'CSRSection3',
   props: ['viewportDimensions', 'content'],
-  data () {
-    return {
-    }
+
+  components: {
+    VueperSlides,
+    VueperSlide
+    // HomeSearchBar
   },
-  methods: {
-  },
-  computed: {
-    halfDims () {
-      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
-      return 'min-height: ' + height / 2 + 'px; width: auto;'
+  data: () => ({
+    touchableSlide: false,
+    showArrow: true,
+    slide: [
+      {
+        id: '1',
+        text: 'Collection'
+      },
+      {
+        id: '2',
+        text: 'Collection'
+      },
+      {
+        id: '3',
+        text: 'Collection'
+      }
+    ],
+    return: {
+      resultSet: [],
+      loaded: false,
+      rand: 1
+      // touchableSlide: false
     }
+  }),
+  created () {
+    window.addEventListener('resize', this.checkScreen)
+    this.checkScreen()
   }
 }
 </script>
 
-<style scoped>
-/*
-img {
-  width: 100%;
-  height: auto;
+<style lang="scss" scoped>
+.arrow2{
+  transform: rotate(180deg);
 }
-*/
-.main-content >>> p {
+.bg-white{
+  min-height: 800px;
+  padding: 10rem 1rem;
   text-align: center;
-  font-weight: 300;
-  font-size: 15px;
-  letter-spacing: 0px;
-  color: #000000;
 }
-.bg-lighter {
-  background-color: '#F5F5F5';
-}
-.section3Text{
-  max-width: 850px;
-}
-.blurb2 {
-  width: 100%;
+.header-title{
   text-align: center;
-  font-size: 26px;
+  margin-top: -40px;
+  gap: 20px;
+}
+#csr-section3 .header-title h2{
+  font-weight:600;
+  font-size: 20px;
+}
+#csr-section3 .header-title h3{
   font-weight: 200;
-  letter-spacing: 0px;
+  font-size: 36px;
+  margin-top: 40px;
 }
-#about-section-1 {
-  padding-top: 100px;
-  padding-bottom: 100px;
+.if{
+  max-width: 1300px;
+  margin: auto;
 }
-@media only screen and (max-width: 900px) {
-  #about-section-1 {
-    padding-top: 7rem;
+.slide-text-p{
+    font: normal normal 300 14px/18px Montserrat;
+    max-width: 205px;
+    margin-left: 50px;
+}
+.slide-text-p::v-deep a {
+  color: #E9493D;
+}
+.slideText a{
+  margin-left: 190px;
+  font-size: 12px;
+}
+.text{
+  color: #F9B807;
+}
+.title{
+  margin-left: 300px;
+  margin-top: -200px;
+}
+#csr-section3 .title h3{
+  font-weight: 600;
+  font-size: 20px;
+}
+.vueperslide{
+  background-color:rgba(255, 255, 255, 0.637);
+  border-radius: 30px;
+}
+.vueperslides--fixed-height {
+  height: 287px;
+  max-width: 1135px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  backdrop-filter: blur(2rem);
+}
+.vueperslides__arrow .arrow1{
+  width: 50px;
+  height: 50px;
+  color: white;
+  position: relative;
+}
+.vueperslides__arrow .arrow2{
+  width: 50px;
+  height: 50px;
+  color: white;
+  position: relative;
+}
+.vueperslides::v-deep .vueperslides__bullets {
+  bottom: -35%;
+}
+.slideContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height:100%;
+  padding: 25px 20px;
+  margin-top: 20px;
+}
+.collectionImage{
+  display: block;
+  width: 211px;
+  height: 189px;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 10px 10px 30px white;
+  object-fit: cover;
+}
+.slideImage {
+  display: flex;
+  align-items: center;
+}
+.collectionImageBack {
+  position: relative;
+  display: flex;
+}
+.collectionImageFront {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: scale(1.15)
+}
+@media only screen and (max-width:1330px) {
+  .arrow1{
+    margin-left: 100px;
+  }
+  .arrow2{
+    margin-right: 100px;
   }
 }
-@media only screen and (max-width: 600px) {
-  #about-section-1 {
-    padding-top: 5rem;
+@media only screen and (max-width:1290px) {
+    .vueperslides--fixed-height {
+    max-width: 85%;
   }
 }
-@media only screen and (max-width: 768px) {
-  h2 {
-    width: 75%;
+.notMobileHeader, .mobileHeader{
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    font: normal normal 300 30px/55px Montserrat;
+    width: 50%;
+}
+.mobileHeader {
+  display: none;
+}
+.notMobileHeader{
+  display: block;
+}
+@media only screen and (max-width: 767px) {
+  .collectionImageBack img{
+    width: 200px;
+    height: auto;
   }
-  p {
-    width: 75%;
+  .vueperslides--fixed-height {
+    height: 510px;
+  }
+  .vueperslides::v-deep .slideImage {
+    display: flex;
+    flex-direction: column;
+  }
+  .vueperslides::v-deep .collectionImageBack {
+    display: block;
+  }
+  .vueperslides::v-deep .title, .vueperslides::v-deep .innovate, .vueperslides::v-deep .slideText {
+    margin: 0;
+  }
+  .vueperslides::v-deep .slide-text-p, .vueperslides::v-deep .text {
+    margin: 25px 0 0;
+    margin-left: 0;
+    max-width: 200px;
+  }
+  .vueperslides::v-deep .title {
+    margin-top: 10px;
+  }
+  .vueperslides::v-deep .vueperslides__bullets {
+    bottom: 13%;
   }
 }
-@media only screen and (max-width: 425px) {
-  #about-section-1 {
-    padding-top: 3rem;
+@media only screen and (max-width: 500px) {
+  .arrow1{
+    display: none;
+  }
+  .arrow2{
+    display: none;
   }
 }
 </style>

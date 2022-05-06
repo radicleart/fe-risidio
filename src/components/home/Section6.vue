@@ -4,16 +4,16 @@
         <div class="my-auto text-center text-white">
           <prismic-rich-text class="main-content my-4" :field="section6.content"/>
           <div class="m-5 d-sm-flex d-none justify-content-center">
-            <a title="Join us on Discord" target="_blank" class="mr-sm-4 mr-3" :href="section6.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
-            <a title="Send an email" class="" :href="'mailTo:' + section6.contact_email_address[0].text"><img :src="social.mail.dark" alt="Mail Icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
+            <a title="Join us on Discord" target="_blank" class="mr-sm-4 mr-3" :href="section6.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Join us on Discord" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
+            <a title="Send an email" class="" :href="'mailTo:' + section6.contact_email_address[0].text"><img :src="social.mail.dark" alt="Send an email" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
             <!-- <a title="Join us on Instagram" class="mr-sm-4 mr-3" :href="section6.contact_instagram_link[0].text"><img :src="social.instagram.dark" alt="Instagram Icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a> -->
             <!-- <a title="Watch us on YouTube" class="mr-sm-4 mr-3" :href="section6.contact_youtube_link[0].text"><img :src="social.youtube.dark" alt="Youtube Icon" @mouseover="hoverOver(social.youtube, $event)" @mouseout="hoverOut(social.youtube, $event)" /></a> -->
             <!-- <a title="Join us on LinkedIn" :href="section6.contact_linkedin_link[0].text"><img :src="social.linkedin.dark" alt="Youtube Icon" @mouseover="hoverOver(social.linkedin, $event)" @mouseout="hoverOut(social.linkedin, $event)" /></a> -->
          </div>
           <div class="m-3 d-sm-none d-block justify-content-center">
             <div class="d-flex justify-content-center">
-              <a title="Join us on Discord" target="_blank" class="mr-sm-4 mr-3" :href="section6.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
-              <a title="Send an email" class="" :href="'mailTo:' + section6.contact_email_address[0].text"><img :src="social.mail.dark" alt="Mail Icon" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
+              <a title="Join us on Discord" target="_blank" class="mr-sm-4 mr-3" :href="section6.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Join us on Discord" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
+              <a title="Send an email" class="" :href="'mailTo:' + section6.contact_email_address[0].text"><img :src="social.mail.dark" alt="Send an email" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
               <!-- <a title="Join us on Instagram" :href="section6.contact_instagram_link[0].text"><img :src="social.instagram.dark" alt="Instagram Icon" @mouseover="hoverOver(social.instagram, $event)" @mouseout="hoverOut(social.instagram, $event)" /></a> -->
             </div>
             <div class="mt-2 d-flex justify-content-center">

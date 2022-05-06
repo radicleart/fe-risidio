@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import VueRouterMetaTags from '@bachdgvn/vue-router-meta-tags'
 import AboutUs from '../views/AboutUs.vue'
 import Home from '../views/Home.vue'
 import Page from '../views/Page.vue'
@@ -23,6 +24,10 @@ const routes: Array<RouteConfig> = [
     meta: {
       title: 'Risidio - Projects and Services for Blockchain.',
       metaTags: [
+        {
+          property: 'og:title',
+          content: 'Risidio - Projects and Services for Blockchain.'
+        },
         {
           name: 'description',
           content: 'Risidio provides decentralised web solutions. Use our Lightning wallet, create and manage Digital collectibles, and get familiar with Blockchain technology.'
@@ -207,5 +212,8 @@ const router = new VueRouter({
     return { x: 0, y: 0 }
   }
 })
+
+// This callback runs before every route change, including on page load.
+router.beforeEach(VueRouterMetaTags.update)
 
 export default router

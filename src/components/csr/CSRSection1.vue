@@ -1,50 +1,19 @@
 <template>
-    <section class="bg-lighter">
-        <div class="header-title">
-          <div>
-          <h1> We Care</h1>
-          </div>
-            <div> <h2 >Sustainable Development Goals</h2>
-            </div>
-            </div>
-            <div>
-              <p class="title">Roadmap and Targets</p>
-              <p class="text">EARTH DAY – APRIL 22, 2022</p>
-              <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our IndigeNFT Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
-            </div>
-            <div class="sustainability">
-    <div>
-        <div>
-            <div class="csrinfo">
-             <img src="../../assets/img/service.png" alt="placeholder" class="image"/>
-                <p class="title1"> Governance</p>
-                <p class="text">Corporate Social Responsibility is at the heart of Risidio. Our governing ethos involves expanding our existing ecosystem of partners to establish an environmentally and socially conscious network.</p>
-            </div>
-          </div>
+<section class="bg-white" v-if="content" id="csr-section1">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
+      <div class="my-auto text-center">
+        <div class="mb-auto px-5 d-flex align-items-center flex-column section3Text">
+          <prismic-rich-text class="main-content" :field="content.section0[0].content"/>
+        </div>
       </div>
-    <div>
-          <div>
-            <div class="csrinfo">
-             <img src="../../assets/img/services1.png" alt="placeholder" class="image"/>
-                <p class="title1"> Strategy</p>
-                <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism for Bitcoin in our NFT marketplace and support the  <a href="https://www.sustainablebtc.org/" style="color: #E9493D;">Sustainable Bitcoin Standard</a>.</p>
-            </div>
-          </div>
-      </div>
-      <div>
-          <div>
-            <div class="csrinfo">
-             <img src="../../assets/img/services2.png" alt="placeholder" class="image"/>
-                <p class="title1"> Risk Management</p>
-                <p class="text">We've conducted and published research into a range of CSR projects <a href="https://medium.com/risidio/fake-art-nfts-and-indigenous-rights-be2d8f32deb8"></a> to highlight the fake indigenous art issue and how NFT technologies can support indigenous communities.</p>
-            </div>
-          </div>
-      </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
 </template>
 
 <script>
+import { SITE_CONSTANTS } from '@/site-constants'
 export default {
   name: 'CSRSection1',
   props: ['viewportDimensions', 'content'],
@@ -55,9 +24,14 @@ export default {
   methods: {
   },
   computed: {
+    halfDims () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      return 'min-height: ' + height / 2 + 'px; width: auto;'
+    }
   }
 }
 </script>
+
 <style scoped>
 /*
 img {
@@ -65,70 +39,51 @@ img {
   height: auto;
 }
 */
-.bg-lighter{
-    min-height: 800px;
-    padding: 50px 15px;
-    text-align: center;
+.main-content >>> p {
+  text-align: center;
+  font-weight: 300;
+  font-size: 15px;
+  letter-spacing: 0px;
+  color: #000000;
 }
-
-.sustainability{
-   max-width: 1500px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-evenly;
-    flex-direction: row;
+.bg-lighter {
+  background-color: '#F5F5F5';
+}
+.section3Text{
+  max-width: 850px;
+}
+.blurb2 {
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 200;
+  letter-spacing: 0px;
+}
+#csr-section1 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+@media only screen and (max-width: 900px) {
+  #csr-section1 {
+    padding-top: 7rem;
   }
-  .csrinfo{
-    position: relative;
-    flex: 0 1 300px;
-    padding: 35px 20px;
-    text-align: center;
-    margin-top: 90px;
-    }
-    .csrinfo p{
-      max-width: 350px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .image{
-    position: absolute;
-    top: 10px;
-    right: 0; left: 0;
-    margin: auto;
-    width: 72px;
-    height: 72px;
+}
+@media only screen and (max-width: 600px) {
+  #csr-section1 {
+    padding-top: 5rem;
   }
-  .title{
-    font-size: 35px;
-    font-weight: 300;
-    text-align: center;
-    margin-top: 30px;
+}
+@media only screen and (max-width: 768px) {
+  h3 {
+    width: 75%;
   }
-  .title1 {
-    font-size: 35px;
-    font-weight: 300;
-    text-align: center;
-    margin-top: 90px;
+  p {
+    width: 75%;
   }
-  .text{
-    font-size: 14px;
-    line-height: 18px;
-    text-align: center;
+}
+@media only screen and (max-width: 425px) {
+  #csr-section1 {
+    padding-top: 3rem;
   }
-  .header-title{
-      text-align: center;
-      gap: 20px;
-
-    }
-  .header-title h1{
-      font-weight:600;
-      font-size: 20px;
-      }
-  .header-title h2{
-      font-weight: 200;
-      font-size: 36px;
-      margin-top: 40px;
-      }
-      </style>
+}
+</style>

@@ -1,32 +1,32 @@
 <template>
-<section id="section0" v-if="content.section0[0].banner">
-  <div :style="bannerImage" class="d-flex align-items-center flex-column">
+<div id="about-section0" v-if="content.section0[0].banner">
+  <section :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center w-75">
-      <div class="first-half-h1"><h1 class="text-white">{{content.section0[0].title[0].text}}</h1></div>
+      <div class="first-half-h2"><h2 class="text-white">{{content.section0[0].title[0].text}}</h2></div>
       <div class="">
         <p class="mb-0 text-center blurb text-white mx-auto w-100">
         <span v-html="content.section0[0].tagline[0].text"></span>
         </p>
-        <!-- <h4 class="text-center text-white" v-html="content.section0[0].tagline[0].text"></h4> -->
+        <!-- <h3 class="text-center text-white" v-html="content.section0[0].tagline[0].text"></h3> -->
       </div>
     </div>
-    <div v-scroll-to="{ element: '#section0-second-half', duration: 750 }" class="icon-down">
+    <div v-scroll-to="{ element: '#about-section0-second-half', duration: 750 }" class="icon-down">
       <i class="fas fa-chevron-down"></i>
     </div>
-  </div>
-  <div class="bg-white d-flex align-items-center justify-content-center flex-column second-half" id="section0-second-half"  :style="halfDims">
-      <div class="mt-0 mb-4"><h1 class="text-black">{{content.section0[0].content[0].text}}</h1></div>
-      <img :src="content.section0[0].visionmission.url" alt="placeholder" class="image"/>
-      <div class="mb-4"><h4 class="text-center">{{content.section0[0].content[1].text}}</h4></div>
+  </section>
+  <section class="bg-white d-flex align-items-center justify-content-center flex-column second-half" id="about-section0-second-half"  :style="halfDims">
+      <div class="mt-0 mb-4"><h2 class="text-black">{{content.section0[0].content[0].text}}</h2></div>
+      <img :src="content.section0[0].visionmission.url" alt="" class="image"/>
+      <div class="mb-4"><h3 class="text-center ">{{content.section0[0].content[1].text}}</h3></div>
       <p class="my-4 text-center">{{content.section0[0].content[2].text}}</p>
-      <img :src="content.section0[0].mission.url" alt="placeholder" class="image"/>
-      <div class="mb-4 mt-2"><h4 class="text-center">{{content.section0[0].content[3].text}}</h4></div>
+      <img :src="content.section0[0].mission.url" alt="" class="image"/>
+      <div class="mb-4 mt-2"><h3 class="text-center">{{content.section0[0].content[3].text}}</h3></div>
       <p class="my-4 text-center">{{content.section0[0].content[4].text}}</p>
-  </div>
+  </section>
     <!--<div class="w-75 text-center section0-image-container">
         <img width="100%" :src="content.s1image.url" :alt="content.s1image.alt">
     </div>-->
-</section>
+</div>
 </template>
 
 <script>
@@ -102,12 +102,14 @@ export default {
   width: 100%;
   padding: 0 15px;
 }
-.first-half-h1 {
+#about-section0 .first-half-h2 {
   margin-top: 4rem;
 }
-h4 {
+h3 {
   font-weight: 500;
   font-size: 17px;
+  text-align: center;
+  letter-spacing: 0px;
 }
 .blurb {
   text-align: center;
@@ -150,7 +152,7 @@ h4 {
   }
 }
 @media only screen and (max-width:768px) {
-  .second-half h2 {
+  .second-half h3 {
     width: 75%;
     margin-left: auto;
     margin-right: auto;

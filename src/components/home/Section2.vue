@@ -1,8 +1,8 @@
 <template>
- <section id="section2" class="home-section2">
-   <strong>What We Do</strong>
-   <span class="headline">Discover Our Projects</span>
-   <vueper-slides  class="no-shadow home-slider"
+ <section id="homesection2" class="home-section2">
+   <h2 class="main-heading">What We Do</h2>
+   <h3 class="headline">Discover Our Projects</h3>
+   <vueper-slides  class="no-shadow what-we-do-slider"
    :arrows="false"
    fixed-height="true"
    :dragging-distance="70"
@@ -10,12 +10,12 @@
    >
     <vueper-slide v-for="(slide, index) of slides" :key="index">
       <template #content>
-        <div class = "container">
+        <section class = "container">
           <div class="imageContainer">
-            <img :src="slide.image.url"/>
+            <img :src="slide.image.url" alt=""/>
           </div>
           <div class = "textContainer">
-            <h5>{{slide.title[0].text}}</h5>
+            <h3>{{slide.title[0].text}}</h3>
             <p>{{slide.content[0].text}}</p>
             <div>
               <a class="more" v-if="slide.title[0].text === 'Risidio Marketplace'">Coming Soon</a>
@@ -23,7 +23,7 @@
               <a class="all" href="/our-work">See All Projects</a>
             </div>
           </div>
-        </div>
+        </section>
       </template>
     </vueper-slide>
   </vueper-slides>
@@ -69,13 +69,13 @@ export default {
 </script>
 
 <style scoped>
-.main-content >>> h4 {
-  margin-bottom: 30px;
+.main-heading {
+  font-size: 16px;
 }
 .main-content >>> p {
   text-align: center;
 }
-.home-section2{
+.home-section2 {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@ export default {
 .home-section2 .headline{
   font: normal normal 200 36px/44px Montserrat;
 }
-.home-slider {
+.what-we-do-slider {
   width: 100%;
 }
 .vueperslides {padding: 0 30em;}
@@ -141,6 +141,11 @@ button:hover {
   width: 100%;
   margin-left: 50px;
 }
+.textContainer h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
 .textContainer p {
   font: normal normal 300 14px/18px Montserrat;
 }
@@ -176,7 +181,7 @@ button:hover {
 }
 @media only screen and (max-width: 767px) {
   .vueperslides {padding: 0 10em;}
-  #section2 {
+  #homesection2 {
     padding: 100px 0 200px;
   }
   .textContainer div{

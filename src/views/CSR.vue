@@ -1,9 +1,9 @@
 <template>
 <div v-if="content">
     <CSRSection0 :viewportDimensions="sectionDimensions" :content="content"/>
-    <CSRSection3 :viewportDimensions="sectionDimensions" :content="content"/>
     <CSRSection1 :viewportDimensions="sectionDimensions" :content="content"/>
     <CSRSection2 :viewportDimensions="sectionDimensions" :content="content"/>
+    <CSRSection3 :viewportDimensions="sectionDimensions" :content="content"/>
     <Section6 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>

@@ -1,8 +1,8 @@
 <template>
-<section id="section5" class="bg-secondary">
+<section id="homesection5" class="bg-secondary">
   <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
     <div class="my-auto text-center text-white main-container">
-      <div class="mb-2"><img class="section5-banner" :src="section5.image.url" :alt="section5.image.alt"/></div>
+      <div class="mb-2"><img class="section5-banner" :src="section5.image.url" alt=""/></div>
       <prismic-rich-text class="main-content mt-4" :field="section5.content"/>
       <div class="d-flex justify-content-center">
       <section-sendinblue></section-sendinblue>

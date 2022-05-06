@@ -1,14 +1,14 @@
 <template>
-  <section id="our-work-section1" class="bg-white">
-    <div v-for="(project, index) of content.projects" :key="index" class="item-container">
-      <img :src="project.image.url" alt="placeholder" class="image"/>
-      <h1 class="header">{{ project.title[0].text }}</h1>
+  <div id="ourwork-section1" class="bg-white">
+    <section v-for="(project, index) of content.projects" :key="index" class="item-container">
+      <img :src="project.image.url" alt="" class="image"/>
+      <h2 class="header">{{ project.title[0].text }}</h2>
       <p class="text">{{ project.text[0].text }}</p>
       <!-- <a  class="find">Fint out more</a> -->
       <a v-if="project.title[0].text === 'Marketplace'" class="try">Coming Soon</a>
       <a v-else :href="project.link[0].text" class="try">Find Out More</a>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -30,7 +30,7 @@ export default {
 .bg-white{
   min-height: 800px;
 }
-section {
+#ourwork-section1 {
   display: grid;
   padding: 100px 15px;
   max-width: 990px;
@@ -55,7 +55,7 @@ section {
   letter-spacing: 0px;
   opacity: 1;
 }
-.item-container h1 {
+.item-container h2 {
   text-align: left;
   font: normal normal 200 28px/34px Montserrat;
   letter-spacing: 0px;

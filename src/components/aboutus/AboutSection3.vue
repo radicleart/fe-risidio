@@ -1,12 +1,12 @@
 <template>
     <section class="bg-lighter">
         <div class="header-title">
-          <h2 > Discover Our Services</h2>
+          <h2>Discover Our Services</h2>
         </div>
         <div class="about">
           <div class="aboutinfo" v-for="(item, index) in content.section4" :key="index">
             <img :src="item.image.url" alt="" class="image"/>
-              <p class="title">{{ item.title[0].text }}</p>
+              <h3 class="title">{{ item.title[0].text }}</h3>
               <p class="text">{{ item.text[0].text }}</p>
           </div>
         </div>
@@ -65,6 +65,7 @@ img {
   text-align: center;
   font: normal normal 200 35px/43px Montserrat;
   margin-top: 10px;
+  margin-bottom: 16px;
 }
 .text {
   font-size: 14px;

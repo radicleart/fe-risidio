@@ -1,5 +1,5 @@
 <template>
-<section :style="viewportDimensions">
+<div :style="viewportDimensions">
   <div class="d-flex justify-content-center">
     <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="my-auto text-center">
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="vertical-line"></div>
-</section>
+</div>
 </template>
 
 <script>

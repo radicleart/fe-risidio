@@ -1,14 +1,14 @@
 <template>
-  <section class="bg-lighter">
+  <section id="ourwork-section2" class="bg-lighter">
     <div class="mainheader">
-      <h1>Recent Articles Written By Our Team</h1>
+      <h2>Recent Articles Written By Our Team</h2>
     </div>
     <div class="items-container">
       <div v-for="(article, index) of content.articles" :key="index" class="item-container">
         <a :href="article.link[0].text">
-          <img :src="article.image.url" alt="placeholder" class="image"/>
+          <img :src="article.image.url" alt="" class="image"/>
           <span class="date">{{ article.date[0].text }}</span>
-          <h1 class="header">{{ article.title[0].text }}</h1>
+          <h3 class="header">{{ article.title[0].text }}</h3>
           <p class="text">{{ article.text[0].text }}</p>
         </a>
       </div>
@@ -36,7 +36,7 @@ export default {
   min-height: 700px;
   padding: 100px 0;
 }
-.mainheader h1{
+#ourwork-section2 .mainheader h2{
   font-size: 17px;
 }
 .items-container {
@@ -65,7 +65,7 @@ export default {
   margin-bottom: 0;
   color: #000;
 }
-.item-container h1 {
+#ourwork-section2 .item-container h3 {
   text-align: left;
   font-size: 18px;
   font-weight: 600;

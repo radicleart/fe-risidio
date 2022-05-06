@@ -1,11 +1,11 @@
 <template>
-  <section id="slider" class="bg-white">
+  <section id="homesection55" class="bg-white">
     <div class="header-title">
       <div>
-        <h1>How We Work</h1>
+        <h2>How We Work</h2>
       </div>
       <div>
-        <h2>Creating Your Decentralised Future</h2>
+        <h3>Creating Your Decentralised Future</h3>
       </div>
     </div>
             <div class="vueSlideContainer galleryContainer">
@@ -21,30 +21,30 @@
               :visible-slides="1"
               >
                 <template v-if="showArrow == true" #arrow-left>
-                  <img src="../../assets/img/arrow.png" alt="placeholder" class="arrow1"/>
+                  <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
                 </template>
                 <template v-if="showArrow == true" #arrow-right>
-                  <img src="../../assets/img/arrow.png" alt="placeholder" class="arrow2"/>
+                  <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
                 </template>
                 <vueper-slide v-for="(slide, index) of slides" :key="index">
                     <template #content>
-                        <div class="slideContainer">
+                        <section class="slideContainer">
                             <div class="slideImage">
                               <div class="collectionImageBack">
                                 <img
                                 :src="slide.image.url"
-                                alt="slide"
+                                alt=""
                                 class="slide"/>
                             </div>
                            <div class="slideText">
                               <div class="title">
-                              <h2 class="innovate">{{slide.title[0].text}}</h2>
+                              <h4 class="innovate">{{slide.title[0].text}}</h4>
                             </div>
                               <p class="slide-text-p">{{slide.text[0].text}}</p>
                               <a :href="slide.link[0].text" class="text">Find Out More</a>
                             </div>
                             </div>
-                        </div>
+                        </section>
                        </template>
                 </vueper-slide>
               </vueper-slides>
@@ -56,7 +56,7 @@
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 export default {
-  name: 'Section55',
+  name: 'Section5.5',
   props: ['viewportDimensions'],
 
   components: {
@@ -120,11 +120,11 @@ export default {
   margin-top: -40px;
   gap: 20px;
 }
-.header-title h1{
+#homesection55 .header-title h2{
   font-weight:600;
   font-size: 20px;
 }
-.header-title h2{
+#homesection55 .header-title h3{
   font-weight: 200;
   font-size: 36px;
 }
@@ -135,7 +135,8 @@ export default {
 .slideText{
   position: relative;
   margin-top: -30px;
-  h2{
+  h4{
+    text-align: center;
     margin-bottom: 1rem;
     letter-spacing: 1px;
     font: normal normal 300 30px/55px Montserrat;
@@ -158,7 +159,7 @@ export default {
    margin-left: 180px;
    margin-top: -200px;
 }
- .title h2{
+ .title h4{
    font-weight: 600;
    font-size: 20px;
  }
@@ -279,7 +280,7 @@ export default {
   .vueperslides::v-deep .collectionImageBack {
     display: block;
   }
-  .vueperslides::v-deep h2 {
+  .vueperslides::v-deep h4 {
     line-height: 1;
   }
   .vueperslide:first-child .innovate {

@@ -1,5 +1,5 @@
 <template>
-  <section id="section1">
+  <section id="homesection1">
     <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
       <div class="d-flex align-items-center flex-column">
         <prismic-rich-text class="main-content my-4 text-white" :field="section1[0].content"/>
@@ -39,6 +39,16 @@ img {
 .main-content {
   width: 70%;
   text-align: center;
+}
+
+.main-content em {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 1.2;
+  font-style: normal;
 }
 
 @media only screen and (min-width: 767px) {

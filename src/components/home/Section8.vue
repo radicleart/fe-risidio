@@ -2,8 +2,8 @@
     <section :style="bannerImage" id="contactSection">
       <div class="mx-5 px-5 d-flex align-items-center flex-column" :style="viewportDimensions">
         <div class="my-auto text-center text-white">
-          <div class="my-4"><h1 class="text-white">{{content.contact_title[0].text}}</h1></div>
-          <div class="mb-3"><h2 class="text-white">{{content.contact_subtitle[0].text}}</h2></div>
+          <div class="my-4"><h2 class="text-white">{{content.contact_title[0].text}}</h2></div>
+          <div class="mb-3"><h3 class="text-white">{{content.contact_subtitle[0].text}}</h3></div>
           <div class="mb-4 blurb"><span>{{content.contact_description[0].text}}</span></div>
           <div class="m-5 d-sm-flex d-none justify-content-center">
             <a title="Join us on Discord" class="mr-sm-4 mr-3" :href="content.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Discord Icon" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>

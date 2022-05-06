@@ -1,16 +1,16 @@
 <template>
-    <section class="bg-white">
+    <section id="homesection4" class="bg-white">
       <div class="d-flex align-items-center justify-content-center flex-column my-auto py-5 text-center" :style="viewportDimensions">
-        <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section3_title[0].text}}</h1></div>
+        <div class="mb-5 mt-5 pb-4"><h2 class="text-black">{{content.section3_title[0].text}}</h2></div>
         <div class="row-container">
-          <div class="content-container" v-for="(item, index) in group" :key="index">
+          <section class="content-container" v-for="(item, index) in group" :key="index">
               <div class="image-container">
                 <img class="p-3" :src="content.section3_content[index].icon.url" alt=""/>
               </div>
               <div class="text-container">
                 <prismic-rich-text :field="item.content"/>
               </div>
-          </div>
+          </section>
         </div>
         <button class="touch-button"><a href="/contact">Interested? Get In Touch</a></button>
       </div>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Section3',
+  name: 'Section4',
   components: {
   },
   props: ['viewportDimensions'],
@@ -43,9 +43,6 @@ export default {
 </script>
 
 <style scoped>
-.main-content >>> h1 {
-  text-align: left;
-}
 .row-container {
   max-width: 1130px;
   width: 100%;
@@ -113,12 +110,6 @@ export default {
     margin-top: 1rem;
     align-items: center;
     width: 65%;
-  }
-  .main-content >>> h1 {
-    text-align: center;
-  }
-  .main-content {
-    text-align: center;
   }
   p { text-align: center; }
 }

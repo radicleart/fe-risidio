@@ -6,8 +6,8 @@
     <div class="row">
 
       <div class="col-md-12">
-        <h4>Any thoughts, questions, just want to say hello?</h4 >
-        <h3>Contact Us</h3>
+        <div class="tagline">Any thoughts, questions, just want to say hello?</div>
+        <h2>Contact Us</h2>
       </div>
 
       <div class="contact-form">
@@ -163,12 +163,13 @@ export default {
 </script>
 
 <style scoped>
-h4 { /*Style of the text above Contact Us */
+.tagline { /*Style of the text above Contact Us */
   font-size: 17px;
   color: white;
   text-align: center;
   margin-top: 6%;
   text-transform: capitalize;
+  font-weight: 700;
 }
 input {
   font-size: 12px;
@@ -192,7 +193,7 @@ textarea::-webkit-input-placeholder {
 button {
   font-size: 13px;
 }
-h3 { /* Contact us style */
+h2 { /* Contact us style */
   font-size: 40px;
   font-weight: 300;
   color: white;

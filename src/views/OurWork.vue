@@ -15,7 +15,7 @@ import OurWorkSection1 from '@/components/ourwork/OurWorkSection1'
 import OurWorkSection2 from '@/components/ourwork/OurWorkSection2'
 import Section6 from '@/components/home/Section6'
 export default {
-  name: 'Marketplace',
+  name: 'OurWork',
   data () {
     return {
       productId: null
