@@ -9,33 +9,32 @@
         <div class="col-lg-6 col-md-8 offset-lg-1 content-footer">
         <div class="row text-left mt-5">
           <!-- <div class="col-4" v-html="getContent('sitemap')">-->
-            <div class="col-4">
+            <section class="col-4">
               <h3 class="header">Sitemap</h3>
-                <div><router-link to="/our-work" class="list">Our Work</router-link></div>
-                <div><router-link to="/aboutus" class="list">About</router-link></div>
-                <div><router-link to="/sustainability" class="list">Sustainability</router-link></div>
-
-            </div>
+              <div><router-link to="/our-work" class="list">Our Work</router-link></div>
+              <div><router-link to="/aboutus" class="list">About</router-link></div>
+              <div><router-link to="/sustainability" class="list">Sustainability</router-link></div>
+            </section>
             <!--<div class="col-4" v-html="getContent('joinus')">-->
-              <div class="col-4">
-                <h3 class="header">Projects</h3>
-                <div><router-link to="/our-work" class="list">Marketplace</router-link></div>
-                <div><a href="https://www.indigenft.io/" class="list">IndigeNFT</a></div>
-                <div><a href="https://thisisnumberone.com/" class="list">This is #1</a></div>
-            </div>
+            <section class="col-4">
+              <h3 class="header">Projects</h3>
+              <div><router-link to="/our-work" class="list">Marketplace</router-link></div>
+              <div><a href="https://www.indigenft.io/" class="list">IndigeNFT</a></div>
+              <div><a href="https://thisisnumberone.com/" class="list">This is #1</a></div>
+            </section>
             <!--<div class="col-4" v-html="getContent('contact')">-->
-              <div class="col-4">
-                <h3 class="header">Contact</h3>
-                <div><p class="address">Kemp House 152 - 160 City Road, London EC1V&nbsp;2NX</p></div>
-                <div><a href="mailto:info@risidio.com" class="email">info@risidio.com</a></div>
-                <div class="socialmedia">
-                  <span style="font-size: 15px;">
-                    <a href="https://discord.com/invite/sQaKVft" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                    <a href="https://twitter.com/Risidio1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/risidio_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                  </span>
-                </div>
-            </div>
+            <section class="col-4">
+              <h3 class="header">Contact</h3>
+              <div><p class="address">Kemp House 152 - 160 City Road, London EC1V&nbsp;2NX</p></div>
+              <div><a href="mailto:info@risidio.com" class="email">info@risidio.com</a></div>
+              <div class="socialmedia">
+                <span style="font-size: 15px;">
+                  <a href="https://discord.com/invite/sQaKVft" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                  <a href="https://twitter.com/Risidio1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="https://www.instagram.com/risidio_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+              </div>
+            </section>
           </div>
         </div>
       </div>

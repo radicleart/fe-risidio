@@ -1,7 +1,7 @@
 <template>
  <section id="homesection2" class="home-section2">
-   <h2 class="main-heading">What We Do</h2>
-   <h3 class="headline">Discover Our Projects</h3>
+   <div class="headline">What We Do</div>
+   <h2 class="main-heading">Discover Our Projects</h2>
    <vueper-slides  class="no-shadow what-we-do-slider"
    :arrows="false"
    fixed-height="true"
@@ -69,8 +69,11 @@ export default {
 </script>
 
 <style scoped>
-.main-heading {
+.headline {
   font-size: 16px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0px;
 }
 .main-content >>> p {
   text-align: center;
@@ -85,8 +88,11 @@ export default {
   gap: 30px;
   padding: 146px;
 }
-.home-section2 .headline{
+.home-section2 .main-heading{
   font: normal normal 200 36px/44px Montserrat;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
 }
 .what-we-do-slider {
   width: 100%;
@@ -218,7 +224,7 @@ button:hover {
   .vueperslides {padding: 0 5em;}
 }
 @media only screen and (max-width: 450px) {
-  .home-section2 .headline{
+  .home-section2 .main-heading{
     font-size: 28px;
     padding: 0 10px;
     text-align: center;

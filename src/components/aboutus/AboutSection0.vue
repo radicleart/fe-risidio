@@ -17,10 +17,10 @@
   <section class="bg-white d-flex align-items-center justify-content-center flex-column second-half" id="about-section0-second-half"  :style="halfDims">
       <div class="mt-0 mb-4"><h2 class="text-black">{{content.section0[0].content[0].text}}</h2></div>
       <img :src="content.section0[0].visionmission.url" alt="" class="image"/>
-      <div class="mb-4"><h3 class="text-center ">{{content.section0[0].content[1].text}}</h3></div>
+      <div class="my-4"><span class="text-center subheading">{{content.section0[0].content[1].text}}</span></div>
       <p class="my-4 text-center">{{content.section0[0].content[2].text}}</p>
       <img :src="content.section0[0].mission.url" alt="" class="image"/>
-      <div class="mb-4 mt-2"><h3 class="text-center">{{content.section0[0].content[3].text}}</h3></div>
+      <div class="my-4 mt-2"><span class="text-center subheading">{{content.section0[0].content[3].text}}</span></div>
       <p class="my-4 text-center">{{content.section0[0].content[4].text}}</p>
   </section>
     <!--<div class="w-75 text-center section0-image-container">
@@ -105,7 +105,7 @@ export default {
 #about-section0 .first-half-h2 {
   margin-top: 4rem;
 }
-h3 {
+.subheading {
   font-weight: 500;
   font-size: 17px;
   text-align: center;
@@ -152,7 +152,7 @@ h3 {
   }
 }
 @media only screen and (max-width:768px) {
-  .second-half h3 {
+  .second-half .subheading {
     width: 75%;
     margin-left: auto;
     margin-right: auto;

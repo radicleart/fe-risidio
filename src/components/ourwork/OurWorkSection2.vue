@@ -4,14 +4,14 @@
       <h2>Recent Articles Written By Our Team</h2>
     </div>
     <div class="items-container">
-      <div v-for="(article, index) of content.articles" :key="index" class="item-container">
+      <section v-for="(article, index) of content.articles" :key="index" class="item-container">
         <a :href="article.link[0].text">
           <img :src="article.image.url" alt="" class="image"/>
           <span class="date">{{ article.date[0].text }}</span>
           <h3 class="header">{{ article.title[0].text }}</h3>
           <p class="text">{{ article.text[0].text }}</p>
         </a>
-      </div>
+      </section>
     </div>
   </section>
 </template>

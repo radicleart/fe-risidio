@@ -2,7 +2,11 @@
     <section :style="bannerImage" id="contactSection">
       <div class="mx-5 px-5 d-flex align-items-center flex-column" :style="viewportDimensions">
         <div class="my-auto text-center text-white">
-          <prismic-rich-text class="main-content my-4" :field="section6.content"/>
+          <div class="main-content my-4">
+            <h2 class="text-white">{{section6.content[0].text}}</h2>
+            <div class="mb-3 text-white headline">{{section6.content[1].text}}</div>
+            <p>{{section6.content[2].text}}</p>
+          </div>
           <div class="m-5 d-sm-flex d-none justify-content-center">
             <a title="Join us on Discord" target="_blank" class="mr-sm-4 mr-3" :href="section6.contact_discord_link[0].text"><img :src="social.discord.dark" alt="Join us on Discord" @mouseover="hoverOver(social.discord, $event)" @mouseout="hoverOut(social.discord, $event)" /></a>
             <a title="Send an email" class="" :href="'mailTo:' + section6.contact_email_address[0].text"><img :src="social.mail.dark" alt="Send an email" @mouseover="hoverOver(social.mail, $event)" @mouseout="hoverOut(social.mail, $event)" /></a>
@@ -117,13 +121,14 @@ img {
   width: 78px;
   height: 78px;
 }
-.main-content >>> h1 {
-  margin-bottom: 1.5rem;
+.main-content .headline {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
 }
-.main-content >>> h2 {
-  margin-bottom: 1rem;
-}
-.main-content >>> p {
+.main-content p {
   width: 256px;
   text-align: center;
   margin: 0 auto;

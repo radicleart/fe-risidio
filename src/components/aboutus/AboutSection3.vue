@@ -4,11 +4,11 @@
           <h2>Discover Our Services</h2>
         </div>
         <div class="about">
-          <div class="aboutinfo" v-for="(item, index) in content.section4" :key="index">
+          <section class="aboutinfo" v-for="(item, index) in content.section4" :key="index">
             <img :src="item.image.url" alt="" class="image"/>
               <h3 class="title">{{ item.title[0].text }}</h3>
               <p class="text">{{ item.text[0].text }}</p>
-          </div>
+          </section>
         </div>
         <div>
           <button class="button mx-auto"><a href="/contact">Interested? Get In Touch</a></button>

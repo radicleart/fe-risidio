@@ -1,12 +1,8 @@
 <template>
   <section id="homesection55" class="bg-white">
     <div class="header-title">
-      <div>
-        <h2>How We Work</h2>
-      </div>
-      <div>
-        <h3>Creating Your Decentralised Future</h3>
-      </div>
+      <div class="headline">How We Work</div>
+      <div><h2>Creating Your Decentralised Future</h2></div>
     </div>
             <div class="vueSlideContainer galleryContainer">
               <vueper-slides
@@ -38,7 +34,7 @@
                             </div>
                            <div class="slideText">
                               <div class="title">
-                              <h4 class="innovate">{{slide.title[0].text}}</h4>
+                              <h3 class="innovate">{{slide.title[0].text}}</h3>
                             </div>
                               <p class="slide-text-p">{{slide.text[0].text}}</p>
                               <a :href="slide.link[0].text" class="text">Find Out More</a>
@@ -120,13 +116,18 @@ export default {
   margin-top: -40px;
   gap: 20px;
 }
-#homesection55 .header-title h2{
+#homesection55 .header-title .headline {
+  text-align: center;
+  letter-spacing: 0px;
   font-weight:600;
   font-size: 20px;
 }
-#homesection55 .header-title h3{
-  font-weight: 200;
+#homesection55 .header-title h2{
   font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
 }
 .if{
   max-width: 1300px;
@@ -135,7 +136,7 @@ export default {
 .slideText{
   position: relative;
   margin-top: -30px;
-  h4{
+  h3{
     text-align: center;
     margin-bottom: 1rem;
     letter-spacing: 1px;
@@ -159,7 +160,7 @@ export default {
    margin-left: 180px;
    margin-top: -200px;
 }
- .title h4{
+ .title h3{
    font-weight: 600;
    font-size: 20px;
  }
@@ -280,7 +281,7 @@ export default {
   .vueperslides::v-deep .collectionImageBack {
     display: block;
   }
-  .vueperslides::v-deep h4 {
+  .vueperslides::v-deep h3 {
     line-height: 1;
   }
   .vueperslide:first-child .innovate {
