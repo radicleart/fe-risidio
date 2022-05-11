@@ -39,6 +39,14 @@ img {
   height: auto;
 }
 */
+.main-content >>> em {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
+  font-style: normal;
+}
 .main-content >>> p {
   text-align: center;
   font-weight: 300;

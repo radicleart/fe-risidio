@@ -1,10 +1,8 @@
 <template>
     <section id="csr-section2" class="bg-lighter">
         <div class="header-title">
-          <div>
-          <h2> We Care</h2>
-          </div>
-            <div> <h3>Sustainable Development Goals</h3>
+          <div class="headline">We Care</div>
+            <div><h2>Sustainable Development Goals</h2>
             </div>
             </div>
             <div>
@@ -121,13 +119,18 @@ img {
   text-align: center;
   gap: 20px;
 }
-.header-title h2 {
-  font-weight:600;
+.header-title .headline {
+  font-weight: 600;
   font-size: 20px;
+  text-align: center;
+  letter-spacing: 0px;
 }
-.header-title h3 {
-  font-weight: 200;
+.header-title h2 {
   font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
   margin-top: 40px;
 }
 </style>

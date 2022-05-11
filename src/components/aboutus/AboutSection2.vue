@@ -4,8 +4,8 @@
     <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
       <div class="my-auto text-center">
         <div class="mb-auto px-5 d-flex align-items-center flex-column section3Text">
-          <h2 class="mb-4">{{content.section3[0].title[0].text}}</h2>
-          <h3 class="mb-4">{{content.section3[0].subtitle[0].text}}</h3>
+          <div class="mb-4 headline">{{content.section3[0].title[0].text}}</div>
+          <h2 class="mb-4">{{content.section3[0].subtitle[0].text}}</h2>
           <prismic-rich-text class="main-content" :field="content.section3[0].content"/>
         </div>
       </div>
@@ -41,6 +41,19 @@ img {
   height: auto;
 }
 */
+h2 {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
+}
+.headline {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
 .main-content >>> p {
   text-align: center;
   font-weight: 300;
@@ -76,7 +89,7 @@ img {
   }
 }
 @media only screen and (max-width: 768px) {
-  h3 {
+  h2 {
     width: 75%;
   }
   p {

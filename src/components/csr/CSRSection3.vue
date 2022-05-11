@@ -1,12 +1,8 @@
 <template>
   <section id="csr-section3" class="bg-white">
     <div class="header-title">
-      <div>
-        <h2>Our Values</h2>
-      </div>
-      <div>
-        <h3>For A Better Future</h3>
-      </div>
+      <div><h2>Our Values</h2></div>
+      <div class="headline">For A Better Future</div>
     </div>
             <div class="vueSlideContainer galleryContainer">
               <vueper-slides
@@ -104,9 +100,12 @@ export default {
   font-weight:600;
   font-size: 20px;
 }
-#csr-section3 .header-title h3{
+#csr-section3 .header-title .headline{
   font-weight: 200;
   font-size: 36px;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
   margin-top: 40px;
 }
 .if{
@@ -131,10 +130,6 @@ export default {
 .title{
   margin-left: 300px;
   margin-top: -200px;
-}
-#csr-section3 .title h3{
-  font-weight: 600;
-  font-size: 20px;
 }
 .vueperslide{
   background-color:rgba(255, 255, 255, 0.637);

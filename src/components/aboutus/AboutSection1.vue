@@ -2,8 +2,8 @@
 <section id="about-section1" class="bg-lighter" v-if="content">
   <div class="d-flex align-items-center flex-column py-5" :style="viewportDimensions">
     <div class="my-auto">
-      <h2 class="mb-3 text-center blurb2">{{content.section2_title[0].text}}</h2>
-      <h3 class="mb-5 text-center blurb2">{{content.section2_subtitle[0].text}}</h3>
+      <div class="mb-3 text-center headline">{{content.section2_title[0].text}}</div>
+      <h2 class="mb-5 text-center">{{content.section2_subtitle[0].text}}</h2>
       <div class="d-flex justify-content-start">
       <div class="mx-5 mt-5">
         <div class="row">
@@ -49,6 +49,19 @@ img {
   height: auto;
 }
 */
+h2 {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
+}
+.headline {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
 .content-wrap .role, .content-wrap .name {
   white-space: nowrap;
   text-align: left;
