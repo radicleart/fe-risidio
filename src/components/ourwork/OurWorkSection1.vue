@@ -6,7 +6,7 @@
       <p class="text">{{ project.text[0].text }}</p>
       <!-- <a  class="find">Fint out more</a> -->
       <a v-if="project.title[0].text === 'Marketplace'" class="try">Coming Soon</a>
-      <a v-else :href="project.link[0].text" class="try">Find Out More</a>
+      <a target="_blank" v-else :href="project.link[0].text" class="try">Find Out More</a>
     </section>
   </div>
 </template>

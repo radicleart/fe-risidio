@@ -2,12 +2,23 @@
  <section id="homesection2" class="home-section2">
    <div class="headline">What We Do</div>
    <h2 class="main-heading">Discover Our Projects</h2>
-   <vueper-slides  class="no-shadow what-we-do-slider"
-   :arrows="false"
+   <div class="vueSlideContainer galleryContainer what-we-do-slider">
+    <vueper-slides class="no-shadow"
+   ref="slides"
+   :infinite="false"
    fixed-height="true"
-   :dragging-distance="70"
-   prevent-y-scroll
+   :gap="30"
+   :touchable="touchableSlide"
+   :arrows="showArrow"
+   :arrows-outside="showArrow"
+   :visible-slides="1"
    >
+   <template v-if="showArrow == true" #arrow-left>
+                  <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
+                </template>
+                <template v-if="showArrow == true" #arrow-right>
+                  <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
+                </template>
     <vueper-slide v-for="(slide, index) of slides" :key="index">
       <template #content>
         <section class = "container">
@@ -19,7 +30,7 @@
             <p>{{slide.content[0].text}}</p>
             <div>
               <a class="more" v-if="slide.title[0].text === 'Risidio Marketplace'">Coming Soon</a>
-              <a class="more" v-else :href="slide.link[0].text">Find Out More</a>
+              <a target="_blank" class="more" v-else :href="slide.link[0].text">Find Out More</a>
               <a class="all" href="/our-work">See All Projects</a>
             </div>
           </div>
@@ -27,6 +38,7 @@
       </template>
     </vueper-slide>
   </vueper-slides>
+   </div>
  </section>
 </template>
 
@@ -43,6 +55,8 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
+      showArrow: true,
+      touchableSlide: false,
       slide: [
         {
           id: '1',
@@ -64,11 +78,19 @@ export default {
       const content = this.$store.getters['contentStore/getHomepage']
       return content.section2
     }
+  },
+  mounted () {
+    this.$root.$on('particularSlide', (n) => {
+      this.$refs.slides.goToSlide(n)
+    })
   }
 }
 </script>
 
 <style scoped>
+.arrow2{
+  transform: rotate(180deg);
+}
 .headline {
   font-size: 16px;
   text-align: center;
@@ -97,7 +119,7 @@ export default {
 .what-we-do-slider {
   width: 100%;
 }
-.vueperslides {padding: 0 30em;}
+.vueperslides {padding: 0 40em;}
 .vueperslides__parallax-wrapper, .vueperslides__track {overflow: visible;}
 .more {
   margin-right: 35px;
@@ -129,15 +151,16 @@ button:hover {
   background: white 0% 0% no-repeat padding-box;
 }
 .container {
-  height: 306px;
+  height: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
 }
+
 .imageContainer{
-  width: 246px;
+  width: 200px;
 }
 .imageContainer img{
   width: 100%;
@@ -159,25 +182,55 @@ button:hover {
   margin-top: 40px;
 }
 .vueperslides--fixed-height {
-  height: 500px;
+  height: 327px;
 }
 .vueperslides >>> .vueperslides__bullets {
-  bottom: 10%;
+  bottom: -10%;
+}
+.vueperslides__arrow .arrow1{
+  width: 50px;
+  height: 50px;
+  color: white;
+  position: relative;
+}
+.vueperslides__arrow .arrow2{
+  width: 50px;
+  height: 50px;
+  color: white;
+  position: relative;
 }
 @media only screen and (max-width: 2200px) {
-  .vueperslides {padding: 0 25em;}
+  .vueperslides {padding: 0 0em;}
 }
 @media only screen and (max-width: 1900px) {
-  .vueperslides {padding: 0 17em;}
+  .vueperslides {padding: 0 0em;}
+  .vueperslides__arrow .arrow1{
+  margin-right: 0em;
+  }
+  .vueperslides__arrow .arrow2{
+  margin-left: 0em;
+  }
 }
 @media only screen and (max-width: 1600px) {
-  .vueperslides {padding: 0 10em;}
+  .vueperslides {padding: 0 0em;}
+  .vueperslides__arrow .arrow1{
+  margin-right: 4em;
+  }
+  .vueperslides__arrow .arrow2{
+  margin-left: 4em;
+  }
 }
 @media only screen and (max-width: 1300px) {
-  .vueperslides {padding: 0 5em;}
+  .vueperslides {padding: 0 0em;}
+  .vueperslides__arrow .arrow1{
+  margin-right: 0em;
+  }
+  .vueperslides__arrow .arrow2{
+  margin-left: 0em;
+  }
 }
 @media only screen and (max-width: 1100px) {
-  .vueperslides {padding: 0 2em;}
+  .vueperslides {padding: 0 0em;}
 }
 @media only screen and (max-width: 930px) {
   .vueperslides {padding: 0;}
@@ -185,10 +238,38 @@ button:hover {
     margin-left: 20px;
   }
 }
+@media(max-width: 854px){
+  .vueperslides >>> .vueperslides__bullets {
+    bottom: -10%;
+  }
+}
+@media(max-width: 808px){
+  .vueperslides >>> .vueperslides__bullets {
+    bottom: -4%;
+  }
+  .textContainer {
+    max-width: 223px;
+  }
+  .imageContainer {
+    max-width: 170px;
+  }
+  .more {
+    margin-right: 35px;
+  }
+}
 @media only screen and (max-width: 767px) {
-  .vueperslides {padding: 0 10em;}
+  .vueperslides {padding: 0 7em;}
   #homesection2 {
     padding: 100px 0 200px;
+  }
+  .imageContainer{
+  max-width: 200px;
+}
+.imageContainer img{
+  width: 100%;
+}
+  .vueperslides--fixed-height {
+    height: 510px;
   }
   .textContainer div{
     margin-top: 20px;
@@ -203,8 +284,14 @@ button:hover {
     margin-left: 0;
     height: auto;
   }
+  .textContainer h3 {
+    text-align: center;
+  }
+  .textContainer p {
+    text-align: center;
+  }
   .vueperslides >>> .vueperslides__bullets {
-    bottom: -25%;
+    bottom: 0%;
   }
   .textContainer div{
     display: flex;
@@ -213,20 +300,25 @@ button:hover {
   .more {
     margin-right: 0;
   }
-  .vueperslides >>> .vueperslides__bullets {
-    bottom: -20%;
-  }
 }
 @media only screen and (max-width: 650px) {
   .vueperslides {padding: 0 7em;}
 }
 @media only screen and (max-width: 550px) {
-  .vueperslides {padding: 0 5em;}
+  .vueperslides {padding: 0 6em;}
+}
+@media only screen and (max-width: 500px) {
+  .arrow1{
+    display: none;
+  }
+  .arrow2{
+    display: none;
+  }
 }
 @media only screen and (max-width: 450px) {
   .home-section2 .main-heading{
     font-size: 28px;
-    padding: 0 10px;
+    padding: 0 15px;
     text-align: center;
   }
   .vueperslides >>> .vueperslides__bullets {
@@ -238,6 +330,8 @@ button:hover {
   .home-section2{
     gap: 0;
   }
-  .vueperslides {padding: 0;}
+  .vueperslides {
+    padding: 25px 13px;
+  }
 }
 </style>

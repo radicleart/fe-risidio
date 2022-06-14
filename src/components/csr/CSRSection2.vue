@@ -25,7 +25,7 @@
             <div class="csrinfo">
              <img src="../../assets/img/services1.png" alt="" class="image"/>
                 <p class="title1"> Strategy</p>
-                <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism for Bitcoin in our NFT marketplace and support the  <a href="https://www.sustainablebtc.org/" style="color: #E9493D;">Sustainable Bitcoin Standard</a>.</p>
+                <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism for Bitcoin in our NFT marketplace and support the  <a target="_blank" href="https://www.sustainablebtc.org/" style="color: #E9493D;">Sustainable Bitcoin Standard</a>.</p>
             </div>
           </div>
       </div>
@@ -34,7 +34,7 @@
             <div class="csrinfo">
              <img src="../../assets/img/services2.png" alt="" class="image"/>
                 <p class="title1"> Risk Management</p>
-                <p class="text">We've conducted and published research into a range of CSR projects <a href="https://medium.com/risidio/fake-art-nfts-and-indigenous-rights-be2d8f32deb8"></a> to highlight the fake indigenous art issue and how NFT technologies can support indigenous communities.</p>
+                <p class="text">We've conducted and published research into a range of CSR projects <a target="_blank" href="https://medium.com/risidio/fake-art-nfts-and-indigenous-rights-be2d8f32deb8"></a> to highlight the fake indigenous art issue and how NFT technologies can support indigenous communities.</p>
             </div>
           </div>
       </div>
