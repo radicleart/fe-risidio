@@ -1,39 +1,45 @@
 <template>
-<section class="bg-white" v-if="content" id="crs-section-2">
-  <div class="d-flex justify-content-center">
-    <div class="d-flex align-items-center flex-column my-5 w-100">
-      <h4 class="mb-4 text-center w-75">{{content.s3title[0].text}}</h4>
-      <div class="we-work-with">
-        <div class="row">
-          <div class="col-lg-4 col-12 mb-5 d-flex flex-column align-items-center">
-            <div class="we-work-with--content">
-              <img :src="content.s3group[0].image.url" :alt="content.s3group[2].image.alt">
-              <h4 class="text-left" v-html="content.s3group[0].s3title[0].text"></h4>
-              <p class="text-left" v-html="content.s3group[0].s3description[0].text"></p>
-              <router-link to="/marketplace" class="text-info">Find Out More...</router-link>
+    <section id="csr-section2" class="bg-lighter">
+        <div class="header-title">
+          <div class="headline">We Care</div>
+            <div><h2>Sustainable Development Goals</h2>
+            </div>
+            </div>
+            <div>
+              <p class="title">Roadmap and Targets</p>
+              <p class="text">EARTH DAY – APRIL 22, 2022</p>
+              <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our IndigeNFT Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
+            </div>
+            <div class="sustainability">
+    <div>
+        <div>
+            <div class="csrinfo">
+             <img src="../../assets/img/service.png" alt="" class="image"/>
+                <p class="title1"> Governance</p>
+                <p class="text">Corporate Social Responsibility is at the heart of Risidio. Our governing ethos involves expanding our existing ecosystem of partners to establish an environmentally and socially conscious network.</p>
             </div>
           </div>
-          <div class="col-lg-4 col-12 mb-5 d-flex flex-column align-items-center">
-            <div class="we-work-with--content">
-              <img :src="content.s3group[1].image.url" :alt="content.s3group[2].image.alt">
-              <h4 class="text-left" v-html="content.s3group[1].s3title[0].text"></h4>
-              <p class="text-left" v-html="content.s3group[1].s3description[0].text"></p>
-              <a href="https://thisisnumberone.com/" class="text-info">Find Out More...</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-12 d-flex flex-column align-items-center">
-            <div class="we-work-with--content">
-              <img :src="content.s3group[2].image.url" :alt="content.s3group[2].image.alt">
-              <h4 class="text-left" v-html="content.s3group[2].s3title[0].text"></h4>
-              <p class="text-left" v-html="content.s3group[2].s3description[0].text"></p>
-              <a href="https://stacks.org/" class="text-info">Find Out More...</a>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
-</section>
+    <div>
+          <div>
+            <div class="csrinfo">
+             <img src="../../assets/img/services1.png" alt="" class="image"/>
+                <p class="title1"> Strategy</p>
+                <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism for Bitcoin in our NFT marketplace and support the  <a target="_blank" href="https://www.sustainablebtc.org/" style="color: #E9493D;">Sustainable Bitcoin Standard</a>.</p>
+            </div>
+          </div>
+      </div>
+      <div>
+          <div>
+            <div class="csrinfo">
+             <img src="../../assets/img/services2.png" alt="" class="image"/>
+                <p class="title1"> Risk Management</p>
+                <p class="text">We've conducted and published research into a range of CSR projects <a target="_blank" href="https://medium.com/risidio/fake-art-nfts-and-indigenous-rights-be2d8f32deb8"></a> to highlight the fake indigenous art issue and how NFT technologies can support indigenous communities.</p>
+            </div>
+          </div>
+      </div>
+      </div>
+    </section>
 </template>
 
 <script>
@@ -50,49 +56,81 @@ export default {
   }
 }
 </script>
-
 <style scoped>
-.we-work-with {
-  margin: 10px 0 0 0;
-  text-align: left;
-  width: 90%;
-}
-.we-work-with--content {
-  max-width: 250px;
-}
-.we-work-with--content a {
-  display: flex;
-  width: 100%;
-  font-size: 13px;
-  font-weight: 700;
-  justify-content: center;
-}
-.we-work-with--content p {
-  width: 100%;
-}
-.we-work-with--content h4 {
-  width: 100%;
-}
+/*
 img {
   width: 100%;
   height: auto;
-  margin-bottom: 20px;
 }
-p {
+*/
+.bg-lighter{
+    min-height: 800px;
+    padding: 50px 15px;
+    text-align: center;
+}
+
+.sustainability {
+  max-width: 1500px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+.csrinfo {
+  position: relative;
+  flex: 0 1 300px;
+  padding: 35px 20px;
   text-align: center;
-  font-weight: 300;
-  font-size: 15px;
-  color: #000000;
+  margin-top: 90px;
 }
-li {
+.csrinfo p {
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image {
+  position: absolute;
+  top: 10px;
+  right: 0; left: 0;
+  margin: auto;
+  width: 72px;
+  height: 72px;
+}
+.title {
+  font-size: 35px;
+  font-weight: 300;
   text-align: center;
-  font-weight: 300;
-  font-size: 15px;
-  color: #000000;
+  margin-top: 30px;
 }
-@media only screen and (max-width: 768px) {
-  .we-work-with {
-    width: 75%;
-  }
+.title1 {
+  font-size: 35px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 90px;
+}
+.text {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+}
+.header-title {
+  text-align: center;
+  gap: 20px;
+}
+.header-title .headline {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0px;
+}
+.header-title h2 {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
+  margin-top: 40px;
 }
 </style>

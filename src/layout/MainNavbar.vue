@@ -1,7 +1,9 @@
 <template>
 <div class="d-flex justify-content-center">
-  <b-navbar toggleable="md" type="dark" class="p-0 my-nav navbar-expand-sm" v-if="content">
-    <b-navbar-brand href="#"><router-link to="/" class="navbar-brand"><img :src="logo" alt="Risidio Logo"/></router-link></b-navbar-brand>
+  <h1 class="visually-hidden">Risidio</h1>
+  <b-navbar toggleable="md" type="dark" class="p-0 my-nav navbar-expand-md">
+    <h2 class="visually-hidden">Navigation</h2>
+    <b-navbar-brand href="#"><router-link to="/" class="navbar-brand"><img :src="logo" alt="Risidio"/></router-link></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" @click="noScroll()"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
@@ -10,9 +12,9 @@
         <b-nav-item><router-link class="text-white" to="/education">Education</router-link></b-nav-item>
         <b-nav-item><router-link class="text-white" to="/services">Services</router-link></b-nav-item>
         -->
+        <b-nav-item to="/our-work" class="nav-text marketplace-link">Our Work</b-nav-item>
         <b-nav-item to="/aboutus" class="nav-text about-link">About</b-nav-item>
-        <b-nav-item to="/marketplace" class="nav-text marketplace-link">Marketplace</b-nav-item>
-        <b-nav-item to="/CSR" class="nav-text csr-link">Sustainability</b-nav-item>
+        <b-nav-item to="/sustainability" class="nav-text csr-link">Sustainability</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto mr-4">
@@ -31,9 +33,9 @@
       </b-navbar-nav>
       <b-navbar-nav class="mobile-nav-items">
         <b-nav-text class="text-white mobile-nav-items--social">
-          <a href="https://discord.gg/qvuxB9P"><span style="font-size: 15px;"><i class="fab fa-discord"></i></span></a>
-          <a href="https://twitter.com/Risidio1"><span style="font-size: 15px;"><i class="fab fa-twitter"></i></span></a>
-          <a href="https://www.instagram.com/risidio_official/"><span style="font-size: 15px;"><i class="fab fa-instagram"></i></span></a>
+          <a href="https://discord.com/invite/sQaKVft"><span style="font-size: 15px;"><i class="fa-brands fa-discord"></i></span></a>
+          <a href="https://twitter.com/Risidio1"><span style="font-size: 15px;"><i class="fa-brands fa-twitter"></i></span></a>
+          <a href="https://www.instagram.com/risidio_official/"><span style="font-size: 15px;"><i class="fa-brands fa-instagram"></i></span></a>
         </b-nav-text>
         <b-nav-text v-b-toggle.nav-collapse @click="noScroll()" class="nav-text text-white mobile-nav-items--terms">
           <router-link to="/aboutus">Terms & conditions</router-link> • <router-link to="/aboutus">Privacy policy</router-link>
@@ -67,12 +69,6 @@ export default {
       const keycloak = this.$store.getters[getKeycloak]
       keycloak.logout()
     },
-    getLink (item) {
-      return '/page/' + item.nav_link.id
-    },
-    getLinkName (item) {
-      return item.nav_link.uid.split('-')[1].toLowerCase()
-    },
     login () {
       this.$router.push('/login')
     },
@@ -80,11 +76,6 @@ export default {
       const width = window.innerWidth
       if (width <= 575) {
         document.body.classList.toggle('no-scroll')
-      }
-    },
-    goToContact () {
-      if (this.$route.name === 'blog-home' || this.$route.name === 'post' || this.$route.name === 'Proposal') {
-        this.$router.push('/')
       }
     }
   },
@@ -96,10 +87,6 @@ export default {
     },
     isLoginPage () {
       return this.$route.name === 'login'
-    },
-    content () {
-      const content = this.$store.getters['contentStore/getNavbar']
-      return content
     },
     showAdmin () {
       const keycloak = this.$store.getters[getKeycloak]
@@ -219,23 +206,13 @@ export default {
   margin-bottom: 15px;
 }
 
-@media only screen and (min-width: 576px) {
+@media only screen and (min-width: 767px) {
   #nav-collapse {
     transition: none;
   }
 }
 
-@media only screen and (max-width: 660px) and (min-width: 576px) {
-  .nav-link {
-    margin-left: 20px;
-  }
-  .navbar-brand a {
-    padding-left: 2rem;
-    margin-right: 10px;
-  }
-}
-
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 767px) {
   .mobile-nav-items {
     display: flex;
     margin-top: auto;

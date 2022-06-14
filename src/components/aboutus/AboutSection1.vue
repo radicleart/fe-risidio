@@ -1,12 +1,25 @@
 <template>
-<section class="bg-lighter" v-if="content" id="about-section-1">
-  <div class="d-flex justify-content-center">
-    <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
-      <div class="my-auto text-center">
-        <div class="mb-auto px-5 d-flex align-items-center flex-column">
-          <h1 class="mb-4">{{content.s2title1[0].text}}</h1>
-          <!-- <h2 class="mb-4">{{content.s2title2[0].text}}</h2> -->
-          <prismic-rich-text class="main-content" :field="content.s2description"/>
+<section id="about-section1" class="bg-lighter" v-if="content">
+  <div class="d-flex align-items-center flex-column py-5" :style="viewportDimensions">
+    <div class="my-auto">
+      <div class="mb-3 text-center headline">{{content.section2_title[0].text}}</div>
+      <h2 class="mb-5 text-center">{{content.section2_subtitle[0].text}}</h2>
+      <div class="d-flex justify-content-start">
+      <div class="mx-5 mt-5">
+        <div class="row">
+          <div v-for="(item, index) of content.section2" :key="index" class="col-lg-4 col-md-12">
+            <div class="d-flex justify-content-start mobile-margin content-wrap">
+              <div class="">
+                <img :src="item.icon.url" alt=""/>
+              </div>
+              <div>
+                <div class="name" v-html="item.content[0].text"></div>
+                <div class="role" v-html="item.content[1].text"></div>
+                <p class="" v-html="item.content[2].text"></p>
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
@@ -15,7 +28,6 @@
 </template>
 
 <script>
-import { SITE_CONSTANTS } from '@/site-constants'
 export default {
   name: 'AboutSection1',
   props: ['viewportDimensions', 'content'],
@@ -26,10 +38,6 @@ export default {
   methods: {
   },
   computed: {
-    halfDims () {
-      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
-      return 'min-height: ' + height / 2 + 'px; width: auto;'
-    }
   }
 }
 </script>
@@ -41,47 +49,48 @@ img {
   height: auto;
 }
 */
-.main-content >>> p {
-  text-align: center;
-  font-weight: 300;
-  font-size: 15px;
-  letter-spacing: 0px;
-  color: #000000;
-}
-.bg-lighter {
-  background-color: '#F5F5F5';
-}
-.blurb2 {
-  width: 100%;
-  text-align: center;
-  font-size: 26px;
+h2 {
+  font-size: 36px;
   font-weight: 200;
   letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
 }
-#about-section-1 {
-  padding-top: 10rem;
+.headline {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0px;
 }
-@media only screen and (max-width: 900px) {
-  #about-section-1 {
-    padding-top: 7rem;
-  }
+.content-wrap .role, .content-wrap .name {
+  white-space: nowrap;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #000000;
+  margin-bottom: 8px;
 }
-@media only screen and (max-width: 600px) {
-  #about-section-1 {
-    padding-top: 5rem;
-  }
+.content-wrap .role {
+  font-size: 12px;
+  font-weight: 700;
 }
-@media only screen and (max-width: 768px) {
-  h2 {
-    width: 75%;
-  }
-  p {
-    width: 75%;
-  }
+.content-wrap .name {
+  font-size: 17px;
+  font-weight: 300;
 }
-@media only screen and (max-width: 425px) {
-  #about-section-1 {
-    padding-top: 3rem;
-  }
+img {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+@media only screen and (max-width: 1100px) and (min-width: 992px) {
+  img { width: 60px; margin-left: 0; }
+}
+@media only screen and  (max-width: 991px) {
+  .mobile-margin { margin-bottom: 2rem; }
+}
+@media only screen and  (max-width: 425px) {
+  img { margin-left: 0; }
+}
+@media only screen and (max-width: 360px) {
+  img { width: 55px; margin-right: 1rem; }
 }
 </style>

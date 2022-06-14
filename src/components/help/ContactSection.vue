@@ -6,8 +6,8 @@
     <div class="row">
 
       <div class="col-md-12">
-        <h4>Any thoughts, questions, just want to say hello?</h4 >
-        <h3>Contact Us</h3>
+        <div class="tagline">Any thoughts, questions, just want to say hello?</div>
+        <h2>Contact Us</h2>
       </div>
 
       <div class="contact-form">
@@ -63,7 +63,7 @@
                   <b-form-textarea
                     class="form-control"
                     id="validation-message"
-                    placeholder="How can we help"
+                    placeholder="How can we help?"
                     v-model="message"
                     rows="5"
                     required>
@@ -163,12 +163,13 @@ export default {
 </script>
 
 <style scoped>
-h4 { /*Style of the text above Contact Us */
+.tagline { /*Style of the text above Contact Us */
   font-size: 17px;
   color: white;
   text-align: center;
   margin-top: 6%;
   text-transform: capitalize;
+  font-weight: 700;
 }
 input {
   font-size: 12px;
@@ -179,17 +180,20 @@ textarea{
   font-size: 12px;
   padding-left: 19px;
   padding-right: 19px;
+  resize: none;
 }
 input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
 textarea::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
 button {
   font-size: 13px;
 }
-h3 { /* Contact us style */
+h2 { /* Contact us style */
   font-size: 40px;
   font-weight: 300;
   color: white;
@@ -222,5 +226,10 @@ h3 { /* Contact us style */
   color: white;
   text-align: center;
   font-size: 20px;
+}
+@media only screen and (max-width: 768px) {
+  #ContactSection {
+    padding-top: 100px !important;
+  }
 }
 </style>

@@ -156,34 +156,50 @@ body {
   color: #999;
   font-weight: 200;
 }
-.footer{
+.footer {
   /*position: fixed;
   bottom: 0;*/
   width: 100%;
   height: 150px;
   padding: 0;
 }
-h1 {
+footer h3 {
+  text-align: left;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+
+h2 {
   text-align: center;
   font-size: 25px;
   font-weight: 700;
   letter-spacing: 0px;
-  text-transform: capitalize;
 }
-h2 {
+h3 {
   font-size: 36px;
   font-weight: 200;
   letter-spacing: 0px;
   text-transform: capitalize;
   white-space: normal;
 }
-h3 {
+h4 {
   text-align: left;
   font-size: 21px;
   font-weight: 700;
   letter-spacing: 0px;
 }
-h4 {
+h5 {
   text-align: center;
   font-size: 18px;
   font-weight: 700;
@@ -218,7 +234,10 @@ p {
 .bg-ones {
   background-color: #111111;
 }
-button {
+button, .secondary-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: rgb(255, 255, 255, .2);
   color: #5FBDC1;
   border-radius: 22px;
@@ -235,10 +254,10 @@ button {
   text-transform: capitalize;
   text-decoration: none;
 }
-button:hover {
+button:hover, .secondary-button:hover {
   background: #FFFFFF;
 }
-button:focus {
+button:focus, .secondary-button:focus {
   outline: none;
 }
 a {
@@ -246,7 +265,7 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: #5FBDC1;
+  color: #5FBDC1 !important;
 }
 .nav-text > a {
   text-align: left;
@@ -306,24 +325,23 @@ a:hover {
 .icon-down {
   width: 40px;
   height: 40px;
-  margin: 0 auto;
+  margin: 0 0 25px;
   border: 1px solid rgba(249, 184, 7, 0.2);
   border-radius: 50%;
   color: #F9B807;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .icon-down i {
-  position: relative;
-  top: 8px;
+  margin-top: 2px;
 }
 .icon-down:hover {
   cursor: pointer;
 }
 
 // SLIDERS
-.vueperslides .vueperslides__parallax-wrapper, .vueperslides__parallax-wrapper .vueperslides__track 
-{ overflow: visible; }
-
-.section-7 .vueperslides__parallax-wrapper, .section-7 .vueperslides__parallax-wrapper .vueperslides__track 
+#homesection2 .vueperslides__parallax-wrapper, .vueperslides__parallax-wrapper .vueperslides__track 
 { overflow: hidden; }
 
 .vueperslides__inner .vueperslides__arrows--outside .vueperslides__arrow--prev { left: -8.5em; }
@@ -345,6 +363,35 @@ a:hover {
 .section-7 .vueperslides__bullet {
   color: #E9493D;
   max-width: 50px;
+}
+
+//Sliders
+.vueperslides.vueperslides--fixed-height {
+  backdrop-filter: none;
+}
+.vueperslides button.vueperslides__bullet {
+  width: 15px;
+  height: 15px;
+}
+.vueperslides .vueperslides__bullet .default  {
+  color: #f9b8073d;
+  background-color: #f9b8073d;
+  box-shadow: none;
+}
+.vueperslides .vueperslides__bullet--active .default {
+  color: #F9B807;
+}
+.vueperslides button.vueperslides__bullet {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.vueperslides button.vueperslides__bullet .default {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.vueperslides__bullet--active .default {
+    border-width: 4px;
 }
 
 //PRODUCT PAGE GAP
