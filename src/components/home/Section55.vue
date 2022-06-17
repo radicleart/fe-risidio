@@ -53,8 +53,6 @@ import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 export default {
   name: 'Section5.5',
-  props: ['viewportDimensions'],
-
   components: {
     VueperSlides,
     VueperSlide
@@ -84,10 +82,6 @@ export default {
       // touchableSlide: false
     }
   }),
-  created () {
-    window.addEventListener('resize', this.checkScreen)
-    this.checkScreen()
-  },
   computed: {
     slides () {
       const content = this.$store.getters['contentStore/getHomepage']

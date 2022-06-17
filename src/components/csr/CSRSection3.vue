@@ -74,11 +74,7 @@ export default {
       rand: 1
       // touchableSlide: false
     }
-  }),
-  created () {
-    window.addEventListener('resize', this.checkScreen)
-    this.checkScreen()
-  }
+  })
 }
 </script>
 
