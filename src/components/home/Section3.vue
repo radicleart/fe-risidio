@@ -16,6 +16,7 @@
 <script>
 export default {
   name: 'Section3',
+  props: ['viewportDimensions'],
   data () {
     return {
     }

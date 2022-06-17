@@ -5,7 +5,7 @@
     </div>
     <div class="items-container">
       <section v-for="(article, index) of content.articles" :key="index" class="item-container">
-        <a :href="article.link[0].text">
+        <a target="_blank" :href="article.link[0].text">
           <img :src="article.image.url" alt="" class="image"/>
           <span class="date">{{ article.date[0].text }}</span>
           <h3 class="header">{{ article.title[0].text }}</h3>

@@ -342,7 +342,7 @@ a:hover {
 
 // SLIDERS
 #homesection2 .vueperslides__parallax-wrapper, .vueperslides__parallax-wrapper .vueperslides__track 
-{ overflow: visible; }
+{ overflow: hidden; }
 
 .vueperslides__inner .vueperslides__arrows--outside .vueperslides__arrow--prev { left: -8.5em; }
 .vueperslides__inner .vueperslides__arrows--outside .vueperslides__arrow--next { right: -8.5em; }

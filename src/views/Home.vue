@@ -40,9 +40,9 @@ export default {
     console.log(this.$route)
     // Nasty hack related to bug Camiel found.
     // Issue is homepage on mobile lands in middle of the blog section and not at {0, 0}
-    setTimeout(function () {
-      window.scrollTo(0, 0)
-    }, 10)
+    // setTimeout(function () {
+    //   window.scrollTo(0, 0)
+    // }, 10)
   },
   computed: {
     sectionDimensions () {

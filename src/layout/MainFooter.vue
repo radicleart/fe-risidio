@@ -19,8 +19,8 @@
             <section class="col-4">
               <h3 class="header">Projects</h3>
               <div><router-link to="/our-work" class="list">Marketplace</router-link></div>
-              <div><a href="https://www.indigenft.io/" class="list">IndigeNFT</a></div>
-              <div><a href="https://thisisnumberone.com/" class="list">This is #1</a></div>
+              <div><a href="https://www.indigenft.io/" target="_blank" class="list">IndigeNFT</a></div>
+              <div><a href="https://thisisnumberone.com/" target="_blank" class="list">This is #1</a></div>
             </section>
             <!--<div class="col-4" v-html="getContent('contact')">-->
             <section class="col-4">
@@ -54,9 +54,9 @@
         <div class="col-12 mobile-footer--contact" v-html="getContent('contact')"></div>
         <div class="col-12 social-icons">
           <span style="font-size: 15px;">
-            <a href="https://discord.com/invite/sQaKVft"><i class="fa-brands fa-discord"></i></a>
-            <a href="https://twitter.com/Risidio1"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://www.instagram.com/risidio_official/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://discord.com/invite/sQaKVft" target="_blank"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://twitter.com/Risidio1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/risidio_official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
           </span>
         </div>
       </div>

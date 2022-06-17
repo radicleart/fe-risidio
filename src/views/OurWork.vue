@@ -3,7 +3,6 @@
     <our-work-section0 :viewportDimensions="sectionDimensions" :content="content"/>
     <our-work-section1 :viewportDimensions="sectionDimensions" :content="content"/>
     <our-work-section2 :content="content"/>
-    <section12 :viewportDimensions="sectionDimensions" :content="contentServices"/>
     <section6 :viewportDimensions="sectionDimensions"/>
 </div>
 </template>
