@@ -57,6 +57,7 @@ img {
   text-align: center;
   margin-top: 85px;
 }
+
 .aboutinfo p {
   max-width: 300px;
 }
@@ -80,11 +81,10 @@ img {
 .header-title {
   text-align: center;
   font-weight:1000;
-  font-size: 30px;
 }
 .header-title h2 {
   font-weight:600;
-  font-size: 30px;
+  font-size: 25px;
 }
 .button {
   width: 224px;

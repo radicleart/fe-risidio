@@ -39,28 +39,29 @@ export default {
   },
   mounted () {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const myself = this
-    if (this.$route.name === 'home') {
-      setTimeout(() => {
-        this.loading = false
-        setTimeout(() => {
-          myself.runVideo()
-        }, 500)
-      }, 3000)
-    } else {
-      this.loading = false
-    }
-    let resizeTimer
-    window.addEventListener('resize', function () {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(function () {
-        myself.$store.commit('setWinDims')
-        myself.componentKey += 1
-        Vue.nextTick(function () {
-          myself.runVideo()
-        }, this)
-      }, 400)
-    })
+    // const myself = this
+    // if (this.$route.name === 'home') {
+    //   setTimeout(() => {
+    //     this.loading = false
+    //     setTimeout(() => {
+    //       myself.runVideo()
+    //     }, 500)
+    //   }, 3000)
+    // } else {
+    //   this.loading = false
+    // }
+    this.loading = false
+    // let resizeTimer
+    // window.addEventListener('resize', function () {
+    //   clearTimeout(resizeTimer)
+    //   resizeTimer = setTimeout(function () {
+    //     myself.$store.commit('setWinDims')
+    //     myself.componentKey += 1
+    //     Vue.nextTick(function () {
+    //       myself.runVideo()
+    //     }, this)
+    //   }, 400)
+    // })
 
     this.$prismic.client.getSingle('homepage').then(document => {
       if (document) {
