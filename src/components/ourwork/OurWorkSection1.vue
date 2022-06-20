@@ -5,7 +5,7 @@
       <h2 class="header">{{ project.title[0].text }}</h2>
       <p class="text">{{ project.text[0].text }}</p>
       <!-- <a  class="find">Fint out more</a> -->
-      <a v-if="project.title[0].text === 'Marketplace'" class="try">Coming Soon</a>
+      <b v-if="project.title[0].text === 'Marketplace'" class="try">Coming Soon</b>
       <a target="_blank" v-else :href="project.link[0].text" class="try">Find Out More</a>
     </section>
   </div>
@@ -74,6 +74,17 @@ export default {
   margin-right: 10px;
 }
 .try{
+  width: 59px;
+  height: 14px;
+  font-size: 11px;
+  text-align: left;
+  font: normal normal bold 11px/14px Montserrat;
+  letter-spacing: 0px;
+  color: #F9B807;
+  text-transform: capitalize;
+  opacity: 1;
+}
+.try-noEffect {
   width: 59px;
   height: 14px;
   font-size: 11px;

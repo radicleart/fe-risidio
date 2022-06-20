@@ -5,7 +5,7 @@
             <div><h2>Sustainable Development Goals</h2>
             </div>
             </div>
-            <div>
+            <div class="csrRoadmap">
               <p class="title">Roadmap and Targets</p>
               <p class="text">EARTH DAY – APRIL 22, 2022</p>
               <p class="text" style="max-width: 500px; margin: 0 auto;">Earth Day 2022 marks the beginning of the rollout of our IndigeNFT Genesis collection. The theme for Earth Day 2022 (‘Invest in our Planet’) calls on business to build a more environmentally and socially conscious future for the Earth, a message strongly aligned with our own values.</p>
@@ -15,7 +15,7 @@
         <div>
             <div class="csrinfo">
              <img src="../../assets/img/service.png" alt="" class="image"/>
-                <p class="title1"> Governance</p>
+                <p class="title1"> Governance </p>
                 <p class="text">Corporate Social Responsibility is at the heart of Risidio. Our governing ethos involves expanding our existing ecosystem of partners to establish an environmentally and socially conscious network.</p>
             </div>
           </div>
@@ -24,7 +24,7 @@
           <div>
             <div class="csrinfo">
              <img src="../../assets/img/services1.png" alt="" class="image"/>
-                <p class="title1"> Strategy</p>
+                <p class="title1"> Strategy </p>
                 <p class="text">To minimise our carbon footprint, we use Stacks’ Proof-of-Transfer (PoX) blockchain mining mechanism for Bitcoin in our NFT marketplace and support the  <a target="_blank" href="https://www.sustainablebtc.org/" style="color: #E9493D;">Sustainable Bitcoin Standard</a>.</p>
             </div>
           </div>
@@ -50,25 +50,19 @@ export default {
     return {
     }
   },
-  methods: {
-  },
   computed: {
   }
 }
 </script>
 <style scoped>
-/*
-img {
-  width: 100%;
-  height: auto;
-}
-*/
 .bg-lighter{
     min-height: 800px;
     padding: 50px 15px;
     text-align: center;
 }
-
+.csrRoadmap{
+  padding: 0 25px;
+}
 .sustainability {
   max-width: 1500px;
   margin: auto;

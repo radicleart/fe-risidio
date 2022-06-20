@@ -37,7 +37,7 @@
                               <h3 class="innovate">{{slide.title[0].text}}</h3>
                             </div>
                               <p class="slide-text-p">{{slide.text[0].text}}</p>
-                              <a :href="slide.link[0].text" class="text">Find Out More</a>
+                              <router-link :to="slide.link[0].text" class="text">Find Out More</router-link>
                             </div>
                             </div>
                         </section>
@@ -82,6 +82,19 @@ export default {
       // touchableSlide: false
     }
   }),
+  methods: {
+    resize () {
+      const windowWidth = window.innerWidth
+      if (windowWidth < 500) {
+        this.touchableSlide = true
+      } else {
+        this.touchableSlide = false
+      }
+    }
+  },
+  created () {
+    window.addEventListener('resize', this.resize())
+  },
   computed: {
     slides () {
       const content = this.$store.getters['contentStore/getHomepage']

@@ -12,7 +12,7 @@
               </div>
           </section>
         </div>
-        <button class="touch-button"><a href="/contact">Interested? Get In Touch</a></button>
+        <router-link to="/contact"><button class="touch-button">Interested? Get In Touch</button></router-link>
       </div>
     </section>
 </template>
@@ -72,6 +72,11 @@ export default {
   background: rgba(95, 189, 193, 0.15);
   border-radius: 22px;
   margin-top: 50px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.touch-button:hover{
+  background: white;
 }
 .touch-button a{
   color: rgba(95, 189, 193, 1);

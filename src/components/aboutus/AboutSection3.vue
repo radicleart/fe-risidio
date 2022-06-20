@@ -11,7 +11,7 @@
           </section>
         </div>
         <div>
-          <button class="button mx-auto"><a href="/contact">Interested? Get In Touch</a></button>
+          <router-link to="/contact"><button class="button mx-auto" @click="array()">Interested? Get In Touch</button></router-link>
         </div>
     </section>
 </template>
@@ -25,6 +25,10 @@ export default {
     }
   },
   methods: {
+    array () {
+      const thisArray = ['yes', 'no', 'maybe']
+      console.log(thisArray.join(','))
+    }
   },
   computed: {
   }

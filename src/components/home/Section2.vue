@@ -13,12 +13,12 @@
    :arrows-outside="showArrow"
    :visible-slides="1"
    >
-   <template v-if="showArrow == true" #arrow-left>
-                  <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
-                </template>
-                <template v-if="showArrow == true" #arrow-right>
-                  <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
-                </template>
+   <template v-if="showArrow" #arrow-left>
+      <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
+    </template>
+    <template v-if="showArrow" #arrow-right>
+      <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
+    </template>
     <vueper-slide v-for="(slide, index) of slides" :key="index">
       <template #content>
         <section class = "container">
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+/*eslint-disable */
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
@@ -79,10 +80,23 @@ export default {
       return content.section2
     }
   },
+  methods: {
+    resize () {
+      const windowWidth = window.innerWidth
+      if (windowWidth < 500) {
+        this.touchableSlide = true
+      } else {
+        this.touchableSlide = false
+      }
+    }
+  },
+  created () {
+    window.addEventListener('resize', this.resize())
+  },
   mounted () {
-    this.$root.$on('particularSlide', (n) => {
-      this.$refs.slides.goToSlide(n)
-    })
+    // this.$root.$on('particularSlide', (n) => {
+    //   this.$refs.slides.goToSlide(n)
+    // })
   }
 }
 </script>

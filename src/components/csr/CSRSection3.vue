@@ -4,39 +4,37 @@
       <div><h2>Our Values</h2></div>
       <div class="headline">For A Better Future</div>
     </div>
-            <div class="vueSlideContainer galleryContainer">
-              <vueper-slides
-              :infinite="false"
-              fixed-height="true"
-              class="no-shadow"
-              :arrows="showArrow"
-              :arrows-outside="showArrow"
-              :touchable="touchableSlide"
-              :gap="10"
-              :visible-slides="1"
-              >
-                <template v-if="showArrow == true" #arrow-left>
-                  <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
-                </template>
-                <template v-if="showArrow == true" #arrow-right>
-                  <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
-                </template>
-                <vueper-slide v-for="(slide, index) of content.section2" :key="index">
-                    <template #content>
-                        <div class="slideContainer">
-                            <div class="slideImage">
-                              <div class="collectionImageBack">
-                                <img :src="slide.image.url" alt="" class="slide"/>
-                              </div>
-                              <prismic-rich-text class="slide-text-p" :field="slide.content"/>
-                              <!-- <p class="slide-text-p">{{slide.content[0].text}}</p> -->
-                            </div>
-                        </div>
-                       </template>
-                </vueper-slide>
-              </vueper-slides>
-            </div>
-      </section>
+      <div class="vueSlideContainer galleryContainer">
+        <vueper-slides
+          :infinite="false"
+          fixed-height="true"
+          class="no-shadow"
+          :arrows="showArrow"
+          :arrows-outside="showArrow"
+          :touchable="touchableSlide"
+          :gap="10"
+          :visible-slides="1">
+          <template v-if="showArrow == true" #arrow-left>
+            <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
+          </template>
+          <template v-if="showArrow == true" #arrow-right>
+            <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
+          </template>
+          <vueper-slide v-for="(slide, index) of content.section2" :key="index">
+              <template #content>
+                <div class="slideContainer">
+                  <div class="slideImage">
+                    <div class="collectionImageBack">
+                      <img :src="slide.image.url" alt="" class="slide"/>
+                    </div>
+                    <prismic-rich-text class="slide-text-p" :field="slide.content"/>
+                  </div>
+                </div>
+              </template>
+          </vueper-slide>
+        </vueper-slides>
+      </div>
+    </section>
 </template>
 
 <script>
@@ -45,11 +43,9 @@ import 'vueperslides/dist/vueperslides.css'
 export default {
   name: 'CSRSection3',
   props: ['viewportDimensions', 'content'],
-
   components: {
     VueperSlides,
     VueperSlide
-    // HomeSearchBar
   },
   data: () => ({
     touchableSlide: false,
@@ -72,9 +68,21 @@ export default {
       resultSet: [],
       loaded: false,
       rand: 1
-      // touchableSlide: false
     }
-  })
+  }),
+  methods: {
+    resize () {
+      const windowWidth = window.innerWidth
+      if (windowWidth < 500) {
+        this.touchableSlide = true
+      } else {
+        this.touchableSlide = false
+      }
+    }
+  },
+  created () {
+    window.addEventListener('resize', this.resize())
+  }
 }
 </script>
 
