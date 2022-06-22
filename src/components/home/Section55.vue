@@ -5,25 +5,9 @@
       <div><h2>Creating Your Decentralised Future</h2></div>
     </div>
             <div class="vueSlideContainer galleryContainer">
-              <vueper-slides
-              ref="slides"
-              :infinite="false"
-              fixed-height="true"
-              class="no-shadow"
-              :arrows="showArrow"
-              :arrows-outside="showArrow"
-              :touchable="touchableSlide"
-              :gap="10"
-              :visible-slides="1"
-              >
-                <template v-if="showArrow == true" #arrow-left>
-                  <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
-                </template>
-                <template v-if="showArrow == true" #arrow-right>
-                  <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
-                </template>
-                <vueper-slide v-for="(slide, index) of slides" :key="index">
-                    <template #content>
+              <div class="swiper" ref="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" v-for="(slide, index) of slides" :key="index">
                         <section class="slideContainer">
                             <div class="slideImage">
                               <div class="collectionImageBack">
@@ -41,23 +25,30 @@
                             </div>
                             </div>
                         </section>
-                       </template>
-                </vueper-slide>
-              </vueper-slides>
+                </div>
+                </div>
+                <div class="swiper-button-prev">
+                  <img src="@/assets/img/arrow-left.png" alt="Left Arrow">
+                </div>
+                <div class="swiper-button-next">
+                    <img src="@/assets/img/arrow-right.png" alt="Right Arrow">
+                </div>
+                <div class="swiper-pagination">
+                  <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
+                  <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
+                  <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
+                </div>
+              </div>
             </div>
       </section>
 </template>
 
 <script>
-import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+import Swiper, { Navigation, Pagination, Thumbs } from 'swiper'
+import 'swiper/swiper-bundle.css'
+
 export default {
   name: 'Section5.5',
-  components: {
-    VueperSlides,
-    VueperSlide
-    // HomeSearchBar
-  },
   data: () => ({
     touchableSlide: false,
     showArrow: true,
@@ -102,8 +93,36 @@ export default {
     }
   },
   mounted () {
-    this.$root.$on('particularSlide', (n) => {
-      this.$refs.slides.goToSlide(n)
+    const swiper = new Swiper(this.$refs.swiper, {
+      // configure Swiper to use modules
+      modules: [Navigation, Pagination, Thumbs],
+      // Optional parameters
+      loop: true,
+      speed: 400,
+      slidesPerView: 1,
+      spaceBetween: 150,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        type: 'bullets',
+        bulletActiveClass: 'swiper-pagination-bullet-active',
+        bulletClass: 'swiper-pagination-bullet',
+        bulletElement: 'span',
+        clickableClass: 'swiper-pagination-clickable'
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar'
+      }
     })
   }
 }
@@ -112,6 +131,18 @@ export default {
 <style lang="scss" scoped>
 .arrow2{
   transform: rotate(180deg);
+}
+.swiper-button-prev img {
+  max-width: 60px;
+}
+.swiper-button-next img {
+  max-width: 60px;
+}
+.swiper-pagination-bullet {
+  padding: 6px;
+}
+.swiper {
+  height: 470px;
 }
 .bg-white{
     min-height: 800px;
@@ -171,37 +202,6 @@ export default {
    font-weight: 600;
    font-size: 20px;
  }
- .vueperslide:first-child .innovate {
-     margin-left: 20px;
- }
-.vueperslide{
-  background-color:rgba(255, 255, 255, 0.637);
-  border-radius: 30px;
-}
-
-.vueperslides--fixed-height {
-  height: 287px;
-  max-width: 1135px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 25px;
-  backdrop-filter: blur(2rem);
-}
-.vueperslides__arrow .arrow1{
-  width: 50px;
-  height: 50px;
-  color: white;
-  position: relative;
-}
-.vueperslides__arrow .arrow2{
-  width: 50px;
-  height: 50px;
-  color: white;
-  position: relative;
-}
-.vueperslides::v-deep .vueperslides__bullets {
-  bottom: -35%;
-}
 .slideContainer{
   display: flex;
   flex-wrap: wrap;
@@ -249,11 +249,6 @@ export default {
     margin-right: 100px;
   }
 }
-@media only screen and (max-width:1290px) {
-    .vueperslides--fixed-height {
-      max-width: 85%;
-    }
-}
 .notMobileHeader, .mobileHeader{
     margin-bottom: 1rem;
     letter-spacing: 1px;
@@ -267,68 +262,73 @@ export default {
   display: block;
 }
 @media only screen and (max-width: 800px){
-  .vueperslides::v-deep .title {
+  .swiper::v-deep .title {
     margin-left: 147px;
   }
-  .vueperslides::v-deep .slide-text-p {
+  .swiper::v-deep .slide-text-p {
     margin-left: 320px;
   }
-  .vueperslides::v-deep .text {
+  .swiper::v-deep .text {
     margin-left: 158px;
   }
 }
 @media only screen and (max-width: 767px){
-  .vueperslides--fixed-height {
-    height: 510px;
-  }
-  .vueperslides::v-deep .slideImage {
+  .swiper::v-deep .slideImage {
     display: flex;
     flex-direction: column;
   }
-  .vueperslides::v-deep .collectionImageBack {
+  .swiper::v-deep .collectionImageBack {
     display: block;
   }
-  .vueperslides::v-deep h3 {
+  .swiper::v-deep h3 {
     line-height: 1;
   }
-  .vueperslide:first-child .innovate {
-     margin-left: 0;
-  }
-  .vueperslides::v-deep .title, .vueperslides::v-deep .innovate, .vueperslides::v-deep .slideText {
+  .swiper::v-deep .title, .swiper::v-deep .innovate, .swiper::v-deep .slideText {
     margin: 0;
   }
-  .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text {
+  .swiper::v-deep p.slide-text-p, .swiper::v-deep .text {
     margin-left: 0;
     margin-right: 0;
     max-width: 260px;
     text-align: center;
   }
-  .vueperslides::v-deep .title {
+  .swiper::v-deep .title {
     margin-top: 25px;
   }
-  .vueperslides::v-deep .vueperslides__bullets {
+  .swiper::v-deep {
     bottom: -8%;
+  }
+  .swiper {
+  height: 680px;
   }
 }
 @media only screen and (max-width: 500px) {
-  .arrow1{
+  .swiper-button-prev {
     display: none;
   }
-  .arrow2{
+  .swiper-button-next {
     display: none;
   }
-  .vueperslides::v-deep .vueperslides__bullets {
+  .swiper::v-deep p.slide-text-p, .swiper::v-deep .text, .swiper::v-deep .slideImage, .swiper::v-deep .slideImage img {
+    width: 100%;
+  }
+  .swiper::v-deep {
     bottom: -10%;
   }
 }
-@media only screen and (max-width: 389px) {
-  .vueperslides::v-deep p.slide-text-p, .vueperslides::v-deep .text, .vueperslides::v-deep .slideImage, .vueperslides::v-deep .slideImage img {
-    width: 100%;
+@media only screen and (max-width: 470px) {
+  .slideContainer .slideText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
-@media only screen and (max-width: 350px) {
-  .vueperslides::v-deep .vueperslides__bullets {
+@media only screen and (max-width: 370px) {
+  .swiper::v-deep {
     bottom: -7%;
+  }
+  .swiper::v-deep p.slide-text-p, .swiper::v-deep .text, .swiper::v-deep .slideImage, .swiper::v-deep .slideImage img {
+    width: 100%;
   }
 }
 </style>

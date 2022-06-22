@@ -3,25 +3,12 @@
    <div class="headline">What We Do</div>
    <h2 class="main-heading">Discover Our Projects</h2>
    <div class="vueSlideContainer galleryContainer what-we-do-slider">
-    <vueper-slides class="no-shadow"
-   ref="slides"
-   :infinite="false"
-   fixed-height="true"
-   :gap="30"
-   :touchable="touchableSlide"
-   :arrows="showArrow"
-   :arrows-outside="showArrow"
-   :visible-slides="1"
+    <div class="swiper"
+   ref="swiper"
    >
-   <template v-if="showArrow" #arrow-left>
-      <img src="../../assets/img/arrow.png" alt="Previous slide" class="arrow1"/>
-    </template>
-    <template v-if="showArrow" #arrow-right>
-      <img src="../../assets/img/arrow.png" alt="Next slide" class="arrow2"/>
-    </template>
-    <vueper-slide v-for="(slide, index) of slides" :key="index">
-      <template #content>
-        <section class = "container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" v-for="(slide, index) of slides" :key="index">
+        <section class="container">
           <div class="imageContainer">
             <img :src="slide.image.url" alt=""/>
           </div>
@@ -35,24 +22,32 @@
             </div>
           </div>
         </section>
-      </template>
-    </vueper-slide>
-  </vueper-slides>
+    </div>
+    </div>
+    <div class="swiper-button-prev">
+      <img src="@/assets/img/arrow-left.png" alt="Left Arrow">
+    </div>
+    <div class="swiper-button-next">
+      <img src="@/assets/img/arrow-right.png" alt="Right Arrow">
+    </div>
+    <div class="swiper-pagination">
+      <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
+      <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
+      <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
+      <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
+    </div>
+  </div>
    </div>
  </section>
 </template>
 
 <script>
 /*eslint-disable */
-import { VueperSlides, VueperSlide } from 'vueperslides'
-import 'vueperslides/dist/vueperslides.css'
+import Swiper, { Navigation, Pagination, Thumbs } from 'swiper';
+import 'swiper/swiper-bundle.css'
 
 export default {
   name: 'Section2',
-  components: {
-    VueperSlides,
-    VueperSlide
-  },
   props: ['viewportDimensions'],
   data () {
     return {
@@ -93,10 +88,39 @@ export default {
   created () {
     window.addEventListener('resize', this.resize())
   },
-  mounted () {
-    // this.$root.$on('particularSlide', (n) => {
-    //   this.$refs.slides.goToSlide(n)
-    // })
+  mounted() {
+    new Swiper(this.$refs.swiper, {
+      // configure Swiper to use modules
+      modules: [Navigation, Pagination, Thumbs],
+      // Optional parameters
+      loop: true,
+      speed: 400,
+      slidesPerView: 1,
+      spaceBetween: 150,
+      scrollbar: { draggable: true },
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        type: 'bullets',
+        bulletActiveClass: 'swiper-pagination-bullet-active',
+        bulletClass: 'swiper-pagination-bullet',
+        bulletElement: 'span',
+        clickableClass: 'swiper-pagination-clickable'
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    })
   }
 }
 </script>
@@ -104,6 +128,15 @@ export default {
 <style scoped>
 .arrow2{
   transform: rotate(180deg);
+}
+.swiper-button-prev img {
+  max-width: 60px;
+}
+.swiper-button-next img {
+  max-width: 60px;
+}
+.swiper {
+  height: 400px;
 }
 .headline {
   font-size: 16px;
@@ -131,10 +164,9 @@ export default {
   white-space: normal;
 }
 .what-we-do-slider {
-  width: 100%;
+  width: 120%;
 }
-.vueperslides {padding: 0 40em;}
-.vueperslides__parallax-wrapper, .vueperslides__track {overflow: visible;}
+.swiper {padding: 0 40em;}
 .more {
   margin-right: 35px;
   font: normal normal bold 12px/15px Montserrat;
@@ -195,71 +227,33 @@ button:hover {
 .textContainer div{
   margin-top: 40px;
 }
-.vueperslides--fixed-height {
-  height: 327px;
-}
-.vueperslides >>> .vueperslides__bullets {
-  bottom: -10%;
-}
-.vueperslides__arrow .arrow1{
-  width: 50px;
-  height: 50px;
-  color: white;
-  position: relative;
-}
-.vueperslides__arrow .arrow2{
-  width: 50px;
-  height: 50px;
-  color: white;
-  position: relative;
+.swiper-pagination-bullet {
+  padding: 6px;
 }
 @media only screen and (max-width: 2200px) {
-  .vueperslides {padding: 0 0em;}
+  .swiper {padding: 0 0em;}
 }
 @media only screen and (max-width: 1900px) {
-  .vueperslides {padding: 0 0em;}
-  .vueperslides__arrow .arrow1{
-  margin-right: 0em;
-  }
-  .vueperslides__arrow .arrow2{
-  margin-left: 0em;
-  }
-}
-@media only screen and (max-width: 1600px) {
-  .vueperslides {padding: 0 0em;}
-  .vueperslides__arrow .arrow1{
-  margin-right: 4em;
-  }
-  .vueperslides__arrow .arrow2{
-  margin-left: 4em;
-  }
+  .swiper {padding: 0 0em;}
 }
 @media only screen and (max-width: 1300px) {
-  .vueperslides {padding: 0 0em;}
-  .vueperslides__arrow .arrow1{
-  margin-right: 0em;
-  }
-  .vueperslides__arrow .arrow2{
-  margin-left: 0em;
-  }
+  .swiper {padding: 0 0em;}
 }
 @media only screen and (max-width: 1100px) {
-  .vueperslides {padding: 0 0em;}
+  .swiper {padding: 0 0em;}
 }
 @media only screen and (max-width: 930px) {
-  .vueperslides {padding: 0;}
+  .swiper {padding: 0;}
   .textContainer {
     margin-left: 20px;
   }
-}
-@media(max-width: 854px){
-  .vueperslides >>> .vueperslides__bullets {
-    bottom: -10%;
+  .what-we-do-slider {
+    width: 150%;
   }
 }
 @media(max-width: 808px){
-  .vueperslides >>> .vueperslides__bullets {
-    bottom: -4%;
+  .what-we-do-slider {
+    width: 150%;
   }
   .textContainer {
     max-width: 223px;
@@ -272,23 +266,27 @@ button:hover {
   }
 }
 @media only screen and (max-width: 767px) {
-  .vueperslides {padding: 0 7em;}
+  .swiper {padding: 0 0em; height: 520px}
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+  }
+  .what-we-do-slider {
+    width: 100%;
+  }
   #homesection2 {
     padding: 100px 0 200px;
   }
   .imageContainer{
-  max-width: 200px;
+  max-width: 150px;
 }
 .imageContainer img{
   width: 100%;
 }
-  .vueperslides--fixed-height {
-    height: 510px;
-  }
   .textContainer div{
     margin-top: 20px;
   }
-  .vueperslides >>> .container {
+  .swiper >>> .container {
     height: auto;
     flex-direction: column;
   }
@@ -304,9 +302,6 @@ button:hover {
   .textContainer p {
     text-align: center;
   }
-  .vueperslides >>> .vueperslides__bullets {
-    bottom: 0%;
-  }
   .textContainer div{
     display: flex;
     justify-content: space-between;
@@ -316,16 +311,16 @@ button:hover {
   }
 }
 @media only screen and (max-width: 650px) {
-  .vueperslides {padding: 0 7em;}
+  .swiper {padding: 0 7em;}
 }
 @media only screen and (max-width: 550px) {
-  .vueperslides {padding: 0 6em;}
+  .swiper {padding: 0 6em;}
 }
 @media only screen and (max-width: 500px) {
-  .arrow1{
+  .swiper-button-prev {
     display: none;
   }
-  .arrow2{
+  .swiper-button-next {
     display: none;
   }
 }
@@ -335,17 +330,15 @@ button:hover {
     padding: 0 15px;
     text-align: center;
   }
-  .vueperslides >>> .vueperslides__bullets {
-    bottom: -16%;
-  }
   .imageContainer, .textContainer {
     width: 200px;
   }
   .home-section2{
     gap: 0;
   }
-  .vueperslides {
+  .swiper {
     padding: 25px 13px;
+    height: 550px;
   }
 }
 </style>
