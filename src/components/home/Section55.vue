@@ -45,7 +45,7 @@
 
 <script>
 import Swiper, { Navigation, Pagination, Thumbs } from 'swiper'
-import 'swiper/swiper-bundle.css'
+import '@/assets/scss/swiper-bundle.css'
 
 export default {
   name: 'Section5.5',
@@ -129,6 +129,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.swiper-pagination-clickable .swiper-pagination-bullet {
+  padding: 6px !important;
+}
 .arrow2{
   transform: rotate(180deg);
 }
@@ -138,17 +141,19 @@ export default {
 .swiper-button-next img {
   max-width: 60px;
 }
-.swiper-pagination-bullet {
-  padding: 6px;
+.swiper-button-prev {
+  left: 30px !important;
+  right: auto;
+}
+.swiper-button-next {
+  right: 30px !important;
+  left: auto;
 }
 .swiper-button-next:after {
   content: none;
 }
 .swiper-button-prev:after {
   content: none;
-}
-.swiper-pagination-bullet {
-  padding: 6px;
 }
 .swiper {
   height: 470px;
@@ -286,6 +291,11 @@ export default {
     display: flex;
     flex-direction: column;
   }
+  .slideContainer .slideText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .swiper::v-deep .collectionImageBack {
     display: block;
   }
@@ -319,7 +329,7 @@ export default {
     display: none;
   }
   .swiper::v-deep p.slide-text-p, .swiper::v-deep .text, .swiper::v-deep .slideImage, .swiper::v-deep .slideImage img {
-    width: 100%;
+    width: 80%;
   }
   .swiper::v-deep {
     bottom: -10%;

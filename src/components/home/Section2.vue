@@ -44,7 +44,7 @@
 <script>
 /*eslint-disable */
 import Swiper, { Navigation, Pagination, Thumbs } from 'swiper';
-import 'swiper/swiper-bundle.css'
+import '@/assets/scss/swiper-bundle.css';
 
 export default {
   name: 'Section2',
@@ -125,7 +125,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.swiper-pagination .swiper-pagination-bullet {
+  padding: 6px;
+}
 .arrow2{
   transform: rotate(180deg);
 }
@@ -143,6 +146,14 @@ export default {
 }
 .swiper-button-prev:after {
   content: none;
+}
+.swiper-button-prev {
+  left: 30px !important;
+  right: auto;
+}
+.swiper-button-next {
+  right: 30px !important;
+  left: auto;
 }
 .swiper {
   height: 400px;
@@ -175,7 +186,6 @@ export default {
 .what-we-do-slider {
   width: 120%;
 }
-.swiper {padding: 0 40em;}
 .more {
   margin-right: 35px;
   font: normal normal bold 12px/15px Montserrat;
@@ -257,7 +267,7 @@ button:hover {
     margin-left: 20px;
   }
   .what-we-do-slider {
-    width: 150%;
+    width: 140%;
   }
 }
 @media(max-width: 808px){
@@ -302,7 +312,7 @@ button:hover {
   .textContainer {
     width: 246px;
     margin-top: 20px;
-    margin-left: 0;
+    margin-left: 50px;
     height: auto;
   }
   .textContainer h3 {
@@ -321,6 +331,17 @@ button:hover {
 }
 @media only screen and (max-width: 650px) {
   .swiper {padding: 0 7em;}
+  .textContainer {
+    margin-left: 0;
+  }
+  .swiper-pagination {
+    padding-top: 20px;
+  }
+  .container {
+    height: 75%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }
 @media only screen and (max-width: 550px) {
   .swiper {padding: 0 6em;}
@@ -339,6 +360,10 @@ button:hover {
     padding: 0 15px;
     text-align: center;
   }
+  .container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
   .imageContainer, .textContainer {
     width: 200px;
   }
@@ -348,6 +373,11 @@ button:hover {
   .swiper {
     padding: 25px 13px;
     height: 550px;
+  }
+}
+@media only screen and (min-width: 1678px) {
+  .what-we-do-slider {
+    width: 100%;
   }
 }
 </style>

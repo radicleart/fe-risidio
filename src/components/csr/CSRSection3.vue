@@ -39,7 +39,7 @@
 
 <script>
 import Swiper, { Navigation, Pagination, Thumbs } from 'swiper'
-import 'swiper/swiper-bundle.css'
+import '@/assets/scss/swiper-bundle.css'
 export default {
   name: 'CSRSection3',
   props: ['viewportDimensions', 'content'],
@@ -116,6 +116,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.swiper-pagination-clickable .swiper-pagination-bullet {
+  padding: 6px !important;
+}
 .arrow2{
   transform: rotate(180deg);
 }
@@ -140,6 +143,15 @@ export default {
 .swiper-button-prev:after {
   content: none;
 }
+.swiper-button-prev {
+  left: 30px !important;
+  right: auto;
+}
+.swiper-button-next {
+  right: 30px !important;
+  left: auto;
+}
+
 .bg-white{
   min-height: 800px;
   padding: 10rem 1rem;
