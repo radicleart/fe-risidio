@@ -127,6 +127,7 @@ export default {
 }
 .swiper {
   height: 390px;
+  max-width: 1200px;
 }
 .swiper-button-prev img {
   max-width: 60px;

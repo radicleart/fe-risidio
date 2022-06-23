@@ -157,6 +157,7 @@ export default {
 }
 .swiper {
   height: 400px;
+  max-width: 1200px;
 }
 .headline {
   font-size: 16px;
