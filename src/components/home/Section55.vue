@@ -138,6 +138,12 @@ export default {
 .swiper-button-next img {
   max-width: 60px;
 }
+.swiper-button-next:after {
+  content: none;
+}
+.swiper-button-prev:after {
+  content: none;
+}
 .swiper-pagination-bullet {
   padding: 6px;
 }

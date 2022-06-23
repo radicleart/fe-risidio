@@ -131,6 +131,12 @@ export default {
 .swiper-button-next img {
   max-width: 60px;
 }
+.swiper-button-next:after {
+  content: none;
+}
+.swiper-button-prev:after {
+  content: none;
+}
 .bg-white{
   min-height: 800px;
   padding: 10rem 1rem;
