@@ -1,25 +1,18 @@
 <template>
-    <section class="bg-white">
-      <div class="d-flex align-items-center flex-column" :style="viewportDimensions">
-        <div class="my-auto py-5 text-center">
-          <div class="mb-5 mt-5 pb-4"><h1 class="text-black">{{content.section4_title[0].text}}</h1></div>
-          <div class="px-5 row text-center">
-            <div class="col-lg-4 col-12 mb-5" v-for="(item, index) in group" :key="index">
-              <div class="row content-wrap">
-                <div class="col-lg-3 col-12 mobile-col mobile-col__img">
-                  <div class="whatsit" :class="'bg-' + getBgClass(index)"><img class="p-3" :src="features[index]" alt=""/></div>
-                </div>
-                <div class="col-lg-8 col-12 text-left mobile-col">
-                  <div class="d-flex flex-column mobile-col__text" style="height: 230px;">
-                    <h1 class="text-black mb-3 ">{{item.title1[0].text}}</h1>
-                    <h2 class="text-black">{{item.title2[0].text}}</h2>
-                    <p class="text-black mb-3">{{item.description[0].text}}</p>
-                  </div>
-                </div>
+    <section id="homesection4" class="bg-white">
+      <div class="d-flex align-items-center justify-content-center flex-column my-auto py-5 text-center" :style="viewportDimensions">
+        <div class="mb-5 mt-5 pb-4"><h2 class="text-black">{{content.section3_title[0].text}}</h2></div>
+        <div class="row-container">
+          <section class="content-container" v-for="(item, index) in group" :key="index">
+              <div class="image-container">
+                <img class="p-3" :src="content.section3_content[index].icon.url" alt=""/>
               </div>
-            </div>
-          </div>
+              <div class="text-container">
+                <prismic-rich-text :field="item.content"/>
+              </div>
+          </section>
         </div>
+        <router-link to="/contact"><button class="touch-button">Interested? Get In Touch</button></router-link>
       </div>
     </section>
 </template>
@@ -32,28 +25,14 @@ export default {
   props: ['viewportDimensions'],
   data () {
     return {
-      features: [
-        require('@/assets/img/xd/bitcoin.svg'),
-        require('@/assets/img/xd/report.svg'),
-        require('@/assets/img/xd/Page-1.svg')
-      ]
     }
   },
   methods: {
-    getBgClass: function (index) {
-      if (index === 0) {
-        return 'warning'
-      } else if (index === 1) {
-        return 'info'
-      } else {
-        return 'danger'
-      }
-    }
   },
   computed: {
     group () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.section4_group
+      return content.section3_content
     },
     content () {
       const content = this.$store.getters['contentStore/getHomepage']
@@ -64,13 +43,48 @@ export default {
 </script>
 
 <style scoped>
-.whatsit {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+.row-container {
+  max-width: 1130px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
 }
-
-.mobile-col__img {
+.text-container {
+  max-width: 300px;
+  width: 100%;
+}
+.text-container >>> p {
+  font: normal normal 300 12px/18px Montserrat;
+  text-align: center;
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content-container:not(:last-child) {
+  margin-right: 30px;
+}
+.touch-button {
+  width: 224px;
+  height: 43px;
+  background: rgba(95, 189, 193, 0.15);
+  border-radius: 22px;
+  margin-top: 50px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.touch-button:hover{
+  background: #5FBDC1;
+  color: aliceblue;
+}
+.touch-button a{
+  color: rgba(95, 189, 193, 1);
+  font-weight: 700;
+  font: normal normal bold 11px/14px Montserrat;
+}
+.mobile-col__img{
   display: flex;
   justify-content: flex-end;
 }
@@ -79,6 +93,17 @@ export default {
   align-items: flex-start;
 }
 
+@media only screen and (max-width: 1023px) {
+  .content-container:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .row-container {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+}
 @media only screen and (max-width: 991px) {
   .content-wrap {
     flex-flow: column;

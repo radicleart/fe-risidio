@@ -1,17 +1,10 @@
 <template>
-<section class="bg-lighter" v-if="content" id="crs-section-1">
+<section class="bg-white" v-if="content" id="csr-section1">
   <div class="d-flex justify-content-center">
-    <div class="d-flex align-items-center flex-column my-5">
+    <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
       <div class="my-auto text-center">
-        <div class="mb-auto d-flex align-items-center flex-column">
-          <h1 class="mb-4">{{content.s2title1[0].text}}</h1>
-          <h2 class="mb-4">{{content.s2title2[0].text}}</h2>
-          <p class="mx-auto" v-html="content.s2description[0].text"></p>
-          <ul>
-            <li v-html="content.s2description[1].text"></li>
-            <li v-html="content.s2description[2].text"></li>
-          </ul>
-          <img :src="content.s2image.url" :alt="content.s2image.alt">
+        <div class="mb-auto px-5 d-flex align-items-center flex-column section3Text">
+          <prismic-rich-text class="main-content" :field="content.section0[0].content"/>
         </div>
       </div>
     </div>
@@ -20,6 +13,7 @@
 </template>
 
 <script>
+import { SITE_CONSTANTS } from '@/site-constants'
 export default {
   name: 'CSRSection1',
   props: ['viewportDimensions', 'content'],
@@ -30,45 +24,74 @@ export default {
   methods: {
   },
   computed: {
+    halfDims () {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
+      return 'min-height: ' + height / 2 + 'px; width: auto;'
+    }
   }
 }
 </script>
 
 <style scoped>
+/*
 img {
-  max-width: 75%;
-  max-height: 500px;
-  margin: 1rem 0 2rem 0;
+  width: 100%;
+  height: auto;
 }
-p {
+*/
+.main-content >>> em {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
+  font-style: normal;
+}
+.main-content >>> p {
   text-align: center;
   font-weight: 300;
   font-size: 15px;
+  letter-spacing: 0px;
   color: #000000;
-  width: 50%;
-}
-ul {
-  width: 50%;
-}
-li {
-  text-align: left;
-  font-weight: 300;
-  font-size: 15px;
-  color: #000000;
-  margin-bottom: 10px;
 }
 .bg-lighter {
   background-color: '#F5F5F5';
 }
+.section3Text{
+  max-width: 850px;
+}
+.blurb2 {
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 200;
+  letter-spacing: 0px;
+}
+#csr-section1 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+@media only screen and (max-width: 900px) {
+  #csr-section1 {
+    padding-top: 7rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #csr-section1 {
+    padding-top: 5rem;
+  }
+}
 @media only screen and (max-width: 768px) {
-  h2 {
+  h3 {
     width: 75%;
   }
   p {
-    width: 90%;
+    width: 75%;
   }
-  ul {
-    width: 90%;
+}
+@media only screen and (max-width: 425px) {
+  #csr-section1 {
+    padding-top: 3rem;
   }
 }
 </style>

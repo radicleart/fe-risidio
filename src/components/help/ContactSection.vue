@@ -1,22 +1,18 @@
 <template>
 <div class="container-fluid">
 <div id="ContactSection" class="pt-5 contact-section">
-
   <section class="px-0">
     <div class="row">
-
       <div class="col-md-12">
-        <h4>Any thoughts, questions, just want to say hello?</h4 >
-        <h3>Contact Us</h3>
+        <div class="tagline">Any thoughts, questions, just want to say hello?</div>
+        <h2>Contact Us</h2>
       </div>
-
       <div class="contact-form">
         <b-form class="needs-validation form-transparent" novalidate @submit="checkForm" id="contact-form">
           <b-container class="text-input11">
             <b-row class="mt-4">
-              <b-col cols="4" offset="2">
+              <b-col :cols="mobileColumn" offset="2">
                 <b-form-group>
-
                   <b-form-input
                     prepend="@"
                     id="validation-name"
@@ -25,18 +21,17 @@
                     :placeholder="'Your name'"
                     required>
                   </b-form-input>
-
                 </b-form-group>
               </b-col>
 
-              <b-col cols="4">
+              <b-col :cols="mobileColumn" :offset="offSet">
                 <b-form-group>
                   <b-form-input
                     prepend="@"
                     id="validation-email"
                     v-model="email"
                     type="text"
-                    :placeholder="'Email address'"
+                    :placeholder="'Email'"
                     required>
                   </b-form-input>
 
@@ -51,7 +46,7 @@
                 prepend="@"
                 v-model="subject"
                 type="text"
-                placeholder="Subject of your question"
+                placeholder="Subject"
                 required>
                 </b-form-input>
               </b-col>
@@ -63,7 +58,7 @@
                   <b-form-textarea
                     class="form-control"
                     id="validation-message"
-                    placeholder="How can we help"
+                    placeholder="Your message.."
                     v-model="message"
                     rows="5"
                     required>
@@ -107,14 +102,29 @@ export default {
       description: 'Please get in touch with any questions you have about the platform.',
       fields: [],
       buttonText: null,
-      sendMessage: false
+      sendMessage: false,
+      mobileColumn: 4,
+      offSet: 0
     }
+  },
+  created () {
+    window.addEventListener('resize', this.resize())
   },
   mounted () {
     const profile = this.$store.getters['myAccountStore/getMyProfile']
     this.profile = profile
   },
   methods: {
+    resize () {
+      const windowWidth = window.innerWidth
+      if (windowWidth <= 500) {
+        this.mobileColumn = 8
+        this.offSet = 2
+      } else {
+        this.mobileColumn = 4
+        this.offSet = 0
+      }
+    },
     upload () {
       sendAEmail(this.subject, this.name, this.email, this.message)
       this.subject = ''
@@ -163,12 +173,14 @@ export default {
 </script>
 
 <style scoped>
-h4 { /*Style of the text above Contact Us */
+.tagline { /*Style of the text above Contact Us */
   font-size: 17px;
   color: white;
   text-align: center;
   margin-top: 6%;
   text-transform: capitalize;
+  font-weight: 700;
+  padding: 0 50px 20px 50px;
 }
 input {
   font-size: 12px;
@@ -179,17 +191,19 @@ textarea{
   font-size: 12px;
   padding-left: 19px;
   padding-right: 19px;
+  resize: none;
 }
-input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
+input:focus::placeholder, textarea:focus::placeholder{
+  color: black;
 }
-textarea::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
+input::-webkit-input-placeholder, input::placeholder, textarea::placeholder {
+  color: rgb(255, 255, 255);
+  font-weight: 400;
 }
 button {
   font-size: 13px;
 }
-h3 { /* Contact us style */
+h2 { /* Contact us style */
   font-size: 40px;
   font-weight: 300;
   color: white;
@@ -222,5 +236,10 @@ h3 { /* Contact us style */
   color: white;
   text-align: center;
   font-size: 20px;
+}
+@media only screen and (max-width: 768px) {
+  #ContactSection {
+    padding-top: 100px !important;
+  }
 }
 </style>
