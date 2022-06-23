@@ -4,7 +4,7 @@
       <div class="headline">How We Work</div>
       <div><h2>Creating Your Decentralised Future</h2></div>
     </div>
-            <div class="vueSlideContainer galleryContainer">
+          <div class="vueSlideContainer galleryContainer">
               <div class="swiper" ref="swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide" v-for="(slide, index) of slides" :key="index">
