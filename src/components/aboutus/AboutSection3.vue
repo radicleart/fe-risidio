@@ -94,6 +94,10 @@ img {
   color: #5FBDC1;
   font: normal normal bold 11px/14px Montserrat;
 }
+.button:hover {
+  background: #5FBDC1;
+  color: aliceblue;
+}
 .button a{
   color: rgba(95, 189, 193, 1);
   font-weight: 700;

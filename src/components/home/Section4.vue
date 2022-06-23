@@ -76,7 +76,8 @@ export default {
   font-weight: 700;
 }
 .touch-button:hover{
-  background: white;
+  background: #5FBDC1;
+  color: aliceblue;
 }
 .touch-button a{
   color: rgba(95, 189, 193, 1);
