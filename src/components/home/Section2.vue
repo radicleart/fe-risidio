@@ -141,6 +141,9 @@ export default {
 .swiper-pagination-bullet {
   padding: 6px;
 }
+.swiper-pagination-bullet-active {
+  background-color: #5ebcc0;
+}
 .swiper-button-next:after {
   content: none;
 }

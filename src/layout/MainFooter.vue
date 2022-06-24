@@ -1,6 +1,6 @@
 <template>
   <footer class="text-white footer-container" v-if="content">
-    <section>
+    <section class="footer-section">
       <h2 class="visually-hidden">Sub navigation</h2>
       <div class="row text-center m-0 d-sm-flex d-none" style="height: 240px;">
         <div class="col-lg-4 col-md-3 d-md-block d-none" style="height: 240px;">
@@ -239,6 +239,11 @@ export default {
 }
 .text-left{
   margin-left: 100px;
+}
+.footer-section {
+  max-width: 1900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media only screen and (max-width: 991px) {
   .footer-logo {
