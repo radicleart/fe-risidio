@@ -1,6 +1,6 @@
 <template>
 <div id="my-app-element" class="bg-main container-fluid mb-5 p-0" v-if="loaded">
-  <contact-section class="p-0"/>
+  <contact-section class="p-0" :viewportDimensions="sectionDimensions" />
   <section6 :viewportDimensions="sectionDimensions" />
 </div>
 </template>

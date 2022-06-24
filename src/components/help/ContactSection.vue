@@ -10,10 +10,9 @@
       <div class="contact-form">
         <b-form class="needs-validation form-transparent" novalidate @submit="checkForm" id="contact-form">
           <b-container class="text-input11">
-            <b-row class="mt-4">
-              <b-col :cols="mobileColumn" offset="2">
-                <b-form-group>
-                  <b-form-input
+            <b-row >
+              <b-col :cols="mobileColumn" offset="2" class="mt-2">
+                <b-form-group><b-form-input
                     prepend="@"
                     id="validation-name"
                     v-model="name"
@@ -23,8 +22,7 @@
                   </b-form-input>
                 </b-form-group>
               </b-col>
-
-              <b-col :cols="mobileColumn" :offset="offSet">
+              <b-col :cols="mobileColumn" :offset="offSet" class="mt-2">
                 <b-form-group>
                   <b-form-input
                     prepend="@"
@@ -34,24 +32,20 @@
                     :placeholder="'Email'"
                     required>
                   </b-form-input>
-
                 </b-form-group>
               </b-col>
             </b-row>
-
             <b-row class="mb-4 mt-2">
               <b-col cols="8" offset="2">
-                <!-- <b-form-select v-model="selected" :options="selectionOptions" class="form-control" required></b-form-select> -->
                 <b-form-input
-                prepend="@"
-                v-model="subject"
-                type="text"
-                placeholder="Subject"
-                required>
+                  prepend="@"
+                  v-model="subject"
+                  type="text"
+                  placeholder="Subject"
+                  required>
                 </b-form-input>
               </b-col>
             </b-row>
-
             <b-row>
               <b-col cols="8" offset="2">
                 <b-form-group>
@@ -66,11 +60,8 @@
                 </b-form-group>
               </b-col>
             </b-row>
-
           </b-container>
-
           <div v-if="sendMessage"><p class="confirmMessage">Your message has been sent ! Thank you :)</p></div>
-
           <b-button pill type="submit" class="submitButton">Submit</b-button>
         </b-form>
       </div>
@@ -86,7 +77,7 @@ import sendAEmail from './emailSender'
 
 export default {
   name: 'ContactSection',
-  props: ['featureMessage'],
+  props: ['featureMessage', 'viewportDimensions'],
   data () {
     return {
       selected: null,
@@ -110,6 +101,9 @@ export default {
   created () {
     window.addEventListener('resize', this.resize())
   },
+  destroyed () {
+    window.removeEventListener('resize', this.resize())
+  },
   mounted () {
     const profile = this.$store.getters['myAccountStore/getMyProfile']
     this.profile = profile
@@ -117,7 +111,8 @@ export default {
   methods: {
     resize () {
       const windowWidth = window.innerWidth
-      if (windowWidth <= 500) {
+      console.log(windowWidth)
+      if (windowWidth <= 600) {
         this.mobileColumn = 8
         this.offSet = 2
       } else {
