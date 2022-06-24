@@ -157,6 +157,7 @@ export default {
 }
 .swiper {
   height: 470px;
+  max-width: 1200px;
 }
 .bg-white{
     min-height: 800px;
