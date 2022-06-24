@@ -4,7 +4,7 @@
   <section class="px-0">
     <div class="row">
       <div class="col-md-12">
-        <div class="tagline">Any thoughts, questions, just want to say hello?</div>
+        <div class="tagline">Any thoughts, questions, just want to say hello ?</div>
         <h2>Contact Us</h2>
       </div>
       <div class="contact-form">
