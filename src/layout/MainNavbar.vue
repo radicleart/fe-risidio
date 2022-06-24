@@ -154,7 +154,7 @@ export default {
 }
 .my-nav {
   height: 70px;
-  width: 100%;
+  max-width: 1900px;
 }
 .v-text {
   font-weight: 200;

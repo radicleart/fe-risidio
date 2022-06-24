@@ -179,7 +179,7 @@ export default {
 .navbar {
   position: absolute !important;
   top: 0;
-  left: 0;
+  left: auto;
   width: 100%;
   min-height: 70px;
 }
