@@ -53,7 +53,7 @@ img {
 
 @media only screen and (min-width: 767px) {
   .main-content {
-    width: 50%;
+    max-width: 1000px;
   }
 }
 
