@@ -122,6 +122,11 @@ export default {
 .arrow2{
   transform: rotate(180deg);
 }
+.swiper-pagination{
+  span {
+    background-color: black;
+  }
+}
 .swiper-pagination-bullet {
   padding: 6px;
 }

@@ -2,9 +2,9 @@
 <section id="crs-section-0" v-if="content.section0[0].banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center w-75">
-      <div class="mb-4 first-half-h2"><h2 class="text-white" style="font: normal normal bold 17px/20px Montserrat;">{{content.section0[0].title[0].text}}</h2></div>
+      <div class="mb-4 first-half-h2"><h2 class="text-white" style="font: normal normal bold 25px/32px Montserrat;">{{content.section0[0].title[0].text}}</h2></div>
       <div class="">
-        <p class="mb-4 text-center blurb text-white mx-auto w-100" style="font: normal normal 200 26px/32px Montserrat;">
+        <p class="text-center blurb text-white mx-auto w-100" style="font: normal normal 200 22px/32px Montserrat;">
         <span v-html="content.section0[0].subtitle[0].text"></span>
         </p>
       </div>

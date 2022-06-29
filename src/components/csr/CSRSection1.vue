@@ -50,7 +50,8 @@ img {
 .main-content >>> p {
   text-align: center;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 18px;
   letter-spacing: 0px;
   color: #000000;
 }
