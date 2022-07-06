@@ -1,5 +1,17 @@
 <template>
  <section id="homesection2" class="home-section2">
+  <div>
+    <b-modal id="modal-1" hide-footer class="video-modal" title="Indigenous Video" size="xl">
+      <video class="home-video" src="https://res.cloudinary.com/risidio/video/upload/Risidio.com/Indigenous_vid_s4yfhp.mp4" ref="video" preload="auto" alt="indigenous" v-on:change="playOrPause()" poster="@/assets/img/indigenous_poster.png"/>
+      <div v-show="videoState" @click="videoState = false" class=" play-pause fade-in-anim">
+        <img class="play" src="@/assets/img/pause-button.svg" alt="play-button"/>
+      </div>
+      <div v-show="!videoState" @click="videoState = true" class="play play-pause fade-in">
+        <img class="play" src="@/assets/img/play-button.svg" alt="pause-button"/>
+        <!-- <h2 class="video-text"> Exploring what it means to be indigenous</h2> -->
+      </div>
+    </b-modal>
+  </div>
    <div class="headline">What We Do</div>
    <h2 class="main-heading">Discover Our Projects</h2>
    <div class="vueSlideContainer galleryContainer what-we-do-slider">
@@ -17,8 +29,9 @@
             <p>{{slide.content[0].text}}</p>
             <div>
               <a class="more" v-if="slide.title[0].text === 'Risidio Marketplace'">Coming Soon</a>
+              <a class="more" v-else-if="slide.title[0].text === 'Studio'" v-b-modal.modal-1> See Video</a>
               <a target="_blank" class="more" v-else :href="slide.link[0].text">Find Out More</a>
-              <a class="all" href="/our-work">See All Projects</a>
+              <router-link class="all" to="/our-work">See All Projects</router-link>
             </div>
           </div>
         </section>
@@ -53,6 +66,8 @@ export default {
     return {
       showArrow: true,
       touchableSlide: false,
+      videoState: false,
+			controls: true,
       slide: [
         {
           id: '1',
@@ -75,6 +90,21 @@ export default {
       return content.section2
     }
   },
+  watch: {
+    'videoState'() {
+			const video = document.getElementsByClassName('home-video')[0]
+      console.log(video)
+      if (this.videoState) {
+				video.setAttribute("controls","controls")
+				video.play()
+			}
+      if (!this.videoState) {
+				if (video.hasAttribute('controls')) video.removeAttribute("controls", "controls")
+				video.pause()
+				//
+			}
+    }
+  },
   methods: {
     resize () {
       const windowWidth = window.innerWidth
@@ -83,12 +113,26 @@ export default {
       } else {
         this.touchableSlide = false
       }
+    },
+    playPause(e) {
+      const $self = this
+			const video = document.getElementsByClassName('home-video')[0]
+      video.addEventListener('pause', (event) => {
+        $self.videoState = false
+      });
+      video.addEventListener('play', (event) => {
+        $self.videoState = true
+      });
     }
   },
   created () {
     window.addEventListener('resize', this.resize())
   },
   mounted() {
+    const $self = this
+    window.addEventListener('click', function (e) {
+      $self.playPause(e)
+    })
     new Swiper(this.$refs.swiper, {
       // configure Swiper to use modules
       modules: [Navigation, Pagination, Thumbs],
@@ -126,8 +170,51 @@ export default {
 </script>
 
 <style scoped lang="scss">
+button{
+  height: auto;
+  width: auto;
+}
 .swiper-pagination .swiper-pagination-bullet {
   padding: 6px;
+}
+.video-modal{
+  position: relative;
+}
+.play{
+  margin-left: auto;
+}
+.home-video {
+  display: flex;
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+}
+.play-pause {
+	position: absolute;
+	z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+.video-text{
+  text-align: center;
+	color: white;
+	font-size: 30px;
+}
+.fade-in-anim {
+  animation: 1.5s linear;
+  animation-name: animate-button;
+	animation-fill-mode: forwards;
+	// opacity: 100%;
+}
+@keyframes animate-button{
+	0%{
+		opacity: 100%;
+	}
+	100% {
+		opacity: 0%;
+	}
 }
 .arrow2{
   transform: rotate(180deg);
@@ -194,6 +281,7 @@ export default {
   margin-right: 35px;
   font: normal normal bold 12px/15px Montserrat;
   color: #63037E;
+  cursor: pointer;
 }
 .all {
   font: normal normal bold 12px/15px Montserrat;
