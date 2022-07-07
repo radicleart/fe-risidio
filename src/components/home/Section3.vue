@@ -28,7 +28,7 @@ export default {
 .container {
   height: 769px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
   padding: 113px 15px;
