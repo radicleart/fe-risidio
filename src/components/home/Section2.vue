@@ -28,7 +28,7 @@
             <h3>{{slide.title[0].text}}</h3>
             <p>{{slide.content[0].text}}</p>
             <div>
-              <a class="more" v-if="slide.title[0].text === 'Risidio Marketplace'">Coming Soon</a>
+              <a class="more" v-if="slide.title[0].text === 'Risidio Marketplace' || slide.title[0].text === 'Studio'">Coming Soon</a>
               <a class="more" v-else-if="slide.title[0].text === 'Dreaming NFT'" v-b-modal.modal-1> See Video</a>
               <a target="_blank" class="more" v-else :href="slide.link[0].text">Find Out More</a>
               <router-link class="all" to="/our-work">See All Projects</router-link>
