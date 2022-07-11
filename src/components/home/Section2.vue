@@ -2,7 +2,7 @@
  <section id="homesection2" class="home-section2">
   <div>
     <b-modal id="modal-1" hide-footer class="video-modal" title="Indigenous Video" size="xl">
-      <video class="home-video" src="https://res.cloudinary.com/risidio/video/upload/v1657276136/Risidio.com/Pali_temai_V2_mnhdrb.mp4" ref="video" preload="auto" alt="indigenous" v-on:change="playOrPause()"/>
+      <video class="home-video" :src="video.url" ref="video" preload="auto" alt="indigenous" v-on:change="playOrPause()"/>
       <div v-show="videoState" @click="videoState = false" class=" play-pause fade-in-anim">
         <img class="play" src="@/assets/img/pause-button.svg" alt="play-button"/>
       </div>
@@ -88,6 +88,10 @@ export default {
     slides () {
       const content = this.$store.getters['contentStore/getHomepage']
       return content.section2
+    },
+    video () {
+      const content = this.$store.getters['contentStore/getHomepage']
+      return content.video[0].video1
     }
   },
   watch: {
