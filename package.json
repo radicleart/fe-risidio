@@ -22,6 +22,7 @@
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
     "core-js": "^3.6.5",
+    "fibers": "^5.0.3",
     "prismic-dom": "^2.2.3",
     "prismic-javascript": "^3.0.2",
     "prismic-vue": "^2.0.1",

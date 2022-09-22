@@ -74,6 +74,7 @@
 <script>
 
 import sendAEmail from './emailSender'
+import axios from 'axios'
 
 export default {
   name: 'ContactSection',
@@ -121,12 +122,25 @@ export default {
       }
     },
     upload () {
-      sendAEmail(this.subject, this.name, this.email, this.message)
-      this.subject = ''
-      this.name = ''
-      this.email = ''
-      this.message = ''
-      this.sendMessage = true
+      axios.post('https://risidio-website-email-api.herokuapp.com/contact', {
+        name: this.name,
+        email: this.email,
+        subject: this.subject,
+        message: this.message
+      }).then(res => {
+        this.subject = ''
+        this.name = ''
+        this.email = ''
+        this.message = ''
+        this.sendMessage = true
+      }).catch((error) => {
+        this.subject = ''
+        this.name = ''
+        this.email = ''
+        this.message = ''
+        this.sendMessage = true
+        console.log(error)
+      })
     },
     checkForm (event) {
       if (event) {
