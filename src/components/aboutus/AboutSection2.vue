@@ -1,37 +1,53 @@
 <template>
-<section class="bg-white" v-if="content" id="about-section2">
-  <div class="d-flex justify-content-center">
-    <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
-      <div class="my-auto text-center">
-        <div class="mb-auto px-5 d-flex align-items-center flex-column section3Text">
-          <div class="mb-4 headline">{{content.section3[0].title[0].text}}</div>
-          <h2 class="mb-4">{{content.section3[0].subtitle[0].text}}</h2>
-          <prismic-rich-text class="main-content" :field="content.section3[0].content"/>
+  <section class="bg-white" v-if="content" id="about-section2">
+    <div class="d-flex justify-content-center">
+      <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
+        <div class="my-auto text-center">
+          <div
+            class="
+              mb-auto
+              px-5
+              d-flex
+              align-items-center
+              flex-column
+              section3Text
+            "
+          >
+            <div class="mb-4 headline">
+              {{ content.section3[0].title[0].text }}
+            </div>
+            <h2 class="mb-4">{{ content.section3[0].subtitle[0].text }}</h2>
+            <prismic-rich-text
+              class="main-content"
+              :field="content.section3[0].content"
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 
 <script>
-import { SITE_CONSTANTS } from '@/site-constants'
+/* eslint-disable quotes */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable semi */
+/* eslint-disable comma-dangle */
+import { SITE_CONSTANTS } from "@/site-constants";
 export default {
-  name: 'AboutSection2',
-  props: ['viewportDimensions', 'content'],
-  data () {
-    return {
-    }
+  name: "AboutSection2",
+  props: ["viewportDimensions", "content"],
+  data() {
+    return {};
   },
-  methods: {
-  },
+  methods: {},
   computed: {
-    halfDims () {
-      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT]
-      return 'min-height: ' + height / 2 + 'px; width: auto;'
-    }
-  }
-}
+    halfDims() {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT];
+      return "min-height: " + height / 2 + "px; width: auto;";
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -62,9 +78,9 @@ h2 {
   color: #000000;
 }
 .bg-lighter {
-  background-color: '#F5F5F5';
+  background-color: "#F5F5F5";
 }
-.section3Text{
+.section3Text {
   max-width: 850px;
 }
 .blurb2 {

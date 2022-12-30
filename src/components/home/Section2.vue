@@ -1,142 +1,204 @@
 <template>
- <section id="homesection2" class="home-section2">
-  <div>
-    <b-modal id="modal-1" hide-footer class="video-modal" title="Indigenous Video" size="xl">
-      <video class="home-video" :src="video.url" ref="video" preload="auto" alt="indigenous" v-on:change="playOrPause()"/>
-      <div v-show="videoState" @click="videoState = false" class=" play-pause fade-in-anim">
-        <img class="play" src="@/assets/img/pause-button.svg" alt="play-button"/>
-      </div>
-      <div v-show="!videoState" @click="videoState = true" class="play play-pause fade-in">
-        <img class="play" src="@/assets/img/play-button.svg" alt="pause-button"/>
-        <!-- <h2 class="video-text"> Exploring what it means to be indigenous</h2> -->
-      </div>
-    </b-modal>
-  </div>
-   <div class="headline">What We Do</div>
-   <h2 class="main-heading">Discover Our Projects</h2>
-   <div class="vueSlideContainer galleryContainer what-we-do-slider">
-    <div class="swiper"
-   ref="swiper"
-   >
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" v-for="(slide, index) of slides" :key="index">
-        <section class="container">
-          <div class="imageContainer">
-            <img :src="slide.image.url" alt=""/>
+  <section id="homesection2" class="home-section2">
+    <div>
+      <b-modal
+        id="modal-1"
+        hide-footer
+        class="video-modal"
+        title="Indigenous Video"
+        size="xl"
+      >
+        <video
+          class="home-video"
+          :src="video.url"
+          ref="video"
+          preload="auto"
+          alt="indigenous"
+          v-on:change="playOrPause()"
+        />
+        <div
+          v-show="videoState"
+          @click="videoState = false"
+          class="play-pause fade-in-anim"
+        >
+          <img
+            class="play"
+            src="@/assets/img/pause-button.svg"
+            alt="play-button"
+          />
+        </div>
+        <div
+          v-show="!videoState"
+          @click="videoState = true"
+          class="play play-pause fade-in"
+        >
+          <img
+            class="play"
+            src="@/assets/img/play-button.svg"
+            alt="pause-button"
+          />
+          <!-- <h2 class="video-text"> Exploring what it means to be indigenous</h2> -->
+        </div>
+      </b-modal>
+    </div>
+    <div class="headline">What We Do</div>
+    <h2 class="main-heading">Discover Our Projects</h2>
+    <div class="vueSlideContainer galleryContainer what-we-do-slider">
+      <div class="swiper" ref="swiper">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide"
+            v-for="(slide, index) of slides"
+            :key="index"
+          >
+            <section class="container">
+              <div class="imageContainer">
+                <img :src="slide.image.url" alt="" />
+              </div>
+              <div class="textContainer">
+                <h3>{{ slide.title[0].text }}</h3>
+                <p>{{ slide.content[0].text }}</p>
+                <div>
+                  <a
+                    class="more"
+                    v-if="
+                      slide.title[0].text === 'Risidio Marketplace' ||
+                      slide.title[0].text === 'Studio'
+                    "
+                    >Coming Soon</a
+                  >
+                  <a
+                    class="more"
+                    v-else-if="slide.title[0].text === 'Dreaming NFT'"
+                    v-b-modal.modal-1
+                  >
+                    See Video</a
+                  >
+                  <a
+                    target="_blank"
+                    class="more"
+                    v-else
+                    :href="slide.link[0].text"
+                    >Find Out More</a
+                  >
+                  <router-link class="all" to="/our-work"
+                    >See All Projects</router-link
+                  >
+                </div>
+              </div>
+            </section>
           </div>
-          <div class = "textContainer">
-            <h3>{{slide.title[0].text}}</h3>
-            <p>{{slide.content[0].text}}</p>
-            <div>
-              <a class="more" v-if="slide.title[0].text === 'Risidio Marketplace' || slide.title[0].text === 'Studio'">Coming Soon</a>
-              <a class="more" v-else-if="slide.title[0].text === 'Dreaming NFT'" v-b-modal.modal-1> See Video</a>
-              <a target="_blank" class="more" v-else :href="slide.link[0].text">Find Out More</a>
-              <router-link class="all" to="/our-work">See All Projects</router-link>
-            </div>
-          </div>
-        </section>
+        </div>
+        <div class="swiper-button-prev">
+          <img src="@/assets/img/arrow-left.png" alt="Left Arrow" />
+        </div>
+        <div class="swiper-button-next">
+          <img src="@/assets/img/arrow-right.png" alt="Right Arrow" />
+        </div>
+        <div class="swiper-pagination">
+          <span
+            class="swiper-pagination-bullet swiper-pagination-clickable"
+          ></span>
+          <span
+            class="swiper-pagination-bullet swiper-pagination-clickable"
+          ></span>
+          <span
+            class="swiper-pagination-bullet swiper-pagination-clickable"
+          ></span>
+          <span
+            class="swiper-pagination-bullet swiper-pagination-clickable"
+          ></span>
+        </div>
+      </div>
     </div>
-    </div>
-    <div class="swiper-button-prev">
-      <img src="@/assets/img/arrow-left.png" alt="Left Arrow">
-    </div>
-    <div class="swiper-button-next">
-      <img src="@/assets/img/arrow-right.png" alt="Right Arrow">
-    </div>
-    <div class="swiper-pagination">
-      <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
-      <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
-      <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
-      <span class="swiper-pagination-bullet swiper-pagination-clickable"></span>
-    </div>
-  </div>
-   </div>
- </section>
+  </section>
 </template>
 
 <script>
 /*eslint-disable */
-import Swiper, { Navigation, Pagination, Thumbs } from 'swiper';
-import '@/assets/scss/swiper-bundle.css';
+import Swiper, { Navigation, Pagination, Thumbs } from "swiper";
+import "@/assets/scss/swiper-bundle.css";
 
 export default {
-  name: 'Section2',
-  props: ['viewportDimensions'],
-  data () {
+  name: "Section2",
+  props: ["viewportDimensions"],
+  data() {
     return {
       showArrow: true,
       touchableSlide: false,
       videoState: false,
-			controls: true,
+      controls: true,
       slide: [
         {
-          id: '1',
-          text: 'Upload Your Item'
+          id: "1",
+          text: "Upload Your Item",
         },
         {
-          id: '2',
-          text: 'Mint the Bitcoin'
+          id: "2",
+          text: "Mint the Bitcoin",
         },
         {
-          id: '3',
-          text: 'Mint the Bitcoin'
-        }
-      ]
-    }
+          id: "3",
+          text: "Mint the Bitcoin",
+        },
+      ],
+    };
   },
+
   computed: {
-    slides () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      return content.section2
+    slides() {
+      const content = this.$store.getters["contentStore/getHomepage"];
+      return content.section2;
     },
-    video () {
-      const content = this.$store.getters['contentStore/getHomepage']
-      return content.video[0].video1
-    }
+    video() {
+      const content = this.$store.getters["contentStore/getHomepage"];
+      return content.video[0].video1;
+    },
   },
   watch: {
-    'videoState'() {
-			const video = document.getElementsByClassName('home-video')[0]
-      console.log(video)
+    videoState() {
+      const video = document.getElementsByClassName("home-video")[0];
+      // console.log(video);
       if (this.videoState) {
-				video.setAttribute("controls","controls")
-				video.play()
-			}
+        video.setAttribute("controls", "controls");
+        video.play();
+      }
       if (!this.videoState) {
-				if (video.hasAttribute('controls')) video.removeAttribute("controls", "controls")
-				video.pause()
-				//
-			}
-    }
+        if (video.hasAttribute("controls"))
+          video.removeAttribute("controls", "controls");
+        video.pause();
+        //
+      }
+    },
   },
   methods: {
-    resize () {
-      const windowWidth = window.innerWidth
+    resize() {
+      const windowWidth = window.innerWidth;
       if (windowWidth < 500) {
-        this.touchableSlide = true
+        this.touchableSlide = true;
       } else {
-        this.touchableSlide = false
+        this.touchableSlide = false;
       }
     },
     playPause(e) {
-      const $self = this
-			const video = document.getElementsByClassName('home-video')[0]
-      video.addEventListener('pause', (event) => {
-        $self.videoState = false
+      const $self = this;
+      const video = document.getElementsByClassName("home-video")[0];
+      video.addEventListener("pause", (event) => {
+        $self.videoState = false;
       });
-      video.addEventListener('play', (event) => {
-        $self.videoState = true
+      video.addEventListener("play", (event) => {
+        $self.videoState = true;
       });
-    }
+    },
   },
-  created () {
-    window.addEventListener('resize', this.resize())
+  created() {
+    window.addEventListener("resize", this.resize());
   },
   mounted() {
-    const $self = this
-    window.addEventListener('click', function (e) {
-      $self.playPause(e)
-    })
+    const $self = this;
+    window.addEventListener("click", function (e) {
+      $self.playPause(e);
+    });
     new Swiper(this.$refs.swiper, {
       // configure Swiper to use modules
       modules: [Navigation, Pagination, Thumbs],
@@ -149,78 +211,78 @@ export default {
 
       // If we need pagination
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
         clickable: true,
-        type: 'bullets',
-        bulletActiveClass: 'swiper-pagination-bullet-active',
-        bulletClass: 'swiper-pagination-bullet',
-        bulletElement: 'span',
-        clickableClass: 'swiper-pagination-clickable'
+        type: "bullets",
+        bulletActiveClass: "swiper-pagination-bullet-active",
+        bulletClass: "swiper-pagination-bullet",
+        bulletElement: "span",
+        clickableClass: "swiper-pagination-clickable",
       },
 
       // Navigation arrows
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
 
       // And if we need scrollbar
       scrollbar: {
-        el: '.swiper-scrollbar',
+        el: ".swiper-scrollbar",
       },
-    })
-  }
-}
+    });
+  },
+};
 </script>
 
 <style scoped lang="scss">
-button{
+button {
   height: auto;
   width: auto;
 }
 .swiper-pagination .swiper-pagination-bullet {
   padding: 6px;
 }
-.video-modal{
+.video-modal {
   position: relative;
 }
-.play{
+.play {
   margin-left: auto;
 }
 .home-video {
   display: flex;
-	width: 100%;
-	height: 100%;
-	object-fit: fill;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 .play-pause {
-	position: absolute;
-	z-index: 10;
+  position: absolute;
+  z-index: 10;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-	cursor: pointer;
+  cursor: pointer;
 }
-.video-text{
+.video-text {
   text-align: center;
-	color: white;
-	font-size: 30px;
+  color: white;
+  font-size: 30px;
 }
 .fade-in-anim {
   animation: 1.5s linear;
   animation-name: animate-button;
-	animation-fill-mode: forwards;
-	// opacity: 100%;
+  animation-fill-mode: forwards;
+  // opacity: 100%;
 }
-@keyframes animate-button{
-	0%{
-		opacity: 100%;
-	}
-	100% {
-		opacity: 0%;
-	}
+@keyframes animate-button {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
 }
-.arrow2{
+.arrow2 {
   transform: rotate(180deg);
 }
 .swiper-button-prev img {
@@ -272,7 +334,7 @@ button{
   gap: 30px;
   padding: 146px;
 }
-.home-section2 .main-heading{
+.home-section2 .main-heading {
   font: normal normal 200 36px/44px Montserrat;
   letter-spacing: 0px;
   text-transform: capitalize;
@@ -284,7 +346,7 @@ button{
 .more {
   margin-right: 35px;
   font: normal normal bold 12px/15px Montserrat;
-  color: #63037E;
+  color: #63037e;
   cursor: pointer;
 }
 .all {
@@ -305,7 +367,7 @@ button:hover {
 } */
 
 .button1 {
-  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
+  background: rgb(255, 255, 255, 0.2) 0% 0% no-repeat padding-box;
   border: none;
 }
 .button1:hover {
@@ -320,10 +382,10 @@ button:hover {
   justify-content: center;
 }
 
-.imageContainer{
+.imageContainer {
   width: 200px;
 }
-.imageContainer img{
+.imageContainer img {
   width: 100%;
 }
 .textContainer {
@@ -339,26 +401,36 @@ button:hover {
 .textContainer p {
   font: normal normal 300 14px/18px Montserrat;
 }
-.textContainer div{
+.textContainer div {
   margin-top: 40px;
 }
 .swiper-pagination-bullet {
   padding: 6px;
 }
 @media only screen and (max-width: 2200px) {
-  .swiper {padding: 0 0em;}
+  .swiper {
+    padding: 0 0em;
+  }
 }
 @media only screen and (max-width: 1900px) {
-  .swiper {padding: 0 0em;}
+  .swiper {
+    padding: 0 0em;
+  }
 }
 @media only screen and (max-width: 1300px) {
-  .swiper {padding: 0 0em;}
+  .swiper {
+    padding: 0 0em;
+  }
 }
 @media only screen and (max-width: 1100px) {
-  .swiper {padding: 0 0em;}
+  .swiper {
+    padding: 0 0em;
+  }
 }
 @media only screen and (max-width: 930px) {
-  .swiper {padding: 0;}
+  .swiper {
+    padding: 0;
+  }
   .textContainer {
     margin-left: 20px;
   }
@@ -366,7 +438,7 @@ button:hover {
     width: 140%;
   }
 }
-@media(max-width: 808px){
+@media (max-width: 808px) {
   .what-we-do-slider {
     width: 150%;
   }
@@ -381,7 +453,10 @@ button:hover {
   }
 }
 @media only screen and (max-width: 767px) {
-  .swiper {padding: 0 0em; height: 520px}
+  .swiper {
+    padding: 0 0em;
+    height: 520px;
+  }
   .swiper-slide {
     display: flex;
     align-items: center;
@@ -392,13 +467,13 @@ button:hover {
   #homesection2 {
     padding: 100px 0 200px;
   }
-  .imageContainer{
-  max-width: 150px;
-}
-.imageContainer img{
-  width: 100%;
-}
-  .textContainer div{
+  .imageContainer {
+    max-width: 150px;
+  }
+  .imageContainer img {
+    width: 100%;
+  }
+  .textContainer div {
     margin-top: 20px;
   }
   .swiper >>> .container {
@@ -417,7 +492,7 @@ button:hover {
   .textContainer p {
     text-align: center;
   }
-  .textContainer div{
+  .textContainer div {
     display: flex;
     justify-content: space-between;
   }
@@ -426,7 +501,9 @@ button:hover {
   }
 }
 @media only screen and (max-width: 650px) {
-  .swiper {padding: 0 7em;}
+  .swiper {
+    padding: 0 7em;
+  }
   .textContainer {
     margin-left: 0;
   }
@@ -440,7 +517,9 @@ button:hover {
   }
 }
 @media only screen and (max-width: 550px) {
-  .swiper {padding: 0 6em;}
+  .swiper {
+    padding: 0 6em;
+  }
 }
 @media only screen and (max-width: 500px) {
   .swiper-button-prev {
@@ -451,7 +530,7 @@ button:hover {
   }
 }
 @media only screen and (max-width: 450px) {
-  .home-section2 .main-heading{
+  .home-section2 .main-heading {
     font-size: 28px;
     padding: 0 15px;
     text-align: center;
@@ -460,10 +539,11 @@ button:hover {
     flex-direction: column;
     flex-wrap: nowrap;
   }
-  .imageContainer, .textContainer {
+  .imageContainer,
+  .textContainer {
     width: 200px;
   }
-  .home-section2{
+  .home-section2 {
     gap: 0;
   }
   .swiper {
