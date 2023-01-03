@@ -39,28 +39,29 @@ export default {
   },
   mounted () {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const myself = this
-    if (this.$route.name === 'home') {
-      setTimeout(() => {
-        this.loading = false
-        setTimeout(() => {
-          myself.runVideo()
-        }, 500)
-      }, 3000)
-    } else {
-      this.loading = false
-    }
-    let resizeTimer
-    window.addEventListener('resize', function () {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(function () {
-        myself.$store.commit('setWinDims')
-        myself.componentKey += 1
-        Vue.nextTick(function () {
-          myself.runVideo()
-        }, this)
-      }, 400)
-    })
+    // const myself = this
+    // if (this.$route.name === 'home') {
+    //   setTimeout(() => {
+    //     this.loading = false
+    //     setTimeout(() => {
+    //       myself.runVideo()
+    //     }, 500)
+    //   }, 3000)
+    // } else {
+    //   this.loading = false
+    // }
+    this.loading = false
+    // let resizeTimer
+    // window.addEventListener('resize', function () {
+    //   clearTimeout(resizeTimer)
+    //   resizeTimer = setTimeout(function () {
+    //     myself.$store.commit('setWinDims')
+    //     myself.componentKey += 1
+    //     Vue.nextTick(function () {
+    //       myself.runVideo()
+    //     }, this)
+    //   }, 400)
+    // })
 
     this.$prismic.client.getSingle('homepage').then(document => {
       if (document) {
@@ -77,7 +78,7 @@ export default {
         this.$store.commit('contentStore/addProposalContent', document.data)
       }
     })
-    this.$prismic.client.getSingle('aboutus').then(document => {
+    this.$prismic.client.getSingle('about').then(document => {
       if (document) {
         this.$store.commit('contentStore/addAboutUsContent', document.data)
       }
@@ -85,6 +86,16 @@ export default {
     this.$prismic.client.getSingle('csr').then(document => {
       if (document) {
         this.$store.commit('contentStore/addCSRContent', document.data)
+      }
+    })
+    this.$prismic.client.getSingle('our_work').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addOurWorkContent', document.data)
+      }
+    })
+    this.$prismic.client.getSingle('marketplace').then(document => {
+      if (document) {
+        this.$store.commit('contentStore/addMarketContent', document.data)
       }
     })
     this.$prismic.client.getSingle('contact').then(document => {
@@ -168,7 +179,7 @@ export default {
 .navbar {
   position: absolute !important;
   top: 0;
-  left: 0;
+  left: auto;
   width: 100%;
   min-height: 70px;
 }

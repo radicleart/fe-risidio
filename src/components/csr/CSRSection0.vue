@@ -1,21 +1,19 @@
 <template>
-<section id="crs-section-0" v-if="content.banner">
+<section id="crs-section-0" v-if="content.section0[0].banner">
   <div :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center w-75">
-      <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.title[0].text}}</h1></div>
+      <div class="mb-4 first-half-h2"><h2 class="text-white" style="font: normal normal bold 25px/32px Montserrat;">{{content.section0[0].title[0].text}}</h2></div>
       <div class="">
-        <p class="mb-4 text-center blurb text-white mx-auto w-100">
-        <span v-html="content.description[0].text"></span>
+        <p class="text-center blurb text-white mx-auto w-100" style="font: normal normal 200 22px/32px Montserrat;">
+        <span v-html="content.section0[0].subtitle[0].text"></span>
         </p>
       </div>
-      <!--
-      <div v-scroll-to="{ element: '#csrsection1', duration: 1000 }" class="icon-down">
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      -->
+    </div>
+    <div v-scroll-to="{ element: '#csr-section3', duration: 750 }" class="icon-down">
+      <i class="fas fa-chevron-down"></i>
     </div>
   </div>
-  <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half">
+  <!-- <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half">
     <div class="my-auto">
       <div class="my-5">
         <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
@@ -27,7 +25,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 </template>
 
@@ -53,7 +51,7 @@ export default {
         position: 'relative',
         top: '0px',
         'background-repeat': 'no-repeat',
-        'background-image': `url(${this.content.banner.url})`,
+        'background-image': `url(${this.content.section0[0].banner.url})`,
         'background-position': 'center center',
         '-webkit-background-size': 'cover',
         '-moz-background-size': 'cover',
@@ -71,7 +69,7 @@ export default {
 .s1-description {
   width: 50%;
 }
-.first-half-h1 {
+.first-half-h2 {
   margin-top: 4rem;
 }
 h4 {
@@ -84,9 +82,6 @@ h4 {
   font-size: 1.4em;
   letter-spacing: 0px;
   color: #FFFFFF;
-}
-.icon-down {
-  margin: 25px auto;
 }
 @media only screen and (max-width:1200px) {
   .s1-description {

@@ -1,18 +1,15 @@
-  <template>
-<section id="section0">
-  <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
-    <div class="d-flex align-items-center flex-column">
-      <div class="my-4"><h1 class="text-white">{{section.title[0].text}}</h1></div>
-      <div class="mb-4"><h2 class="text-white text-center h2-on-mobile">{{section.subtitle[0].text}}</h2></div>
-      <div class="mb-4 blurb1 text-white"  v-for="(item, index) of section.description" :key="index">
-        <p class="text-center">{{item.text}}</p>
-      </div>
-      <div class="mb-4 d-flex justify-content-center">
-        <div class=""><button v-scroll-to="{ element: '#section6', duration: 2000 }"><span class="call-button-text">{{section.link1[0].text}}</span></button></div>
+<template>
+  <section id="homesection1">
+    <div class="mt-5 d-flex align-items-center flex-column" :style="viewportDimensions">
+      <div class="d-flex align-items-center flex-column">
+        <prismic-rich-text class="main-content my-4 text-white" :field="section1[0].content"/>
+        <div class="mb-4 d-flex justify-content-center">
+          <div class="mr-2"><button class="about-us"><a href="/aboutus" class="about-text">{{section1[0].link[0].text}}</a></button></div>
+          <div class="ml-2"><button><a href="/our-work" class="call-button-text">{{section1[1].link[0].text}}</a></button></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 
 <script>
@@ -24,9 +21,9 @@ export default {
     }
   },
   computed: {
-    section () {
+    section1 () {
       const content = this.$store.getters['contentStore/getHomepage']
-      return content.section0[0]
+      return content.section1
     }
   }
 }
@@ -39,27 +36,46 @@ img {
   height: auto;
 }
 */
-.blurb1 {
+.main-content {
   width: 70%;
-  font-size: 14px;
+  text-align: center;
 }
+
+.main-content::v-deep em {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 1.2;
+  font-style: normal;
+}
+
 @media only screen and (min-width: 767px) {
-  .blurb1 {
-    width: 50%;
+  .main-content {
+    max-width: 1000px;
   }
 }
 
-button {
-  width: 141px;
-  height: 43px;
-  background: #5FBDC1 0% 0% no-repeat padding-box;
-  border-radius: 22px;
+.main-content >>> h1 {
+  margin-bottom: 1.5rem;
 }
-button:hover .call-button-text {
+.main-content >>> h2 {
+  margin-bottom: 1.5rem;
+}
+.main-content >>> p {
+  text-align: center;
+}
+.about-us {
+  background: #5FBDC1 0% 0% no-repeat padding-box;
+}
+.about-us:hover {
+  background: white;
+}
+.about-us:hover .about-text{
   color: #5FBDC1;
 }
-
-.call-button-text {
+.about-text {
   text-align: center;
   font-size: 13px;
   font-weight: 700;
@@ -67,46 +83,7 @@ button:hover .call-button-text {
   color: #FFFFFF;
 }
 
-.button1 {
-  width: 141px;
-  height: 43px;
-  background: rgb(255, 255, 255, .2) 0% 0% no-repeat padding-box;
-  border: none;
-  border-radius: 22px;
-}
-.button1:hover {
-  background: white 0% 0% no-repeat padding-box;
-}
-.button1 .call-button-text {
-  color: #5FBDC1;
-}
-.button1:hover .call-button-text {
-  color: #5FBDC1;
-}
-
-/* Video */
-.video-container {
-  width: 50%;
-}
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-@media only screen and (max-width: 768px) {
-  .video-container {
-    width: 75%;
-  }
-}
-
 @media only screen and (min-width:769px) {
-  p { font-size: 20px; }
+  .main-content >>> p { font-size: 20px; }
 }
 </style>

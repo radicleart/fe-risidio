@@ -1,45 +1,53 @@
 <template>
-<section class="bg-white" v-if="content">
-  <div class="d-flex align-items-center flex-column py-5" :style="viewportDimensions">
-    <div class="my-auto">
-      <h1 class="mb-3 text-center blurb2">{{content.s3title1[0].text}}</h1>
-      <h2 class="mb-5 text-center blurb2">{{content.s3title2[0].text}}</h2>
-      <div class="d-flex justify-content-start">
-      <div class="mx-5 mt-5">
-        <div class="row">
-          <div v-for="(item, index) of content.group1" :key="index" class="col-lg-4 col-md-12">
-            <div class="d-flex justify-content-start mobile-margin content-wrap">
-              <div class="">
-                <img :src="item.image.url" :alt="item.image.alt"/>
-              </div>
-              <div>
-                <h2 class="" v-html="item.title1[0].text"></h2>
-                <h1 class="" v-html="item.title2[0].text"></h1>
-                <p class="" v-html="item.description[0].text"></p>
-              </div>
+  <section class="bg-white" v-if="content" id="about-section2">
+    <div class="d-flex justify-content-center">
+      <div class="d-flex align-items-center flex-column my-5" :style="halfDims">
+        <div class="my-auto text-center">
+          <div
+            class="
+              mb-auto
+              px-5
+              d-flex
+              align-items-center
+              flex-column
+              section3Text
+            "
+          >
+            <div class="mb-4 headline">
+              {{ content.section3[0].title[0].text }}
             </div>
-          </div>
+            <h2 class="mb-4">{{ content.section3[0].subtitle[0].text }}</h2>
+            <prismic-rich-text
+              class="main-content"
+              :field="content.section3[0].content"
+            />
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 
 <script>
+/* eslint-disable quotes */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable semi */
+/* eslint-disable comma-dangle */
+import { SITE_CONSTANTS } from "@/site-constants";
 export default {
-  name: 'AboutSection2',
-  props: ['viewportDimensions', 'content'],
-  data () {
-    return {
-    }
+  name: "AboutSection2",
+  props: ["viewportDimensions", "content"],
+  data() {
+    return {};
   },
-  methods: {
-  },
+  methods: {},
   computed: {
-  }
-}
+    halfDims() {
+      const height = this.$store.getters[SITE_CONSTANTS.KEY_SECTION_HEIGHT];
+      return "min-height: " + height / 2 + "px; width: auto;";
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -49,36 +57,64 @@ img {
   height: auto;
 }
 */
-.content-wrap h1 {
-  white-space: nowrap;
-  text-align: left;
-  font-size: 12px;
+h2 {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  white-space: normal;
+}
+.headline {
+  text-align: center;
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: 0px;
-  color: #000000;
 }
-.content-wrap h2 {
-  white-space: nowrap;
-  text-align: left;
-  font-size: 17px;
+.main-content >>> p {
+  text-align: center;
   font-weight: 300;
+  font-size: 15px;
   letter-spacing: 0px;
   color: #000000;
 }
-img {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+.bg-lighter {
+  background-color: "#F5F5F5";
 }
-@media only screen and (max-width: 1100px) and (min-width: 992px) {
-  img { width: 60px; margin-left: 0; }
+.section3Text {
+  max-width: 850px;
 }
-@media only screen and  (max-width: 991px) {
-  .mobile-margin { margin-bottom: 2rem; }
+.blurb2 {
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 200;
+  letter-spacing: 0px;
 }
-@media only screen and  (max-width: 425px) {
-  img { margin-left: 0; }
+#about-section2 {
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
-@media only screen and (max-width: 360px) {
-  img { width: 55px; margin-right: 1rem; }
+@media only screen and (max-width: 900px) {
+  #about-section2 {
+    padding-top: 7rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #about-section2 {
+    padding-top: 5rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  h2 {
+    width: 75%;
+  }
+  p {
+    width: 75%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  #about-section2 {
+    padding-top: 3rem;
+  }
 }
 </style>

@@ -12,6 +12,7 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
+    "@bachdgvn/vue-router-meta-tags": "^1.0.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-regular-svg-icons": "^5.14.0",
@@ -21,11 +22,13 @@
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
     "core-js": "^3.6.5",
+    "fibers": "^5.0.3",
     "prismic-dom": "^2.2.3",
     "prismic-javascript": "^3.0.2",
     "prismic-vue": "^2.0.1",
     "register-service-worker": "^1.7.1",
     "sib-api-v3-sdk": "github:sendinblue/APIv3-nodejs-library",
+    "swiper": "^8.2.4",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.5",
     "vue-cookie-law": "^1.13.3",

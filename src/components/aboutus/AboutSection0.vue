@@ -1,40 +1,32 @@
 <template>
-<section id="section0" v-if="content.banner">
-  <div :style="bannerImage" class="d-flex align-items-center flex-column">
+<div id="about-section0" v-if="content.section0[0].banner">
+  <section :style="bannerImage" class="d-flex align-items-center flex-column">
     <div class="my-auto text-center w-75">
-      <div class="mb-4 first-half-h1"><h1 class="text-white">{{content.title[0].text}}</h1></div>
+      <div class="first-half-h2"><h2 class="text-white">{{content.section0[0].title[0].text}}</h2></div>
       <div class="">
-        <p class="mb-4 text-center blurb text-white mx-auto w-100">
-        <span v-html="content.description1[0].text"></span><br><span v-html="content.description1_5[0].text"></span>
+        <p class="mb-0 text-center blurb text-white mx-auto w-100">
+        <span v-html="content.section0[0].tagline[0].text"></span>
         </p>
-        <h4 class="text-center text-white" v-html="content.description2[0].text"></h4>
-      </div>
-      <!--
-      <div v-scroll-to="{ element: '#section0-second-half', duration: 1000 }" class="icon-down">
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      -->
-    </div>
-  </div>
-  <div class="bg-white d-flex align-items-center flex-column second-half" id="section0-second-half"  :style="halfDims">
-    <div class="my-auto">
-      <div class="my-5">
-        <div class="mt-0 mb-4"><h1 class="text-black">{{content.s1title1[0].text}}</h1></div>
-        <div class="mb-4"><h4 class="text-center">{{content.s1title2[0].text}}</h4></div>
-        <div class="mx-auto my-4 w-100 text-center">
-          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description[0].text}}</p>
-        </div>
-        <div class="mb-4"><h4 class="text-center">{{content.s1title3[0].text}}</h4></div>
-        <div class="mx-auto my-4 w-100 text-center">
-          <p class="mb-4 mx-auto text-center blurb2 text-black">{{content.s1description2[0].text}}</p>
-        </div>
+        <!-- <h3 class="text-center text-white" v-html="content.section0[0].tagline[0].text"></h3> -->
       </div>
     </div>
-    <div class="w-75 text-center section0-image-container">
+    <div v-scroll-to="{ element: '#about-section0-second-half', duration: 750 }" class="icon-down">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+  <section class="bg-white d-flex align-items-center justify-content-center flex-column second-half" id="about-section0-second-half"  :style="halfDims">
+      <div class="mt-0 mb-4"><h2 class="text-black">{{content.section0[0].content[0].text}}</h2></div>
+      <img :src="content.section0[0].visionmission.url" alt="" class="image"/>
+      <div class="my-4"><span class="text-center subheading">{{content.section0[0].content[1].text}}</span></div>
+      <p class="my-4 text-center">{{content.section0[0].content[2].text}}</p>
+      <img :src="content.section0[0].mission.url" alt="" class="image"/>
+      <div class="my-4 mt-2"><span class="text-center subheading">{{content.section0[0].content[3].text}}</span></div>
+      <p class="my-4 text-center">{{content.section0[0].content[4].text}}</p>
+  </section>
+    <!--<div class="w-75 text-center section0-image-container">
         <img width="100%" :src="content.s1image.url" :alt="content.s1image.alt">
-    </div>
-  </div>
-</section>
+    </div>-->
+</div>
 </template>
 
 <script>
@@ -82,7 +74,7 @@ export default {
         position: 'relative',
         top: '0px',
         'background-repeat': 'no-repeat',
-        'background-image': `url(${this.content.banner.url})`,
+        'background-image': `url(${this.content.section0[0].banner.url})`,
         'background-position': 'center center',
         '-webkit-background-size': 'cover',
         '-moz-background-size': 'cover',
@@ -101,15 +93,23 @@ export default {
 </script>
 
 <style scoped>
-.second-half p {
-  width: 50%;
+.second-half{
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
-.first-half-h1 {
+.second-half p {
+  max-width: 750px;
+  width: 100%;
+  padding: 0 15px;
+}
+#about-section0 .first-half-h2 {
   margin-top: 4rem;
 }
-h4 {
+.subheading {
   font-weight: 500;
   font-size: 17px;
+  text-align: center;
+  letter-spacing: 0px;
 }
 .blurb {
   text-align: center;
@@ -118,18 +118,27 @@ h4 {
   letter-spacing: 0px;
   color: #FFFFFF;
 }
-.icon-down {
-  margin: 25px auto;
-}
 .section0-image-container {
   margin: 0 auto -10rem;
 }
+.image{
+  width: 235px;
+  height: 198px;
+  margin-top:80px
+}
+.text-center{
+  margin-top: 25px;
+  }
 @media only screen and (max-width: 900px) {
   .section0-image-container {
     margin: 0 auto -7rem;
   }
   .blurb {
     font-size: 1.2em;
+  }
+  .image{
+    margin-left: 300px;
+    margin-right: 300px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -143,13 +152,10 @@ h4 {
   }
 }
 @media only screen and (max-width:768px) {
-  .second-half p {
-    width: 75%;
-  }
-  .second-half h2 {
+  .second-half .subheading {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
   }
-}
+  }
 </style>

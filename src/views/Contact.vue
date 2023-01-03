@@ -1,19 +1,19 @@
 <template>
 <div id="my-app-element" class="bg-main container-fluid mb-5 p-0" v-if="loaded">
-  <contact-section class="p-0"/>
-  <section8 :viewportDimensions="sectionDimensions" />
+  <contact-section class="p-0" :viewportDimensions="sectionDimensions" />
+  <section6 :viewportDimensions="sectionDimensions" />
 </div>
 </template>
 
 <script>
 import ContactSection from '@/components/help/ContactSection'
-import Section8 from '@/components/home/Section8'
+import Section6 from '@/components/home/Section6'
 import { SITE_CONSTANTS } from '@/site-constants'
 
 export default {
   components: {
     ContactSection,
-    Section8
+    Section6
   },
   name: 'Contact',
   data () {
